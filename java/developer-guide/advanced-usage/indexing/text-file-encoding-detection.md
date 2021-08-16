@@ -2,7 +2,7 @@
 id: text-file-encoding-detection
 url: search/java/text-file-encoding-detection
 title: Text file encoding detection
-weight: 20
+weight: 21
 description: ""
 keywords: 
 productName: GroupDocs.Search for Java

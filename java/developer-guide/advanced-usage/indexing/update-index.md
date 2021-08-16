@@ -2,7 +2,7 @@
 id: update-index
 url: search/java/update-index
 title: Update index
-weight: 21
+weight: 22
 description: ""
 keywords: 
 productName: GroupDocs.Search for Java

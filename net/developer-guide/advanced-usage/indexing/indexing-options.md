@@ -94,15 +94,15 @@ index.Add(documentFolder, options); 
 
 The [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/metadataindexingoptions) property is represented by an object of the [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions) class. This class contains properties for setting metadata indexing options:
 
-*   The [IndexingEmptyValues](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptyvalues) property sets a value indicating whether to index empty field values or not. The default value is true.
-*   The [IndexingEmptyNames](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptynames) property sets a value indicating whether to index empty field names or not. The default value is true.
-*   The [DefaultFieldName](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/defaultfieldname) property sets the default field name used to index empty field names. The default value is "unknown".
-*   The [SeparatorInCompoundName](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorincompoundname) property sets the separator in the compound name of a field. The default value is "." (period character).
-*   The [MaxBytesToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxbytestoindexfield) property sets the maximum number of values indexed from an array of byte values. The default value is int.MaxValue.
-*   The [MaxIntsToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxintstoindexfield) property sets the maximum number of values indexed from an array of int values. The default value is int.MaxValue.
-*   The [MaxLongsToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxlongstoindexfield) property sets the maximum number of values indexed from an array of long values. The default value is int.MaxValue.
-*   The [MaxDoublesToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxdoublestoindexfield) property sets the maximum number of values indexed from an array of double values. The default value is int.MaxValue.
-*   The [SeparatorBetweenValues](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorbetweenvalues) property sets the separator between values in a field of type array. The default value is " " (space character).
+* The [IndexingEmptyValues](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptyvalues) property sets a value indicating whether to index empty field values or not. The default value is true.
+* The [IndexingEmptyNames](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptynames) property sets a value indicating whether to index empty field names or not. The default value is true.
+* The [DefaultFieldName](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/defaultfieldname) property sets the default field name used to index empty field names. The default value is "unknown".
+* The [SeparatorInCompoundName](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorincompoundname) property sets the separator in the compound name of a field. The default value is "." (period character).
+* The [MaxBytesToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxbytestoindexfield) property sets the maximum number of values indexed from an array of byte values. The default value is int.MaxValue.
+* The [MaxIntsToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxintstoindexfield) property sets the maximum number of values indexed from an array of int values. The default value is int.MaxValue.
+* The [MaxLongsToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxlongstoindexfield) property sets the maximum number of values indexed from an array of long values. The default value is int.MaxValue.
+* The [MaxDoublesToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxdoublestoindexfield) property sets the maximum number of values indexed from an array of double values. The default value is int.MaxValue.
+* The [SeparatorBetweenValues](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorbetweenvalues) property sets the separator between values in a field of type array. The default value is " " (space character).
 
 The following example demonstrates how to set the metadata indexing options.
 
@@ -128,15 +128,23 @@ options.MetadataIndexingOptions.MaxDoublesToIndexField = 10;
 index.Add(documentFolder, options);
 ```
 
+## OcrIndexingOptions property
+
+The [OcrIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/ocrindexingoptions) property is represented by an object of the [OcrIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
+
+* The [EnabledForSeparateImages](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to recognize text in separate image files. The default value is false.
+* The [EnabledForEmbeddedImages](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to recognize text in embedded images. The default value is false.
+* The [OcrConnector](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/ocrconnector) property sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used.
+
 ## More resources
 
 ### GitHub examples
 
 You may easily run the code from documentation articles and see the features in action in our GitHub examples:
 
-*   [GroupDocs.Search for .NET examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET)
+* [GroupDocs.Search for .NET examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET)
     
-*   [GroupDocs.Search for Java examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+* [GroupDocs.Search for Java examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
     
 
 ### Free online document search App

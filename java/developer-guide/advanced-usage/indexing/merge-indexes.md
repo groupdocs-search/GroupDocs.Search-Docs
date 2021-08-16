@@ -16,8 +16,6 @@ The [Index](https://apireference.groupdocs.com/search/java/com.groupdocs.search
 
 The following example demonstrates the merging of two indexes.
 
-
-
 ```java
 String indexFolder1 = "c:\\MyIndex1\\";
 String indexFolder2 = "c:\\MyIndex2\\";

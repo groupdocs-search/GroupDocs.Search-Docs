@@ -88,7 +88,7 @@ SearchResult result = index.search("Einstein");
 
 ...
 
-// Implementing the OCR connector that uses Aspose.OCR library
+// Implementing the OCR connector that uses com.aspose.ocr library
 public static class OcrConnector implements IOcrConnector {
     public OcrConnector() {
     }

@@ -2,7 +2,7 @@
 id: optimize-index
 url: search/net/optimize-index
 title: Optimize index
-weight: 18
+weight: 19
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
