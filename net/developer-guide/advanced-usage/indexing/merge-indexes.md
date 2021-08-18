@@ -44,10 +44,9 @@ index1.Merge(index2, options);
 
 You may easily run the code from documentation articles and see the features in action in our GitHub examples:
 
-*   [GroupDocs.Search for .NET examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET)
-    
-*   [GroupDocs.Search for Java examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-    
+* [GroupDocs.Search for .NET examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET)
+
+* [GroupDocs.Search for Java examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 
 ### Free online document search App
 
