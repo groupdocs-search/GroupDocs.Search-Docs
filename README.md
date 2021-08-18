@@ -1,2 +1,2 @@
-Public documentation for GroupDocs.Search
+## Public documentation for GroupDocs.Search
 
