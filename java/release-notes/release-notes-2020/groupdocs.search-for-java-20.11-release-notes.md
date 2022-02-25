@@ -2,7 +2,7 @@
 id: groupdocs-search-for-java-20-11-release-notes
 url: search/java/groupdocs-search-for-java-20-11-release-notes
 title: GroupDocs.Search for Java 20.11 Release Notes
-weight: 4
+weight: 10
 description: ""
 keywords: 
 productName: GroupDocs.Search for Java
