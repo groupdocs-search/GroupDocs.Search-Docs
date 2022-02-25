@@ -2,7 +2,7 @@
 id: groupdocs-search-for-net-20-11-release-notes
 url: search/net/groupdocs-search-for-net-20-11-release-notes
 title: GroupDocs.Search for .NET 20.11 Release Notes
-weight: 5
+weight: 10
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET

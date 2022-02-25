@@ -2,7 +2,7 @@
 id: groupdocs-search-for-net-21-2-release-notes
 url: search/net/groupdocs-search-for-net-21-2-release-notes
 title: GroupDocs.Search for .NET 21.2 Release Notes
-weight: 1
+weight: 40
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
