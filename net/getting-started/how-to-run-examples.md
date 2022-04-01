@@ -3,8 +3,8 @@ id: how-to-run-examples
 url: search/net/how-to-run-examples
 title: How to Run Examples
 weight: 7
-description: ""
-keywords: 
+description: "This article describes how to run .NET search API code examples."
+keywords:  search api
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

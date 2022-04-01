@@ -3,8 +3,8 @@ id: get-supported-file-formats
 url: search/net/get-supported-file-formats
 title: Get supported file formats
 weight: 5
-description: ""
-keywords: 
+description: " This page describes how the search api is used to obtain a list of supported file types."
+keywords: search api
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

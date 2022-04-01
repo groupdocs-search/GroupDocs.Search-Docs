@@ -3,8 +3,8 @@ id: index-browser
 url: search/net/index-browser
 title: Index Browser
 weight: 8
-description: ""
-keywords: 
+description: "Index Browser is a .NET Framework application for managing indexes created using the GroupDocs.Search library"
+keywords: Index Browser, managing indexes
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

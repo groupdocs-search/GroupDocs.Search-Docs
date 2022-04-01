@@ -3,8 +3,8 @@ id: home
 url: search/net
 title: GroupDocs.Search for .NET
 weight: 1
-description: ""
-keywords: 
+description: "GroupDocs.Search for .NET is a fascinating document search API. It extracts text and metadata from documents and performs advanced searching and indexing operations on the basis of fuzzy and synonym algorithm"
+keywords: search api, searching and indexing, synonym algorithm
 productName: GroupDocs.Search for .NET
 hideChildren: True
 ---

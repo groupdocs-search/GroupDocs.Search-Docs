@@ -3,8 +3,8 @@ id: evaluation-limitations-and-licensing
 url: search/net/evaluation-limitations-and-licensing
 title: Evaluation Limitations and Licensing
 weight: 6
-description: ""
-keywords: 
+description: "free search api version is available to evaluate the API which will be similar as licensed but with few limitations."
+keywords: free search api, search api
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

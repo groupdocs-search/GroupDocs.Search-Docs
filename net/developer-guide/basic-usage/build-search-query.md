@@ -3,8 +3,8 @@ id: build-search-query
 url: search/net/build-search-query
 title: Build search query
 weight: 2
-description: ""
-keywords: 
+description: "This page contains information about building text search queries of various types. More examples on building search queries are provided on the page"
+keywords: search queries, building text search queries
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

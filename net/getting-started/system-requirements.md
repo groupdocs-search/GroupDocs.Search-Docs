@@ -3,8 +3,8 @@ id: system-requirements
 url: search/net/system-requirements
 title: System Requirements
 weight: 4
-description: ""
-keywords: 
+description: GroupDocs.Search for .NET supports any 32-bit or 64-bit operating system where .NET or Mono framework is installed
+keywords: GroupDocs.search for .NET, Search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

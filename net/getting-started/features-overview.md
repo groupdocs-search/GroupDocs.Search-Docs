@@ -3,8 +3,8 @@ id: features-overview
 url: search/net/features-overview
 title: Features Overview
 weight: 2
-description: ""
-keywords: 
+description: "The search api allow you to optimize, merge, delete, update and create indexes along with many other fascinating features"
+keywords: create index,Update index,Merge several indexes,Optimize index
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
