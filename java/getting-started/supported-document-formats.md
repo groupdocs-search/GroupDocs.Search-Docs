@@ -3,8 +3,8 @@ id: supported-document-formats
 url: search/java/supported-document-formats
 title: Supported Document Formats
 weight: 3
-description: ""
-keywords: 
+description: "It supports DOCX, DOCM, DOC, DOT, DOTM, XLS, XLSX, PDF, PPT, JPG, PNG, HTML, EML and many more"
+keywords: DOCX, DOCM, DOC, DOT, DOTM, XLS, XLSX, PDF, PPT, JPG, PNG, HTML, EML
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

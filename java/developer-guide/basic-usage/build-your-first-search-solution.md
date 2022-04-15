@@ -3,8 +3,8 @@ id: build-your-first-search-solution
 url: search/java/build-your-first-search-solution
 title: Build your first search solution
 weight: 1
-description: ""
-keywords: 
+description: First of all you need to create an index. An index can be created in memory or on disk. An index created in memory cannot be saved after exiting your program. In contrast, an index created on disk may be loaded in the future to continue working.
+keywords: create an index, index created on disk
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

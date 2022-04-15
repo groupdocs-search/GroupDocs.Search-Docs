@@ -3,8 +3,8 @@ id: about-search-engines
 url: search/java/about-search-engines
 title: About Search Engines
 weight: 1
-description: ""
-keywords: 
+description: "This page is about the classification of search engines and what place GroupDocs.Search API occupies in this classification. There are a large number of ways to classify search engines. Here are the main ones"
+keywords: search api, searching and indexing, synonym algorithm
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

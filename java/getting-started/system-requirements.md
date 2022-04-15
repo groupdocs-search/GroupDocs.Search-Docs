@@ -3,8 +3,8 @@ id: system-requirements
 url: search/java/system-requirements
 title: System Requirements
 weight: 4
-description: ""
-keywords: 
+description: GroupDocs.Search for Java does not require any external software or third party tool to be installed
+keywords: GroupDocs.search for Java, Search
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

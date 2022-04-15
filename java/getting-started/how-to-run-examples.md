@@ -3,8 +3,7 @@ id: how-to-run-examples
 url: search/java/how-to-run-examples
 title: How to Run Examples
 weight: 7
-description: ""
-keywords: 
+description: "This article describes how to run Java Search API code examples."
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

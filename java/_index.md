@@ -3,8 +3,8 @@ id: home
 url: search/java
 title: GroupDocs.Search for Java
 weight: 1
-description: ""
-keywords: 
+description: "GroupDocs.Search for Java is a fascinating document search API. It extracts text and metadata from documents and performs advanced searching and indexing operations on the basis of fuzzy and synonym algorithm"
+keywords: search api, searching and indexing, synonym algorithm
 productName: GroupDocs.Search for Java
 hideChildren: True
 ---
