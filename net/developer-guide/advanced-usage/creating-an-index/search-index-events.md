@@ -3,8 +3,8 @@ id: search-index-events
 url: search/net/search-index-events
 title: Search index events
 weight: 1
-description: ""
-keywords: 
+description: "The OperationFinished event occurs when an index operation completes – indexing, updating, merging, or optimizing (segment merging)"
+keywords: indexing, updating, merging,segment merging
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

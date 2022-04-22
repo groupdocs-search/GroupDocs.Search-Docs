@@ -3,8 +3,8 @@ id: character-replacement-during-indexing
 url: search/net/character-replacement-during-indexing
 title: Character replacement during Indexing
 weight: 1
-description: ""
-keywords: 
+description: "Character replacement during indexing can be used, for example, to convert all text to lowercase characters or to remove diacritics from text."
+keywords: convert all text to lowercase, Character replacement during indexing, Character replacement
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

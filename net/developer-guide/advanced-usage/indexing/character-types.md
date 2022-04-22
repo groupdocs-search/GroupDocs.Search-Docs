@@ -3,8 +3,8 @@ id: character-types
 url: search/net/character-types
 title: Character types
 weight: 2
-description: ""
-keywords: 
+description: "This page contains descriptions of all character types. Character types differ in how characters of these types are indexed."
+keywords: character types, descriptions of all character types
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
