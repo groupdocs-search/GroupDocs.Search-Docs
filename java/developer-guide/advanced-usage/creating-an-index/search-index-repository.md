@@ -3,8 +3,8 @@ id: search-index-repository
 url: search/java/search-index-repository
 title: Search index repository
 weight: 2
-description: ""
-keywords: 
+description: "The IndexRepository class can be used to combine several indexes into a group for searching all indexes at once."
+keywords: combine several indexes, searching all indexes at once, searching all indexes, combine several indexes into a group
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

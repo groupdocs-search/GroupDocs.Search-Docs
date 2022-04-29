@@ -3,8 +3,8 @@ id: indexing-metadata-of-documents
 url: search/java/indexing-metadata-of-documents
 title: Indexing metadata of documents
 weight: 11
-description: ""
-keywords: 
+description: "API allows creating of full-text and / or metadata index on documents. To index only metadata without main content of documents, you only need to set IndexType.MetadataIndex when creating an index."
+keywords: metadata index, index only metadata
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

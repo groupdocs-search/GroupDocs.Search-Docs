@@ -3,8 +3,8 @@ id: delete-indexed-documents
 url: search/java/delete-indexed-documents
 title: Delete indexed documents
 weight: 4
-description: ""
-keywords: 
+description: "GroupDocs.Search for Java has the ability to remove individual documents from the index that are indexed from a stream or structure."
+keywords: remove individual documents, remove individual documents from the index
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: search-index-settings
 url: search/java/search-index-settings
 title: Search index settings
 weight: 3
-description: ""
-keywords: 
+description: "This page contains a description of all index settings that can be specified in an instance of the IndexSettings class."
+keywords: index settings, description of all index settings
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

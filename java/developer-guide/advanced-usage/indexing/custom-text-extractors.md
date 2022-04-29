@@ -3,8 +3,8 @@ id: custom-text-extractors
 url: search/java/custom-text-extractors
 title: Custom text extractors
 weight: 3
-description: ""
-keywords: 
+description: "GroupDocs.Search for Java supports indexing of many document formats. But there is also the possibility to implement support for any format other than the existing ones."
+keywords: indexing of many document formats
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

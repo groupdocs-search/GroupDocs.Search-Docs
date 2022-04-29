@@ -3,8 +3,8 @@ id: document-attributes
 url: search/java/document-attributes
 title: Document attributes
 weight: 6
-description: ""
-keywords: 
+description: "Document attributes is a special feature designed for marking indexed documents with text labels without the need for re-indexing."
+keywords: Document attributes, marking indexed documents, re-indexing 
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

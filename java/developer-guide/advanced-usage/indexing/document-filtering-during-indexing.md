@@ -3,8 +3,8 @@ id: document-filtering-during-indexing
 url: search/java/document-filtering-during-indexing
 title: Document filtering during indexing
 weight: 7
-description: ""
-keywords: 
+description: "This page contains a description of the use of document filters for indexing, as well as descriptions of all types of filters with examples of their creation."
+keywords: document filters for indexing, document filters
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: delete-indexed-paths
 url: search/java/delete-indexed-paths
 title: Delete indexed paths
 weight: 5
-description: ""
-keywords: 
+description: "GroupDocs.Search for Java supports the ability to remove indexed files and folders from an index. Only files or folders that were explicitly added to the index can be deleted."
+keywords: remove indexed files, added to the index
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

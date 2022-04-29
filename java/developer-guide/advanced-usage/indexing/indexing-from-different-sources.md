@@ -3,8 +3,8 @@ id: indexing-from-different-sources
 url: search/java/indexing-from-different-sources
 title: Indexing from different sources
 weight: 10
-description: ""
-keywords: 
+description: "GroupDocs.Search allows indexing documents from various sources."
+keywords: indexing documents from various sources, indexing documents
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
