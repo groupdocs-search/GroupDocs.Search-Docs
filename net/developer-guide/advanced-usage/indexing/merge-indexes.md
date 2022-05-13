@@ -3,8 +3,8 @@ id: merge-indexes
 url: search/net/merge-indexes
 title: Merge indexes
 weight: 17
-description: ""
-keywords: 
+description: "This article demonstrates the merge operation which is designed to combine two or more indexes into one index to accelerate the search and to simplify the work with indexes."
+keywords: merge operation
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

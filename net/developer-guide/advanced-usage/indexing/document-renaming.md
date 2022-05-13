@@ -3,8 +3,8 @@ id: document-renaming
 url: search/net/document-renaming
 title: Document renaming
 weight: 8
-description: ""
-keywords: 
+description: "This article demonstrate that how to save computing resources, you can notify the index about the renaming of the document, and then the document will not be reindexed during the update operation"
+keywords: renaming of the document
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: indexing-reports
 url: search/net/indexing-reports
 title: Indexing reports
 weight: 14
-description: ""
-keywords: 
+description: "This article demonstrates that how indexing reports can be retrieved from the index using search API"
+keywords: search API, indexing reports
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: ocr-support
 url: search/net/ocr-support
 title: OCR support
 weight: 18
-description: ""
-keywords: 
+description: "This article demonstrates the ability to connect an external module (library) for the recognition of printed text (optical character recognition, OCR) on images, either separate or embedded in documents"
+keywords: optical character recognition, OCR
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

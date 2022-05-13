@@ -3,8 +3,8 @@ id: indexing-additional-fields
 url: search/net/indexing-additional-fields
 title: Indexing additional fields
 weight: 9
-description: ""
-keywords: 
+description: "This article demonstrate that how to associate each document with certain additional metadata."
+keywords: additional metadata,how to associate each document 
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

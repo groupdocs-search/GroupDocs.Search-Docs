@@ -3,8 +3,8 @@ id: logging
 url: search/net/logging
 title: Logging
 weight: 16
-description: ""
-keywords: 
+description: "This article demonstrates that how creating and assigning a logger of an index, as well as on the implementation of a custom logger using search API."
+keywords: search API
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

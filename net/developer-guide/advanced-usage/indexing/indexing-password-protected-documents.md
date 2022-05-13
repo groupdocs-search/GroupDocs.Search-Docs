@@ -3,8 +3,8 @@ id: indexing-password-protected-documents
 url: search/net/indexing-password-protected-documents
 title: Indexing password protected documents
 weight: 13
-description: ""
-keywords: 
+description: "This article demonstrates that how to perform indexing of password protected documents."
+keywords: indexing of password protected documents
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: indexing-with-stop-words
 url: search/net/indexing-with-stop-words
 title: Indexing with stop words
 weight: 15
-description: ""
-keywords: 
+description: "This article demonstrates that how you can enable or disable the use of stop words by setting a value using search API"
+keywords: search API
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
