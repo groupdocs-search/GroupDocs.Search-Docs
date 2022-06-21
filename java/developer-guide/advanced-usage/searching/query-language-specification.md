@@ -116,7 +116,7 @@ The text below represents the complete specification of the search query DSL (Do
 
 *escape-sequence:* (since v.19.2)
 
-*   \\N  
+*   \\*N*  
     where *N* is one of  
     *( ) : \" & | ! ^ ~ \* ? \\*  
     or  
