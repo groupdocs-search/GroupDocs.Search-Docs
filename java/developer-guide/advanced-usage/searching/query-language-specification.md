@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The text below represents the complete specification of the search query DSL (Domain Specific Language) used in text queries. See also [Search operation table]({{< ref "search/java/developer-guide/advanced-usage/searching/search-operation-table.md" >}}), [Search flow]({{< ref "search/java/developer-guide/advanced-usage/searching/search-flow.md" >}}).
+The text below represents the complete specification of the search query DSL (Domain Specific Language) used in text queries. See also [Search operation table]({{< ref "search/java/developer-guide/advanced-usage/searching/search-operation-table.md" >}}), [Search flow]({{< ref "search/java/developer-guide/advanced-usage/searching/search-flow.md" >}}).
 
 *query*:
 
@@ -27,7 +27,7 @@ The text below represents the complete specification of the search query DSL (D
 *unary-query*:
 
 *   *word*
-*   *word-pattern* (since v.18.12)
+*   *word-pattern* (since v.18.12)
 *   *phrase-query*
 *   *field-name-query*
 *   *numeric-range-query*
@@ -47,56 +47,56 @@ The text below represents the complete specification of the search query DSL (D
 *phrase-item*:
 
 *   *word*
-*   *word-pattern* (since v.18.12)
-*   *wildcard* (since v.18.1)
+*   *word-pattern* (since v.18.12)
+*   *wildcard* (since v.18.1)
 
 *word*:
 
 *   any word without special characters
 
-*word-pattern* (since v.18.12)
+*word-pattern* (since v.18.12)
 
 *   any non-special characters
 *   ? (question marks)
-*   ?(n~m) (Wildcard groups, where n is *byte-number*, m is *byte-number*, and n <= m. For example: ?(1~2) )
+*   ?(n\~m) (Wildcard groups, where n is *byte-number*, m is *byte-number*, and n <= m. For example: ?(1~2) )
 
 *wildcard*: (since v.18.1)
 
-*   \* *byte-number*
-*   \* *byte-number* ~~ *byte-number*
+*   \* *byte-number*
+*   \* *byte-number* ~~ *byte-number*
 
 *byte-number*: (since v.18.1)
 
-*   Any integer number in the range from 0 to 255
+*   Any integer number in the range from 0 to 255
 
 *field-name-query*:
 
-*   *field-name*: *unary-query*
+*   *field-name*: *unary-query*
 
 *numeric-range-query*:
 
-*   *number* ~~ *number*
+*   *number* ~~ *number*
 
 *number*:
 
-*   Any non-negative integer number
+*   Any non-negative integer number
 
 *date-range-query*:
 
-*   daterange( *date* ~~ *date* )
+*   daterange( *date* ~~ *date* )
 
 *date*:
 
-*   A date in the format 'yyyy-MM-dd'. For example: 2019-09-16
+*   A date in the format \'yyyy-MM-dd\'. For example: 2019-09-16
 
 *parenthesized-query*:
 
-*   ( *non-regex-query* )
+*   ( *non-regex-query* )
 
 *not-query*:
 
-*   ! *unary-query*
-*   NOT *unary-query*
+*   ! *unary-query*
+*   NOT *unary-query*
 
 *binary-query*:
 
@@ -105,30 +105,30 @@ The text below represents the complete specification of the search query DSL (D
 
 *and-query*:
 
-*   *non-regex-query* & *unary-query*
-*   *non-regex-query* AND *unary-query*
+*   *non-regex-query* & *unary-query*
+*   *non-regex-query* AND *unary-query*
 
 *or-query*:
 
-*   *non-regex-query* | *unary-query*
-*   *non-regex-query* || *unary-query*
-*   *non-regex-query* OR *unary-query*
+*   *non-regex-query* | *unary-query*
+*   *non-regex-query* || *unary-query*
+*   *non-regex-query* OR *unary-query*
 
-*escape-sequence:* (since v.19.2)
+*escape-sequence:* (since v.19.2)
 
-*   \\*N  
-    *where *N* is one of  
-    *( ) : " & | ! ^ ~ \* ? \\*  
+*   \\N  
+    where *N* is one of  
+    *( ) : \" & | ! ^ ~ \* ? \\*  
     or  
-    *s* (for space character)
+    *s* (for space character)
 *   \\u*hhhh*  
-    where *h* is hexadecimal digit (for any Unicode character)
+    where *h* is hexadecimal digit (for any Unicode character)
 
 ## More resources
 
 ### GitHub examples
 
-You may easily run the code from documentation articles and see the features in action in our GitHub examples:
+You may easily run the code from documentation articles and see the features in action in our GitHub examples:
 
 *   [GroupDocs.Search for .NET examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET)
     
@@ -139,4 +139,4 @@ You may easily run the code from documentation articles and see the features in 
 
 Along with full featured .NET library we provide simple, but powerful free Apps.
 
-You are welcome to search over your PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX and more with our free online [Free Online Document Search App](https://products.groupdocs.app/search).
+You are welcome to search over your PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX and more with our free online [Free Online Document Search App](https://products.groupdocs.app/search).
