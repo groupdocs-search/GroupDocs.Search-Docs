@@ -3,8 +3,8 @@ id: phrase-search
 url: search/net/phrase-search
 title: Phrase search
 weight: 14
-description: ""
-keywords: 
+description: "This article gives the knowledge about phrase search definition as well as a phrase search description."
+keywords: Phrase search, phrase search definition, phrase search description
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: keyboard-layout-correction
 url: search/net/keyboard-layout-correction
 title: Keyboard layout correction
 weight: 10
-description: ""
-keywords: 
+description: "This article gives the knowledge that the keyboard layout correction feature can be used when entering search queries, users of your software may make input errors, forgetting to switch the desired keyboard layout."
+keywords: Keyboard layout correction
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

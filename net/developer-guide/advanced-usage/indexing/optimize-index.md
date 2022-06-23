@@ -3,8 +3,8 @@ id: optimize-index
 url: search/net/optimize-index
 title: Optimize index
 weight: 19
-description: ""
-keywords: 
+description: "This article explains that how to optimize index to reduce the number of segments in an index."
+keywords: optimize index
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

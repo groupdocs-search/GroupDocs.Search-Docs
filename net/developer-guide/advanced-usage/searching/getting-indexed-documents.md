@@ -3,8 +3,8 @@ id: getting-indexed-documents
 url: search/net/getting-indexed-documents
 title: Getting indexed documents
 weight: 7
-description: ""
-keywords: 
+description: "This article gives the knowledge that how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML format."
+keywords: Getting indexed documents
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

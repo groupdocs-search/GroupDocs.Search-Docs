@@ -3,8 +3,8 @@ id: date-range-search
 url: search/net/date-range-search
 title: Date range search
 weight: 3
-description: ""
-keywords: 
+description: "This article gives the knowledge that how to search by date with date range search."
+keywords: search by date, date range search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

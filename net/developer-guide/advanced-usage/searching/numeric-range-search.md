@@ -3,8 +3,8 @@ id: numeric-range-search
 url: search/net/numeric-range-search
 title: Numeric range search
 weight: 12
-description: ""
-keywords: 
+description: "This article gives the knowledge about numeric range search which allows you to search in documents any integer numbers in the range from 0 to 9223372036854775807 (Int64.MaxValue)."
+keywords: numeric range search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

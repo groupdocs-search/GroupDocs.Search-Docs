@@ -3,8 +3,8 @@ id: text-file-encoding-detection
 url: search/net/text-file-encoding-detection
 title: Text file encoding detection
 weight: 21
-description: ""
-keywords: 
+description: "This article explains that how to detect encoding of a text file automatically."
+keywords: detect encoding of a text file, detect encoding
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

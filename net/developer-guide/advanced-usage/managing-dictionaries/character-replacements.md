@@ -3,8 +3,8 @@ id: character-replacements
 url: search/net/character-replacements
 title: Character replacements
 weight: 3
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about Character replacements."
+keywords: Character replacements
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

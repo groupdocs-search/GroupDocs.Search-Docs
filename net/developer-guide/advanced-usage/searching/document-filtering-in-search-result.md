@@ -3,8 +3,8 @@ id: document-filtering-in-search-result
 url: search/net/document-filtering-in-search-result
 title: Document filtering in search result
 weight: 4
-description: ""
-keywords: 
+description: "This article gives the knowledge that how the document filters used during the search."
+keywords: Document filtering, Document filtering in search result
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

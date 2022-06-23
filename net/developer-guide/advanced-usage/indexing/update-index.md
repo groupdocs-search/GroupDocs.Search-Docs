@@ -3,8 +3,8 @@ id: update-index
 url: search/net/update-index
 title: Update index
 weight: 22
-description: ""
-keywords: 
+description: "This article explains that how to update indexed documents, as well as updating an index version."
+keywords: update indexed documents, updating an index version
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

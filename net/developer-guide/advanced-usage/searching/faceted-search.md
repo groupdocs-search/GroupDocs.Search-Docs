@@ -3,8 +3,8 @@ id: faceted-search
 url: search/net/faceted-search
 title: Faceted search
 weight: 5
-description: ""
-keywords: 
+description: "This article gives the knowledge of the creation of faceted search queries."
+keywords: Faceted search, Faceted search definition
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

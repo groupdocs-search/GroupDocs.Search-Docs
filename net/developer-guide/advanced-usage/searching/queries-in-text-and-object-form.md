@@ -3,8 +3,8 @@ id: queries-in-text-and-object-form
 url: search/net/queries-in-text-and-object-form
 title: Queries in text and object form
 weight: 15
-description: ""
-keywords: 
+description: "This article gives the knowledge about two ways to create a search query: in text or object form."
+keywords: Queries in text and object form
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

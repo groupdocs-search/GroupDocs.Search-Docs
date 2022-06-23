@@ -3,8 +3,8 @@ id: case-sensitive-search
 url: search/net/case-sensitive-search
 title: Case sensitive search
 weight: 2
-description: ""
-keywords: 
+description: "This article gives the knowledge of the case sensitive search which allows you to find words considering uppercase and lowercase letters as distinct."
+keywords: Case sensitive search 
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

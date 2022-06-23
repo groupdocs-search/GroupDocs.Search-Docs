@@ -3,8 +3,8 @@ id: word-forms-provider
 url: search/net/word-forms-provider
 title: Word forms provider
 weight: 9
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about word forms provider interface."
+keywords: word forms provider
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

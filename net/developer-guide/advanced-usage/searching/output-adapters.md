@@ -3,8 +3,8 @@ id: output-adapters
 url: search/net/output-adapters
 title: Output adapters
 weight: 13
-description: ""
-keywords: 
+description: "This article gives the knowledge about output adapters which are used to output generated HTML text to various output objects."
+keywords: Output adapters
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: alphabet
 url: search/net/alphabet
 title: Alphabet
 weight: 2
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about Alphabets."
+keywords: Alphabets
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

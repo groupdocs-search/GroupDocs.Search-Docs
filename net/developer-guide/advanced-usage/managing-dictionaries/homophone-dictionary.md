@@ -3,8 +3,8 @@ id: homophone-dictionary
 url: search/net/homophone-dictionary
 title: Homophone dictionary
 weight: 5
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about homophone dictionary."
+keywords: Homophone dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

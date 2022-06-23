@@ -3,8 +3,8 @@ id: synonym-dictionary
 url: search/net/synonym-dictionary
 title: Synonym dictionary
 weight: 8
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about Synonym dictionary."
+keywords: synonym dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

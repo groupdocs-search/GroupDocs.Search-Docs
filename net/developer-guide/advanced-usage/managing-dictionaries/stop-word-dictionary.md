@@ -3,8 +3,8 @@ id: stop-word-dictionary
 url: search/net/stop-word-dictionary
 title: Stop word dictionary
 weight: 7
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about stop word dictionary."
+keywords: Stop word dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

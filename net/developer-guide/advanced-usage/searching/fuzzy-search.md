@@ -3,8 +3,8 @@ id: fuzzy-search
 url: search/net/fuzzy-search
 title: Fuzzy search
 weight: 6
-description: ""
-keywords: 
+description: "This article gives the knowledge about the fuzzy search definition, and its capabilities in GroupDocs.Search."
+keywords: fuzzy search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

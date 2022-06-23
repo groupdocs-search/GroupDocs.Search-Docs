@@ -3,8 +3,8 @@ id: storing-text-of-indexed-documents
 url: search/net/storing-text-of-indexed-documents
 title: Storing text of indexed documents
 weight: 20
-description: ""
-keywords: 
+description: "This article explains that how to store text of indexed documents."
+keywords: store text of indexed documents, Text extracted from indexed documents
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
