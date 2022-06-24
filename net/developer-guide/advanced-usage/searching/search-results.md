@@ -3,8 +3,8 @@ id: search-results
 url: search/net/search-results
 title: Search results
 weight: 24
-description: ""
-keywords: 
+description: "This article shows that how to perform the operations on search results."
+keywords: Search results
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

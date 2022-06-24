@@ -3,8 +3,8 @@ id: search-options
 url: search/net/search-options
 title: Search options
 weight: 22
-description: ""
-keywords: 
+description: "This article shows search options that can be specified in an instance of the SearchOptions."
+keywords: Search options
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

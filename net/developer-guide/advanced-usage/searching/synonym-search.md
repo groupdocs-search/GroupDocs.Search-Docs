@@ -3,8 +3,8 @@ id: synonym-search
 url: search/net/synonym-search
 title: Synonym search
 weight: 27
-description: ""
-keywords: 
+description: "This article shows that how synonym search allows you to find not only the words specified in the search query, but also the synonyms, words that means the same."
+keywords: Synonym search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

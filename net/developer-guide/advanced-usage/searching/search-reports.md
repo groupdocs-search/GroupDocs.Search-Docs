@@ -3,8 +3,8 @@ id: search-reports
 url: search/net/search-reports
 title: Search reports
 weight: 23
-description: ""
-keywords: 
+description: "This article shows that how to perform the operations on generated search reports."
+keywords: search reports
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

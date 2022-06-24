@@ -3,8 +3,8 @@ id: wildcard-search
 url: search/net/wildcard-search
 title: Wildcard search
 weight: 29
-description: ""
-keywords: 
+description: "This article shows the operations of wildcard search which allows you to search for words with unknown letters or ranges of letters."
+keywords: Wildcard search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

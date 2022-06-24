@@ -3,8 +3,8 @@ id: using-aliases
 url: search/net/using-aliases
 title: Using aliases
 weight: 28
-description: ""
-keywords: 
+description: "This article shows the use of aliases which allows you to reduce the length of search queries in text form."
+keywords: Using aliases
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

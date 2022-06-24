@@ -3,8 +3,8 @@ id: search-thread-safety
 url: search/net/search-thread-safety
 title: Search thread safety
 weight: 25
-description: ""
-keywords: 
+description: "This article shows that how search thread safety works."
+keywords: Search thread safety
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

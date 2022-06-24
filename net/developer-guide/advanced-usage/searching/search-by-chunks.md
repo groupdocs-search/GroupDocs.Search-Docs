@@ -3,8 +3,8 @@ id: search-by-chunks
 url: search/net/search-by-chunks
 title: Search by chunks
 weight: 18
-description: ""
-keywords: 
+description: "This article gives the knowledge about the ability to perform search by chunks."
+keywords: Search by chunks
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---

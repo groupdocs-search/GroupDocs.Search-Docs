@@ -3,8 +3,8 @@ id: search-flow
 url: search/net/search-flow
 title: Search flow
 weight: 19
-description: ""
-keywords: 
+description: "This article shows the internal stages of each search operation."
+keywords: Search flow
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
