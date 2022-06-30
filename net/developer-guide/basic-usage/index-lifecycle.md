@@ -3,8 +3,8 @@ id: index-lifecycle
 url: search/net/index-lifecycle
 title: Index lifecycle
 weight: 4
-description: ""
-keywords: 
+description: "This page explains the life cycle of an index which begins at the moment of creating an instance of the Index class and first saving the index files to disk "
+keywords: Index lifecycle
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
