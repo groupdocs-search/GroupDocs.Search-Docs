@@ -3,8 +3,8 @@ id: optimize-index
 url: search/java/optimize-index
 title: Optimize index
 weight: 19
-description: ""
-keywords: 
+description: "This article explains that how to optimize index to reduce the number of segments in an index using Java."
+keywords: optimize index
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

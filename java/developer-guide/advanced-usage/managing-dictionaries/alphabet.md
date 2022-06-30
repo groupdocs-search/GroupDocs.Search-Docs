@@ -3,8 +3,8 @@ id: alphabet
 url: search/java/alphabet
 title: Alphabet
 weight: 2
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about Alphabets using Java."
+keywords: Alphabets
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

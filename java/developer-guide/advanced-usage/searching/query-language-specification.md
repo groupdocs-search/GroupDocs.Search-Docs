@@ -3,8 +3,8 @@ id: query-language-specification
 url: search/java/query-language-specification
 title: Query language specification
 weight: 16
-description: ""
-keywords: 
+description: "This article gives the knowledge about the complete specification of the search query DSL used in text queries using Java search API."
+keywords: search query DSL, Domain Specific Language, Query language specification
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

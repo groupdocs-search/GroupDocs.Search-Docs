@@ -3,8 +3,8 @@ id: document-passwords
 url: search/java/document-passwords
 title: Document passwords
 weight: 4
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about document passwords or password dictionary using Java."
+keywords: document passwords, password dictionary
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: homophone-search
 url: search/java/homophone-search
 title: Homophone search
 weight: 9
-description: ""
-keywords: 
+description: "This article gives the knowledge which allows you to find not only the words specified in the search query, but also the homophones, words that are pronounced the same but differ in meaning using Java search API."
+keywords: Homophone search
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: storing-text-of-indexed-documents
 url: search/java/storing-text-of-indexed-documents
 title: Storing text of indexed documents
 weight: 20
-description: ""
-keywords: 
+description: "This article explains that how to store text of indexed documents using Java."
+keywords: store text of indexed documents, Text extracted from indexed documents
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

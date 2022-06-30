@@ -3,8 +3,8 @@ id: update-index
 url: search/java/update-index
 title: Update index
 weight: 22
-description: ""
-keywords: 
+description: "This article explains that how to update indexed documents, as well as updating an index version in Java."
+keywords: update indexed documents, updating an index version
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

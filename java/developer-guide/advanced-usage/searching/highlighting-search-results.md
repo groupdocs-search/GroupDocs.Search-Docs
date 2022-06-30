@@ -3,8 +3,8 @@ id: highlighting-search-results
 url: search/java/highlighting-search-results
 title: Highlighting search results
 weight: 8
-description: ""
-keywords: 
+description: "This article gives the knowledge that how to highlight search results in the text of a document using Java search API."
+keywords: highlight search results
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

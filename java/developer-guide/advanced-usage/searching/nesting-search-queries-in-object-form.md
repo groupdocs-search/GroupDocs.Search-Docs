@@ -3,8 +3,8 @@ id: nesting-search-queries-in-object-form
 url: search/java/nesting-search-queries-in-object-form
 title: Nesting search queries in object form
 weight: 11
-description: ""
-keywords: 
+description: "This article gives the knowledge about nesting search queries in object form using Java search API."
+keywords: Nesting search queries in object form
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

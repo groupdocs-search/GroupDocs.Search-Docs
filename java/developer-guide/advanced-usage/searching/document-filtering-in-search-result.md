@@ -3,8 +3,8 @@ id: document-filtering-in-search-result
 url: search/java/document-filtering-in-search-result
 title: Document filtering in search result
 weight: 4
-description: ""
-keywords: 
+description: "This article gives the knowledge that how the document filters used during the search using Java search API."
+keywords: Document filtering, Document filtering in search result
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

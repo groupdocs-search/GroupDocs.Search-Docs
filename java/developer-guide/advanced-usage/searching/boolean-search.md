@@ -3,8 +3,8 @@ id: boolean-search
 url: search/java/boolean-search
 title: Boolean search
 weight: 1
-description: ""
-keywords: 
+description: "This article gives the knowledge of the boolean search definition which includes all boolean operators used for boolean search, and boolean query examples using Java."
+keywords: boolean search definition, boolean search, boolean query, boolean query examples 
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

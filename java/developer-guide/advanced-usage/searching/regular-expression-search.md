@@ -3,8 +3,8 @@ id: regular-expression-search
 url: search/java/regular-expression-search
 title: Regular expression search
 weight: 17
-description: ""
-keywords: 
+description: "This article gives the knowledge about the regular expression (RegEx) search queries which are universal and very flexible, but at the same time, in large indexes, their performance becomes extremely low using Java search API."
+keywords: Regular expression search
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

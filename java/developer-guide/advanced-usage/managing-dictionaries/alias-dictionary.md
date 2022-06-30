@@ -3,8 +3,8 @@ id: alias-dictionary
 url: search/java/alias-dictionary
 title: Alias dictionary
 weight: 1
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about Alias dictionary in Java."
+keywords: Alias dictionary
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

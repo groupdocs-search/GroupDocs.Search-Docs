@@ -3,8 +3,8 @@ id: date-range-search
 url: search/java/date-range-search
 title: Date range search
 weight: 3
-description: ""
-keywords: 
+description: "This article gives the knowledge that how to search by date with date range search using Java search API."
+keywords: search by date, date range search
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

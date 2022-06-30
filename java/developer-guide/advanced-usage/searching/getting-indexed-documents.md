@@ -3,8 +3,8 @@ id: getting-indexed-documents
 url: search/java/getting-indexed-documents
 title: Getting indexed documents
 weight: 7
-description: ""
-keywords: 
+description:  "This article gives the knowledge that how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML format using Java search API."
+keywords: Getting indexed documents
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

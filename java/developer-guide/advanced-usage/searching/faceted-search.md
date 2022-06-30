@@ -3,8 +3,8 @@ id: faceted-search
 url: search/java/faceted-search
 title: Faceted search
 weight: 5
-description: ""
-keywords: 
+description: "This article gives the knowledge of the creation of faceted search queries using Java search API."
+keywords: Faceted search, Faceted search definition
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

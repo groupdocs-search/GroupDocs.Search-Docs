@@ -3,8 +3,8 @@ id: spelling-corrector
 url: search/java/spelling-corrector
 title: Spelling corrector
 weight: 6
-description: ""
-keywords: 
+description: "This article gives the knowledge of the API methods which can be used to perform operations about spelling corrector using Java."
+keywords: Spelling corrector
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: case-sensitive-search
 url: search/java/case-sensitive-search
 title: Case sensitive search
 weight: 2
-description: ""
-keywords: 
+description: "This article gives the knowledge of the case sensitive search which allows you to find words considering uppercase and lowercase letters as distinct using Java."
+keywords: Case sensitive search 
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
