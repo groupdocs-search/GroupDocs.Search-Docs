@@ -3,8 +3,8 @@ id: search-by-chunks
 url: search/java/search-by-chunks
 title: Search by chunks
 weight: 18
-description: ""
-keywords: 
+description: "This article gives the knowledge about the ability to perform search by chunks using Java search API."
+keywords: Search by chunks
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

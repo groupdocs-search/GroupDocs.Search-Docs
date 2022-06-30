@@ -3,8 +3,8 @@ id: search-for-different-word-forms
 url: search/java/search-for-different-word-forms
 title: Search for different word forms
 weight: 20
-description: ""
-keywords: 
+description: "This article shows that how to allow you to search for nouns in the singular or plural, adjectives in the degree of comparison, forms of regular and irregular verbs, etc."
+keywords: Search for different word forms
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

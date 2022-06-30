@@ -3,8 +3,8 @@ id: search-operation-table
 url: search/java/search-operation-table
 title: Search operation table
 weight: 21
-description: ""
-keywords: 
+description: "This article shows that how to provides syntax of all elements allowed in text search queries."
+keywords: Search operation table
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

@@ -3,8 +3,8 @@ id: search-flow
 url: search/java/search-flow
 title: Search flow
 weight: 19
-description: ""
-keywords: 
+description: "This article shows the internal stages of each search operation using Java search API."
+keywords: Search flow
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

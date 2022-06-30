@@ -3,8 +3,8 @@ id: search-results
 url: search/java/search-results
 title: Search results
 weight: 24
-description: ""
-keywords: 
+description: "This article shows that how to perform the operations on search results."
+keywords: Search results
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---

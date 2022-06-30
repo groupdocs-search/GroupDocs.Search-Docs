@@ -3,8 +3,8 @@ id: spell-checking
 url: search/java/spell-checking
 title: Spell checking
 weight: 26
-description: ""
-keywords: 
+description: "This article shows that how spell checking works during the search."
+keywords: Spell checking
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
