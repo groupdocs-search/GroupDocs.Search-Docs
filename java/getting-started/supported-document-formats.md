@@ -37,16 +37,16 @@ The following table contains file formats supported by GroupDocs.Search.
 | [FB2](https://docs.fileformat.com/ebook/fb2/) | FictionBook 2.0 File | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) | 2.0 |   |
 | Speadsheet |   |   |   |   |   |
 | [XLS](https://docs.fileformat.com/spreadsheet/xls/) | Microsoft Excel Spreadsheet | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   | Microsoft Excel 97+ |
-| XLT | Microsoft Excel Spreadsheet Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   | Microsoft Excel 97+ |
+| [XLT](https://docs.fileformat.com/spreadsheet/xlt/)| Microsoft Excel Spreadsheet Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   | Microsoft Excel 97+ |
 | [XLSX](https://docs.fileformat.com/spreadsheet/xlsx/) | Office Open XML Spreadsheet | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [XLSM](https://docs.fileformat.com/spreadsheet/xlsm/) | Office Open XML Spreadsheet \[Macro-enabled\] | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [XLSB](https://docs.fileformat.com/spreadsheet/xlsb/) | Office Open XML Spreadsheet \[Binary\] | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [XLTX](https://docs.fileformat.com/spreadsheet/xltx/) | Office Open XML Spreadsheet Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [XLTM](https://docs.fileformat.com/spreadsheet/xltm/) | Office Open XML Spreadsheet Template \[Macro-enabled\] | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
-| XLA | Microsoft Excel 97-2003 Add-In | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
-| XLAM | Microsoft Excel Open XML Add-In | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
+| [XLA](https://docs.fileformat.com/spreadsheet/xla/) | Microsoft Excel 97-2003 Add-In | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
+| [XLAM](https://docs.fileformat.com/spreadsheet/xlam/) | Microsoft Excel Open XML Add-In | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [ODS](https://docs.fileformat.com/spreadsheet/ods/) | Open Document Spreadsheet | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
-| OTS | Open Document Spreadsheet Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
+| [OTS](https://docs.fileformat.com/spreadsheet/ots/) | Open Document Spreadsheet Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [CSV](https://docs.fileformat.com/spreadsheet/csv/) | Comma Separated Values | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [TSV](https://docs.fileformat.com/spreadsheet/tsv/) | Tab Separated Values | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | XML | SpreadsheetML | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
@@ -56,7 +56,7 @@ The following table contains file formats supported by GroupDocs.Search.
 | [POT](https://docs.fileformat.com/presentation/pot/) | PowerPoint Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   | Microsoft PowerPoint 97+ |
 | [PPTX](https://docs.fileformat.com/presentation/pptx/) | Office Open XML Presentation | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [PPTM](https://docs.fileformat.com/presentation/pptm/) | Office Open XML Presentation \[Macro-enabled\] | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
-| POTX | Office Open XML Presentation Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
+| [POTX](https://docs.fileformat.com/presentation/potx/)  | Office Open XML Presentation Template | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [POTM](https://docs.fileformat.com/presentation/potm/) | Office Open XML Presentation Template \[Macro-enabled\] | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [PPSX](https://docs.fileformat.com/presentation/ppsx/) | Office Open XML Presentation Slideshow | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
 | [PPSM](https://docs.fileformat.com/presentation/ppsm/) | Office Open XML Presentation Slideshow \[Macro-enabled\] | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   |   |
@@ -89,7 +89,7 @@ The following table contains file formats supported by GroupDocs.Search.
 | Project Management |   |   |   |   |   |
 | [MPP](https://docs.fileformat.com/project-management/mpp/) | Microsoft Project File |   | ![(tick)](search/net/images/check.png) |   |   |
 | Torrent |   |   |   |   |   |
-| TORRENT | BitTorrent File |   | ![(tick)](search/net/images/check.png) |   |   |
+| [TORRENT](https://docs.fileformat.com/misc/torrent/) | BitTorrent File |   | ![(tick)](search/net/images/check.png) |   |   |
 | Diagram |   |   |   |   |   |
 | [VSD](https://docs.fileformat.com/image/vsd/) | Visio Drawing File |   | ![(tick)](search/net/images/check.png) |   |   |
 | [VSS](https://docs.fileformat.com/image/vss/) | Visio Stencil File |   | ![(tick)](search/net/images/check.png) |   |   |
@@ -99,7 +99,7 @@ The following table contains file formats supported by GroupDocs.Search.
 | Video |   |   |   |   |   |
 | [AVI](https://docs.fileformat.com/video/avi/) | Audio Video Interleave File |   | ![(tick)](search/net/images/check.png) |   |   |
 | [MOV](https://docs.fileformat.com/video/mov/) | Apple QuickTime Movie |   | ![(tick)](search/net/images/check.png) |   |   |
-| QT | Apple QuickTime Movie |   | ![(tick)](search/net/images/check.png) |   |   |
-| FLV | Animate Video File |   | ![(tick)](search/net/images/check.png) |   |   |
+| [QT](https://docs.fileformat.com/video/qt/) | Apple QuickTime Movie |   | ![(tick)](search/net/images/check.png) |   |   |
+| [FLV](https://docs.fileformat.com/video/flv/) | Animate Video File |   | ![(tick)](search/net/images/check.png) |   |   |
 | [ASF](https://docs.fileformat.com/video/wmv/) | Advanced Systems Format File |   | ![(tick)](search/net/images/check.png) |   |   |
 
