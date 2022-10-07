@@ -39,49 +39,49 @@ The reverse image search functionality provides the ability to search for simila
 
 ##### Public API changes
 
-Class **DocumentImage** has been added to **GroupDocs.Search.Common** namespace.
-Property **GroupDocs.Search.Common.DocumentField[] Fields** has been added to **GroupDocs.Search.Common.DocumentImage** class.
-Property **GroupDocs.Search.Common.ImageFrame[] Frames** has been added to **GroupDocs.Search.Common.DocumentImage** class.
+Class **DocumentImage** has been added to **GroupDocs.Search.Common** namespace.  
+Property **GroupDocs.Search.Common.DocumentField[] Fields** has been added to **GroupDocs.Search.Common.DocumentImage** class.  
+Property **GroupDocs.Search.Common.ImageFrame[] Frames** has been added to **GroupDocs.Search.Common.DocumentImage** class.  
 Property **Int32 ImageIndex** has been added to **GroupDocs.Search.Common.DocumentImage** class.
 
-Class **FoundImageFrame** has been added to **GroupDocs.Search.Results** namespace.
-Property **GroupDocs.Search.Results.DocumentInfo DocumentInfo** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.
-Property **Int32 FrameIndex** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.
-Property **Int32 HashDifferences** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.
+Class **FoundImageFrame** has been added to **GroupDocs.Search.Results** namespace.  
+Property **GroupDocs.Search.Results.DocumentInfo DocumentInfo** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.  
+Property **Int32 FrameIndex** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.  
+Property **Int32 HashDifferences** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.  
 Property **Int32 ImageIndex** has been added to **GroupDocs.Search.Results.FoundImageFrame** class.
 
-Class **ImageFrame** has been added to **GroupDocs.Search.Common** namespace.
+Class **ImageFrame** has been added to **GroupDocs.Search.Common** namespace.  
 Property **Int32 Index** has been added to **GroupDocs.Search.Common.ImageFrame** class.
 
-Class **ImageIndexingOptions** has been added to **GroupDocs.Search.Options** namespace.
-Property **Boolean EnabledForContainerItemImages** has been added to **GroupDocs.Search.Options.ImageIndexingOptions** class.
-Property **Boolean EnabledForEmbeddedImages** has been added to **GroupDocs.Search.Options.ImageIndexingOptions** class.
+Class **ImageIndexingOptions** has been added to **GroupDocs.Search.Options** namespace.  
+Property **Boolean EnabledForContainerItemImages** has been added to **GroupDocs.Search.Options.ImageIndexingOptions** class.  
+Property **Boolean EnabledForEmbeddedImages** has been added to **GroupDocs.Search.Options.ImageIndexingOptions** class.  
 Property **Boolean EnabledForSeparateImages** has been added to **GroupDocs.Search.Options.ImageIndexingOptions** class.
 
-Class **ImagePreparingEventArgs** has been added to **GroupDocs.Search.Events** namespace.
-Property **System.String DocumentKey** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.
-Property **GroupDocs.Search.Common.ImageFrame[] ImageFrames** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.
-Property **Int32 ImageIndex** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.
-Property **System.IO.Stream ImageStream** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.
+Class **ImagePreparingEventArgs** has been added to **GroupDocs.Search.Events** namespace.  
+Property **System.String DocumentKey** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.  
+Property **GroupDocs.Search.Common.ImageFrame[] ImageFrames** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.  
+Property **Int32 ImageIndex** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.  
+Property **System.IO.Stream ImageStream** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.  
 Property **System.String[] InnerPath** has been added to **GroupDocs.Search.Events.ImagePreparingEventArgs** class.
 
-Class **ImageSearchOptions** has been added to **GroupDocs.Search.Options** namespace.
-Property **Int32 HashDifferences** has been added to **GroupDocs.Search.Options.ImageSearchOptions** class.
-Property **Int32 MaxResultCount** has been added to **GroupDocs.Search.Options.ImageSearchOptions** class.
+Class **ImageSearchOptions** has been added to **GroupDocs.Search.Options** namespace.  
+Property **Int32 HashDifferences** has been added to **GroupDocs.Search.Options.ImageSearchOptions** class.  
+Property **Int32 MaxResultCount** has been added to **GroupDocs.Search.Options.ImageSearchOptions** class.  
 Property **GroupDocs.Search.Options.ISearchDocumentFilter SearchDocumentFilter** has been added to **GroupDocs.Search.Options.ImageSearchOptions** class.
 
-Class **ImageSearchResult** has been added to **GroupDocs.Search.Results** namespace.
-Method **GroupDocs.Search.Results.FoundImageFrame GetFoundImage(Int32)** has been added to **GroupDocs.Search.Results.ImageSearchResult** class.
+Class **ImageSearchResult** has been added to **GroupDocs.Search.Results** namespace.  
+Method **GroupDocs.Search.Results.FoundImageFrame GetFoundImage(Int32)** has been added to **GroupDocs.Search.Results.ImageSearchResult** class.  
 Property **Int32 ImageCount** has been added to **GroupDocs.Search.Results.ImageSearchResult** class.
 
-Class **SearchImage** has been added to **GroupDocs.Search.Common** namespace.
-Method **GroupDocs.Search.Common.SearchImage Create(System.String)** has been added to **GroupDocs.Search.Common.SearchImage** class.
-Method **GroupDocs.Search.Common.SearchImage Create(System.String, Int32)** has been added to **GroupDocs.Search.Common.SearchImage** class.
-Method **GroupDocs.Search.Common.SearchImage Create(System.IO.Stream)** has been added to **GroupDocs.Search.Common.SearchImage** class.
+Class **SearchImage** has been added to **GroupDocs.Search.Common** namespace.  
+Method **GroupDocs.Search.Common.SearchImage Create(System.String)** has been added to **GroupDocs.Search.Common.SearchImage** class.  
+Method **GroupDocs.Search.Common.SearchImage Create(System.String, Int32)** has been added to **GroupDocs.Search.Common.SearchImage** class.  
+Method **GroupDocs.Search.Common.SearchImage Create(System.IO.Stream)** has been added to **GroupDocs.Search.Common.SearchImage** class.  
 Method **GroupDocs.Search.Common.SearchImage Create(System.IO.Stream, Int32)** has been added to **GroupDocs.Search.Common.SearchImage** class.
 
-Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.IndexingOptions** class.
-Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.TextOptions** class.
+Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.IndexingOptions** class.  
+Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.TextOptions** class.  
 Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.UpdateOptions** class.
 
 Event **System.EventHandler<GroupDocs.Search.Events.ImagePreparingEventArgs> ImagePreparing** has been added to **GroupDocs.Search.Events.EventHub** class.
@@ -136,33 +136,33 @@ The separate data extraction functionality provides the ability to separately ex
 
 ##### Public API changes
 
-Class **ExtractedData** has been added to **GroupDocs.Search.Common** namespace.
-Method **GroupDocs.Search.Common.ExtractedData Deserialize(Byte[])** has been added to **GroupDocs.Search.Common.ExtractedData** class.
+Class **ExtractedData** has been added to **GroupDocs.Search.Common** namespace.  
+Method **GroupDocs.Search.Common.ExtractedData Deserialize(Byte[])** has been added to **GroupDocs.Search.Common.ExtractedData** class.  
 Method **Byte[] Serialize()** has been added to **GroupDocs.Search.Common.ExtractedData** class.
 
-Class **ExtractionOptions** has been added to **GroupDocs.Search.Options** namespace.
-Property **GroupDocs.Search.Common.IFieldExtractor CustomExtractor** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.
-Property **System.String Encoding** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.
-Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.
-Property **GroupDocs.Search.Options.MetadataIndexingOptions MetadataIndexingOptions** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.
-Property **GroupDocs.Search.Options.OcrIndexingOptions OcrIndexingOptions** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.
+Class **ExtractionOptions** has been added to **GroupDocs.Search.Options** namespace.  
+Property **GroupDocs.Search.Common.IFieldExtractor CustomExtractor** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.  
+Property **System.String Encoding** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.  
+Property **GroupDocs.Search.Options.ImageIndexingOptions ImageIndexingOptions** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.  
+Property **GroupDocs.Search.Options.MetadataIndexingOptions MetadataIndexingOptions** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.  
+Property **GroupDocs.Search.Options.OcrIndexingOptions OcrIndexingOptions** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.  
 Property **Boolean UseRawTextExtraction** has been added to **GroupDocs.Search.Options.ExtractionOptions** class.
 
-Class **ExtractorSettings** has been added to **GroupDocs.Search.Common** namespace.
+Class **ExtractorSettings** has been added to **GroupDocs.Search.Common** namespace.  
 Property **GroupDocs.Search.Options.IndexType IndexType** has been added to **GroupDocs.Search.Common.ExtractorSettings** class.
 
-Class **Extractor** has been added to **GroupDocs.Search** namespace.
-Event **System.EventHandler<GroupDocs.Search.Events.IndexErrorEventArgs> ErrorOccurred** has been added to **GroupDocs.Search.Extractor** class.
-Method **GroupDocs.Search.Common.ExtractedData Extract(GroupDocs.Search.Common.Document, GroupDocs.Search.Options.ExtractionOptions)** has been added to **GroupDocs.Search.Extractor** class.
-Event **System.EventHandler<GroupDocs.Search.Events.ImagePreparingEventArgs> ImagePreparing** has been added to **GroupDocs.Search.Extractor** class.
-Event **System.EventHandler<GroupDocs.Search.Events.PasswordRequiredEventArgs> PasswordRequired** has been added to **GroupDocs.Search.Extractor** class.
+Class **Extractor** has been added to **GroupDocs.Search** namespace.  
+Event **System.EventHandler<GroupDocs.Search.Events.IndexErrorEventArgs> ErrorOccurred** has been added to **GroupDocs.Search.Extractor** class.  
+Method **GroupDocs.Search.Common.ExtractedData Extract(GroupDocs.Search.Common.Document, GroupDocs.Search.Options.ExtractionOptions)** has been added to **GroupDocs.Search.Extractor** class.  
+Event **System.EventHandler<GroupDocs.Search.Events.ImagePreparingEventArgs> ImagePreparing** has been added to **GroupDocs.Search.Extractor** class.  
+Event **System.EventHandler<GroupDocs.Search.Events.PasswordRequiredEventArgs> PasswordRequired** has been added to **GroupDocs.Search.Extractor** class.  
 Property **GroupDocs.Search.Common.ExtractorSettings Settings** has been added to **GroupDocs.Search.Extractor** class.
 
 Property **System.String[] InnerPathParts** has been added to **GroupDocs.Search.Results.DocumentInfo** class.
 
 Field **GroupDocs.Search.Common.DocumentSourceKind ExtractedData** has been added to **GroupDocs.Search.Common.DocumentSourceKind** enum.
 
-Property **Int32 SegmentCount** has been added to **GroupDocs.Search.Common.IndexInfo** class.
+Property **Int32 SegmentCount** has been added to **GroupDocs.Search.Common.IndexInfo** class.  
 Property **Int32 TermCount** has been added to **GroupDocs.Search.Common.IndexInfo** class.
 
 Method **Void Add(GroupDocs.Search.Common.ExtractedData[], GroupDocs.Search.Options.IndexingOptions)** has been added to **GroupDocs.Search.Index** class.
