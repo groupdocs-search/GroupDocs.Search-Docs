@@ -28,7 +28,7 @@ Follow these steps to reference GroupDocs.Search using Package Manager GUI:
 *   Click the Install button to install the latest version of the API into your project as shown in the following screenshot.
     
 
-![](search/net/images/installation.png)
+![](/search/net/images/installation.png)
 
 #### Using Package Manager Console
 
@@ -43,7 +43,7 @@ You can follow the steps below to reference GroupDocs.Search for .NET using the
       
     
 
-![](search/net/images/installation_1.png)
+![](/search/net/images/installation_1.png)
 
 ## Install from official GroupDocs website
 

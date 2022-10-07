@@ -9,7 +9,7 @@ productName: GroupDocs.Search for .NET
 hideChildren: True
 ---
 {{< alert style="info" >}}
-![](search/net/images/home.png) **Welcome to the GroupDocs.Search for .NET**  
+![](/search/net/images/home.png) **Welcome to the GroupDocs.Search for .NET**  
 GroupDocs.Search for .NET is a fascinating document search API. It extracts text and metadata from documents and performs advanced searching and indexing operations on the basis of fuzzy and synonym algorithms. API also supports full-text search. Information retrieval on the basis of full-text search is based on indexes. All documents having at least one match in phrases, para or words will be listed as a result. 
 {{< /alert >}}
 

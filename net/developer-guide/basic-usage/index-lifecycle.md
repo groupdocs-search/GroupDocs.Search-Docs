@@ -12,7 +12,7 @@ The life cycle of an index begins at the moment of creating an instance of the I
 
 Please note that the index life cycle does not consider the events of loading and unloading the index from RAM. At each stage of existence, the index can be loaded and unloaded from memory several times.
 
-![](search/net/images/index-lifecycle.png)
+![](/search/net/images/index-lifecycle.png)
 
 After creation a new index, it is in the Empty state.
 

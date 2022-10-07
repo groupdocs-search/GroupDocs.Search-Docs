@@ -42,7 +42,7 @@ The complete examples package of **GroupDocs.Search** is hosted on [GitHub](h
 
 In case you download the ZIP file, extract the folders on your local disk. The extracted files and folders will look like following image:
 
-![](search/net/images/how-to-run-examples.jpg)
+![](/search/net/images/how-to-run-examples.jpg)
 
 In extracted files and folders, you can find the following solution file:
 
@@ -52,7 +52,7 @@ The project is created in **Microsoft Visual Studio 2012**. The **Data** fol
 
 To run the examples, open the solution file in Visual Studio and build the project. To add missing references for **GroupDocs.Search** see [Installation]({{< ref "search/net/getting-started/installation.md" >}}). All the functions are called from **Program.cs**. Un-comment the function you want to run and comment the rest.
 
-![](search/net/images/how-to-run-examples_1.jpg)
+![](/search/net/images/how-to-run-examples_1.jpg)
 
 ## Contribute
 
