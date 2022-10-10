@@ -35,7 +35,7 @@ There are the following features, enhancements, and fixes in this release:
 
 ### Implement reverse image search functionality
 
-The reverse image search functionality provides the ability to search for similar images in archives, documents, and individual files.
+The reverse image search functionality provides the ability to search for similar images in archives, documents, and individual files. For more information, see the [Reverse image search](https://docs.groupdocs.com/search/net/reverse-image-search/) documentation page.
 
 ##### Public API changes
 

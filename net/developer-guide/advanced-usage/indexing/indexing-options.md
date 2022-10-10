@@ -130,11 +130,20 @@ index.Add(documentFolder, options);
 
 ## OcrIndexingOptions property
 
-The [OcrIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/ocrindexingoptions) property is represented by an object of the [OcrIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
+The [OcrIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/ocrindexingoptions) property is represented by an object of the [OcrIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
 
 * The [EnabledForSeparateImages](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to recognize text in separate image files. The default value is false.
 * The [EnabledForEmbeddedImages](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to recognize text in embedded images. The default value is false.
+* The [EnabledForContainerItemImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/properties/enabledforcontaineritemimages) property sets a value indicating whether to recognize text in images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
 * The [OcrConnector](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/ocrconnector) property sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used.
+
+## ImageIndexingOptions property
+
+The [ImageIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/imageindexingoptions) property is represented by an object of the [ImageIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions) class. This class provides image indexing options for reverse image search:
+
+* The [EnabledForSeparateImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to index separate image files. The default value is false.
+* The [EnabledForEmbeddedImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforembeddedimages) property sets a value value indicating whether to index embedded images (for example, images in a DOCX document). The default value is false.
+* The [EnabledForContainerItemImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforcontaineritemimages) property sets a value value indicating whether to index images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
 
 ## More resources
 
