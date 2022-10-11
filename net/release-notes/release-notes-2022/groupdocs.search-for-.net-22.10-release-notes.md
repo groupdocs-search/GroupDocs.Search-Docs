@@ -132,7 +132,7 @@ for (int i = 0; i < result.ImageCount; i++)
 
 ### Implement separate data extraction and indexing
 
-The separate data extraction functionality provides the ability to separately extract data from documents and add the extracted data to an index. In this case, between the stages of extraction and indexing, the extracted data can be serialized to an array of bytes and vice versa. This may be required, for example, for network transmission between search engine servers.
+The separate data extraction functionality provides the ability to separately extract data from documents and add the extracted data to an index. In this case, between the stages of extraction and indexing, the extracted data can be serialized to an array of bytes and vice versa. This may be required, for example, for network transmission between search engine servers. For more information, see the [Separate data extraction](https://docs.groupdocs.com/search/net/separate-data-extraction/) documentation page.
 
 ##### Public API changes
 
@@ -169,7 +169,7 @@ Method **Void Add(GroupDocs.Search.Common.ExtractedData[], GroupDocs.Search.Opti
 
 ##### Use cases
 
-The following example demonstrates how to perform separate data extraction an indexing.
+The following example demonstrates how to perform separate data extraction and indexing.
 
 ```csharp
 string indexFolder = @"c:\MyIndex";

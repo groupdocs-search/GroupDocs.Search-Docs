@@ -16,15 +16,15 @@ The image search is performed by comparing the perceptual hash of the reference 
 In the GroupDocs.Search engine, reverse image search, like full-text search, consists of two stages: the indexing stage and the actual search stage.
 
 To search for images in the index, you must enable at least one of the flags in the options at the indexing stage:
-* EnabledForSeparateImages - for indexing images in separate files.
-* EnabledForEmbeddedImages - for indexing images embedded in various documents.
-* EnabledForContainerItemImages - for indexing images that are elements of container documents, such as ZIP archives, OST/PST storages.
+* EnabledForSeparateImages is for indexing images in separate files.
+* EnabledForEmbeddedImages is for indexing images embedded in various documents.
+* EnabledForContainerItemImages is for indexing images that are elements of container documents, such as ZIP archives, OST/PST storages.
 For more information, see the [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md" >}}) page.
 
 The following options are available during the search stage:
-* HashDifferences - sets the maximum number of different bits in the hashes of found images. This value ranges from 0 to 32.
-* MaxResultCount - sets the maximum number of found images.
-* SearchDocumentFilter - sets the filter for found documents.
+* HashDifferences sets the maximum number of different bits in the hashes of found images. This value ranges from 0 to 32.
+* MaxResultCount sets the maximum number of found images.
+* SearchDocumentFilter sets the filter for found documents.
 For more information, see the [Image search options]({{< ref "search/net/developer-guide/advanced-usage/searching/image-search-options.md" >}}) page.
 
 The following code example demonstrates all stages of the reverse image search:

@@ -226,6 +226,32 @@ options.UseHomophoneSearch = true;
 SearchResult result = index.Search("Einstein", options);
 ```
 
+## ImagePreparing event
+
+The [ImagePreparing](https://apireference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/imagepreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+// Creating an index
+Index index = new Index(indexFolder);
+
+// Subscribing to the event
+index.Events.ImagePreparing += (sender, args) =>
+{
+    Console.WriteLine("Document: " + args.DocumentKey);
+    Console.WriteLine("Image inner path: " + string.Join("/", args.InnerPath));
+    Console.WriteLine("Image index: " + args.ImageIndex);
+    Console.WriteLine("Image frames: " + args.ImageFrames.Length);
+};
+
+// Indexing files
+index.Add(documentsFolder);
+```
+
 ## More resources
 
 ### GitHub examples

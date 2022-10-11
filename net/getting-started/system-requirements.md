@@ -40,10 +40,6 @@ GroupDocs.Search for .NET  supports .NET frameworks as follows:
 
 ### .NET Frameworks
 
-*   .NET Framework 2.0
-*   .NET Framework 3.0
-*   .NET Framework 3.5
-*   .NET Framework 4.0
 *   .NET Framework 4.5
 *   .NET Framework 4.5.1
 *   .NET Framework 4.5.2
@@ -54,22 +50,19 @@ GroupDocs.Search for .NET  supports .NET frameworks as follows:
 *   .NET Framework 4.7.1
 *   .NET Framework 4.7.2
 *   .NET Framework 4.8
-*   .NET Standard 2.0 
-*   .NET Core 2.0
-*   .NET Core 2.1
-*   .NET Core 2.2
+*   .NET Standard 2.1
 *   .NET Core 3.0
 *   .NET Core 3.1
-*   .NET Core 5.0
+*   .NET 5.0
+*   .NET 6.0
 
 ## Development Environments
 
 GroupDocs.Search for .NET can be used to develop applications in any development environment that targets the .NET platform, but the following environments are explicitly supported:
 
-*   Microsoft Visual Studio 2010
-*   Microsoft Visual Studio 2011
 *   Microsoft Visual Studio 2012
 *   Microsoft Visual Studio 2013
 *   Microsoft Visual Studio 2015
 *   Microsoft Visual Studio 2017
 *   Microsoft Visual Studio 2019
+*   Microsoft Visual Studio 2022
