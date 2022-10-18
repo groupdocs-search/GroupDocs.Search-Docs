@@ -122,11 +122,20 @@ index.add(documentFolder, options);
 
 ## getOcrIndexingOptions method
 
-The [getOcrIndexingOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/IndexingOptions#getOcrIndexingOptions()) method returns an instance of the [OcrIndexingOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/OcrIndexingOptions) class. This class contains properties for setting OCR processing options:
+The [getOcrIndexingOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/IndexingOptions#getOcrIndexingOptions()) method returns an instance of the [OcrIndexingOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/OcrIndexingOptions) class. This class contains properties for setting OCR processing options:
 
 * The [setEnabledForSeparateImages](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/OcrIndexingOptions#setEnabledForSeparateImages(boolean)) method sets a value indicating whether to recognize text in separate image files. The default value is false.
 * The [setEnabledForEmbeddedImages](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/OcrIndexingOptions#setEnabledForEmbeddedImages(boolean)) method sets a value indicating whether to recognize text in embedded images. The default value is false.
+* The [setEnabledForContainerItemImages](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/OcrIndexingOptions#setEnabledForContainerItemImages(boolean)) method sets a value indicating whether to recognize text in images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
 * The [setOcrConnector](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/OcrIndexingOptions#setOcrConnector(com.groupdocs.search.options.IOcrConnector)) method sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used.
+
+## getImageIndexingOptions method
+
+The [getImageIndexingOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/IndexingOptions#getImageIndexingOptions()) method returns an instance of the [ImageIndexingOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/ImageIndexingOptions) class. This class provides image indexing options for reverse image search:
+
+* The [setEnabledForSeparateImages](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/ImageIndexingOptions#setEnabledForSeparateImages(boolean)) method sets a value indicating whether to index separate image files. The default value is false.
+* The [setEnabledForEmbeddedImages](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/ImageIndexingOptions#setEnabledForEmbeddedImages(boolean)) method sets a value indicating whether to index embedded images (for example, images in a DOCX document). The default value is false.
+* The [setEnabledForContainerItemImages](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/ImageIndexingOptions#setEnabledForContainerItemImages(boolean)) method sets a value indicating whether to index images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
 
 ## More resources
 

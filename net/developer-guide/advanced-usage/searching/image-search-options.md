@@ -14,11 +14,11 @@ This page contains a description of all search options that can be specified in 
 
 The [HashDifferences](https://apireference.groupdocs.com/net/search/groupdocs.search.options/imagesearchoptions/properties/hashdifferences) property allows you to specify the maximum number of mismatched bits in the image hash. If all the bits in the hash match, then the images match completely. The more different bits, the more the images differ from each other. The default value of the property is 5. The value must be in the range from 0 to 32.
 
-## MaxResultCount
+## MaxResultCount property
 
 The [MaxResultCount](https://apireference.groupdocs.com/net/search/groupdocs.search.options/imagesearchoptions/properties/maxresultcount) property allows you to specify the maximum number of found images for an image reverse search request. The default value is 1000.
 
-## SearchDocumentFilter
+## SearchDocumentFilter property
 
 The [SearchDocumentFilter](https://apireference.groupdocs.com/net/search/groupdocs.search.options/imagesearchoptions/properties/searchdocumentfilter) property allows you to specify the filter of documents returned as a search result. By default, all documents found will be returned as a search result. For details, see the [Document filtering in search result]({{< ref "search/net/developer-guide/advanced-usage/searching/document-filtering-in-search-result.md" >}}) page.
 

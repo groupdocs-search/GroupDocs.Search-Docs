@@ -220,6 +220,33 @@ options.setUseHomophoneSearch(true);
 SearchResult result = index.search("Einstein", options);
 ```
 
+## ImagePreparing event
+
+The [ImagePreparing](https://apireference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#ImagePreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
+
+
+
+```java
+String indexFolder = "c:\\MyIndex\\";
+String documentsFolder = "c:\\MyDocuments\\";
+
+// Creating an index
+Index index = new Index(indexFolder);
+
+// Subscribing to the event
+index.getEvents().ImagePreparing.add(new EventHandler<ImagePreparingEventArgs>() {
+    public void invoke(Object sender, ImagePreparingEventArgs args) {
+        System.out.println("Document: " + args.getDocumentKey());
+        System.out.println("Image inner path: " + String.join("/", args.getInnerPath()));
+        System.out.println("Image index: " + args.getImageIndex());
+        System.out.println("Image frames: " + args.getImageFrames().length);
+    }
+});
+
+// Indexing files
+index.add(documentsFolder);
+```
+
 ## More resources
 
 ### GitHub examples

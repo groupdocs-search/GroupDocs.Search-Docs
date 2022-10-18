@@ -3,7 +3,7 @@ id: search-options
 url: search/java/search-options
 title: Search options
 weight: 22
-description: "This article shows search options that can be specified in an instance of the SearchOptions."
+description: "This article describes the search options that can be specified in an instance of the SearchOptions class."
 keywords: Search options
 productName: GroupDocs.Search for Java
 hideChildren: False
