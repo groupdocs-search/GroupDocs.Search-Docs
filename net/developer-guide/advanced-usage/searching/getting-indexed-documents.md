@@ -3,12 +3,12 @@ id: getting-indexed-documents
 url: search/net/getting-indexed-documents
 title: Getting indexed documents
 weight: 7
-description: "This article gives the knowledge that how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML format."
+description: "This article explains how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML or plain text format."
 keywords: Getting indexed documents
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page contains a description of how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML format.
+This page contains a description of how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML or plain text format.
 
 ## Getting indexed documents
 
@@ -45,7 +45,7 @@ for (int i = 0; i < documents.Length; i++)
 
 The text of the indexed document can also be extracted from an index if the option to save the text of documents in the index has been enabled. If this option was not enabled when creating an index, then when the [GetDocumentText](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/getdocumenttext/index) method of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class is called, the text of the document will be retrieved again. Details about saving the text of documents in an index can be found on the page [Storing text of indexed documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents.md" >}}).
 
-The generated text of the document is passed to an object of a class derived from the abstract class [OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter) to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
+The generated text of the document is passed to an instance of a class derived from the abstract class [OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter). Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
 
 After generating the text of a document into a file, this file can be opened by an Internet browser. The following example shows how to extract document text from an index.
 
@@ -67,7 +67,7 @@ DocumentInfo[] documents = index.GetIndexedDocuments();
 // Getting a document text
 if (documents.Length > 0)
 {
-    FileOutputAdapter outputAdapter = new FileOutputAdapter(@"C:\Text.html");
+    FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @"C:\Text.html");
     index.GetDocumentText(documents[0], outputAdapter);
 }
 ```
