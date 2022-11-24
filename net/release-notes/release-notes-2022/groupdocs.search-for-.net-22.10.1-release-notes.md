@@ -27,7 +27,7 @@ There are the following features, enhancements, and fixes in this release:
 
 ### Fix serialization of the ExtractedData class
 
-This fix eliminates errors in the serialization of the [ExtractedData](https://apireference.groupdocs.com/search/net/groupdocs.search.common/extracteddata) class.
+This fix eliminates errors in the serialization of the [ExtractedData](https://reference.groupdocs.com/search/net/groupdocs.search.common/extracteddata) class.
 
 ##### Public API changes
 
