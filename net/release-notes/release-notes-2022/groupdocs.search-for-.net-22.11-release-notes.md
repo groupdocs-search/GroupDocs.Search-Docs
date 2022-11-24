@@ -99,25 +99,25 @@ This enhancement implements the ability to output the text of the document in pl
 
 ##### Public API changes
 
-Enum **OutputFormat** has been added to **GroupDocs.Search.Options** namespace.
-Field **GroupDocs.Search.Options.OutputFormat Html** has been added to **GroupDocs.Search.Options.OutputFormat** enum.
+Enum **OutputFormat** has been added to **GroupDocs.Search.Options** namespace.  
+Field **GroupDocs.Search.Options.OutputFormat Html** has been added to **GroupDocs.Search.Options.OutputFormat** enum.  
 Field **GroupDocs.Search.Options.OutputFormat PlainText** has been added to **GroupDocs.Search.Options.OutputFormat** enum.
 
-Class **DocumentHighlighter** has been added to **GroupDocs.Search.Highlighters** namespace.
-Constructor **DocumentHighlighter(GroupDocs.Search.Common.OutputAdapter)** has been added to **GroupDocs.Search.Highlighters.DocumentHighlighter** class.
+Class **DocumentHighlighter** has been added to **GroupDocs.Search.Highlighters** namespace.  
+Constructor **DocumentHighlighter(GroupDocs.Search.Common.OutputAdapter)** has been added to **GroupDocs.Search.Highlighters.DocumentHighlighter** class.  
 Property **GroupDocs.Search.Common.OutputAdapter OutputAdapter** has been added to **GroupDocs.Search.Highlighters.DocumentHighlighter** class.
 
-Class **FragmentHighlighter** has been added to **GroupDocs.Search.Highlighters** namespace.
-Constructor **FragmentHighlighter(GroupDocs.Search.Options.OutputFormat)** has been added to **GroupDocs.Search.Highlighters.FragmentHighlighter** class.
+Class **FragmentHighlighter** has been added to **GroupDocs.Search.Highlighters** namespace.  
+Constructor **FragmentHighlighter(GroupDocs.Search.Options.OutputFormat)** has been added to **GroupDocs.Search.Highlighters.FragmentHighlighter** class.  
 Method **GroupDocs.Search.Common.FragmentContainer[] GetResult()** has been added to **GroupDocs.Search.Highlighters.FragmentHighlighter** class.
 
-Property **System.String TermHighlightEndTag** has been added to **GroupDocs.Search.Options.HighlightOptions** class.
+Property **System.String TermHighlightEndTag** has been added to **GroupDocs.Search.Options.HighlightOptions** class.  
 Property **System.String TermHighlightStartTag** has been added to **GroupDocs.Search.Options.HighlightOptions** class.
 
 Property **GroupDocs.Search.Options.OutputFormat OutputFormat** has been added to **GroupDocs.Search.Common.ResultBuilderFactory** class.
 
-Constructor **FileOutputAdapter(GroupDocs.Search.Options.OutputFormat, System.String)** has been added to **GroupDocs.Search.Common.FileOutputAdapter** class.
-Constructor **StreamOutputAdapter(GroupDocs.Search.Options.OutputFormat, System.IO.Stream)** has been added to **GroupDocs.Search.Common.StreamOutputAdapter** class.
+Constructor **FileOutputAdapter(GroupDocs.Search.Options.OutputFormat, System.String)** has been added to **GroupDocs.Search.Common.FileOutputAdapter** class.  
+Constructor **StreamOutputAdapter(GroupDocs.Search.Options.OutputFormat, System.IO.Stream)** has been added to **GroupDocs.Search.Common.StreamOutputAdapter** class.  
 Constructor **StringOutputAdapter(GroupDocs.Search.Options.OutputFormat)** has been added to **GroupDocs.Search.Common.StringOutputAdapter** class.
 
 ##### Use cases
