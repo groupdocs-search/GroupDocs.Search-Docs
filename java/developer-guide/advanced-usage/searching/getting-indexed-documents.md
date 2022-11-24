@@ -3,12 +3,12 @@ id: getting-indexed-documents
 url: search/java/getting-indexed-documents
 title: Getting indexed documents
 weight: 7
-description:  "This article gives the knowledge that how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML format using Java search API."
+description:  "This article explains how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML or plain text format."
 keywords: Getting indexed documents
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-This page contains a description of how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML format.
+This page contains a description of how to get a list of indexed documents from an index, and how to get the text of indexed documents in HTML or plain text format.
 
 ## Getting indexed documents
 
@@ -41,7 +41,7 @@ for (DocumentInfo document : documents) {
 
 The text of the indexed document can also be extracted from an index if the option to save the text of documents in the index has been enabled. If this option was not enabled when creating an index, then when the [getDocumentText](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#getDocumentText(com.groupdocs.search.results.DocumentInfo,%20com.groupdocs.search.common.OutputAdapter)) method of the [Index](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index) class is called, the text of the document will be retrieved again. Details about saving the text of documents in an index can be found on the page [Storing text of indexed documents]({{< ref "search/java/developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents.md" >}}).
 
-The generated text of the document is passed to an object of a class derived from the abstract class [OutputAdapter](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/OutputAdapter) to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/java/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
+The generated text of the document is passed to an instance of a class derived from the abstract class [OutputAdapter](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/OutputAdapter). Details on the output adapters are presented on the page [Output adapters]({{< ref "search/java/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
 
 After generating the text of a document into a file, this file can be opened by an Internet browser. The following example shows how to extract document text from an index.
 
@@ -50,19 +50,19 @@ After generating the text of a document into a file, this file can be opened by 
 ```java
 String indexFolder = "c:\\MyIndex\\";
 String documentsFolder = "c:\\MyDocuments\\";
- 
+
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
- 
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Getting list of indexed documents
 DocumentInfo[] documents = index.getIndexedDocuments();
- 
+
 // Getting a document text
 if (documents.length > 0) {
-    FileOutputAdapter outputAdapter = new FileOutputAdapter("C:\\Text.html");
+    FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, "C:\\Text.html");
     index.getDocumentText(documents[0], outputAdapter);
 }
 ```
