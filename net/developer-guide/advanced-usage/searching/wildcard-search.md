@@ -38,7 +38,7 @@ SearchResult result1 = index.Search("m?rry"); // Search for 'merry', 'marry', et
 SearchResult result2 = index.Search("card?(1~6)"); // Search for 'cardiff', 'cardinal', 'cardio', 'cards', etc.
 ```
 
-To build a query for the wildcard search in object form, use the [WordPattern](https://apireference.groupdocs.com/net/search/groupdocs.search.common/wordpattern) class. This class contains methods for adding known parts of a word and wildcards to a template. An example of constructing a query in object form is presented below.
+To build a query for the wildcard search in object form, use the [WordPattern](https://reference.groupdocs.com/net/search/groupdocs.search.common/wordpattern) class. This class contains methods for adding known parts of a word and wildcards to a template. An example of constructing a query in object form is presented below.
 
 **C#**
 

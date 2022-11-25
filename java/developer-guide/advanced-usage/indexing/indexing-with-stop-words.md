@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Stop words are frequently used words that do not carry a semantic meaning and can be removed from an index to reduce its size.
 
-You can enable or disable the use of stop words by calling the [setUseStopWords](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setUseStopWords(boolean)) method of the [IndexSettings](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class. The default value is true, meaning that stop words are filtered during indexing and not added to the index.
+You can enable or disable the use of stop words by calling the [setUseStopWords](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setUseStopWords(boolean)) method of the [IndexSettings](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class. The default value is true, meaning that stop words are filtered during indexing and not added to the index.
 
 A list of stop words to use during indexing can be specified in the stop word dictionary. By default, the stop word dictionary is filled with the most widely used pronouns and prepositions of English and Russian. The list of stop words used can be easily replaced or supplemented and it is saved when the index is reloaded. For information on managing the stop word dictionary, see the [Stop word dictionary]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/stop-word-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 

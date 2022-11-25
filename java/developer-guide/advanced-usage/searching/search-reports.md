@@ -8,9 +8,9 @@ keywords: search reports
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-Each time you perform a search in an index, a report is generated for that search. An array of search reports can be obtained by calling [getSearchReports](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#getSearchReports()) method of the [Index](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index) class. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
+Each time you perform a search in an index, a report is generated for that search. An array of search reports can be obtained by calling [getSearchReports](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#getSearchReports()) method of the [Index](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index) class. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
 
-You can configure the maximum number of stored reports using the [setMaxSearchReportCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setMaxSearchReportCount(int)) method of the [IndexSettings](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class. The default value is 10. Learn more about index settings on the page [Search index settings]({{< ref "search/java/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
+You can configure the maximum number of stored reports using the [setMaxSearchReportCount](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setMaxSearchReportCount(int)) method of the [IndexSettings](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class. The default value is 10. Learn more about index settings on the page [Search index settings]({{< ref "search/java/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
 
 Each index search report contains the following information:
 

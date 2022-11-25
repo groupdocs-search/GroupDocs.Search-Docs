@@ -21,6 +21,6 @@ Following are the links to some useful resources you may need to accomplish your
 *   [GroupDocs.Search for .NET Release Notes]({{< ref "search/net/release-notes/_index.md" >}})
 *   [GroupDocs.Search for .NET Product Page](https://products.groupdocs.com/search/net)
 *   [install GroupDocs.Search for .NET NuGet Package](https://www.nuget.org/packages/GroupDocs.Search/)
-*   [GroupDocs.Search for .NET API Reference Guide](https://apireference.groupdocs.com/net/search)
+*   [GroupDocs.Search for .NET API Reference Guide](https://reference.groupdocs.com/net/search)
 *   [GroupDocs.Search for .NET Free Support Forum](https://forum.groupdocs.com/c/search)
 *   [GroupDocs.Search for .NET Paid Support Helpdesk](https://helpdesk.groupdocs.com/)

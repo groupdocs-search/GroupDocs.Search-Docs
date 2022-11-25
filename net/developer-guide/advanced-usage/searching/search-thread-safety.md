@@ -10,7 +10,7 @@ hideChildren: False
 ---
 ## Multiple simultaneous searches
 
-Search in an index is a thread safe operation. This means that calls to the [Search](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/search/index) and [SearchNext](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/searchnext/index) methods can be made from different threads to the same instance of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class without any cross-threading problems.
+Search in an index is a thread safe operation. This means that calls to the [Search](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/search/index) and [SearchNext](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/searchnext/index) methods can be made from different threads to the same instance of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class without any cross-threading problems.
 
 ## Search during indexing, updating, optimizing, or merging operation
 

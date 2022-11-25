@@ -8,19 +8,19 @@ keywords: Alphabets
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An instance of the [Alphabet](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet) class contains types of characters used for indexing. For detailed information on the types of characters, see the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) page.
+An instance of the [Alphabet](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet) class contains types of characters used for indexing. For detailed information on the types of characters, see the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) page.
 
-The [GetCharacterType](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/getcharactertype) method is used to get the type of a specific character.
+The [GetCharacterType](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/getcharactertype) method is used to get the type of a specific character.
 
-The [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/properties/count) property returns the number of characters of a type other than [CharacterType](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/charactertype).Separator.
+The [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/properties/count) property returns the number of characters of a type other than [CharacterType](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/charactertype).Separator.
 
-To set the type of characters in the alphabet, use the [SetRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/setrange) method.
+To set the type of characters in the alphabet, use the [SetRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/setrange) method.
 
-To set the [CharacterType](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/charactertype).Separator type for all characters in the alphabet, use the [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/clear) method.
+To set the [CharacterType](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/charactertype).Separator type for all characters in the alphabet, use the [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/clear) method.
 
-To export types of all characters to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export types of all characters to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import types of all characters from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import types of all characters from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of methods of the alphabet.
 

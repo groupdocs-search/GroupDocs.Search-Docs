@@ -12,15 +12,15 @@ Working with search results consists in obtaining information from objects of se
 
 ## Obtain search result information
 
-When a search is complete, the [Search](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/search/index) method returns an object of type [SearchResult](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult). This page describes the information available in an object of type [SearchResult](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult).
+When a search is complete, the [Search](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/search/index) method returns an object of type [SearchResult](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult). This page describes the information available in an object of type [SearchResult](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult).
 
-From the root object of the search result, information is available on the number of documents found, the number of occurrences of the words and phrases found, as well as detailed information on each individual document. Information about an individual document found is represented by an object of the class [FoundDocument](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument).
+From the root object of the search result, information is available on the number of documents found, the number of occurrences of the words and phrases found, as well as detailed information on each individual document. Information about an individual document found is represented by an object of the class [FoundDocument](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument).
 
-From the object of the class [FoundDocument](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument), information is available on the full path to the document, the number of occurrences, the words and phrases found, as well as detailed information on each field of the document. Information about the document field is represented by an object of the class [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield).
+From the object of the class [FoundDocument](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument), information is available on the full path to the document, the number of occurrences, the words and phrases found, as well as detailed information on each field of the document. Information about the document field is represented by an object of the class [FoundDocumentField](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield).
 
-From the object of the class [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield), information is available on the name of the document field, the number of occurrences, the words and phrases found, and the number of occurrences of each word and phrase.
+From the object of the class [FoundDocumentField](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield), information is available on the name of the document field, the number of occurrences, the words and phrases found, and the number of occurrences of each word and phrase.
 
-Below is a code example that writes to the console the detailed information contained in an object of the class [SearchResult](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult) about each document, document field, word, phrase and the number of their occurrences in the document fields.
+Below is a code example that writes to the console the detailed information contained in an object of the class [SearchResult](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult) about each document, document field, word, phrase and the number of their occurrences in the document fields.
 
 **C#**
 

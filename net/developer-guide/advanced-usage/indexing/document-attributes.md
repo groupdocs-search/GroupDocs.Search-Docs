@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Document attributes is a special feature designed for marking indexed documents with text labels without the need for re-indexing. Added attributes can be further used to filter documents during the search.
 
-To add and delete attributes of indexed documents, use the [ChangeAttributes](https://apireference.groupdocs.com/search/net/groupdocs.search/index/methods/changeattributes) method of the [Index](https://apireference.groupdocs.com/search/net/groupdocs.search/index) class. This method accepts an [AttributeChangeBatch](https://apireference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch) object containing the required attribute changes as a parameter.
+To add and delete attributes of indexed documents, use the [ChangeAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/changeattributes) method of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index) class. This method accepts an [AttributeChangeBatch](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch) object containing the required attribute changes as a parameter.
 
 The following example demonstrates how to add and remove attributes from indexed documents.
 
@@ -45,7 +45,7 @@ options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 SearchResult result = index.Search("Einstein", options);
 ```
 
-Attributes can be associated with documents during indexing using the [FileIndexing](https://apireference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/fileindexing) event. The following example demonstrates this.
+Attributes can be associated with documents during indexing using the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/fileindexing) event. The following example demonstrates this.
 
 **C#**
 

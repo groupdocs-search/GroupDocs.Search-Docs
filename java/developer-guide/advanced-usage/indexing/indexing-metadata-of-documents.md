@@ -8,7 +8,7 @@ keywords: metadata index, index only metadata
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-GroupDocs.Search allows creating of full-text and / or metadata index on documents. To index only metadata without main content of documents, you only need to set [IndexType.MetadataIndex](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/IndexType#MetadataIndex) when creating an index. The size of an index of this type will be very small.
+GroupDocs.Search allows creating of full-text and / or metadata index on documents. To index only metadata without main content of documents, you only need to set [IndexType.MetadataIndex](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/IndexType#MetadataIndex) when creating an index. The size of an index of this type will be very small.
 
 The following example demonstrates the creation of the metadata index.
 

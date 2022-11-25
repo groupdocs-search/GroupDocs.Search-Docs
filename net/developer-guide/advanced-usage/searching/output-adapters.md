@@ -10,10 +10,10 @@ hideChildren: False
 ---
 Output adapters are used to output generated HTML or plain text to various output objects. The following output adapters are currently supported:
 
-*   [FileOutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/fileoutputadapter) is an output adapter that is used to output text to a file. The path to a file is specified in the constructor of the adapter.
-*   [StreamOutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/streamoutputadapter) is an output adapter that is used to output text to a stream. The stream is specified in the constructor of the adapter.
-*   [StringOutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/stringoutputadapter) is an output adapter that is used to output text to a string. The resulting string can be accessed through the [GetResult](https://apireference.groupdocs.com/net/search/groupdocs.search.common/stringoutputadapter/methods/getresult) method of the adapter class.
-*   [StructureOutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/structureoutputadapter) is an output adapter that is used to output the text of each field of the document separately. The resulting array of fields can be accessed through the [GetResult](https://apireference.groupdocs.com/net/search/groupdocs.search.common/structureoutputadapter/methods/getresult) method of the adapter class.
+*   [FileOutputAdapter](https://reference.groupdocs.com/net/search/groupdocs.search.common/fileoutputadapter) is an output adapter that is used to output text to a file. The path to a file is specified in the constructor of the adapter.
+*   [StreamOutputAdapter](https://reference.groupdocs.com/net/search/groupdocs.search.common/streamoutputadapter) is an output adapter that is used to output text to a stream. The stream is specified in the constructor of the adapter.
+*   [StringOutputAdapter](https://reference.groupdocs.com/net/search/groupdocs.search.common/stringoutputadapter) is an output adapter that is used to output text to a string. The resulting string can be accessed through the [GetResult](https://reference.groupdocs.com/net/search/groupdocs.search.common/stringoutputadapter/methods/getresult) method of the adapter class.
+*   [StructureOutputAdapter](https://reference.groupdocs.com/net/search/groupdocs.search.common/structureoutputadapter) is an output adapter that is used to output the text of each field of the document separately. The resulting array of fields can be accessed through the [GetResult](https://reference.groupdocs.com/net/search/groupdocs.search.common/structureoutputadapter/methods/getresult) method of the adapter class.
 
 The example below demonstates how to use adapters of different types.
 

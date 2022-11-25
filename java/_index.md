@@ -21,6 +21,6 @@ Following are the links to some useful resources you may need to accomplish your
 *   [GroupDocs.Search for Java Release Notes]({{< ref "search/java/release-notes/_index.md" >}})
 *   [GroupDocs.Search for Java Product Page](https://products.groupdocs.com/search/java)
 *   [Download GroupDocs.Search for Java](https://artifact.groupdocs.com/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-search)
-*   [GroupDocs.Search for Java API Reference Guide](https://apireference.groupdocs.com/java/search)
+*   [GroupDocs.Search for Java API Reference Guide](https://reference.groupdocs.com/java/search)
 *   [GroupDocs.Search for Java Free Support Forum](https://forum.groupdocs.com/c/search)
 *   [GroupDocs.Search for Java Paid Support Helpdesk](https://helpdesk.groupdocs.com/)

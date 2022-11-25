@@ -8,7 +8,7 @@ keywords: combine several indexes, searching all indexes at once, searching all 
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [IndexRepository](https://apireference.groupdocs.com/net/search/groupdocs.search/indexrepository) class can be used to combine several indexes into a group for searching all indexes at once. In addition, a single call to the [Update](https://apireference.groupdocs.com/net/search/groupdocs.search/indexrepository/methods/update/index) method can update all indexes in the repository. And also the index repository serves as an event hub for all indexes in it. That is, you can subscribe to any events available for the index also through the index repository. However, note that indexing documents is performed separately for each index.
+The [IndexRepository](https://reference.groupdocs.com/net/search/groupdocs.search/indexrepository) class can be used to combine several indexes into a group for searching all indexes at once. In addition, a single call to the [Update](https://reference.groupdocs.com/net/search/groupdocs.search/indexrepository/methods/update/index) method can update all indexes in the repository. And also the index repository serves as an event hub for all indexes in it. That is, you can subscribe to any events available for the index also through the index repository. However, note that indexing documents is performed separately for each index.
 
 To start using the index repository, indexes must be created or loaded and added to an instance of the index repository. Examples of creating and adding indexes to the repository are presented below.
 

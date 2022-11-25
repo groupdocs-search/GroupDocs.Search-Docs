@@ -8,7 +8,7 @@ keywords: detect encoding of a text file, detect encoding
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-To automatically detect the encoding of a text file, the [setAutoDetectEncoding](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setAutoDetectEncoding(boolean)) method defined in the [IndexSettings](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class can be used. Passing the true value as an argument to this method allows to detect the following encodings:
+To automatically detect the encoding of a text file, the [setAutoDetectEncoding](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setAutoDetectEncoding(boolean)) method defined in the [IndexSettings](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class can be used. Passing the true value as an argument to this method allows to detect the following encodings:
 
 *   UTF-32 LE,
 *   UTF-32 BE,
@@ -18,7 +18,7 @@ To automatically detect the encoding of a text file, the [setAutoDetectEncoding
 *   UTF-7,
 *   ANSI.
 
-By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://apireference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#FileIndexing) event is raised. If the encoding of a text file has not been detected or specified in the event arguments, then the default encoding, UTF-8, is used. Available encodings are presented in the [Encodings](https://apireference.groupdocs.com/search/java/com.groupdocs.search.common/Encodings) class. When the encoding of a text file is detected and used for indexing, it is saved in the index to use in such methods of [Index](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index) class like [highlight](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#highlight(com.groupdocs.search.results.FoundDocument,%20com.groupdocs.search.highlighters.Highlighter)) and [getDocumentText](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#getDocumentText(com.groupdocs.search.results.DocumentInfo,%20com.groupdocs.search.common.OutputAdapter)).
+By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://reference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#FileIndexing) event is raised. If the encoding of a text file has not been detected or specified in the event arguments, then the default encoding, UTF-8, is used. Available encodings are presented in the [Encodings](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/Encodings) class. When the encoding of a text file is detected and used for indexing, it is saved in the index to use in such methods of [Index](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index) class like [highlight](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#highlight(com.groupdocs.search.results.FoundDocument,%20com.groupdocs.search.highlighters.Highlighter)) and [getDocumentText](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#getDocumentText(com.groupdocs.search.results.DocumentInfo,%20com.groupdocs.search.common.OutputAdapter)).
 
 The example below shows how to set encoding of a text during indexing.
 

@@ -8,23 +8,23 @@ keywords: Character replacements
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-An instance of the [CharacterReplacementDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary) class contains all the character replacements defined in an index. For detailed information on character replacement, see the [Character replacement during Indexing]({{< ref "search/java/developer-guide/advanced-usage/indexing/character-replacement-during-indexing.md" >}}) page.
+An instance of the [CharacterReplacementDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary) class contains all the character replacements defined in an index. For detailed information on character replacement, see the [Character replacement during Indexing]({{< ref "search/java/developer-guide/advanced-usage/indexing/character-replacement-during-indexing.md" >}}) page.
 
-The [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#getCount()) method allows you to get the number of character replacements defined in the dictionary.
+The [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#getCount()) method allows you to get the number of character replacements defined in the dictionary.
 
-To add character replacements to the dictionary, use the [addRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#addRange(com.groupdocs.search.dictionaries.CharacterReplacementPair%5B%5D)) method.
+To add character replacements to the dictionary, use the [addRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#addRange(com.groupdocs.search.dictionaries.CharacterReplacementPair%5B%5D)) method.
 
-To remove character replacements from the dictionary, the [removeRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#removeRange(char%5B%5D)) method is used.
+To remove character replacements from the dictionary, the [removeRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#removeRange(char%5B%5D)) method is used.
 
-The [contains](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#contains(char)) method is used to determine if the dictionary contains a replacement for the specified character.
+The [contains](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#contains(char)) method is used to determine if the dictionary contains a replacement for the specified character.
 
-To get a replacement for the specified character, use the [getReplacement](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#getReplacement(char)) method.
+To get a replacement for the specified character, use the [getReplacement](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#getReplacement(char)) method.
 
-To remove all replacements from the dictionary, use the [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#clear()) method.
+To remove all replacements from the dictionary, use the [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterReplacementDictionary#clear()) method.
 
-To export all replacements to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export all replacements to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import character replacements from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import character replacements from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of the character replacement dictionary methods.
 

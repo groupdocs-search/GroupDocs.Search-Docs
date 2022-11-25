@@ -8,23 +8,23 @@ keywords: Homophone dictionary
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The [HomophoneDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary) class is designed to store homophones in an index. For information on searching using homophones, see the [Homophone search]({{< ref "search/java/developer-guide/advanced-usage/searching/homophone-search.md" >}}) page.
+The [HomophoneDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary) class is designed to store homophones in an index. For information on searching using homophones, see the [Homophone search]({{< ref "search/java/developer-guide/advanced-usage/searching/homophone-search.md" >}}) page.
 
-To get the number of homophones in the dictionary, use the [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getCount()) method.
+To get the number of homophones in the dictionary, use the [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getCount()) method.
 
-To add groups of homophones to the dictionary, use the [addRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#addRange(java.lang.Iterable)) method.
+To add groups of homophones to the dictionary, use the [addRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#addRange(java.lang.Iterable)) method.
 
-The [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#clear()) method is used to remove all homophones from the dictionary.
+The [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#clear()) method is used to remove all homophones from the dictionary.
 
-The [getHomophones](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getHomophones(java.lang.String)) method is used to get a list of synonyms for a given word.
+The [getHomophones](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getHomophones(java.lang.String)) method is used to get a list of synonyms for a given word.
 
-The [getHomophoneGroups](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getHomophoneGroups(java.lang.String)) method is used to get all synonym groups to which a given word belongs.
+The [getHomophoneGroups](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getHomophoneGroups(java.lang.String)) method is used to get all synonym groups to which a given word belongs.
 
-To get all synonym groups from the dictionary, use the [getAllHomophoneGroups](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getAllHomophoneGroups()) method.
+To get all synonym groups from the dictionary, use the [getAllHomophoneGroups](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/HomophoneDictionary#getAllHomophoneGroups()) method.
 
-To export homophones to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export homophones to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import homophones from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import homophones from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the homophone dictionary.
 

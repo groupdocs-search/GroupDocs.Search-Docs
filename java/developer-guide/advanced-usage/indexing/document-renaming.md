@@ -10,9 +10,9 @@ hideChildren: False
 ---
 Sometimes a situation arises when an indexed document is renamed, but its contents have not changed. In this case, to save computing resources, you can notify the index about the renaming of the document, and then the document will not be reindexed during the update operation.
 
-To notify an index about renaming a document, the [notifyIndex](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#notifyIndex(com.groupdocs.search.Notification)) method is used with the corresponding notification object as a parameter.
+To notify an index about renaming a document, the [notifyIndex](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#notifyIndex(com.groupdocs.search.Notification)) method is used with the corresponding notification object as a parameter.
 
-You should keep in mind that if an index is notified of the renaming of a document, it will not be reindexed the next time you call the [update](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#update()) method, even if its contents have changed. The following example demonstrates how to notify an index of a renamed document.
+You should keep in mind that if an index is notified of the renaming of a document, it will not be reindexed the next time you call the [update](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#update()) method, even if its contents have changed. The following example demonstrates how to notify an index of a renamed document.
 
 
 

@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Sometimes when indexing, it is necessary to associate each document with certain additional metadata, for example, a set of tags, a number in the library catalog, the subject of a document, etc. To accomplish this task, additional fields can be added to each indexed document in addition to those already in the document itself.
 
-Additional fields are associated with the document through the arguments of the [FileIndexing](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event that occurs before indexing each added document. When adding each field, its name and contents are specified. The name of the added field can match the names of other added fields or fields of the document itself. During the search inside the fields with the same name, coincidences with the text of all fields with the specified name will be taken into account.
+Additional fields are associated with the document through the arguments of the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event that occurs before indexing each added document. When adding each field, its name and contents are specified. The name of the added field can match the names of other added fields or fields of the document itself. During the search inside the fields with the same name, coincidences with the text of all fields with the specified name will be taken into account.
 
 The example below demonstrates the associating of additional fields with documents during indexing.
 

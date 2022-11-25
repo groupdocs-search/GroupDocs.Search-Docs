@@ -10,7 +10,7 @@ hideChildren: False
 ---
 When entering search queries, users of your software may make input errors, forgetting to switch the desired keyboard layout. For example, entering the word 'Einstein' in the Russian keyboard layout will result in the word 'Уштыеушт' appearing.
 
-To automatically fix such misprints, the keyboard layout correction feature can be used. To enable this feature, you must pass the true value as an argument to the [setEnabled](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/KeyboardLayoutCorrectorOptions#setEnabled(boolean)) method in the search options. By default, this feature is disabled.
+To automatically fix such misprints, the keyboard layout correction feature can be used. To enable this feature, you must pass the true value as an argument to the [setEnabled](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/KeyboardLayoutCorrectorOptions#setEnabled(boolean)) method in the search options. By default, this feature is disabled.
 
 The following example demonstrates using of the keyboard layout correction feature.
 

@@ -8,9 +8,9 @@ keywords:
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-Indexing reports are created for indexing and updating operations. Indexing reports can be retrieved from the index using the [getIndexingReports](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#getIndexingReports()) method. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
+Indexing reports are created for indexing and updating operations. Indexing reports can be retrieved from the index using the [getIndexingReports](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#getIndexingReports()) method. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
 
-You can configure the maximum number of stored reports using the [setMaxIndexingReportCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setMaxIndexingReportCount(int)) method of the [IndexSettings](https://apireference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class. The default value is 5. Learn more about index settings on the page [Search index settings]({{< ref "search/java/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
+You can configure the maximum number of stored reports using the [setMaxIndexingReportCount](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings#setMaxIndexingReportCount(int)) method of the [IndexSettings](https://reference.groupdocs.com/search/java/com.groupdocs.search/IndexSettings) class. The default value is 5. Learn more about index settings on the page [Search index settings]({{< ref "search/java/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
 
 Each index report contains the following information:
 

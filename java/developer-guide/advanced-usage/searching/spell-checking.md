@@ -8,7 +8,7 @@ keywords: Spell checking
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-During the search, a search query can be checked for spelling errors in words. To enable spelling correction in search queries, the [setEnabled](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setEnabled(boolean)) method of the spelling corrector options is called with the true value as an argument. By default, the spelling correction is disabled.
+During the search, a search query can be checked for spelling errors in words. To enable spelling correction in search queries, the [setEnabled](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setEnabled(boolean)) method of the spelling corrector options is called with the true value as an argument. By default, the spelling correction is disabled.
 
 The spelling corrector considers the following types of misprints: adding a character, deleting a character, replacing a character, and, optionally, transposing two adjacent characters.
 
@@ -16,10 +16,10 @@ By default, the spelling corrector dictionary contains only English words. To ma
 
 The spelling corrector options class contains the following options:
 
-*   [setMaxMistakeCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setMaxMistakeCount(int)) sets the maximum number of mistakes possible in each word of a search query. The default value is 2.
-*   [setOnlyBestResults](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setOnlyBestResults(boolean)) sets a value indicating whether only the best results will be returned by the spelling corrector. The default value is false.
-*   [setOnlyBestResultsRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setOnlyBestResultsRange(byte)) sets the maximum exceeding of the minimum number of mistakes that are found by the spelling corrector. The default value is 0.
-*   [setConsiderTranspositions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setConsiderTranspositions(boolean)) sets a value indicating whether the spelling corrector must consider transposition of two adjacent characters as a single mistake (true) or two mistakes (false). The default value is true.
+*   [setMaxMistakeCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setMaxMistakeCount(int)) sets the maximum number of mistakes possible in each word of a search query. The default value is 2.
+*   [setOnlyBestResults](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setOnlyBestResults(boolean)) sets a value indicating whether only the best results will be returned by the spelling corrector. The default value is false.
+*   [setOnlyBestResultsRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setOnlyBestResultsRange(byte)) sets the maximum exceeding of the minimum number of mistakes that are found by the spelling corrector. The default value is 0.
+*   [setConsiderTranspositions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SpellingCorrectorOptions#setConsiderTranspositions(boolean)) sets a value indicating whether the spelling corrector must consider transposition of two adjacent characters as a single mistake (true) or two mistakes (false). The default value is true.
 
 The following example shows how to perform a search using the spelling correction.
 

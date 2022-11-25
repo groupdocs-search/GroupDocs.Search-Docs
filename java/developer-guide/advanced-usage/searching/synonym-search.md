@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Synonym search allows you to find not only the words specified in the search query, but also the synonyms, words that means the same.
 
-To enable synonym search, you must call the [setUseSynonymSearch](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setUseSynonymSearch(boolean)) method of the [SearchOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class with the true value as an argument. By default, synonym search is disabled.
+To enable synonym search, you must call the [setUseSynonymSearch](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setUseSynonymSearch(boolean)) method of the [SearchOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class with the true value as an argument. By default, synonym search is disabled.
 
 The default synonym dictionary contains synonyms only for the English language. To manage the synonym dictionary, see the [Synonym dictionary]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 

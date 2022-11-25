@@ -8,18 +8,18 @@ keywords: Spell checking
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-During the search, a search query can be checked for spelling errors in words. To enable spelling correction in search queries, the [Enabled](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/enabled) property of the spelling corrector options is set to true. By default, the spelling correction is disabled.
+During the search, a search query can be checked for spelling errors in words. To enable spelling correction in search queries, the [Enabled](https://reference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/enabled) property of the spelling corrector options is set to true. By default, the spelling correction is disabled.
 
 The spelling corrector considers the following types of misprints: adding a character, deleting a character, replacing a character, and, optionally, transposing two adjacent characters.
 
 By default, the spelling corrector dictionary contains only English words. To manage the spelling corrector dictionary, see the [Spelling corrector]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/spelling-corrector.md" >}}) page of the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
-The [SpellingCorrectorOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions) class contains the following properties:
+The [SpellingCorrectorOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions) class contains the following properties:
 
-*   [MaxMistakeCount](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/maxmistakecount) is the maximum number of mistakes possible in each word of a search query. The default value is 2.
-*   [OnlyBestResults](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/onlybestresults) is a value indicating whether only the best results will be returned by the spelling corrector. The default value is false.
-*   [OnlyBestResultsRange](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/onlybestresultsrange) is the maximum exceeding of the minimum number of mistakes that are found by the spelling corrector. The default value is 0.
-*   [ConsiderTranspositions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/considertranspositions) is a value indicating whether the spelling corrector must consider transposition of two adjacent characters as a single mistake (true) or two mistakes (false). The default value is true.
+*   [MaxMistakeCount](https://reference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/maxmistakecount) is the maximum number of mistakes possible in each word of a search query. The default value is 2.
+*   [OnlyBestResults](https://reference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/onlybestresults) is a value indicating whether only the best results will be returned by the spelling corrector. The default value is false.
+*   [OnlyBestResultsRange](https://reference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/onlybestresultsrange) is the maximum exceeding of the minimum number of mistakes that are found by the spelling corrector. The default value is 0.
+*   [ConsiderTranspositions](https://reference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions/properties/considertranspositions) is a value indicating whether the spelling corrector must consider transposition of two adjacent characters as a single mistake (true) or two mistakes (false). The default value is true.
 
 The following example shows how to perform a search using the spelling correction.
 

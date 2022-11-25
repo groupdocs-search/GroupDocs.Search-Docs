@@ -8,7 +8,7 @@ keywords: search api
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The [getSupportedFileTypes](https://apireference.groupdocs.com/search/java/com.groupdocs.search.results/FileType#getSupportedFileTypes()) method of the [FileType](https://apireference.groupdocs.com/search/java/com.groupdocs.search.results/FileType) class is used to obtain a list of supported file types.
+The [getSupportedFileTypes](https://reference.groupdocs.com/search/java/com.groupdocs.search.results/FileType#getSupportedFileTypes()) method of the [FileType](https://reference.groupdocs.com/search/java/com.groupdocs.search.results/FileType) class is used to obtain a list of supported file types.
 
 An example of obtaining a list of supported file types is presented below.
 

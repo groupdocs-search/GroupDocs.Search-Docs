@@ -10,9 +10,9 @@ hideChildren: False
 ---
 Output adapters are used to output generated HTML text to various output objects. The following output adapters are currently supported:
 
-*   [FileOutputAdapter](https://apireference.groupdocs.com/search/java/com.groupdocs.search.common/FileOutputAdapter) is an output adapter that is used to output text to a file. The path to a file is specified in the constructor of the adapter.
-*   [StreamOutputAdapter](https://apireference.groupdocs.com/search/java/com.groupdocs.search.common/StreamOutputAdapter) is an output adapter that is used to output text to a stream. The stream is specified in the constructor of the adapter.
-*   [StringOutputAdapter](https://apireference.groupdocs.com/search/java/com.groupdocs.search.common/StringOutputAdapter) is an output adapter that is used to output text to a string. The resulting string can be accessed through the [getResult](https://apireference.groupdocs.com/search/java/com.groupdocs.search.common/StringOutputAdapter#getResult()) method of the adapter class.
+*   [FileOutputAdapter](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/FileOutputAdapter) is an output adapter that is used to output text to a file. The path to a file is specified in the constructor of the adapter.
+*   [StreamOutputAdapter](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/StreamOutputAdapter) is an output adapter that is used to output text to a stream. The stream is specified in the constructor of the adapter.
+*   [StringOutputAdapter](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/StringOutputAdapter) is an output adapter that is used to output text to a string. The resulting string can be accessed through the [getResult](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/StringOutputAdapter#getResult()) method of the adapter class.
 
 The example below demonstates how to use adapters of different types.
 

@@ -8,23 +8,23 @@ keywords: synonym dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [SynonymDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page.
+The [SynonymDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page.
 
-To get the number of synonyms in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/properties/count) property.
+To get the number of synonyms in the dictionary, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/properties/count) property.
 
-To add groups of synonyms to the dictionary, use the [AddRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/addrange/index) method.
+To add groups of synonyms to the dictionary, use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/addrange/index) method.
 
-The [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/clear) method is used to remove all synonyms from the dictionary.
+The [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/clear) method is used to remove all synonyms from the dictionary.
 
-The [GetSynonyms](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getsynonyms) method is used to get a list of synonyms for a given word.
+The [GetSynonyms](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getsynonyms) method is used to get a list of synonyms for a given word.
 
-The [GetSynonymGroups](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getsynonymgroups) method is used to get all synonym groups to which a given word belongs.
+The [GetSynonymGroups](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getsynonymgroups) method is used to get all synonym groups to which a given word belongs.
 
-To get all synonym groups from the dictionary, use the [GetAllSynonymGroups](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getallsynonymgroups) method.
+To get all synonym groups from the dictionary, use the [GetAllSynonymGroups](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getallsynonymgroups) method.
 
-To export synonyms to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export synonyms to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import synonyms from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import synonyms from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of methods of the synonym dictionary.
 

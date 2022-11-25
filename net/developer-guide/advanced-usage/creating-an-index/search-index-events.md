@@ -12,7 +12,7 @@ This page contains information about the purpose and use of all index events.
 
 ## OperationFinished event
 
-The [OperationFinished](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationfinished) event occurs when an index operation completes – indexing, updating, merging, or optimizing (segment merging). This event can be used to receive notification of the completion of an asynchronous operation. The following example demonstrates the use of the event.
+The [OperationFinished](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationfinished) event occurs when an index operation completes – indexing, updating, merging, or optimizing (segment merging). This event can be used to receive notification of the completion of an asynchronous operation. The following example demonstrates the use of the event.
 
 **C#**
 
@@ -41,7 +41,7 @@ index.Add(documentsFolder, options);
 
 ## ErrorOccurred event
 
-The [ErrorOccured](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/erroroccurred) event occurs when an error happens in an index. Errors in an index can be caused, for example, by file system errors or unsupported formats of indexed documents. An example of receiving error notifications in the index is presented below.
+The [ErrorOccured](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/erroroccurred) event occurs when an error happens in an index. Errors in an index can be caused, for example, by file system errors or unsupported formats of indexed documents. An example of receiving error notifications in the index is presented below.
 
 **C#**
 
@@ -69,7 +69,7 @@ SearchResult result = index.Search(query);
 
 ## OperationProgressChanged event
 
-The [OperationProgressChanged](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationprogresschanged) event occurs when the progress of an index operation changes. The example below demonstrates how to track the progress of an index operation.
+The [OperationProgressChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationprogresschanged) event occurs when the progress of an index operation changes. The example below demonstrates how to track the progress of an index operation.
 
 **C#**
 
@@ -95,7 +95,7 @@ index.Add(documentsFolder);
 
 ## PasswordRequired event
 
-The [PasswordRequired](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/passwordrequired) event occurs when an index requires a password to open a document. An example of processing this event is presented below.
+The [PasswordRequired](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/passwordrequired) event occurs when an index requires a password to open a document. An example of processing this event is presented below.
 
 **C#**
 
@@ -121,7 +121,7 @@ index.Add(documentsFolder);
 
 ## FileIndexing event
 
-The [FileIndexing](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event occurs immediately before the start of indexing a document. This event can be used for
+The [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event occurs immediately before the start of indexing a document. This event can be used for
 
 *   Skipping indexing of the current document (see also [Document filtering during indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-filtering-during-indexing.md" >}}) page);
 *   Specifying the encoding of the current text document (see also [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}) page);
@@ -161,7 +161,7 @@ index.Add(documentsFolder);
 
 ## StatusChanged event
 
-The [StatusChanged](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/statuschanged) event occurs when an index status changes. The following example demonstrates how to use this event to notify the completion of an index operation.
+The [StatusChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/statuschanged) event occurs when an index status changes. The following example demonstrates how to use this event to notify the completion of an index operation.
 
 **C#**
 
@@ -192,7 +192,7 @@ index.Add(documentsFolder, options);
 
 ## SearchPhaseCompleted event
 
-The [SearchPhaseCompleted](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/searchphasecompleted) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). The following example demonstrates the use of this event.
+The [SearchPhaseCompleted](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/searchphasecompleted) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). The following example demonstrates the use of this event.
 
 **C#**
 
@@ -228,7 +228,7 @@ SearchResult result = index.Search("Einstein", options);
 
 ## ImagePreparing event
 
-The [ImagePreparing](https://apireference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/imagepreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
+The [ImagePreparing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/imagepreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
 
 **C#**
 

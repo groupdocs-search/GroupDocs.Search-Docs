@@ -8,19 +8,19 @@ keywords: document passwords, password dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [PasswordDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary) class is designed to store passwords for documents to be indexed. Information on indexing password protected documents is presented on the [Indexing password protected documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-password-protected-documents.md" >}}) page.
+The [PasswordDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary) class is designed to store passwords for documents to be indexed. Information on indexing password protected documents is presented on the [Indexing password protected documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-password-protected-documents.md" >}}) page.
 
-To get the number of passwords in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/properties/count) property.
+To get the number of passwords in the dictionary, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/properties/count) property.
 
-To get the password for a document from the dictionary, the [GetPassword](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/getpassword) method is used, passing the path to the document as an argument.
+To get the password for a document from the dictionary, the [GetPassword](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/getpassword) method is used, passing the path to the document as an argument.
 
-The [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/clear) method is used to remove all passwords from the dictionary.
+The [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/clear) method is used to remove all passwords from the dictionary.
 
-To check for the presence of a password in the dictionary for the specified document, the [Contains](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/contains) method is used.
+To check for the presence of a password in the dictionary for the specified document, the [Contains](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/contains) method is used.
 
-To add a password to the dictionary, use the [Add](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/add) method. The key is the path to the document.
+To add a password to the dictionary, use the [Add](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/add) method. The key is the path to the document.
 
-To remove a password from the dictionary, use the [Remove](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/remove) method.
+To remove a password from the dictionary, use the [Remove](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/methods/remove) method.
 
 The following example demonstrates the use of methods of the password dictionary.
 

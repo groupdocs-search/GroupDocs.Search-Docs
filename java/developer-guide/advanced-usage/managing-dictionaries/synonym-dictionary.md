@@ -7,23 +7,23 @@ description: "This article gives the knowledge of the API methods which can be u
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The [SynonymDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym search]({{< ref "search/java/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page.
+The [SynonymDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym search]({{< ref "search/java/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page.
 
-To get the number of synonyms in the dictionary, use the [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getCount()) method.
+To get the number of synonyms in the dictionary, use the [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getCount()) method.
 
-To add groups of synonyms to the dictionary, use the [addRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#addRange(java.lang.Iterable)) method.
+To add groups of synonyms to the dictionary, use the [addRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#addRange(java.lang.Iterable)) method.
 
-The [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#clear()) method is used to remove all synonyms from the dictionary.
+The [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#clear()) method is used to remove all synonyms from the dictionary.
 
-The [getSynonyms](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getSynonyms(java.lang.String)) method is used to get a list of synonyms for a given word.
+The [getSynonyms](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getSynonyms(java.lang.String)) method is used to get a list of synonyms for a given word.
 
-The [getSynonymGroups](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getSynonymGroups(java.lang.String)) method is used to get all synonym groups to which a given word belongs.
+The [getSynonymGroups](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getSynonymGroups(java.lang.String)) method is used to get all synonym groups to which a given word belongs.
 
-To get all synonym groups from the dictionary, use the [getAllSynonymGroups](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getAllSynonymGroups()) method.
+To get all synonym groups from the dictionary, use the [getAllSynonymGroups](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SynonymDictionary#getAllSynonymGroups()) method.
 
-To export synonyms to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export synonyms to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import synonyms from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import synonyms from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the synonym dictionary.
 

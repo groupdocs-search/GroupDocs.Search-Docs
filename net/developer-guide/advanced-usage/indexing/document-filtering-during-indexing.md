@@ -12,7 +12,7 @@ This page contains a description of the use of document filters for indexing, as
 
 ## Setting a filter
 
-To indicate which documents from adding folders should be indexed and which not, the [DocumentFilter](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/documentfilter) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can be used to specify a filter based on various properties of these documents. If a document adding separately or located in an adding folder does not match the filter, then it will not be added and indexed. The default value is null, which means that all added files will be indexed if their format is supported. The following example demonstrates how to set a document filter for indexing.
+To indicate which documents from adding folders should be indexed and which not, the [DocumentFilter](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/documentfilter) property of the [IndexSettings](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can be used to specify a filter based on various properties of these documents. If a document adding separately or located in an adding folder does not match the filter, then it will not be added and indexed. The default value is null, which means that all added files will be indexed if their format is supported. The following example demonstrates how to set a document filter for indexing.
 
 **C#**
 

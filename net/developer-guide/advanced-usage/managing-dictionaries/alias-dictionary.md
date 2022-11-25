@@ -8,25 +8,25 @@ keywords: Alias dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An instance of the [AliasDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary) class contains all the aliases defined in an index. Information on using aliases to search is provided on the [Using aliases]({{< ref "search/net/developer-guide/advanced-usage/searching/using-aliases.md" >}}) page.
+An instance of the [AliasDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary) class contains all the aliases defined in an index. Information on using aliases to search is provided on the [Using aliases]({{< ref "search/net/developer-guide/advanced-usage/searching/using-aliases.md" >}}) page.
 
-To get the number of existing aliases, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/properties/count) property.
+To get the number of existing aliases, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/properties/count) property.
 
-Use the [Add](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/add) method to add new alias-replacement pair.
+Use the [Add](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/add) method to add new alias-replacement pair.
 
-Use the [AddRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/addrange/index) method to add a collection of new alias-replacement pairs.
+Use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/addrange/index) method to add a collection of new alias-replacement pairs.
 
-To remove an alias from the dictionary, use the [Remove](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/remove) method.
+To remove an alias from the dictionary, use the [Remove](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/remove) method.
 
-The [Contains](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/contains) method is used to check for the presence of a particular alias in the dictionary.
+The [Contains](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/contains) method is used to check for the presence of a particular alias in the dictionary.
 
-To get a replacement for a particular alias, use the [GetText](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/gettext) method.
+To get a replacement for a particular alias, use the [GetText](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/gettext) method.
 
-The [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/clear) method is used to remove all existing aliases from the dictionary.
+The [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/methods/clear) method is used to remove all existing aliases from the dictionary.
 
-To export the list of aliases with replacements to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export the list of aliases with replacements to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import the list of aliases from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import the list of aliases from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of methods of the alias dictionary.
 

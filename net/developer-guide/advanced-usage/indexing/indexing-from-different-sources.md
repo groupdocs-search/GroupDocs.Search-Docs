@@ -17,11 +17,11 @@ GroupDocs.Search allows indexing documents from various sources:
 
 The library also allows indexing from all presented sources with lazy initialization.
 
-Please note that the update operation automatically generates a list of changed files only when indexing from the local file system. When indexing from streams or structures, documents cannot be updated with the update operation. To update documents from these sources, you must re-index the modified documents by passing their keys and updated data to the [Add](https://apireference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method.
+Please note that the update operation automatically generates a list of changed files only when indexing from the local file system. When indexing from streams or structures, documents cannot be updated with the update operation. To update documents from these sources, you must re-index the modified documents by passing their keys and updated data to the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method.
 
 ## Indexing from a file
 
-It should be borne in mind that the [Add](https://apireference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method with the parameter of type [Document](https://apireference.groupdocs.com/search/net/groupdocs.search.common/document)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [Add](https://apireference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method. The following example demonstrates how to index a document from a file.
+It should be borne in mind that the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method with the parameter of type [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method. The following example demonstrates how to index a document from a file.
 
 **C#**
 

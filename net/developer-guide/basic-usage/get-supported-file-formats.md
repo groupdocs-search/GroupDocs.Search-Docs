@@ -8,7 +8,7 @@ keywords: search api
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [GetSupportedFileTypes](https://apireference.groupdocs.com/net/search/groupdocs.search.results/filetype/methods/getsupportedfiletypes) method of the [FileType](https://apireference.groupdocs.com/net/search/groupdocs.search.results/filetype) class is used to obtain a list of supported file types.
+The [GetSupportedFileTypes](https://reference.groupdocs.com/net/search/groupdocs.search.results/filetype/methods/getsupportedfiletypes) method of the [FileType](https://reference.groupdocs.com/net/search/groupdocs.search.results/filetype) class is used to obtain a list of supported file types.
 
 An example of obtaining a list of supported file types is presented below.
 

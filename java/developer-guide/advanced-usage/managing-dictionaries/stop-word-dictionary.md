@@ -8,21 +8,21 @@ keywords: Stop word dictionary
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The [StopWordDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary) class is designed to store stop words in an index. Information on using stop words during indexing is provided on the [Indexing with stop words]({{< ref "search/java/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page.
+The [StopWordDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary) class is designed to store stop words in an index. Information on using stop words during indexing is provided on the [Indexing with stop words]({{< ref "search/java/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page.
 
-To get the number of stop words in the dictionary, use the [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#getCount()) method.
+To get the number of stop words in the dictionary, use the [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#getCount()) method.
 
-To add stop words to the dictionary, use the [addRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#addRange(java.lang.Iterable)) method.
+To add stop words to the dictionary, use the [addRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#addRange(java.lang.Iterable)) method.
 
-To remove words from the dictionary, use the [removeRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#removeRange(java.lang.Iterable)) method.
+To remove words from the dictionary, use the [removeRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#removeRange(java.lang.Iterable)) method.
 
-To check for a word in a dictionary, use the [contains](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#contains(java.lang.String)) method.
+To check for a word in a dictionary, use the [contains](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#contains(java.lang.String)) method.
 
-To remove all words from the dictionary, use the [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#clear()) method.
+To remove all words from the dictionary, use the [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/StopWordDictionary#clear()) method.
 
-To export words to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export words to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import words from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import words from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the stop word dictionary.
 
