@@ -8,23 +8,23 @@ keywords: Character replacements
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An instance of the [CharacterReplacementDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary) class contains all the character replacements defined in an index. For detailed information on character replacement, see the [Character replacement during Indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-replacement-during-indexing.md" >}}) page.
+An instance of the [CharacterReplacementDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary) class contains all the character replacements defined in an index. For detailed information on character replacement, see the [Character replacement during Indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-replacement-during-indexing.md" >}}) page.
 
-The [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/properties/count) property allows you to get the number of character replacements defined in the dictionary.
+The [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/properties/count) property allows you to get the number of character replacements defined in the dictionary.
 
-To add character replacements to the dictionary, use the [AddRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/addrange/index) method.
+To add character replacements to the dictionary, use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/addrange/index) method.
 
-To remove character replacements from the dictionary, the [RemoveRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/removerange/index) method is used.
+To remove character replacements from the dictionary, the [RemoveRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/removerange/index) method is used.
 
-The [Contains](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/contains) method is used to determine if the dictionary contains a replacement for the specified character.
+The [Contains](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/contains) method is used to determine if the dictionary contains a replacement for the specified character.
 
-To get a replacement for the specified character, use the [GetReplacement](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/getreplacement) method.
+To get a replacement for the specified character, use the [GetReplacement](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/getreplacement) method.
 
-To remove all replacements from the dictionary, use the [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/clear) method.
+To remove all replacements from the dictionary, use the [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/methods/clear) method.
 
-To export all replacements to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export all replacements to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import character replacements from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import character replacements from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of the character replacement dictionary methods.
 

@@ -8,19 +8,19 @@ keywords: Spelling corrector
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The [SpellingCorrector](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector) class is designed to correct spelling errors in search queries, as well as to store words with correct spelling. You can learn about spelling correction in search queries on the [Spell checking]({{< ref "search/java/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page.
+The [SpellingCorrector](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector) class is designed to correct spelling errors in search queries, as well as to store words with correct spelling. You can learn about spelling correction in search queries on the [Spell checking]({{< ref "search/java/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page.
 
-To get the number of words in the spelling corrector dictionary, use the [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#getCount()) method.
+To get the number of words in the spelling corrector dictionary, use the [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#getCount()) method.
 
-To get an array of words containing in the spelling corrector dictionary, the [getWords](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#getWords()) method is used.
+To get an array of words containing in the spelling corrector dictionary, the [getWords](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#getWords()) method is used.
 
-To add words to the spelling corrector dictionary, use the [addRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#addRange(java.lang.Iterable)) method.
+To add words to the spelling corrector dictionary, use the [addRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#addRange(java.lang.Iterable)) method.
 
-The [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#clear()) method is used to remove all words from the spelling corrector dictionary.
+The [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/SpellingCorrector#clear()) method is used to remove all words from the spelling corrector dictionary.
 
-To export words to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export words to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import words from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import words from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the spelling corrector.
 

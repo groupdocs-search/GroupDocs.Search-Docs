@@ -8,23 +8,23 @@ keywords: Homophone dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [HomophoneDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary) class is designed to store homophones in an index. For information on searching using homophones, see the [Homophone search]({{< ref "search/net/developer-guide/advanced-usage/searching/homophone-search.md" >}}) page.
+The [HomophoneDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary) class is designed to store homophones in an index. For information on searching using homophones, see the [Homophone search]({{< ref "search/net/developer-guide/advanced-usage/searching/homophone-search.md" >}}) page.
 
-To get the number of homophones in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/properties/count) property.
+To get the number of homophones in the dictionary, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/properties/count) property.
 
-To add groups of homophones to the dictionary, use the [AddRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/addrange/index) method.
+To add groups of homophones to the dictionary, use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/addrange/index) method.
 
-The [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/clear) method is used to remove all homophones from the dictionary.
+The [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/clear) method is used to remove all homophones from the dictionary.
 
-The [GetHomophones](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/gethomophones) method is used to get a list of synonyms for a given word.
+The [GetHomophones](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/gethomophones) method is used to get a list of synonyms for a given word.
 
-The [GetHomophoneGroups](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/gethomophonegroups) method is used to get all synonym groups to which a given word belongs.
+The [GetHomophoneGroups](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/gethomophonegroups) method is used to get all synonym groups to which a given word belongs.
 
-To get all synonym groups from the dictionary, use the [GetAllHomophoneGroups](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/getallhomophonegroups) method.
+To get all synonym groups from the dictionary, use the [GetAllHomophoneGroups](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/homophonedictionary/methods/getallhomophonegroups) method.
 
-To export homophones to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export homophones to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import homophones from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import homophones from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of methods of the homophone dictionary.
 

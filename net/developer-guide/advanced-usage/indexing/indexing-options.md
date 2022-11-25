@@ -8,11 +8,11 @@ keywords: IndexingOptions
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page contains a description of all the properties of the [IndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions) class.
+This page contains a description of all the properties of the [IndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions) class.
 
 ## Cancellation property
 
-The **[Cancellation](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/cancellation)** property is used to specify an object of type [Cancellation](https://apireference.groupdocs.com/net/search/groupdocs.search.common/cancellation), used to cancel of an index operation. The default value of the [Cancellation](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/cancellation) property is null. An operation can be canceled if necessary with a time delay. Note that after cancellation, an index may not immediately stop an operation, but with a some delay.
+The **[Cancellation](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/cancellation)** property is used to specify an object of type [Cancellation](https://reference.groupdocs.com/net/search/groupdocs.search.common/cancellation), used to cancel of an index operation. The default value of the [Cancellation](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/cancellation) property is null. An operation can be canceled if necessary with a time delay. Note that after cancellation, an index may not immediately stop an operation, but with a some delay.
 
 The following example demonstrates cancelling of an indexing operation.
 
@@ -36,7 +36,7 @@ index.Add(documentFolder, options);
 
 ## IsAsync property
 
-The **[IsAsync](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/isasync)** property is used to specify whether to perform indexing operation asynchronously or synchronously. The default value is false, meaning synchronous execution. The example below demonstrates the performing of an asynchronous indexing.
+The **[IsAsync](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/isasync)** property is used to specify whether to perform indexing operation asynchronously or synchronously. The default value is false, meaning synchronous execution. The example below demonstrates the performing of an asynchronous indexing.
 
 **C#**
 
@@ -67,7 +67,7 @@ index.Add(documentFolder, options);
 
 ## Threads property
 
-The [Threads](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/threads) property is used to set the number of threads used for indexing. The default value is 1. The number of indexing threads cannot be less than 1 or more than 4.
+The [Threads](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/threads) property is used to set the number of threads used for indexing. The default value is 1. The number of indexing threads cannot be less than 1 or more than 4.
 
 A larger number of threads accelerates the indexing process. However, be careful when specifying the number of indexing threads more than 1, because the amount of memory used during indexing is directly proportional to the number of threads involved. If there is 4 GB of RAM or less in the system, using more than 1 thread may result in out of memory error. In addition, the hard disk where the files for indexing are located may be the bottleneck and performance will not increase.
 
@@ -92,17 +92,17 @@ index.Add(documentFolder, options); 
 
 ## MetadataIndexingOptions property
 
-The [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/metadataindexingoptions) property is represented by an object of the [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions) class. This class contains properties for setting metadata indexing options:
+The [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/metadataindexingoptions) property is represented by an object of the [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions) class. This class contains properties for setting metadata indexing options:
 
-* The [IndexingEmptyValues](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptyvalues) property sets a value indicating whether to index empty field values or not. The default value is true.
-* The [IndexingEmptyNames](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptynames) property sets a value indicating whether to index empty field names or not. The default value is true.
-* The [DefaultFieldName](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/defaultfieldname) property sets the default field name used to index empty field names. The default value is "unknown".
-* The [SeparatorInCompoundName](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorincompoundname) property sets the separator in the compound name of a field. The default value is "." (period character).
-* The [MaxBytesToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxbytestoindexfield) property sets the maximum number of values indexed from an array of byte values. The default value is int.MaxValue.
-* The [MaxIntsToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxintstoindexfield) property sets the maximum number of values indexed from an array of int values. The default value is int.MaxValue.
-* The [MaxLongsToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxlongstoindexfield) property sets the maximum number of values indexed from an array of long values. The default value is int.MaxValue.
-* The [MaxDoublesToIndexField](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxdoublestoindexfield) property sets the maximum number of values indexed from an array of double values. The default value is int.MaxValue.
-* The [SeparatorBetweenValues](https://apireference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorbetweenvalues) property sets the separator between values in a field of type array. The default value is " " (space character).
+* The [IndexingEmptyValues](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptyvalues) property sets a value indicating whether to index empty field values or not. The default value is true.
+* The [IndexingEmptyNames](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptynames) property sets a value indicating whether to index empty field names or not. The default value is true.
+* The [DefaultFieldName](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/defaultfieldname) property sets the default field name used to index empty field names. The default value is "unknown".
+* The [SeparatorInCompoundName](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorincompoundname) property sets the separator in the compound name of a field. The default value is "." (period character).
+* The [MaxBytesToIndexField](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxbytestoindexfield) property sets the maximum number of values indexed from an array of byte values. The default value is int.MaxValue.
+* The [MaxIntsToIndexField](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxintstoindexfield) property sets the maximum number of values indexed from an array of int values. The default value is int.MaxValue.
+* The [MaxLongsToIndexField](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxlongstoindexfield) property sets the maximum number of values indexed from an array of long values. The default value is int.MaxValue.
+* The [MaxDoublesToIndexField](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/maxdoublestoindexfield) property sets the maximum number of values indexed from an array of double values. The default value is int.MaxValue.
+* The [SeparatorBetweenValues](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/separatorbetweenvalues) property sets the separator between values in a field of type array. The default value is " " (space character).
 
 The following example demonstrates how to set the metadata indexing options.
 
@@ -130,20 +130,20 @@ index.Add(documentFolder, options);
 
 ## OcrIndexingOptions property
 
-The [OcrIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/ocrindexingoptions) property is represented by an object of the [OcrIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
+The [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/ocrindexingoptions) property is represented by an object of the [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
 
-* The [EnabledForSeparateImages](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to recognize text in separate image files. The default value is false.
-* The [EnabledForEmbeddedImages](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to recognize text in embedded images. The default value is false.
-* The [EnabledForContainerItemImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/properties/enabledforcontaineritemimages) property sets a value indicating whether to recognize text in images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
-* The [OcrConnector](https://apireference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/ocrconnector) property sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used.
+* The [EnabledForSeparateImages](https://reference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to recognize text in separate image files. The default value is false.
+* The [EnabledForEmbeddedImages](https://reference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to recognize text in embedded images. The default value is false.
+* The [EnabledForContainerItemImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/properties/enabledforcontaineritemimages) property sets a value indicating whether to recognize text in images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
+* The [OcrConnector](https://reference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/ocrconnector) property sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used.
 
 ## ImageIndexingOptions property
 
-The [ImageIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/imageindexingoptions) property is represented by an object of the [ImageIndexingOptions](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions) class. This class provides image indexing options for reverse image search:
+The [ImageIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/imageindexingoptions) property is represented by an object of the [ImageIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions) class. This class provides image indexing options for reverse image search:
 
-* The [EnabledForSeparateImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to index separate image files. The default value is false.
-* The [EnabledForEmbeddedImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to index embedded images (for example, images in a DOCX document). The default value is false.
-* The [EnabledForContainerItemImages](https://apireference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforcontaineritemimages) property sets a value indicating whether to index images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
+* The [EnabledForSeparateImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to index separate image files. The default value is false.
+* The [EnabledForEmbeddedImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to index embedded images (for example, images in a DOCX document). The default value is false.
+* The [EnabledForContainerItemImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforcontaineritemimages) property sets a value indicating whether to index images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
 
 ## More resources
 

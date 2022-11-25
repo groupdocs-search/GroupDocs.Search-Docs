@@ -8,21 +8,21 @@ keywords: Stop word dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [StopWordDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary) class is designed to store stop words in an index. Information on using stop words during indexing is provided on the [Indexing with stop words]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page.
+The [StopWordDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary) class is designed to store stop words in an index. Information on using stop words during indexing is provided on the [Indexing with stop words]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page.
 
-To get the number of stop words in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/properties/count) property.
+To get the number of stop words in the dictionary, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/properties/count) property.
 
-To add stop words to the dictionary, use the [AddRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/addrange/index) method.
+To add stop words to the dictionary, use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/addrange/index) method.
 
-To remove words from the dictionary, use the [RemoveRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/removerange/index) method.
+To remove words from the dictionary, use the [RemoveRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/removerange/index) method.
 
-To check for a word in a dictionary, use the [Contains](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/contains) method.
+To check for a word in a dictionary, use the [Contains](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/contains) method.
 
-To remove all words from the dictionary, use the [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/clear) method.
+To remove all words from the dictionary, use the [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/methods/clear) method.
 
-To export words to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export words to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import words from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import words from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of methods of the stop word dictionary.
 

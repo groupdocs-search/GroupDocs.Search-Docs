@@ -8,42 +8,42 @@ keywords: Search results
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-Search results are represented by the [SearchResult](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult) class, an instance of which is returned by the [Search](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/search/index) method of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class. The [Search](https://apireference.groupdocs.com/net/search/groupdocs.search/indexrepository/methods/search/index) method of the [IndexRepository](https://apireference.groupdocs.com/net/search/groupdocs.search/indexrepository) class also returns an instance of the [SearchResult](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult) class.
+Search results are represented by the [SearchResult](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult) class, an instance of which is returned by the [Search](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/search/index) method of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class. The [Search](https://reference.groupdocs.com/net/search/groupdocs.search/indexrepository/methods/search/index) method of the [IndexRepository](https://reference.groupdocs.com/net/search/groupdocs.search/indexrepository) class also returns an instance of the [SearchResult](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult) class.
 
-The [SearchResult](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult) class contains the following members:
+The [SearchResult](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult) class contains the following members:
 
-*   The [DocumentCount](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/documentcount) property returns the number of documents found.
-*   The [OccurrenceCount](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/occurrencecount) property returns the total number of occurrences found.
-*   The [Truncated](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/truncated) property returns a value indicating that the result is truncated due to limits specified in the search options.
-*   The [Warnings](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/warnings) property returns a warnings describing the result, for example, a warning about the presence of stop word in a search query.
-*   The [NextChunkSearchToken](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/nextchunksearchtoken) property returns a chunk search token to search for the next chunk. For details on search by chunks, see the [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}) page.
-*   The [StartTime](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/starttime) property returns the start time of the search.
-*   The [EndTime](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/endtime) property returns the end time of the search.
-*   The [SearchDuration](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/searchduration) property returns the search duration.
-*   The [GetFoundDocument](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/methods/getfounddocument) method returns the found document by index.
-*   The [GetEnumerator](https://apireference.groupdocs.com/net/search/groupdocs.search.results/searchresult/methods/getenumerator) method returns an enumerator that iterates through the collection of the documents found.
+*   The [DocumentCount](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/documentcount) property returns the number of documents found.
+*   The [OccurrenceCount](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/occurrencecount) property returns the total number of occurrences found.
+*   The [Truncated](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/truncated) property returns a value indicating that the result is truncated due to limits specified in the search options.
+*   The [Warnings](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/warnings) property returns a warnings describing the result, for example, a warning about the presence of stop word in a search query.
+*   The [NextChunkSearchToken](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/nextchunksearchtoken) property returns a chunk search token to search for the next chunk. For details on search by chunks, see the [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}) page.
+*   The [StartTime](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/starttime) property returns the start time of the search.
+*   The [EndTime](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/endtime) property returns the end time of the search.
+*   The [SearchDuration](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/properties/searchduration) property returns the search duration.
+*   The [GetFoundDocument](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/methods/getfounddocument) method returns the found document by index.
+*   The [GetEnumerator](https://reference.groupdocs.com/net/search/groupdocs.search.results/searchresult/methods/getenumerator) method returns an enumerator that iterates through the collection of the documents found.
 
-The found document is represented by an instance of a [FoundDocument](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument) class. The [FoundDocument](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument) class contains the following members:
+The found document is represented by an instance of a [FoundDocument](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument) class. The [FoundDocument](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument) class contains the following members:
 
-*   The [DocumentInfo](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/documentinfo) property returns the document info object containing the file path, the file type, the format family, and the inner document path for items of container documents.
-*   The [Relevance](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/relevance) property returns the relevance of the document in the search result.
-*   The [OccurrenceCount](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/occurrencecount) property returns the number of occurrences found in the document.
-*   The [FoundFields](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/foundfields) property returns the found document fields.
-*   The [Terms](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/terms) property returns the found terms. The value is evaluated each time the property is accessed based on the data for each document field found.
-*   The [TermSequences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/termsequences) property returns the found term sequences.
-*   The [Serialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocument/methods/serialize) method serializes the current found document instance to a byte array.
-*   The [Deserialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocument/methods/deserialize) method deserializes an instance of found document from a byte array.
+*   The [DocumentInfo](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/documentinfo) property returns the document info object containing the file path, the file type, the format family, and the inner document path for items of container documents.
+*   The [Relevance](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/relevance) property returns the relevance of the document in the search result.
+*   The [OccurrenceCount](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/occurrencecount) property returns the number of occurrences found in the document.
+*   The [FoundFields](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/foundfields) property returns the found document fields.
+*   The [Terms](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/terms) property returns the found terms. The value is evaluated each time the property is accessed based on the data for each document field found.
+*   The [TermSequences](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/termsequences) property returns the found term sequences.
+*   The [Serialize](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocument/methods/serialize) method serializes the current found document instance to a byte array.
+*   The [Deserialize](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocument/methods/deserialize) method deserializes an instance of found document from a byte array.
 
-The found document field is represented by an instance of a [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class. The [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class contains the following members:
+The found document field is represented by an instance of a [FoundDocumentField](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class. The [FoundDocumentField](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class contains the following members:
 
-*   The [FieldName](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/fieldname) property returns the field name.
-*   The [OccurrenceCount](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/occurrencecount) property returns the number of occurrences found.
-*   The [Terms](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/terms) property returns the terms found.
-*   The [TermsOccurrences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsoccurrences) property returns the occurrences of the found terms.
-*   The [TermSequences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsequences) property returns the term sequences found.
-*   The [TermSequencesOccurrences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsequencesoccurrences) property returns the occurrences of the found term sequences.
-*   The [Serialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/methods/serialize) method serializes the current found document field instance to a byte array.
-*   The [Deserialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/methods/deserialize) method deserializes an instance of found document field from a byte array.
+*   The [FieldName](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/fieldname) property returns the field name.
+*   The [OccurrenceCount](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/occurrencecount) property returns the number of occurrences found.
+*   The [Terms](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/terms) property returns the terms found.
+*   The [TermsOccurrences](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsoccurrences) property returns the occurrences of the found terms.
+*   The [TermSequences](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsequences) property returns the term sequences found.
+*   The [TermSequencesOccurrences](https://reference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsequencesoccurrences) property returns the occurrences of the found term sequences.
+*   The [Serialize](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/methods/serialize) method serializes the current found document field instance to a byte array.
+*   The [Deserialize](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/methods/deserialize) method deserializes an instance of found document field from a byte array.
 
 The following example shows how to print information on the documents found in the console.
 

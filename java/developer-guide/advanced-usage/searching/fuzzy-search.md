@@ -20,7 +20,7 @@ Fuzzy search allows you to search for words that do not exactly match the search
 
 GroupDocs.Search does not use special fuzzy queries. Instead, you can enable fuzzy search in search options for any search query, whether it is a single word, phrase or logical search query. And it becomes a fuzzy query.
 
-The fuzzy search algorithm used is defined in the [SearchOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class. By default, the algorithm provided by the [SimilarityLevel](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SimilarityLevel) class is used with the similarity level value of 0.5. This algorithm uses a linear dependence of the number of possible differences from the search word. To calculate the maximum number of possible differences, the following expression is used:
+The fuzzy search algorithm used is defined in the [SearchOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class. By default, the algorithm provided by the [SimilarityLevel](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SimilarityLevel) class is used with the similarity level value of 0.5. This algorithm uses a linear dependence of the number of possible differences from the search word. To calculate the maximum number of possible differences, the following expression is used:
 
 int maxMistakeCount = (int)((1 - similarityLevel) \* termLength);
 
@@ -52,7 +52,7 @@ options.getFuzzySearch().setFuzzyAlgorithm(new SimilarityLevel(0.8)); // Creatin
 SearchResult result = index.search(query, options);
 ```
 
-The fuzzy search algorithm can also be specified by a table of correspondences between the length of the searched word and the maximum number of possible differences. For this, the algorithm presented by the [TableDiscreteFunction](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/TableDiscreteFunction) class is used. In this case, the correspondence table can be calculated based on the parameters of a step function. An example of setting a fuzzy search algorithm in the form of a step function is presented below.
+The fuzzy search algorithm can also be specified by a table of correspondences between the length of the searched word and the maximum number of possible differences. For this, the algorithm presented by the [TableDiscreteFunction](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/TableDiscreteFunction) class is used. In this case, the correspondence table can be calculated based on the parameters of a step function. An example of setting a fuzzy search algorithm in the form of a step function is presented below.
 
 
 
@@ -80,11 +80,11 @@ SearchResult result = index.search(query, options);
 
 The fuzzy search options object allows you to specify the following options:
 
-*   The [setFuzzyAlgorithm](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setFuzzyAlgorithm(com.groupdocs.search.options.FuzzyAlgorithm)) method sets the fuzzy search algorithm. The currently available fuzzy search algorithms are [SimilarityLevel](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SimilarityLevel) and [TableDiscreteFunction](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/TableDiscreteFunction). The default value is an instance of [SimilarityLevel](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SimilarityLevel) class with a similarity level value of 0.5.
-*   The [setOnlyBestResults](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setOnlyBestResults(boolean)) method sets a value indicating whether to return only the best results or not. The default value is false, which means that all results will be returned.
-*   The [setOnlyBestResultsRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setOnlyBestResultsRange(byte)) method sets a value of exceeding the number of differences from the best result. The default value is 0.
-*   The [setConsiderTranspositions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setConsiderTranspositions(boolean)) method sets a value indicating whether to consider the transposition of adjacent characters as one mistake or not. The default value is true.
-*   The [setEnabled](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setEnabled(boolean)) method enables or disables the fuzzy search. The default value is false.
+*   The [setFuzzyAlgorithm](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setFuzzyAlgorithm(com.groupdocs.search.options.FuzzyAlgorithm)) method sets the fuzzy search algorithm. The currently available fuzzy search algorithms are [SimilarityLevel](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SimilarityLevel) and [TableDiscreteFunction](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/TableDiscreteFunction). The default value is an instance of [SimilarityLevel](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SimilarityLevel) class with a similarity level value of 0.5.
+*   The [setOnlyBestResults](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setOnlyBestResults(boolean)) method sets a value indicating whether to return only the best results or not. The default value is false, which means that all results will be returned.
+*   The [setOnlyBestResultsRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setOnlyBestResultsRange(byte)) method sets a value of exceeding the number of differences from the best result. The default value is 0.
+*   The [setConsiderTranspositions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setConsiderTranspositions(boolean)) method sets a value indicating whether to consider the transposition of adjacent characters as one mistake or not. The default value is true.
+*   The [setEnabled](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/FuzzySearchOptions#setEnabled(boolean)) method enables or disables the fuzzy search. The default value is false.
 
 ## More resources
 

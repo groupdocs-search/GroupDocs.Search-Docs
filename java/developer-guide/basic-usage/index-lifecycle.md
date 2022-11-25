@@ -16,17 +16,17 @@ Please note that the index life cycle does not consider the events of loading an
 
 After creation a new index, it is in the Empty state.
 
-When adding documents (method [add](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#add(java.lang.String))) to the index and completing the indexing operation, the index is in the Actual state, the index is ready to process search queries.
+When adding documents (method [add](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#add(java.lang.String))) to the index and completing the indexing operation, the index is in the Actual state, the index is ready to process search queries.
 
-To accelerate the processing of search queries, the index can be optimized by calling the [optimize](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#optimize()) method. Upon completion of the optimization operation, the index goes into the Optimized state. In this state, the index contains the minimum required number of segments on the disk and therefore works faster.
+To accelerate the processing of search queries, the index can be optimized by calling the [optimize](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#optimize()) method. Upon completion of the optimization operation, the index goes into the Optimized state. In this state, the index contains the minimum required number of segments on the disk and therefore works faster.
 
 Changing, adding, deleting documents from indexed folders puts the index in the Outdated state. In this state, search results may not be relevant.
 
-Calling the [update](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#update()) method starts reindexing of changed, new and deleted documents. Upon completion of the update operation, the index reverts to the Actual state.
+Calling the [update](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#update()) method starts reindexing of changed, new and deleted documents. Upon completion of the update operation, the index reverts to the Actual state.
 
 Here we can give a recommendation to update the index at times of minimal search activity, for example, at night, to give more processor time to search queries handling. But this is not necessary, because the search can be performed simultaneously with the indexing or updating operation. Moreover, updating can work without pauses and start immediately after the previous one is completed.
 
-Regarding the addition of documents to an index, it is important to know that at any stage of the existence of an index, new documents can be added (method [add](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#add(java.lang.String))) to it to expand the search base.
+Regarding the addition of documents to an index, it is important to know that at any stage of the existence of an index, new documents can be added (method [add](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#add(java.lang.String))) to it to expand the search base.
 
 ## More resources
 

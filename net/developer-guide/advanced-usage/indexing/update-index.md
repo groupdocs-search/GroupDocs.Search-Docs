@@ -12,9 +12,9 @@ This page contains a description of updating indexed documents, as well as updat
 
 ## Update indexed documents
 
-The update operation is used to reindex documents that have been changed, deleted or added to indexed folders. Changing a filter specified by the [DocumentFilter](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/documentfilter) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can also lead to a change in the list of indexed documents.
+The update operation is used to reindex documents that have been changed, deleted or added to indexed folders. Changing a filter specified by the [DocumentFilter](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/documentfilter) property of the [IndexSettings](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can also lead to a change in the list of indexed documents.
 
-When updating, the same options can be specified in the instance of the [UpdateOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/updateoptions) class, which are set in the [IndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions) class to specify indexing options. See the [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md" >}}) page.
+When updating, the same options can be specified in the instance of the [UpdateOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/updateoptions) class, which are set in the [IndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions) class to specify indexing options. See the [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md" >}}) page.
 
 The following example demonstrates how to update an index using 2 threads.
 
@@ -40,7 +40,7 @@ index.Update(options); // Updating the index
 
 ## Update index version
 
-Sometimes when a new version of the GroupDocs.Search library is released, the format for storing the index on disk changes. In this case, you also need to update the index. However, updating the index version is different. To do this, use the [IndexUpdater](https://apireference.groupdocs.com/net/search/groupdocs.search/indexupdater) class. Without updating the index version, loading the index of the previous version will fail.
+Sometimes when a new version of the GroupDocs.Search library is released, the format for storing the index on disk changes. In this case, you also need to update the index. However, updating the index version is different. To do this, use the [IndexUpdater](https://reference.groupdocs.com/net/search/groupdocs.search/indexupdater) class. Without updating the index version, loading the index of the previous version will fail.
 
 When the index version is updated, the documents are reindexed and saved in a folder different from the original in the new format. However, the index of old version does not change. The folder containing the old version of the index may be deleted after the update. The following example demonstrates updating a previous version of an index.
 

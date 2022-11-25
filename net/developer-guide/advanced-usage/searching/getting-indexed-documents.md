@@ -12,7 +12,7 @@ This page contains a description of how to get a list of indexed documents from 
 
 ## Getting indexed documents
 
-To get a list of indexed documents from an index, use the [GetIndexedDocuments](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexeddocuments) method of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class. Documents with the extensions ZIP, PST, OST can also contain internal documents. To get a list of internal documents, use the [GetIndexedDocumentItems](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexeddocumentitems) method of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class. For ZIP archives, this way you can access documents of arbitrary nesting depth. An example of obtaining a list of documents from an index is presented below.
+To get a list of indexed documents from an index, use the [GetIndexedDocuments](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexeddocuments) method of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class. Documents with the extensions ZIP, PST, OST can also contain internal documents. To get a list of internal documents, use the [GetIndexedDocumentItems](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexeddocumentitems) method of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class. For ZIP archives, this way you can access documents of arbitrary nesting depth. An example of obtaining a list of documents from an index is presented below.
 
 **C#**
 
@@ -43,9 +43,9 @@ for (int i = 0; i < documents.Length; i++)
 
 ## Getting text of indexed documents
 
-The text of the indexed document can also be extracted from an index if the option to save the text of documents in the index has been enabled. If this option was not enabled when creating an index, then when the [GetDocumentText](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/getdocumenttext/index) method of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class is called, the text of the document will be retrieved again. Details about saving the text of documents in an index can be found on the page [Storing text of indexed documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents.md" >}}).
+The text of the indexed document can also be extracted from an index if the option to save the text of documents in the index has been enabled. If this option was not enabled when creating an index, then when the [GetDocumentText](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/getdocumenttext/index) method of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class is called, the text of the document will be retrieved again. Details about saving the text of documents in an index can be found on the page [Storing text of indexed documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents.md" >}}).
 
-The generated text of the document is passed to an instance of a class derived from the abstract class [OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter). Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
+The generated text of the document is passed to an instance of a class derived from the abstract class [OutputAdapter](https://reference.groupdocs.com/net/search/groupdocs.search.common/outputadapter). Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
 
 After generating the text of a document into a file, this file can be opened by an Internet browser. The following example shows how to extract document text from an index.
 
@@ -72,12 +72,12 @@ if (documents.Length > 0)
 }
 ```
 
-To extract the text of a document from an index, the method overloading is also presented, which takes an instance of the [TextOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions) class as a parameter. In this class, the following options can be specified:
+To extract the text of a document from an index, the method overloading is also presented, which takes an instance of the [TextOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions) class as a parameter. In this class, the following options can be specified:
 
-*   [CustomExtractor](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/customextractor) is a custom extractor used during indexing, it is necessary if the text of the document was not saved in the index;
-*   [AdditionalFields](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/additionalfields) are additional document fields added during document indexing which are also necessary if the document text was not saved in the index;
-*   [Cancellation](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/cancellation) is an object used to cancel the operation;
-*   [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/metadataindexingoptions) is an object for specifying metadata indexing options.
+*   [CustomExtractor](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/customextractor) is a custom extractor used during indexing, it is necessary if the text of the document was not saved in the index;
+*   [AdditionalFields](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/additionalfields) are additional document fields added during document indexing which are also necessary if the document text was not saved in the index;
+*   [Cancellation](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/cancellation) is an object used to cancel the operation;
+*   [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/metadataindexingoptions) is an object for specifying metadata indexing options.
 
 ## More resources
 

@@ -8,9 +8,9 @@ keywords: word forms provider
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [IWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface is designed to implement a word forms provider for searching by word forms. For information on searching by word forms, see [Search for different word forms]({{< ref "search/net/developer-guide/advanced-usage/searching/search-for-different-word-forms.md" >}}) page.
+The [IWordFormsProvider](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface is designed to implement a word forms provider for searching by word forms. For information on searching by word forms, see [Search for different word forms]({{< ref "search/net/developer-guide/advanced-usage/searching/search-for-different-word-forms.md" >}}) page.
 
-The [IWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface contains only one [GetWordForms](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider/methods/getwordforms) method, which returns various forms for the word passed as an argument. An example implementation of a simple provider of word forms is presented below.
+The [IWordFormsProvider](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface contains only one [GetWordForms](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider/methods/getwordforms) method, which returns various forms for the word passed as an argument. An example implementation of a simple provider of word forms is presented below.
 
 **C#**
 
@@ -52,7 +52,7 @@ public class SimpleWordFormsProvider : IWordFormsProvider
 }
 ```
 
-By default, the **[EnglishWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/englishwordformsprovider)** class is used, which for English generates various forms of nouns, adjectives, pronouns, verbs, etc. An example of setting a custom provider of word forms is presented below.
+By default, the **[EnglishWordFormsProvider](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/englishwordformsprovider)** class is used, which for English generates various forms of nouns, adjectives, pronouns, verbs, etc. An example of setting a custom provider of word forms is presented below.
 
 **C#**
 

@@ -8,25 +8,25 @@ keywords: Alias dictionary
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-An instance of the [AliasDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary) class contains all the aliases defined in an index. Information on using aliases to search is provided on the [Using aliases]({{< ref "search/java/developer-guide/advanced-usage/searching/using-aliases.md" >}}) page.
+An instance of the [AliasDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary) class contains all the aliases defined in an index. Information on using aliases to search is provided on the [Using aliases]({{< ref "search/java/developer-guide/advanced-usage/searching/using-aliases.md" >}}) page.
 
-To get the number of existing aliases, use the [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#getCount()) method.
+To get the number of existing aliases, use the [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#getCount()) method.
 
-Use the [add](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#add(java.lang.String,%20java.lang.String)) method to add new alias-replacement pair.
+Use the [add](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#add(java.lang.String,%20java.lang.String)) method to add new alias-replacement pair.
 
-Use the [addRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#addRange(com.groupdocs.search.dictionaries.AliasReplacementPair%5B%5D)) method to add a collection of new alias-replacement pairs.
+Use the [addRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#addRange(com.groupdocs.search.dictionaries.AliasReplacementPair%5B%5D)) method to add a collection of new alias-replacement pairs.
 
-To remove an alias from the dictionary, use the [remove](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#remove(java.lang.String)) method.
+To remove an alias from the dictionary, use the [remove](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#remove(java.lang.String)) method.
 
-The [contains](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#contains(java.lang.String)) method is used to check for the presence of a particular alias in the dictionary.
+The [contains](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#contains(java.lang.String)) method is used to check for the presence of a particular alias in the dictionary.
 
-To get a replacement for a particular alias, use the [getText](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#getText(java.lang.String)) method.
+To get a replacement for a particular alias, use the [getText](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#getText(java.lang.String)) method.
 
-The [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#clear()) method is used to remove all existing aliases from the dictionary.
+The [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/AliasDictionary#clear()) method is used to remove all existing aliases from the dictionary.
 
-To export the list of aliases with replacements to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export the list of aliases with replacements to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import the list of aliases from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import the list of aliases from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the alias dictionary.
 

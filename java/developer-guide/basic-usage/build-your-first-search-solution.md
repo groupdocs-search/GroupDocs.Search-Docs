@@ -23,7 +23,7 @@ Index index = new Index(indexFolder);
 
 ## Step #2: Open existing index
 
-To continue working with a previously created index, it must be loaded. Each constructor of the [Index](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index) class by default loads the index, if it exists at the specified path. And only an explicit indication causes an index to be overwritten. The following example shows how to load an existing index.
+To continue working with a previously created index, it must be loaded. Each constructor of the [Index](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index) class by default loads the index, if it exists at the specified path. And only an explicit indication causes an index to be overwritten. The following example shows how to load an existing index.
 
 
 

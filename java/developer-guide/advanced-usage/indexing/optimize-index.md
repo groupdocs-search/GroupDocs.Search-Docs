@@ -10,7 +10,7 @@ hideChildren: False
 ---
 An index optimization operation allows you to reduce the number of segments in an index, thereby increasing search performance in the index.
 
-To perform this operation, there is an overload that takes the [MergeOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/MergeOptions) instance as a parameter. In the [MergeOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/MergeOptions) class, there is a method for specifying a cancellation object and a method for specifying whether to perform the operation asynchronously. By default, the operation is performed synchronously.
+To perform this operation, there is an overload that takes the [MergeOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/MergeOptions) instance as a parameter. In the [MergeOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/MergeOptions) class, there is a method for specifying a cancellation object and a method for specifying whether to perform the operation asynchronously. By default, the operation is performed synchronously.
 
 The following example demonstrates how to perform the index optimization.
 

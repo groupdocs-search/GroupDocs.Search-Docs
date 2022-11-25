@@ -8,19 +8,19 @@ keywords: Alphabets
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-An instance of the [Alphabet](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet) class contains types of characters used for indexing. For detailed information on the types of characters, see the [Character types]({{< ref "search/java/developer-guide/advanced-usage/indexing/character-types.md" >}}) page.
+An instance of the [Alphabet](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet) class contains types of characters used for indexing. For detailed information on the types of characters, see the [Character types]({{< ref "search/java/developer-guide/advanced-usage/indexing/character-types.md" >}}) page.
 
-The [getCharacterType](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#getCharacterType(char)) method is used to get the type of a specific character.
+The [getCharacterType](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#getCharacterType(char)) method is used to get the type of a specific character.
 
-The [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#getCount()) method returns the number of characters of a type other than [CharacterType.Separator](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterType#Separator).
+The [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#getCount()) method returns the number of characters of a type other than [CharacterType.Separator](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterType#Separator).
 
-To set the type of characters in the alphabet, use the [setRange](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#setRange(char%5B%5D,%20int)) method.
+To set the type of characters in the alphabet, use the [setRange](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#setRange(char%5B%5D,%20int)) method.
 
-To set the [CharacterType.Separator](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterType#Separator) type for all characters in the alphabet, use the [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#clear()) method.
+To set the [CharacterType.Separator](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/CharacterType#Separator) type for all characters in the alphabet, use the [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/Alphabet#clear()) method.
 
-To export types of all characters to a file, use the [exportDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
+To export types of all characters to a file, use the [exportDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#exportDictionary(java.lang.String)) method.
 
-To import types of all characters from a file, use the [importDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
+To import types of all characters from a file, use the [importDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/DictionaryBase#importDictionary(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the alphabet.
 

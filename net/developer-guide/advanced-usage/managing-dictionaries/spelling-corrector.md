@@ -8,19 +8,19 @@ keywords: Spelling corrector
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [SpellingCorrector](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector) class is designed to correct spelling errors in search queries, as well as to store words with correct spelling. You can learn about spelling correction in search queries on the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page.
+The [SpellingCorrector](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector) class is designed to correct spelling errors in search queries, as well as to store words with correct spelling. You can learn about spelling correction in search queries on the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page.
 
-To get the number of words in the spelling corrector dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/properties/count) property.
+To get the number of words in the spelling corrector dictionary, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/properties/count) property.
 
-To get an array of words containing in the spelling corrector dictionary, the [GetWords](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/getwords) method is used.
+To get an array of words containing in the spelling corrector dictionary, the [GetWords](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/getwords) method is used.
 
-To add words to the spelling corrector dictionary, use the [AddRange](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/addrange/index) method.
+To add words to the spelling corrector dictionary, use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/addrange/index) method.
 
-The [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/clear) method is used to remove all words from the spelling corrector dictionary.
+The [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/clear) method is used to remove all words from the spelling corrector dictionary.
 
-To export words to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+To export words to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
-To import words from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To import words from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
 
 The following example demonstrates the use of methods of the spelling corrector.
 

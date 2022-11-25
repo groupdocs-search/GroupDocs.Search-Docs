@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Homophone search, or in other words phonic search, allows you to find not only the words specified in the search query, but also the homophones, words that are pronounced the same but differ in meaning.
 
-To enable homophone search, you have to call the [setUseHomophoneSearch](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setUseHomophoneSearch(boolean)) method of the [SearchOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class with the true value as an argument. By default, homophone search is disabled.
+To enable homophone search, you have to call the [setUseHomophoneSearch](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setUseHomophoneSearch(boolean)) method of the [SearchOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class with the true value as an argument. By default, homophone search is disabled.
 
 The default homophone dictionary contains homophones only for the English language. To manage the homophone dictionary, see the [Homophone dictionary]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/homophone-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 

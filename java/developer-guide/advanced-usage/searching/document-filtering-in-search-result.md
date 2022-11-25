@@ -12,7 +12,7 @@ This page contains a description of the document filters used during the search.
 
 ## Setting a filter
 
-To specify which of the documents found should be returned as a result of the search, the [setSearchDocumentFilter](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setSearchDocumentFilter(com.groupdocs.search.options.ISearchDocumentFilter)) method of the [SearchOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class is used. If the document found does not match a filter passed to this method as an argument, the document will not be returned. The default value is null, which means that all documents found will be returned. The following example shows how to set a document filter for searching.
+To specify which of the documents found should be returned as a result of the search, the [setSearchDocumentFilter](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setSearchDocumentFilter(com.groupdocs.search.options.ISearchDocumentFilter)) method of the [SearchOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class is used. If the document found does not match a filter passed to this method as an argument, the document will not be returned. The default value is null, which means that all documents found will be returned. The following example shows how to set a document filter for searching.
 
 
 

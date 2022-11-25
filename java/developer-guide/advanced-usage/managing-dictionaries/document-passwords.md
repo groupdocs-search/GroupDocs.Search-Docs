@@ -8,19 +8,19 @@ keywords: document passwords, password dictionary
 productName: GroupDocs.Search for Java
 hideChildren: False
 ---
-The [PasswordDictionary](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary) class is designed to store passwords for documents to be indexed. Information on indexing password protected documents is presented on the [Indexing password protected documents]({{< ref "search/java/developer-guide/advanced-usage/indexing/indexing-password-protected-documents.md" >}}) page.
+The [PasswordDictionary](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary) class is designed to store passwords for documents to be indexed. Information on indexing password protected documents is presented on the [Indexing password protected documents]({{< ref "search/java/developer-guide/advanced-usage/indexing/indexing-password-protected-documents.md" >}}) page.
 
-To get the number of passwords in the dictionary, use the [getCount](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#getCount()) method.
+To get the number of passwords in the dictionary, use the [getCount](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#getCount()) method.
 
-To get the password for a document from the dictionary, the [getPassword](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#getPassword(java.lang.String)) method is used, passing the path to the document as an argument.
+To get the password for a document from the dictionary, the [getPassword](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#getPassword(java.lang.String)) method is used, passing the path to the document as an argument.
 
-The [clear](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#clear()) method is used to remove all passwords from the dictionary.
+The [clear](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#clear()) method is used to remove all passwords from the dictionary.
 
-To check for the presence of a password in the dictionary for the specified document, the [contains](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#contains(java.lang.String)) method is used.
+To check for the presence of a password in the dictionary for the specified document, the [contains](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#contains(java.lang.String)) method is used.
 
-To add a password to the dictionary, use the [add](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#add(java.lang.String,%20java.lang.String)) method. The key is the path to the document.
+To add a password to the dictionary, use the [add](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#add(java.lang.String,%20java.lang.String)) method. The key is the path to the document.
 
-To remove a password from the dictionary, use the [remove](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#remove(java.lang.String)) method.
+To remove a password from the dictionary, use the [remove](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/PasswordDictionary#remove(java.lang.String)) method.
 
 The following example demonstrates the use of methods of the password dictionary.
 

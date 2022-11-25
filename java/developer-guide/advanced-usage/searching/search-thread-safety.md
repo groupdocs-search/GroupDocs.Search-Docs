@@ -10,7 +10,7 @@ hideChildren: False
 ---
 ## Multiple simultaneous searches
 
-Search in an index is a thread safe operation. This means that calls to the [search](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#search(java.lang.String)) and [searchNext](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#searchNext(com.groupdocs.search.common.ChunkSearchToken)) methods can be made from different threads to the same instance of the [Index](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index) class without any cross-threading problems.
+Search in an index is a thread safe operation. This means that calls to the [search](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#search(java.lang.String)) and [searchNext](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#searchNext(com.groupdocs.search.common.ChunkSearchToken)) methods can be made from different threads to the same instance of the [Index](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index) class without any cross-threading problems.
 
 ## Search during indexing, updating, optimizing, or merging operation
 

@@ -10,9 +10,9 @@ hideChildren: False
 ---
 The search for different word forms allows you to search for nouns in the singular or plural, adjectives in the degree of comparison, forms of regular and irregular verbs, etc.
 
-Search for different word forms is enabled if the [setUseWordFormsSearch](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setUseWordFormsSearch(boolean)) method of the [SearchOptions](https://apireference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class is called with the true value as an argument. By default, the search for different word forms is disabled.
+Search for different word forms is enabled if the [setUseWordFormsSearch](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions#setUseWordFormsSearch(boolean)) method of the [SearchOptions](https://reference.groupdocs.com/search/java/com.groupdocs.search.options/SearchOptions) class is called with the true value as an argument. By default, the search for different word forms is disabled.
 
-To generate various forms of words, a class that implements the [IWordFormsProvider](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/IWordFormsProvider) interface is used. The default class is [EnglishWordFormsProvider](https://apireference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/EnglishWordFormsProvider), which supports English-only word forms. To add support for word forms in other languages, see the [Word forms provider]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/word-forms-provider.md" >}}) page.
+To generate various forms of words, a class that implements the [IWordFormsProvider](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/IWordFormsProvider) interface is used. The default class is [EnglishWordFormsProvider](https://reference.groupdocs.com/search/java/com.groupdocs.search.dictionaries/EnglishWordFormsProvider), which supports English-only word forms. To add support for word forms in other languages, see the [Word forms provider]({{< ref "search/java/developer-guide/advanced-usage/managing-dictionaries/word-forms-provider.md" >}}) page.
 
 The following example demonstrates how to perform search for different word forms in an index.
 

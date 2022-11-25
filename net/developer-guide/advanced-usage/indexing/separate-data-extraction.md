@@ -12,7 +12,7 @@ The feature described in this article makes it possible to separate the operatio
 
 This feature can be useful because the operation of extracting text and other data from documents can be very long for some formats. At the same time, adding data to the index is a rather lightweight operation. And thus, separating these operations can lead to a significant increase in the total time when the index is not busy performing any operations. And the subsequent addition of new data extractors will significantly increase the performance of indexing. In this case, data extractors can even work on separate servers, completely freeing the indexing server from extracting operations.
 
-The [Extractor](https://apireference.groupdocs.com/search/net/groupdocs.search/extractor) class is used to extract data from documents. Upon completion of the operation, the [Extract](https://apireference.groupdocs.com/search/net/groupdocs.search/extractor/methods/extract) method returns an instance of the [ExtractedData](https://apireference.groupdocs.com/search/net/groupdocs.search.common/extracteddata) class, which is used directly to add to the index.
+The [Extractor](https://reference.groupdocs.com/search/net/groupdocs.search/extractor) class is used to extract data from documents. Upon completion of the operation, the [Extract](https://reference.groupdocs.com/search/net/groupdocs.search/extractor/methods/extract) method returns an instance of the [ExtractedData](https://reference.groupdocs.com/search/net/groupdocs.search.common/extracteddata) class, which is used directly to add to the index.
 
 The following example demonstrates how to perform separate data extraction and indexing.
 

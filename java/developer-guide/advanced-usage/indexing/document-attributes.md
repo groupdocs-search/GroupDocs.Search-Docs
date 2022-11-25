@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Document attributes is a special feature designed for marking indexed documents with text labels without the need for re-indexing. Added attributes can be further used to filter documents during the search.
 
-To add and delete attributes of indexed documents, use the [changeAttributes](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index#changeAttributes(com.groupdocs.search.AttributeChangeBatch)) method of the [Index](https://apireference.groupdocs.com/search/java/com.groupdocs.search/Index) class. This method accepts an [AttributeChangeBatch](https://apireference.groupdocs.com/search/java/com.groupdocs.search.common/AttributeChangeBatch) object containing the required attribute changes as a parameter.
+To add and delete attributes of indexed documents, use the [changeAttributes](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index#changeAttributes(com.groupdocs.search.AttributeChangeBatch)) method of the [Index](https://reference.groupdocs.com/search/java/com.groupdocs.search/Index) class. This method accepts an [AttributeChangeBatch](https://reference.groupdocs.com/search/java/com.groupdocs.search.common/AttributeChangeBatch) object containing the required attribute changes as a parameter.
 
 The following example demonstrates how to add and remove attributes from indexed documents.
 
@@ -45,7 +45,7 @@ options.setSearchDocumentFilter(SearchDocumentFilter.createAttribute("main"));
 SearchResult result = index.search("Einstein", options);
 ```
 
-Attributes can be associated with documents during indexing using the [FileIndexing](https://apireference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#FileIndexing) event. The following example demonstrates this.
+Attributes can be associated with documents during indexing using the [FileIndexing](https://reference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#FileIndexing) event. The following example demonstrates this.
 
 
 
