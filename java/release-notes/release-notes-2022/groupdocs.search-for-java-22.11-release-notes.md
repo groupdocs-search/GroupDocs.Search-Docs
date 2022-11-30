@@ -109,7 +109,7 @@ Method **com.groupdocs.search.common.FragmentContainer[] getResult()** has been 
 
 Method **java.lang.String getTermHighlightEndTag()** has been added to **com.groupdocs.search.options.HighlightOptions** class.  
 Method **void setTermHighlightEndTag(java.lang.String)** has been added to **com.groupdocs.search.options.HighlightOptions** class.  
-Method **java.lang.String getTermHighlightStartTag()** has been added to **com.groupdocs.search.options.HighlightOptions** class.
+Method **java.lang.String getTermHighlightStartTag()** has been added to **com.groupdocs.search.options.HighlightOptions** class.  
 Method **void setTermHighlightStartTag(java.lang.String)** has been added to **com.groupdocs.search.options.HighlightOptions** class.
 
 Method **com.groupdocs.search.options.OutputFormat getOutputFormat()** has been added to **com.groupdocs.search.common.ResultBuilderFactory** class.
