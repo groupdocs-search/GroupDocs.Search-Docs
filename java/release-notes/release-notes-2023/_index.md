@@ -1,8 +1,8 @@
 ---
-id: release-notes-2021
-url: search/java/release-notes-2021
-title: Release Notes - 2021
-weight: 97
+id: release-notes-2023
+url: search/java/release-notes-2023
+title: Release Notes - 2023
+weight: 95
 description: ""
 keywords: 
 productName: GroupDocs.Search for Java
