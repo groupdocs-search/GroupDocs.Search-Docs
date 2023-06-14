@@ -69,7 +69,7 @@ SearchResult result = index.Search(query);
 
 ## OperationProgressChanged event
 
-The [OperationProgressChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationprogresschanged) event occurs when the progress of an index operation changes. The example below demonstrates how to track the progress of an index operation.
+The [OperationProgressChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationprogresschanged) event occurs when the progress of an indexing or updating operation changes. The example below demonstrates how to track the progress of an index operation.
 
 **C#**
 
@@ -91,6 +91,30 @@ index.Events.OperationProgressChanged += (sender, args) =>
  
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
+```
+
+## OptimizationProgressChanged event
+
+The [OptimizationProgressChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/optimizationprogresschanged) event occurs when the progress of an index optimization operation changes. The example below demonstrates how to track the progress of the index optimization operation.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+
+// Opening an index
+Index index = new Index(indexFolder);
+
+// Subscribing to the event
+index.Events.OptimizationProgressChanged += (sender, args) =>
+{
+    Console.WriteLine("Processed segments: " + args.ProcessedSegments);
+    Console.WriteLine("Total segments: " + args.TotalSegments);
+    Console.WriteLine("Progress percentage: " + args.ProgressPercentage);
+};
+
+// Optimizing the index
+index.Optimize();
 ```
 
 ## PasswordRequired event

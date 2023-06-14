@@ -68,7 +68,7 @@ SearchResult result = index.search(query);
 
 ## OperationProgressChanged event
 
-The [OperationProgressChanged](https://reference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#OperationProgressChanged) event occurs when the progress of an index operation changes. The example below demonstrates how to track the progress of an index operation.
+The [OperationProgressChanged](https://reference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#OperationProgressChanged) event occurs when the progress of an indexing or updating operation changes. The example below demonstrates how to track the progress of an index operation.
 
 
 
@@ -91,6 +91,31 @@ index.getEvents().OperationProgressChanged.add(new EventHandler<OperationProgres
  
 // Indexing documents from the specified folder
 index.add(documentsFolder);
+```
+
+## OptimizationProgressChanged event
+
+The [OptimizationProgressChanged](https://reference.groupdocs.com/search/java/com.groupdocs.search.events/EventHub#OptimizationProgressChanged) event occurs when the progress of an index optimization operation changes. The example below demonstrates how to track the progress of the index optimization operation.
+
+
+
+```java
+String indexFolder = "c:\\MyIndex\\";
+
+// Opening an index
+Index index = new Index(indexFolder);
+
+// Subscribing to the event
+index.getEvents().OptimizationProgressChanged.add(new EventHandler<OptimizationProgressEventArgs>() {
+    public void invoke(Object sender, OptimizationProgressEventArgs args) {
+        System.out.println("Processed segments: " + args.getProcessedSegments());
+        System.out.println("Total segments: " + args.getTotalSegments());
+        System.out.println("Progress percentage: " + args.getProgressPercentage());
+    }
+});
+
+// Optimizing the index
+index.optimize();
 ```
 
 ## PasswordRequired event
