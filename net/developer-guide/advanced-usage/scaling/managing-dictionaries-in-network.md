@@ -1,7 +1,7 @@
 ---
-id: managing-dictionaries
-url: search/net/managing-dictionaries
-title: Managing dictionaries
+id: managing-dictionaries-in-network
+url: search/net/managing-dictionaries-in-network
+title: Managing dictionaries in the search network
 weight: 140
 description: "This page contains information about managing dictionaries of shards in the search network."
 keywords: managing dictionaries in search network, managing dictionaries in distributed index, working with dictionaries in search network, working with dictionaries in distributed index
