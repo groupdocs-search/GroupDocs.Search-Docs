@@ -12,7 +12,7 @@ To run a text search, use the [SearchFirst](https://reference.groupdocs.com/sear
 
 To continue the search, the [SearchNext](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/searchnext/) method is used, returning the second and subsequent portions of results.
 
-Currently, only the object form of the search query is supported. The options for a network search are the same as those for a single index search.
+Text and object forms of the search query are supported when appropriate overloads of the SearchFirst method are used. The options for a network search are the same as those for a single index search.
 
 The following code example demonstrates performing a full-text search on the search network.
 

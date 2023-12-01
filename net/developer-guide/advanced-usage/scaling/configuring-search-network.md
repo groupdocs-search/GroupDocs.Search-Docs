@@ -33,6 +33,8 @@ To complete the configuration of a network node, you must call the [CompleteNode
 
 Once the search network configuration is complete, you must call the [CompleteConfiguration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configurator/completeconfiguration/) method, which will return an instance of the [Configuration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/) class.
 
+An instance of the [Configuration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/) class can be saved to a file or stream in the XML format using the Save method, and subsequently can be loaded from the file or stream using the Load method.
+
 The following code example shows how to create a search network configuration that describes two nodes.
 
 **C#**
@@ -69,7 +71,6 @@ Configuration configuration = new Configurator()
         .AddExtractor(basePath + "Extractor3")
         .CompleteNode()
     .CompleteConfiguration();
-return configuration;
 ```
 
 ## More resources
