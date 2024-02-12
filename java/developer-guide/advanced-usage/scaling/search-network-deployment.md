@@ -15,10 +15,11 @@ An instance of the [SearchNetworkNode](https://reference.groupdocs.com/search/ja
  - Search services;
  - Extraction services;
  - Shard services.
+
 Indexing and search services also provide an interface to access all search network features.
 
 To deploy the GroupDocs.Search search network, you must perform the following steps:
- - On each slave server, create an instance of the [SearchNetworkNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/) class, call the Start method.
+ - On each slave server, create an instance of the [SearchNetworkNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/) class, call the [start](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/#start--) method.
  - On the master server, create an instance of the [SearchNetworkNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/) class, passing the configuration object to the constructor.
  - Call the [configureAllNodes](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/#configureAllNodes--) method of the [SearchNetworkNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/) object on the master server.
  - Call the [start](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/#start--) method of the [SearchNetworkNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/searchnetworknode/) object on the master server.
