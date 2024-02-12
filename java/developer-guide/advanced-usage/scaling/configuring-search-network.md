@@ -18,6 +18,7 @@ The [setIndexSettings](https://reference.groupdocs.com/search/java/com.groupdocs
  - Flag for using the extracted text storage, as well as the degree of text compression in the storage ([setTextStorageSettings](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/indexsettingsconfigurator/#setTextStorageSettings-boolean-com.groupdocs.search.options.Compression-) method).
  - Index type ([setIndexType](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/indexsettingsconfigurator/#setIndexType-com.groupdocs.search.options.IndexType-) method).
  - Number of threads used for searching ([setSearchThreads](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/indexsettingsconfigurator/#setSearchThreads-com.groupdocs.search.options.NumberOfThreads-) method).
+
 To complete the configuration of index settings, you must call the [completeIndexSettings](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/indexsettingsconfigurator/#completeIndexSettings--) method.
 
 To configure individual search network nodes, use the [addNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/configurator/#addNode-int-) method, which returns an instance of the [NodeConfigurator](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/nodeconfigurator/) class.
@@ -29,13 +30,14 @@ The [NodeConfigurator](https://reference.groupdocs.com/search/java/com.groupdocs
  - Add a search service, which is the input for all search queries to the network ([addSearcher](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/nodeconfigurator/#addSearcher-java.lang.String-) method).
  - Add an extraction service used to extract data from documents added to the search network ([addExtractor](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/nodeconfigurator/#addExtractor-java.lang.String-) method). Increasing the number of extraction services (one per network node) increases the performance of search network indexing.
  - Add a shard service used to store extracted data in a form suitable for searching on the network ([addShard](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/nodeconfigurator/#addShard-java.lang.String-) method). Increasing the number of shards (one for each network node) increases the performance of searching the network.
+
 To complete the configuration of a network node, you must call the [completeNode](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/nodeconfigurator/#completeNode--) method.
 
 Once the search network configuration is complete, you must call the [completeConfiguration](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/configurator/#completeConfiguration--) method, which will return an instance of the [Configuration](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/configuration/) class.
 
 An instance of the [Configuration](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.configuring/configuration/) class can be saved to a file or stream in the XML format using the Save method, and subsequently can be loaded from the file or stream using the Load method.
 
-The following code example shows how to create a search network configuration that describes two nodes.
+The following code example shows how to create a search network configuration that describes four nodes.
 
 ```java
 String address = "127.0.0.1";

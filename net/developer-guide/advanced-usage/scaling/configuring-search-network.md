@@ -18,6 +18,7 @@ The [SetIndexSettings](https://reference.groupdocs.com/search/net/groupdocs.sear
  - Flag for using the extracted text storage, as well as the degree of text compression in the storage ([SetTextStorageSettings](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/settextstoragesettings/) method).
  - Index type ([SetIndexType](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/setindextype/) method).
  - Number of threads used for searching ([SetSearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/setsearchthreads/) method).
+
 To complete the configuration of index settings, you must call the [CompleteIndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/completeindexsettings/) method.
 
 To configure individual search network nodes, use the [AddNode](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configurator/addnode/) method, which returns an instance of the [NodeConfigurator](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/nodeconfigurator/) class.
@@ -29,13 +30,14 @@ The [NodeConfigurator](https://reference.groupdocs.com/search/net/groupdocs.sear
  - Add a search service, which is the input for all search queries to the network ([AddSearcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/nodeconfigurator/addsearcher/) method).
  - Add an extraction service used to extract data from documents added to the search network ([AddExtractor](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/nodeconfigurator/addextractor/) method). Increasing the number of extraction services (one per network node) increases the performance of search network indexing.
  - Add a shard service used to store extracted data in a form suitable for searching on the network ([AddShard](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/nodeconfigurator/addshard/) method). Increasing the number of shards (one for each network node) increases the performance of searching the network.
+
 To complete the configuration of a network node, you must call the [CompleteNode](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/nodeconfigurator/completenode/) method.
 
 Once the search network configuration is complete, you must call the [CompleteConfiguration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configurator/completeconfiguration/) method, which will return an instance of the [Configuration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/) class.
 
 An instance of the [Configuration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/) class can be saved to a file or stream in the XML format using the Save method, and subsequently can be loaded from the file or stream using the Load method.
 
-The following code example shows how to create a search network configuration that describes two nodes.
+The following code example shows how to create a search network configuration that describes four nodes.
 
 **C#**
 
