@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Documents can be deleted from the search network using the [delete](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/indexer/#delete-java.lang.String---com.groupdocs.search.options.DeleteOptions-) method of the [Indexer](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/indexer/) class.
 
-To delete documents, you must pass an array of document keys, as well as a delete options object, to the [delete](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/indexer/#delete-java.lang.String---com.groupdocs.search.options.DeleteOptions-) method of the [Indexer](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/indexer/) method.
+To delete documents, you must pass an array of document keys, as well as a delete options object, to the [delete](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/indexer/#delete-java.lang.String---com.groupdocs.search.options.DeleteOptions-) method of the [Indexer](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling/indexer/) class.
 
 An asynchronous delete flag is available as an option. In the case of asynchronous deletion, you can track the completion of the operation by subscribing to the [DeletionCompleted](https://reference.groupdocs.com/search/java/com.groupdocs.search.scaling.events/nodeeventhub/#DeletionCompleted) event.
 
