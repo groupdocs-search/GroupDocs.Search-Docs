@@ -51,8 +51,8 @@ Database management systems are also search engines, because they always have fa
 
 In accordance with the above types of classification, GroupDocs.Search API refers to the following types of search engines:
 
-*   By search area - local or personal full-text search engine.
-*   By data source - desktop full-text search index.
-*   By type of content - full-text search database. In addition, the API can also extract metadata from image and video files, as well as add arbitrary optional fields to any indexed documents.
+*   By search area - personal or corporate (local) full-text search engine.
+*   By data source - desktop or federated full-text search index.
+*   By type of content - full-text search database, image search engine (reverse image search, OCR). In addition, the API can also extract metadata from image and video files, as well as add arbitrary optional fields to any indexed documents.
 *   By the type of interaction interface - normal with the ability to retrieve results by chunks.
 *   By type of index - nosql document store database.
