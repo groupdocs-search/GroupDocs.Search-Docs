@@ -21,7 +21,7 @@ The Index Browser allows you:
 
 The Index Browser project is available on GitHub:
 
-[https://github.com/andreygolubkov/GroupDocs.Search-IndexBrowser](https://github.com/andreygolubkov/GroupDocs.Search-IndexBrowser)
+[https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Demos/IndexBrowser](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Demos/IndexBrowser)
 
 After launching the Index Browser application, click the **Set license** button and select the license file to work with the GroupDocs.Search for .NET library.
 
