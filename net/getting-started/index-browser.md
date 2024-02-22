@@ -23,16 +23,16 @@ The Index Browser project is available on GitHub:
 
 [https://github.com/andreygolubkov/GroupDocs.Search-IndexBrowser](https://github.com/andreygolubkov/GroupDocs.Search-IndexBrowser)
 
-After launching the Index Browser application, click the "Set license" button and select the license file to work with the GroupDocs.Search for .NET library.
+After launching the Index Browser application, click the **Set license** button and select the license file to work with the GroupDocs.Search for .NET library.
 
-To create an index, click the "Create index" button. Enter the index location directory on the disk in the field "Index folder". Enter the index name (to be displayed in the list). Click the "Create" button.
+To create an index, click the **Create index** button. Enter the index location directory on the disk in the field **Index folder**. Enter the index name (to be displayed in the list). Click the **Create** button.
 
-To unload the index from memory, click the "Close index" button in the upper right corner of the application window.
+To unload the index from memory, click the **Close index** button in the upper right corner of the application window.
 
-To open an index, select the desired index in the list and click the "Load index" button. A window for working with the index will open.
+To open an index, select the desired index in the list and click the **Load index** button. A window for working with the index will open.
 
-To add documents to the index, open the "Operations" tab. Click the "Add directory" or "Add files" button to select a folder or file, respectively. The added paths to files or folders will appear in the "Selected paths" list. Click the "Start indexing" button and wait for the indexing process to complete.
+To add documents to the index, open the **Operations** tab. Click the **Add directory** or **Add files** button to select a folder or file, respectively. The added paths to files or folders will appear in the **Selected paths** list. Click the **Start indexing** button and wait for the indexing process to complete.
 
-To search the index, open the "Search" tab. Enter your search query in the "Query" field. Below the query field, specify the search options you require. Press the "Search" button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table](https://docs.groupdocs.com/search/net/search-operation-table/).
+To search the index, open the **Search** tab. Enter your search query in the **Query** field. Below the query field, specify the search options you require. Press the **Search** button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table](https://docs.groupdocs.com/search/net/search-operation-table/).
 
 To navigate through the found documents, select the file you are interested in by clicking on it in the list. The text of the document will be displayed on the right side of the window. The arrow buttons allow you to move in the text from one found occurrence to another.
