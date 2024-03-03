@@ -97,7 +97,7 @@ hideChildren: true
             </li>
             <li>
                 <h4>
-                 <a class="home-resource-link" rel="nofollow" href="https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Demos/WebForms">{{< icon "gdoc_github" >}} GroupDocs.Search for .NET Web Forms</a>
+                 <a class="home-resource-link" rel="nofollow" href="https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Demos/WebApp">{{< icon "gdoc_github" >}} GroupDocs.Search for .NET Web Forms</a>
                 </h4>
                 <p>Open-source font-end project ready to be used out of the box</p>
             </li>
@@ -114,18 +114,6 @@ hideChildren: true
                 </h4>
                 <p>Open-source project for APIs example usage</p>
             </li>
-            <li>
-                <h4>
-                <a class="home-resource-link" rel="nofollow" href="https://github.com/groupdocs-search/GroupDocs.Search-for-Java/tree/master/Demos/Spring">{{< icon "gdoc_github" >}} GroupDocs.Search for Java Spring</a>
-                </h4>
-                <p>Open-source font-end project ready to be used out of the box</p>
-            </li>
-            <li>
-                <h4>
-                <a class="home-resource-link" rel="nofollow" href="https://github.com/groupdocs-search/GroupDocs.Search-for-Java/tree/master/Demos/Dropwizard">{{< icon "gdoc_github" >}} GroupDocs.Search for Java Dropwizard</a>
-                </h4>
-                <p>Open-source font-end project ready to be used out of the box</p>
-            </li>
         </ul>
     </div>
 </div>
@@ -137,12 +125,6 @@ hideChildren: true
 </h3>
 
 <div class="gdoc-columns gdoc-columns--regular flex flex-gap flex-mobile-column">
-    <div class="gdoc-columns__content gdoc-markdown--nested flex-even" style="margin-top: 1rem !important">
-    <h4>
-        <a class="home-resource-link" href="https://hub.docker.com/r/groupdocs/search" rel="nofollow">{{< icon "docker" >}} GroupDocs.Search for .NET at DockerHub</a>
-        </h4>
-        <p>Out-of-the-box docker container</p>
-    </div>
     <div class="gdoc-columns__content gdoc-markdown--nested flex-even" style="margin-top: 1rem !important">
     <h4>
         <a class="home-resource-link" href="https://products.groupdocs.app/search/total" rel="nofollow">{{< icon "eye" >}} GroupDocs.Search Free App</a>
