@@ -44,8 +44,8 @@ if (index.Dictionaries.CharacterReplacements.Count > 0)
  
 if (index.Dictionaries.CharacterReplacements.Contains('-'))
 {
-    char replacement = index.Dictionaries.CharacterReplacements.GetReplacement('-');
-    Console.WriteLine("The replacement for hyphen is " + replacement);
+    int replacement = index.Dictionaries.CharacterReplacements.GetReplacement('-');
+    Console.WriteLine("The replacement for hyphen is " + char.ConvertFromUtf32(replacement));
  
     // Deleting the hyphen character replacement from the dictionary
     index.Dictionaries.CharacterReplacements.RemoveRange(new char[] { '-' });
