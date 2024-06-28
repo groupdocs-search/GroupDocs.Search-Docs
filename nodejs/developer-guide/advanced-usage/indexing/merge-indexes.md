@@ -17,20 +17,21 @@ The [Index](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.se
 The following example demonstrates the merging of two indexes.
 
 ```javascript
-String indexFolder1 = "c:\\MyIndex1\\";
-String indexFolder2 = "c:\\MyIndex2\\";
-String documentsFolder1 = "c:\\MyDocuments1\\";
-String documentsFolder2 = "c:\\MyDocuments2\\";
- 
-Index index1 = new Index(indexFolder1); // Creating index1
+const indexFolder1 = 'c:/MyIndex1/';
+const indexFolder2 = 'c:/MyIndex2/';
+const documentsFolder1 = 'c:/MyDocuments1/';
+const documentsFolder2 = 'c:/MyDocuments2/';
+
+const index1 = new groupdocs.search.Index(indexFolder1); // Creating index1
 index1.add(documentsFolder1); // Indexing documents
- 
-Index index2 = new Index(indexFolder2); // Creating index2
+
+const index2 = new groupdocs.search.Index(indexFolder2); // Creating index2
 index2.add(documentsFolder2); // Indexing documents
- 
-MergeOptions options = new MergeOptions();
-options.setCancellation(new Cancellation()); // Creating cancellation object to be able to cancel the oparation
- 
+
+const options = new groupdocs.search.MergeOptions();
+options.setCancellation(new groupdocs.search.Cancellation()); // Creating cancellation object to be able to cancel the oparation
+options.getCancellation().cancelAfter(5000); // Setting a time limit for the operation of 5 seconds
+
 // Merging index2 into index1
 // Files of index2 will not be changed
 index1.merge(index2, options);

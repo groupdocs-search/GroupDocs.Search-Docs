@@ -17,21 +17,25 @@ When saving text in the index, the values defined in a [Compression](https://re
 The example below demonstrates storing text in an index using the high compression ratio.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index settings instance
-IndexSettings settings = new IndexSettings();
-settings.setTextStorageSettings(new TextStorageSettings(Compression.High)); // Setting high compression ratio for the index text storage
- 
+const settings = new groupdocs.search.IndexSettings();
+settings.setTextStorageSettings(new groupdocs.search.TextStorageSettings(groupdocs.search.Compression.High)); // Setting high compression ratio for the index text storage
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder, settings);
- 
+const index = new groupdocs.search.Index(indexFolder, settings, true);
+
 // Indexing documents
 index.add(documentsFolder);
- 
+
+// Now the index contains the text of all indexed documents,
+// so the operations of getting the text of documents and highlighting occurrences are faster.
+
 // Searching
-SearchResult result = index.search("Einstein");
+const query = 'Einstein';
+const result = index.search(query);
 ```
 
 ## More resources

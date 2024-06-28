@@ -17,19 +17,19 @@ In order to save information about events and errors in an index into a file, yo
 The following example demonstrates the use of the standard file logger. The constructor parameters of this logger are the path to the log file and its maximum size in MB.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
-String query = "Einstein";
-String logPath = "c:\\Log.txt";
- 
-IndexSettings settings = new IndexSettings();
-settings.setLogger(new FileLogger(logPath, 4.0)); // Specifying the path to the log file and a maximum length of 4 MB
- 
-Index index = new Index(indexFolder, settings); // Creating or loading an index from the specified folder
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+const query = 'Einstein';
+const logPath = 'c:/Log.txt';
+
+const settings = new groupdocs.search.IndexSettings();
+settings.setLogger(new groupdocs.search.FileLogger(logPath, 4.0)); // Specifying the path to the log file and a maximum length of 4 MB
+
+const index = new groupdocs.search.Index(indexFolder, settings); // Creating or loading an index from the specified folder
+
 index.add(documentsFolder); // Indexing documents from the specified folder
- 
-SearchResult result = index.search(query); // Search in the index
+
+const result = index.search(query); // Search in index
 ```
 
 ## Implementing custom logger
@@ -37,18 +37,17 @@ SearchResult result = index.search(query); // Search in the index
 Sometimes you may need to implement your own logger, for example, to display the log in the console. An example implementation of such a logger is presented below.
 
 ```javascript
-public class ConsoleLogger implements ILogger {
-    public ConsoleLogger() {
-    }
- 
-    public void error(String message) {
-        System.out.println("Error: " + message);
-    }
- 
-    public void trace(String message) {
-        System.out.println(message);
-    }
-}
+// Implementing a custom console logger
+const consoleLogger = java.newProxy('com.groupdocs.search.common.ILogger', {
+  error: function (message) {
+    console.log('Error: ' + message);
+  },
+  trace: function (message) {
+    console.log(message);
+  },
+});
+
+settings.setLogger(consoleLogger); // Setting the custom logger
 ```
 
 ## More resources

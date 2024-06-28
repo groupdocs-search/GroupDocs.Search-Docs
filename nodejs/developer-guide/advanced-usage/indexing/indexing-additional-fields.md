@@ -15,29 +15,39 @@ Additional fields are associated with the document through the arguments of theÂ
 The example below demonstrates the associating of additional fields with documents during indexing.
 
 ```javascript
-// Defining somewhere a dictionary containing subjects of documents
-final HashMap<String, String> subjects = new HashMap();
-subjects.put("C:\\MyDocuments\\BhagavadGitaAsItIs.pdf".toLowerCase(), "Spiritual");
-// ...
- 
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
+// Defining subjects of documents
+const documents = ['Lorem ipsum.pdf', 'English.docx', 'Lorem ipsum.docx', 'English.txt', 'Lorem ipsum.txt'];
+const subjects = ['Latin', 'English', 'Latin', 'English', 'Latin'];
+
 // Creating an index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder, true);
+
 // Subscribing to the event
-index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
-    public void invoke(Object sender, FileIndexingEventArgs args) {
-        String subject = subjects.get(args.getDocumentFullPath().toLowerCase()); // Getting a subject for the current document
-        if (subject != null) {
-            args.setAdditionalFields(new DocumentField[] { // Setting additional fields for the current document
-                new DocumentField("Subject", subject)
-            });
+index.getEvents().FileIndexing.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      const fileName = path.basename(args.getDocumentFullPath());
+      let subject = null;
+      for (let i = 0; i < documents.length; i++) {
+        if (documents[i] == fileName) {
+          subject = subjects[i]; // Getting a subject for the current document
         }
-    }
-});
- 
+      }
+      if (subject != null) {
+        // Setting additional fields for the current document
+        args.setAdditionalFields(
+          java.newArray('com.groupdocs.search.common.DocumentField', [
+            new groupdocs.search.DocumentField('Subject', subject),
+          ]),
+        );
+      }
+    },
+  }),
+);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
 ```

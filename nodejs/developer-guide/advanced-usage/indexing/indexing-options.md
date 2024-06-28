@@ -17,16 +17,16 @@ The [setCancellation](https://reference.groupdocs.com/search/nodejs-java/com.gr
 The following example demonstrates cancelling of an indexing operation.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentFolder = "c:\\MyDocuments\\";
+const indexFolder = 'c:/MyIndex/';
+const documentFolder = 'c:/MyDocuments/';
 
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Creating an instance of indexing options
-IndexingOptions options = new IndexingOptions();
-options.setCancellation(new Cancellation()); // Setting a cancellation object
-options.getCancellation().cancelAfter(300000); // Setting a time period of 300 seconds after which the indexing operation will be cancelled
+const options = new groupdocs.search.IndexingOptions();
+options.setCancellation(new groupdocs.search.Cancellation()); // Setting a cancellation object
+options.getCancellation().cancelAfter(3000); // Setting a time period of 3 seconds after which the indexing operation will be cancelled
 
 // Indexing documents from the specified folder
 index.add(documentFolder, options);
@@ -37,23 +37,29 @@ index.add(documentFolder, options);
 The [setAsync](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.options/IndexingOptions#setAsync(boolean)) method is used to specify whether to perform indexing operation asynchronously or synchronously. The default value is false, meaning synchronous execution. The example below demonstrates the performing of an asynchronous indexing.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentFolder = "c:\\MyDocuments\\";
+const indexFolder = 'c:/MyIndex/';
+const documentFolder = 'c:/MyDocuments/';
 
 // Creating index in the specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Subscribing to the event
-index.getEvents().StatusChanged.add(new EventHandler<BaseIndexEventArgs>() {
-    public void invoke(Object sender, BaseIndexEventArgs args) {
-        if (args.getStatus() != IndexStatus.InProgress) {
-            // A notification of the operation completion should be here
-        }
-    }
-});
+index.getEvents().StatusChanged.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      if (
+        String(args.getStatus()) == String(groupdocs.search.IndexStatus.Ready) ||
+        String(args.getStatus()) == String(groupdocs.search.IndexStatus.Failed)
+      ) {
+        // A notification of the operation completion should be here
+        console.log('Status: ' + args.getStatus());
+      }
+    },
+  }),
+);
 
 // Creating an instance of indexing options
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
 options.setAsync(true); // Specifying the asynchronous performing of the operation
 
 // Indexing documents from the specified folder
@@ -70,14 +76,14 @@ A larger number of threads accelerates the indexing process. However, be caref
 The following example demonstrates how to perform indexing in 2 threads.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentFolder = "c:\\MyDocuments\\";
+const indexFolder = 'c:/MyIndex/';
+const documentFolder = 'c:/MyDocuments/';
 
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Creating an instance of indexing options
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
 options.setThreads(2); // Setting the number of indexing threads
 
 // Indexing documents from the specified folder
@@ -101,16 +107,16 @@ The [getMetadataIndexingOptions](https://reference.groupdocs.com/search/nodejs-j
 The following example demonstrates how to set the metadata indexing options.
 
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentFolder = "c:\\MyDocuments";
+const indexFolder = 'c:/MyIndex/';
+const documentFolder = 'c:/MyDocuments/';
 
 // Creating an index
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Setting the metadata indexing options
-IndexingOptions options = new IndexingOptions();
-options.getMetadataIndexingOptions().setDefaultFieldName("default");
-options.getMetadataIndexingOptions().setSeparatorInCompoundName("\\");
+const options = new groupdocs.search.IndexingOptions();
+options.getMetadataIndexingOptions().setDefaultFieldName('default');
+options.getMetadataIndexingOptions().setSeparatorInCompoundName('\\');
 options.getMetadataIndexingOptions().setMaxBytesToIndexField(10);
 options.getMetadataIndexingOptions().setMaxIntsToIndexField(10);
 options.getMetadataIndexingOptions().setMaxLongsToIndexField(10);

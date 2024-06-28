@@ -15,24 +15,30 @@ To notify an index about renaming a document, the [notifyIndex](https://referen
 You should keep in mind that if an index is notified of the renaming of a document, it will not be reindexed the next time you call the [update](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index#update()) method, even if its contents have changed. The following example demonstrates how to notify an index of a renamed document.
 
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentFolder = "c:\\MyDocuments";
- 
+const indexFolder = 'c:/MyIndex';
+const documentFolder = 'c:/MyDocuments';
+
 // Creating an index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents in a document folder
 index.add(documentFolder);
- 
+
 // Renaming a document
-String oldDocumentPath = "c:\\MyDocuments\\OldDocumentName.txt";
-String newDocumentPath = "c:\\MyDocuments\\NewDocumentName.txt";
-new File(oldDocumentPath).renameTo(new File(newDocumentPath));
- 
+const oldDocumentPath = documentFolder + 'Lorem ipsum.txt';
+const newDocumentPath = documentFolder + 'Lorem ipsum renamed.txt';
+fs.renameSync(oldDocumentPath, newDocumentPath);
+
 // Notifying the index about renaming
-Notification notification = Notification.createRenameNotification(oldDocumentPath, newDocumentPath);
-boolean result = index.notifyIndex(notification);
- 
+const notification = java.callStaticMethodSync(
+  'com.groupdocs.search.Notification',
+  'createRenameNotification',
+  oldDocumentPath,
+  newDocumentPath,
+);
+const result = index.notifyIndex(notification);
+console.log('\nSuccessful rename: ' + result);
+
 // Updating the index
 // The renamed document will not be reindexed
 index.update();

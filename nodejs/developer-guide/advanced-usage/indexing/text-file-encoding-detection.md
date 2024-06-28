@@ -23,21 +23,23 @@ By default, the encoding auto detection of text files is disabled. But in any ca
 The example below shows how to set encoding of a text during indexing.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Subscribing to the event
-index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
-    public void invoke(Object sender, FileIndexingEventArgs args) {
-        if (args.getDocumentFullPath().endsWith(".txt")) {
-            args.setEncoding(Encodings.Windows_1253); // Setting encoding for each text file
-        }
-    }
-});
- 
+index.getEvents().FileIndexing.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      if (args.getDocumentFullPath().endsWith('.txt')) {
+        args.setEncoding(groupdocs.search.Encodings.utf_32); // Setting encoding for each text file
+      }
+    },
+  }),
+);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
 ```

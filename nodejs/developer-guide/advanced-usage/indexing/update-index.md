@@ -19,19 +19,20 @@ When updating, the same options can be specified in the instance of the [Update
 The following example demonstrates how to update an index using 2 threads.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentFolder = 'c:/MyDocuments/';
+const query = 'son';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentFolder);
- 
+
 // Change, delete, add documents in the document folder
 // ...
- 
-UpdateOptions options = new UpdateOptions();
+
+const options = new groupdocs.search.UpdateOptions();
 options.setThreads(2); // Setting the number of indexing threads
 index.update(options); // Updating the index
 ```
@@ -43,15 +44,15 @@ Sometimes when a new version of the GroupDocs.Search library is released, the fo
 When the index version is updated, the documents are reindexed and saved in a folder different from the original in the new format. However, the index of old version does not change. The folder containing the old version of the index may be deleted after the update. The following example demonstrates updating a previous version of an index.
 
 ```javascript
-String sourceIndexFolder = "c:\\MyOldIndex\\";
-String targetIndexFolder = "c:\\MyNewIndex\\";
- 
-IndexUpdater updater = new IndexUpdater();
- 
+const sourceIndexFolder = 'c:/MyOldIndex/';
+const targetIndexFolder = 'c:/MyNewIndex/';
+
+// Creating updater
+const updater = new groupdocs.search.IndexUpdater();
+
 if (updater.canUpdateVersion(sourceIndexFolder)) {
-    // The index of old version does not change
-    int result = updater.updateVersion(sourceIndexFolder, targetIndexFolder);
-    // Class VersionUpdateResult contains all possible result values
+  // The index of old version does not change
+  const result = updater.updateVersion(sourceIndexFolder, targetIndexFolder);
 }
 ```
 

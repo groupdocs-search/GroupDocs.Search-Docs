@@ -19,17 +19,18 @@ The password dictionary is stored on disk in encrypted form. However, very simpl
 The following example demonstrates how to perform indexing of password protected documents using a password dictionary.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder, true);
+
 // Adding document passwords to the dictionary
-String path = new File("C:\\MyDocuments\\ProtectedDocument.pdf").getAbsolutePath();
-index.getDictionaries().getDocumentPasswords().add(path, "123456");
-// ...
- 
+const path1 = path.resolve(Utils.PasswordProtectedDocumentsPath + 'English.docx');
+index.getDictionaries().getDocumentPasswords().add(path1, '123456');
+const path2 = path.resolve(Utils.PasswordProtectedDocumentsPath + 'Lorem ipsum.docx');
+index.getDictionaries().getDocumentPasswords().add(path2, '123456');
+
 // Indexing documents from the specified folder
 // Passwords will be automatically retrieved from the dictionary when necessary
 index.add(documentsFolder);
@@ -44,21 +45,23 @@ Both of the described methods for providing document passwords can be used toget
 The following example shows how to provide password for a document using the [PasswordRequired](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.events/EventHub#PasswordRequired) event.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Subscribing to the event
-index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
-    public void invoke(Object sender, PasswordRequiredEventArgs args) {
-        if (args.getDocumentFullPath().endsWith("ProtectedDocument.pdf")) {
-            args.setPassword("123456"); // Providing password for the file 'ProtectedDocument.pdf'
-        }
-    }
-});
- 
+index.getEvents().PasswordRequired.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      if (args.getDocumentFullPath().endsWith('.docx')) {
+        args.setPassword('123456'); // Providing password for DOCX files
+      }
+    },
+  }),
+);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
 ```

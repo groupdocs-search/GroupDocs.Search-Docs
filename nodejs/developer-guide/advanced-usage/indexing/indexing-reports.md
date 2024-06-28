@@ -30,29 +30,29 @@ Each index report contains the following information:
 The following example demonstrates how to get indexing reports from an index.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder1 = "c:\\MyDocuments1\\";
-String documentsFolder2 = "c:\\MyDocuments2\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder1 = 'c:/MyDocuments1/';
+const documentsFolder2 = 'c:/MyDocuments2/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents
 index.add(documentsFolder1);
 index.add(documentsFolder2);
- 
+
 // Getting indexing reports
-IndexingReport[] reports = index.getIndexingReports();
- 
+const reports = index.getIndexingReports();
+
 // Printing information from reports to the console
-for (IndexingReport report : reports) {
-    System.out.println("Time: " + report.getStartTime());
-    System.out.println("Duration: " + report.getIndexingTime());
-    System.out.println("Documents total: " + report.getTotalDocumentsInIndex());
-    System.out.println("Terms total: " + report.getTotalTermCount());
-    System.out.println("Indexed documents size (MB): " + report.getIndexedDocumentsSize());
-    System.out.println("Index size (MB): " + (report.getTotalIndexSize() / 1024.0 / 1024.0));
-    System.out.println();
+for (const report of reports) {
+  console.log('Time: ' + report.getStartTime());
+  console.log('Duration: ' + report.getIndexingTime());
+  console.log('Documents total: ' + report.getTotalDocumentsInIndex());
+  console.log('Terms total: ' + report.getTotalTermCount());
+  console.log('Indexed documents size (MB): ' + report.getIndexedDocumentsSize());
+  console.log('Index size (MB): ' + report.getTotalIndexSize() / 1024.0 / 1024.0);
+  console.log();
 }
 ```
 

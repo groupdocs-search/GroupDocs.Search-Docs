@@ -17,22 +17,23 @@ A list of stop words to use during indexing can be specified in the stop word d
 If you need to keep all text information extracted from documents, and you are not afraid of a significant increase in the size of the index, then an example of indexing without stop words can be found below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index settings with disabled using of stop words
-IndexSettings settings = new IndexSettings();
+const settings = new groupdocs.search.IndexSettings();
 settings.setUseStopWords(false);
- 
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder, settings);
- 
+const index = new groupdocs.search.Index(indexFolder, settings, true);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Searching in the index
 // Now in the index it is possible to search for the stop word 'on'
-SearchResult result = index.search("on");
+const query = 'on';
+const result = index.search(query);
 ```
 
 ## More resources

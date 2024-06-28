@@ -15,22 +15,22 @@ To perform this operation, there is an overload that takes the [MergeOptions](h
 The following example demonstrates how to perform the index optimization.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder1 = "c:\\MyDocuments1\\";
-String documentsFolder2 = "c:\\MyDocuments2\\";
-String documentsFolder3 = "c:\\MyDocuments3\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder1 = 'c:/MyDocuments1/';
+const documentsFolder2 = 'c:/MyDocuments2/';
+const documentsFolder3 = 'c:/MyDocuments3/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder, true);
+
 index.add(documentsFolder1); // Indexing documents from the specified folder
 index.add(documentsFolder2); // Each call to Add creates at least one new segment in the index
 index.add(documentsFolder3);
- 
-MergeOptions options = new MergeOptions();
-options.setCancellation(new Cancellation()); // Creating cancellation object to be able to cancel the operation
-options.getCancellation().cancelAfter(100000); // Setting maximum duration of the operation to 100 seconds
- 
+
+const options = new groupdocs.search.MergeOptions();
+options.setCancellation(new groupdocs.search.Cancellation()); // Creating cancellation object to be able to cancel the operation
+options.getCancellation().cancelAfter(30000); // Setting maximum duration of the operation to 30 seconds
+
 // Merging segments of the index
 index.optimize(options);
 ```

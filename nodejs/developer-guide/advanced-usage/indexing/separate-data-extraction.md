@@ -17,33 +17,37 @@ The [Extractor](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs
 The following example demonstrates how to perform separate data extraction and indexing.
 
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentPath = "c:\\MyDocuments\\MyDocument.pdf";
+const indexFolder = 'c:/MyIndex';
+const documentPath = 'c:/MyDocuments/MyDocument.pdf';
 
 // Extracting data from a document
-Extractor extractor = new Extractor();
-Document document = Document.createFromFile(documentPath);
-ExtractionOptions extractionOptions = new ExtractionOptions();
+const extractor = new groupdocs.search.Extractor();
+const document = groupdocs.search.Document.createFromFile(documentPath);
+const extractionOptions = new groupdocs.search.ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false);
-ExtractedData extractedData = extractor.extract(document, extractionOptions);
+const extractedData = extractor.extract(document, extractionOptions);
 
 // Serializing the data
-byte[] array = extractedData.serialize();
+const array1 = extractedData.serialize();
+const array2 = [];
+for (let i = 0; i < array1.length; i++) {
+  array2[i] = array1[i];
+}
 
 // Deserializing the data
-ExtractedData deserializedData = ExtractedData.deserialize(array);
+const buffer = java.newArray('byte', array2);
+const deserializedData = groupdocs.search.ExtractedData.deserialize(buffer);
 
 // Creating an index
-com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Indexing the data
-ExtractedData[] data = new ExtractedData[] {
-    deserializedData
-};
-index.add(data, new IndexingOptions());
+const data = java.newArray('com.groupdocs.search.ExtractedData', [deserializedData]);
+index.add(data, new groupdocs.search.IndexingOptions());
 
 // Searching in the index
-SearchResult result = index.search("Einstein");
+const query = 'Einstein';
+const result = index.search(query);
 ```
 
 ## More resources

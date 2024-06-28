@@ -13,21 +13,22 @@ GroupDocs.Search allows creating of full-text and / or metadata index on documen
 The following example demonstrates the creation of the metadata index.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an instance of index settings
-IndexSettings settings = new IndexSettings();
-settings.setIndexType(IndexType.MetadataIndex); // Setting index type
- 
+const settings = new groupdocs.search.IndexSettings();
+settings.setIndexType(groupdocs.search.IndexType.MetadataIndex); // Setting the index type
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder, settings);
- 
+const index = new groupdocs.search.Index(indexFolder, settings);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Searching in the index
-SearchResult result = index.search("Einstein");
+const query = 'Einstein';
+const result = index.search(query);
 ```
 
 ## More resources

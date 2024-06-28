@@ -15,58 +15,48 @@ To connect OCR, you need to implement the IOcrConnector interface in the client 
 The following example demonstrates how to implement the OCR connector using com.aspose.ocr library for text recognition in images.
 
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentFolder = "c:\\MyDocuments";
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+const query = 'Einstein';
 
 // Creating an index
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder, true);
+
+// Subscribing to the ErrorOccurred event
+index.getEvents().ErrorOccurred.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      console.log(args.getMessage());
+    },
+  }),
+);
 
 // Setting the OCR indexing options
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
 options.getOcrIndexingOptions().setEnabledForSeparateImages(true);
 options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
-options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
+const ocrConnector = java.newProxy('com.groupdocs.search.options.IOcrConnector', {
+  recognize: function (context) {
+    switch (String(context.getImageLocation())) {
+      case 'Separate':
+      case 'Embedded':
+      case 'ContainerItem':
+        const image = java.callStaticMethodSync('javax.imageio.ImageIO', 'read', context.getImageStream());
+        const asposeOcr = new groupdocs.search.AsposeOcr();
+        const result = asposeOcr.RecognizePage(image);
+        return result;
+      default:
+        throw new Error('The image type is not supported: ' + context.getImageLocation());
+    }
+  },
+});
+options.getOcrIndexingOptions().setOcrConnector(ocrConnector);
 
 // Indexing documents in a document folder
-index.add(documentFolder, options);
+index.add(documentsFolder, options);
 
 // Searching in the index
-SearchResult result = index.search("Einstein");
-
-...
-
-// Implementing the OCR connector that uses com.aspose.ocr library
-public static class OcrConnector implements IOcrConnector {
-    public OcrConnector() {
-    }
-
-    @Override
-    public final String recognize(OcrContext context) {
-        if (null == context.getImageLocation()) {
-            throw new NotSupportedException("The image type is not supported: " + context.getImageLocation());
-        } else {
-            switch (context.getImageLocation()) {
-            case Separate:
-            case Embedded:
-            case ContainerItem:
-                return recognizePrivate(context);
-            default:
-                throw new NotSupportedException("The image type is not supported: " + context.getImageLocation());
-            }
-        }
-    }
-
-    private String recognizePrivate(OcrContext context) {
-        try {
-            java.awt.image.BufferedImage image = javax.imageio.ImageIO.read(context.getImageStream());
-            com.aspose.ocr.AsposeOCR asposeOcr = new com.aspose.ocr.AsposeOCR();
-            String result = asposeOcr.RecognizePage(image);
-            return result;
-        } catch (java.io.IOException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-}
+const result = index.search(query);
 ```
 
 ## More resources

@@ -22,25 +22,21 @@ Please note that the update operation automatically generates a list of changed 
 
 It should be borne in mind that the [add](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index#add(com.groupdocs.search.Document[],%20com.groupdocs.search.options.IndexingOptions)) method with the parameter of type [Document](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Document)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [add](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index#add(com.groupdocs.search.Document[],%20com.groupdocs.search.options.IndexingOptions)) method. The following example demonstrates how to index a document from a file.
 
-**Java**
-
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentFilePath = "c:\\MyDocuments\\ExampleDocument.pdf"";
+const indexFolder = 'c:/MyIndex';
+const documentFilePath = 'c:/MyDocuments/ExampleDocument.pdf';
 
 // Creating an index
-IndexSettings settings = new IndexSettings();
-settings.setUseRawTextExtraction(false);
-Index index = new Index(indexFolder, settings);
+const settings = new groupdocs.search.IndexSettings();
+const index = new groupdocs.search.Index(indexFolder, settings);
 
 // Creating a document object
-Document document = Document.createFromFile(documentFilePath);
-Document[] documents = new Document[] {
-    document,
-};
+const document = groupdocs.search.Document.createFromFile(documentFilePath);
+const documents = java.newArray('com.groupdocs.search.Document', [document]);
 
 // Indexing document from the file
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
+options.setUseRawTextExtraction(false);
 index.add(documents, options);
 ```
 
@@ -48,24 +44,20 @@ index.add(documents, options);
 
 The following example demonstrates how to index a document from a stream.
 
-**Java**
-
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentFilePath = "c:\\MyDocuments\\ExampleDocument.pdf";
+const indexFolder = 'c:/MyIndex';
+const documentFilePath = 'c:/MyDocuments/ExampleDocument.pdf';
 
 // Creating an index
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Creating a document object
-InputStream stream = new FileInputStream(documentFilePath); // Opening a stream
-Document document = Document.createFromStream(documentFilePath, new Date(), ".pdf", stream);
-Document[] documents = new Document[] {
-    document,
-};
+const stream = java.newInstanceSync('java.io.FileInputStream', documentFilePath); // Opening a stream
+const document = groupdocs.search.Document.createFromStream(documentFilePath, new Date(), '.pdf', stream);
+const documents = java.newArray('com.groupdocs.search.Document', [document]);
 
 // Indexing document from the stream
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
 index.add(documents, options);
 
 // Closing the document stream after indexing is complete
@@ -76,27 +68,27 @@ stream.close();
 
 The following example demonstrates how to index a document from a structure.
 
-**Java**
-
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentFilePath = "c:\\MyDocuments\\ExampleDocument.txt";
+const indexFolder = 'c:/MyIndex';
+const documentFilePath = 'c:/MyDocuments/ExampleDocument.pdf';
 
 // Creating an index
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Creating a document object
-String text = new String(Files.readAllBytes(Paths.get(documentFilePath)), StandardCharsets.UTF_8);
-DocumentField[] fields = new DocumentField[] {
-    new DocumentField(CommonFieldNames.Content, text),
-};
-Document document = Document.createFromStructure("ExampleDocument", new Date(), fields);
-Document[] documents = new Document[] {
-    document,
-};
+const text = fs.readFileSync(documentFilePath, 'utf8').toString();
+const fields = java.newArray('com.groupdocs.search.common.DocumentField', [
+  new groupdocs.search.DocumentField(groupdocs.search.CommonFieldNames.Content, text),
+]);
+const document = groupdocs.search.Document.createFromStructure(
+  'ExampleDocument',
+  java.newInstanceSync('java.util.Date'),
+  fields,
+);
+const documents = java.newArray('com.groupdocs.search.Document', [document]);
 
 // Indexing document from the structure
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
 index.add(documents, options);
 ```
 
@@ -104,64 +96,50 @@ index.add(documents, options);
 
 The following example demonstrates how to index a document by URL when lazy initialized.
 
-**Java**
-
 ```javascript
-private static class DocumentLoaderFromUrl implements IDocumentLoader {
-    private final String documentKey;
-    private final String url;
-    private final String extension;
-
-    public DocumentLoaderFromUrl(String documentKey, String url, String extension) {
-        this.documentKey = documentKey;
-        this.url = url;
-        this.extension = extension;
-    }
-
-    @Override
-    public final Document loadDocument() {
-        try {
-            URL urlInstance = new URL(url);
-            InputStream stream = urlInstance.openStream();
-            Document document = Document.createFromStream(documentKey, new Date(), extension, stream);
-            return document;
-        } catch (java.io.IOException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    @Override
-    public final void closeDocument() {
-    }
-}
-
-
-String indexFolder = "c:\\MyIndex";
-String url = "http://example.com/ExampleDocument.pdf";
+const indexFolder = 'c:/MyIndex';
+const url = 'http://example.com/ExampleDocument.pdf';
 
 // Creating an index
-IndexSettings settings = new IndexSettings();
-settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
-settings.setUseRawTextExtraction(false);
-Index index = new Index(indexFolder, settings, true);
+const settings = new groupdocs.search.IndexSettings();
+settings.setTextStorageSettings(new groupdocs.search.TextStorageSettings(groupdocs.search.Compression.High));
+const index = new groupdocs.search.Index(indexFolder, settings, true);
 
-index.getEvents().ErrorOccurred.add(new EventHandler<IndexErrorEventArgs>() {
-    @Override
-    public void invoke(Object s, IndexErrorEventArgs a) {
-        System.out.println(a.getMessage());
-    }
-});
+index.getEvents().ErrorOccurred.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      console.log(args.getMessage());
+    },
+  }),
+);
 
 // Creating a document object
-String documentKey = url;
-IDocumentLoader documentLoader = new DocumentLoaderFromUrl(documentKey, url, ".pdf");
-Document document = Document.createLazy(DocumentSourceKind.Stream, documentKey, documentLoader);
-Document[] documents = new Document[] {
-    document,
-};
+const documentKey = url;
+const extension = path.extname(url);
+const documentLoader = java.newProxy('com.groupdocs.search.common.IDocumentLoader', {
+  loadDocument: function () {
+    const urlInstance = java.newInstanceSync('java.net.URL', url);
+    const stream = urlInstance.openStream();
+    const document = groupdocs.search.Document.createFromStream(
+      documentKey,
+      java.newInstanceSync('java.util.Date'),
+      extension,
+      stream,
+    );
+    return document;
+  },
+  closeDocument: function () {},
+});
+const document = groupdocs.search.Document.createLazy(
+  groupdocs.search.DocumentSourceKind.Stream,
+  documentKey,
+  documentLoader,
+);
+const documents = java.newArray('com.groupdocs.search.Document', [document]);
 
 // Indexing the lazy-loaded document
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
+options.setUseRawTextExtraction(false);
 index.add(documents, options);
 ```
 
@@ -169,64 +147,51 @@ index.add(documents, options);
 
 The following example demonstrates how to index a document from FTP when lazy initialized.
 
-**Java**
-
 ```javascript
-private static class DocumentLoaderFromUrl implements IDocumentLoader {
-    private final String documentKey;
-    private final String url;
-    private final String extension;
-
-    public DocumentLoaderFromUrl(String documentKey, String url, String extension) {
-        this.documentKey = documentKey;
-        this.url = url;
-        this.extension = extension;
-    }
-
-    @Override
-    public final Document loadDocument() {
-        try {
-            URL urlInstance = new URL(url);
-            InputStream stream = urlInstance.openStream();
-            Document document = Document.createFromStream(documentKey, new Date(), extension, stream);
-            return document;
-        } catch (java.io.IOException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    @Override
-    public final void closeDocument() {
-    }
-}
-
-
-String indexFolder = "c:\\MyIndex";
-String url = "ftp://example.com/ExampleDocument.pdf";
+const indexFolder = 'c:/MyIndex';
+const url = 'ftp://example.com/ExampleDocument.pdf';
 
 // Creating an index
-IndexSettings settings = new IndexSettings();
-settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
-settings.setUseRawTextExtraction(false);
-Index index = new Index(indexFolder, settings, true);
+const settings = new groupdocs.search.IndexSettings();
+settings.setTextStorageSettings(new groupdocs.search.TextStorageSettings(groupdocs.search.Compression.High));
+const index = new groupdocs.search.Index(indexFolder, settings, true);
 
-index.getEvents().ErrorOccurred.add(new EventHandler<IndexErrorEventArgs>() {
-    @Override
-    public void invoke(Object s, IndexErrorEventArgs a) {
-        System.out.println(a.getMessage());
-    }
-});
+index.getEvents().ErrorOccurred.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      console.log(args.getMessage());
+    },
+  }),
+);
 
 // Creating a document object
-String documentKey = url;
-IDocumentLoader documentLoader = new DocumentLoaderFromUrl(documentKey, url, ".pdf");
-Document document = Document.createLazy(DocumentSourceKind.Stream, documentKey, documentLoader);
-Document[] documents = new Document[] {
-    document,
-};
+const documentKey = url;
+const extension = path.extname(url);
+const documentLoader = java.newProxy('com.groupdocs.search.common.IDocumentLoader', {
+  loadDocument: function () {
+    const urlInstance = java.newInstanceSync('java.net.URL', url);
+    const stream = urlInstance.openStream();
+    const document = groupdocs.search.Document.createFromStream(
+      documentKey,
+      java.newInstanceSync('java.util.Date'),
+      extension,
+      stream,
+    );
+    return document;
+  },
+  closeDocument: function () {},
+});
+
+const document = groupdocs.search.Document.createLazy(
+  groupdocs.search.DocumentSourceKind.Stream,
+  documentKey,
+  documentLoader,
+);
+const documents = java.newArray('com.groupdocs.search.Document', [document]);
 
 // Indexing the lazy-loaded document
-IndexingOptions options = new IndexingOptions();
+const options = new groupdocs.search.IndexingOptions();
+options.setUseRawTextExtraction(false);
 index.add(documents, options);
 ```
 
