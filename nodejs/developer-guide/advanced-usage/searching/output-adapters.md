@@ -18,50 +18,49 @@ Output adapters are used to output generated HTML or plain text to various outpu
 The example below demonstates how to use adapters of different types.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
 
 // Creating an index settings instance
-IndexSettings settings = new IndexSettings();
-settings.setTextStorageSettings(new TextStorageSettings(Compression.High)); // Enabling the storage of extracted text in the index
+const settings = new groupdocs.search.IndexSettings();
+settings.setTextStorageSettings(new groupdocs.search.TextStorageSettings(groupdocs.search.Compression.High)); // Enabling the storage of extracted text in the index
 
 // Creating an index in the specified folder
-Index index = new Index(indexFolder, settings);
+const index = new groupdocs.search.Index(indexFolder, settings);
 
 // Indexing documents from the specified folder
 index.add(documentsFolder);
 
 // Getting list of indexed documents
-DocumentInfo[] documents = index.getIndexedDocuments();
+const documents = index.getIndexedDocuments();
 
 // Getting a document text
 if (documents.length > 0) {
-    DocumentInfo document = documents[0];
+  const document = documents[0];
 
-    // Output to a file
-    FileOutputAdapter fileOutputAdapter = new FileOutputAdapter(OutputFormat.Html, "C:\\Text.html");
-    index.getDocumentText(document, fileOutputAdapter);
+  // Output to a file
+  const fileOutputAdapter = new groupdocs.search.FileOutputAdapter(groupdocs.search.OutputFormat.Html, 'c:/Result.html/');
+  index.getDocumentText(document, fileOutputAdapter);
 
-    // Output to a stream
-    try (OutputStream stream = new ByteArrayOutputStream()) {
-        StreamOutputAdapter streamOutputAdapter = new StreamOutputAdapter(OutputFormat.Html, stream);
-        index.getDocumentText(document, streamOutputAdapter);
-    }
+  // Output to a stream
+  const stream = java.newInstanceSync('java.io.ByteArrayOutputStream');
+  const streamOutputAdapter = new groupdocs.search.StreamOutputAdapter(groupdocs.search.OutputFormat.Html, stream);
+  index.getDocumentText(document, streamOutputAdapter);
 
-    // Output to a string
-    StringOutputAdapter stringOutputAdapter = new StringOutputAdapter(OutputFormat.Html);
-    index.getDocumentText(document, stringOutputAdapter);
-    String htmlText = stringOutputAdapter.getResult();
-    System.out.println(htmlText);
+  // Output to a string
+  const stringOutputAdapter = new groupdocs.search.StringOutputAdapter(groupdocs.search.OutputFormat.Html);
+  index.getDocumentText(document, stringOutputAdapter);
+  const result = stringOutputAdapter.getResult();
+  //console.log(result);
 
-    // Output to a structure
-    StructureOutputAdapter structureOutputAdapter = new StructureOutputAdapter(OutputFormat.PlainText);
-    index.getDocumentText(document, structureOutputAdapter);
-    DocumentField[] fields = structureOutputAdapter.getResult();
-    System.out.println(document.toString());
-    for (DocumentField field : fields) {
-        System.out.println("\t" + field.getName());
-    }
+  // Output to a structure
+  const structureOutputAdapter = new groupdocs.search.StructureOutputAdapter(groupdocs.search.OutputFormat.PlainText);
+  index.getDocumentText(document, structureOutputAdapter);
+  const fields = structureOutputAdapter.getResult();
+  console.log(document.toString());
+  for (const field of fields) {
+    console.log('\t' + field.getName());
+  }
 }
 ```
 

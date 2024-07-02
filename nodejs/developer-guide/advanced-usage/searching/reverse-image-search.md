@@ -30,14 +30,14 @@ For more information, see the [Image search options]({{< ref "search/nodejs-java
 The following code example demonstrates all stages of the reverse image search:
 
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentsFolder = "c:\\MyDocuments";
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
 
 // Creating an index
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Setting the image indexing options
-IndexingOptions indexingOptions = new IndexingOptions();
+const indexingOptions = new groupdocs.search.IndexingOptions();
 indexingOptions.getImageIndexingOptions().setEnabledForContainerItemImages(true);
 indexingOptions.getImageIndexingOptions().setEnabledForEmbeddedImages(true);
 indexingOptions.getImageIndexingOptions().setEnabledForSeparateImages(true);
@@ -46,21 +46,23 @@ indexingOptions.getImageIndexingOptions().setEnabledForSeparateImages(true);
 index.add(documentsFolder, indexingOptions);
 
 // Setting the image search options
-ImageSearchOptions imageSearchOptions = new ImageSearchOptions();
+const imageSearchOptions = new groupdocs.search.ImageSearchOptions();
 imageSearchOptions.setHashDifferences(10);
 imageSearchOptions.setMaxResultCount(10000);
-imageSearchOptions.setSearchDocumentFilter(SearchDocumentFilter.createFileExtension(".zip", ".png", ".jpg"));
+imageSearchOptions.setSearchDocumentFilter(
+  groupdocs.search.SearchDocumentFilter.createFileExtension('.zip', '.png', '.jpg'),
+);
 
 // Creating a reference image for search
-SearchImage searchImage = SearchImage.create("c:\\MyDocuments\\image.png");
+const searchImage = groupdocs.search.SearchImage.create(Utils.ImagesPath + 'ic_arrow_downward_black_18dp.png');
 
 // Searching in the index
-ImageSearchResult result = index.search(searchImage, imageSearchOptions);
+const result = index.search(searchImage, imageSearchOptions);
 
-System.out.print("Images found: " + result.getImageCount());
-for (int i = 0; i < result.getImageCount(); i++) {
-    FoundImageFrame image = result.getFoundImage(i);
-    System.out.print(image.getDocumentInfo().toString());
+console.log('Images found: ' + result.getImageCount());
+for (let i = 0; i < result.getImageCount(); i++) {
+  const image = result.getFoundImage(i);
+  console.log(image.getDocumentInfo().toString());
 }
 ```
 

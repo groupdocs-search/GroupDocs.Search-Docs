@@ -19,23 +19,24 @@ Boolean search is a type of search that allows you to combine queries with boole
 The AND operator allows you to find only those documents that are found for each nested search query separately. The following example demonstrates the use of the AND operator in text and object form queries. The queries search for documents in the text of which there are both words "theory" and "relativity".
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search with text query
-SearchResult result1 = index.search("theory AND relativity");
- 
+const query1 = 'theory AND relativity';
+const result1 = index.search(query1);
+
 // Search with object query
-SearchQuery wordQuery1 = SearchQuery.createWordQuery("theory");
-SearchQuery wordQuery2 = SearchQuery.createWordQuery("relativity");
-SearchQuery andQuery = SearchQuery.createAndQuery(wordQuery1, wordQuery2);
-SearchResult result2 = index.search(andQuery);
+const wordQuery1 = groupdocs.search.SearchQuery.createWordQuery('theory');
+const wordQuery2 = groupdocs.search.SearchQuery.createWordQuery('relativity');
+const andQuery = groupdocs.search.SearchQuery.createAndQuery(wordQuery1, wordQuery2);
+const result2 = index.search(andQuery);
 ```
 
 ## Operator OR
@@ -43,23 +44,24 @@ SearchResult result2 = index.search(andQuery);
 The OR operator allows you to find all the documents that are found for at least one nested search query. The example demonstrates the use of the OR operator in text and object form queries. The queries search for documents in the text of which there is at least one of the words "Einstein" and "relativity".
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search with text query
-SearchResult result1 = index.search("Einstein OR relativity");
- 
+const query1 = 'Einstein OR relativity';
+const result1 = index.search(query1);
+
 // Search with object query
-SearchQuery wordQuery1 = SearchQuery.createWordQuery("Einstein");
-SearchQuery wordQuery2 = SearchQuery.createWordQuery("relativity");
-SearchQuery orQuery = SearchQuery.createOrQuery(wordQuery1, wordQuery2);
-SearchResult result2 = index.search(orQuery);
+const wordQuery1 = groupdocs.search.SearchQuery.createWordQuery('Einstein');
+const wordQuery2 = groupdocs.search.SearchQuery.createWordQuery('relativity');
+const orQuery = groupdocs.search.SearchQuery.createOrQuery(wordQuery1, wordQuery2);
+const result2 = index.search(orQuery);
 ```
 
 ## Operator NOT
@@ -67,24 +69,25 @@ SearchResult result2 = index.search(orQuery);
 The NOT operator allows you to invert the result of a nested search query and find all documents in which for the nested search query are found no occurrences. The example demonstrates the use of the NOT operator in text and object form queries. The queries search for documents in the text of which the word "relativity" is presented but the word "Einstein" is not.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search with text query
-SearchResult result1 = index.search("relativity AND NOT Einstein");
- 
+const query1 = 'relativity AND NOT Einstein';
+const result1 = index.search(query1);
+
 // Search with object query
-SearchQuery wordQuery1 = SearchQuery.createWordQuery("relativity");
-SearchQuery wordQuery2 = SearchQuery.createWordQuery("Einstein");
-SearchQuery notQuery = SearchQuery.createNotQuery(wordQuery2);
-SearchQuery andQuery = SearchQuery.createAndQuery(wordQuery1, notQuery);
-SearchResult result2 = index.search(andQuery);
+const wordQuery1 = groupdocs.search.SearchQuery.createWordQuery('relativity');
+const wordQuery2 = groupdocs.search.SearchQuery.createWordQuery('Einstein');
+const notQuery = groupdocs.search.SearchQuery.createNotQuery(wordQuery2);
+const andQuery = groupdocs.search.SearchQuery.createAndQuery(wordQuery1, notQuery);
+const result2 = index.search(andQuery);
 ```
 
 ## Complex queries
@@ -92,30 +95,31 @@ SearchResult result2 = index.search(andQuery);
 Boolean search operators can be combined using parentheses. The example below shows how to use parentheses to construct complex boolean search queries. In the example the query is presented in text and object form and searches for documents containing the words "theory" and "relativity" and not containing the words "Einstein" and "Albert".
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search with text query
-SearchResult result1 = index.search("(theory AND relativity) AND NOT (Einstein OR Albert)");
- 
+const query1 = '(sportsman AND favourable) AND NOT (Kynynmound OR Murray)';
+const result1 = index.search(query1);
+
 // Search with object query
-SearchQuery theoryWordQuery = SearchQuery.createWordQuery("theory");
-SearchQuery relativityWordQuery = SearchQuery.createWordQuery("relativity");
-SearchQuery andQuery = SearchQuery.createAndQuery(theoryWordQuery, relativityWordQuery);
- 
-SearchQuery einsteinWordQuery = SearchQuery.createWordQuery("Einstein");
-SearchQuery albertWordQuery = SearchQuery.createWordQuery("Albert");
-SearchQuery orQuery = SearchQuery.createOrQuery(einsteinWordQuery, albertWordQuery);
-SearchQuery notQuery = SearchQuery.createNotQuery(orQuery);
- 
-SearchQuery rootQuery = SearchQuery.createAndQuery(andQuery, notQuery);
-SearchResult result2 = index.search(rootQuery);
+const word1Query = groupdocs.search.SearchQuery.createWordQuery('sportsman');
+const word2Query = groupdocs.search.SearchQuery.createWordQuery('favourable');
+const andQuery = groupdocs.search.SearchQuery.createAndQuery(word1Query, word2Query);
+
+const word3Query = groupdocs.search.SearchQuery.createWordQuery('Kynynmound');
+const word4Query = groupdocs.search.SearchQuery.createWordQuery('Murray');
+const orQuery = groupdocs.search.SearchQuery.createOrQuery(word3Query, word4Query);
+const notQuery = groupdocs.search.SearchQuery.createNotQuery(orQuery);
+
+const rootQuery = groupdocs.search.SearchQuery.createAndQuery(andQuery, notQuery);
+const result2 = index.search(rootQuery);
 ```
 
 ## More resources

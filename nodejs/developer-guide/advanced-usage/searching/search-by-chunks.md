@@ -15,30 +15,35 @@ When performing search by chunks, the [search](https://reference.groupdocs.com/
 The following example demonstrates the search by chunks.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
-String query = "Einstein";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder1 = 'c:/MyDocuments1/';
+const documentsFolder2 = 'c:/MyDocuments2/';
+const documentsFolder3 = 'c:/MyDocuments3/';
+const query = 'invitation';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
-index.add(documentsFolder);
- 
+index.add(documentsFolder1);
+index.add(documentsFolder2);
+index.add(documentsFolder3);
+
 // Creating a search options instance
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.setChunkSearch(true); // Enabling the search by chunks
- 
+
 // Starting the search by chunks
-SearchResult result = index.search(query, options);
-System.out.println("Document count: " + result.getDocumentCount());
-System.out.println("Occurrence count: " + result.getOccurrenceCount());
- 
+let result = index.search(query, options);
+console.log('Document count: ' + result.getDocumentCount());
+console.log('Occurrence count: ' + result.getOccurrenceCount());
+
 // Continuing the search by chunks
 while (result.getNextChunkSearchToken() != null) {
-    result = index.searchNext(result.getNextChunkSearchToken());
-    System.out.println("Document count: " + result.getDocumentCount());
-    System.out.println("Occurrence count: " + result.getOccurrenceCount());
+  result = index.searchNext(result.getNextChunkSearchToken());
+  console.log();
+  console.log('Document count: ' + result.getDocumentCount());
+  console.log('Occurrence count: ' + result.getOccurrenceCount());
 }
 ```
 

@@ -17,22 +17,23 @@ The default synonym dictionary contains synonyms only for the English language. 
 The following example demonstrates the synonym search.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Creating a search options object
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.setUseSynonymSearch(true); // Enabling synonym search
- 
-// Search for the word 'answer'
-// In addition to the word 'answer', the words 'reply' and 'response' will also be found
-SearchResult result = index.search("answer", options);
+
+// Search for the word 'improve'
+// In addition to the word 'improve', the words 'better' will also be found
+const query = 'improve';
+const result = index.search(query, options);
 ```
 
 ## More resources

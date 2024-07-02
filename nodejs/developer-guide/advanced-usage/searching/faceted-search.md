@@ -19,58 +19,70 @@ Faceted search within GroupDocs.Search is a filtering of search results by setti
 Faceted search allows you to search only in certain fields of documents, for example, only in the content field or in the file name field. A simple faceted search example is presented below with queries in text and object form.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search in the content field with text query
-SearchResult result1 = index.search("content: Einstein");
- 
+const query1 = 'content: Pellentesque';
+const result1 = index.search(query1);
+
 // Search in the content field with object query
-SearchQuery wordQuery = SearchQuery.createWordQuery("Einstein");
-SearchQuery fieldQuery = SearchQuery.createFieldQuery(CommonFieldNames.Content, wordQuery);
-SearchResult result2 = index.search(fieldQuery);
+const wordQuery = groupdocs.search.SearchQuery.createWordQuery('Pellentesque');
+const fieldQuery = groupdocs.search.SearchQuery.createFieldQuery(
+  groupdocs.search.CommonFieldNames.Content,
+  wordQuery,
+);
+
+const result2 = index.search(fieldQuery);
 ```
 
-Faceted search can be combined with other types of searches using parentheses. The following faceted search example demonstrates the same multi-faceted search query in text and object form. Both queries search for documents in the name of which there are both the words "Albert" and "Einstein", or the documents in the contents of which contain the phrase "theory of relativity" or the phrase "special relativity".
+Faceted search can be combined with other types of searches using parentheses. The following faceted search example demonstrates the same multi-faceted search query in text and object form. Both queries search for documents in the name of which there are both the words "lorem" and "ipsum", or the documents in the contents of which contain the phrase "lectus eu aliquam" or the phrase "dignissim turpis".
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search with text query
-SearchResult result1 = index.search("(filename: (Albert AND Einstein)) OR (content: (\"theory of relativity\" OR \"special relativity\"))");
- 
+const query1 = '(filename: (lorem AND ipsum)) OR (content: ("lectus eu aliquam" OR "dignissim turpis"))';
+const result1 = index.search(query1);
+
 // Search with object query
-SearchQuery albertQuery = SearchQuery.createWordQuery("Albert");
-SearchQuery einsteinQuery = SearchQuery.createWordQuery("Einstein");
-SearchQuery andQuery = SearchQuery.createAndQuery(albertQuery, einsteinQuery);
-SearchQuery filenameQuery = SearchQuery.createFieldQuery(CommonFieldNames.FileName, andQuery);
- 
-SearchQuery theoryQuery = SearchQuery.createWordQuery("theory");
-SearchQuery ofQuery = SearchQuery.createWordQuery("of");
-SearchQuery relativity1Query = SearchQuery.createWordQuery("relativity");
-SearchQuery specialQuery = SearchQuery.createWordQuery("special");
-SearchQuery relativity2Query = SearchQuery.createWordQuery("relativity");
- 
-SearchQuery phrase1Query = SearchQuery.createPhraseSearchQuery(theoryQuery, ofQuery, relativity1Query);
-SearchQuery phrase2Query = SearchQuery.createPhraseSearchQuery(specialQuery, relativity2Query);
-SearchQuery orQuery = SearchQuery.createOrQuery(phrase1Query, phrase2Query);
-SearchQuery contentQuery = SearchQuery.createFieldQuery(CommonFieldNames.Content, orQuery);
- 
-SearchQuery rootQuery = SearchQuery.createOrQuery(filenameQuery, contentQuery);
-SearchResult result2 = index.search(rootQuery);
+const word6Query = groupdocs.search.SearchQuery.createWordQuery('lorem');
+const word7Query = groupdocs.search.SearchQuery.createWordQuery('ipsum');
+const andQuery = groupdocs.search.SearchQuery.createAndQuery(word6Query, word7Query);
+const filenameQuery = groupdocs.search.SearchQuery.createFieldQuery(
+  groupdocs.search.CommonFieldNames.FileName,
+  andQuery,
+);
+
+const word1Query = groupdocs.search.SearchQuery.createWordQuery('lectus');
+const word2Query = groupdocs.search.SearchQuery.createWordQuery('eu');
+const word3Query = groupdocs.search.SearchQuery.createWordQuery('aliquam');
+const word4Query = groupdocs.search.SearchQuery.createWordQuery('dignissim');
+const word5Query = groupdocs.search.SearchQuery.createWordQuery('turpis');
+
+const phrase1Query = groupdocs.search.SearchQuery.createPhraseSearchQuery(word1Query, word2Query, word3Query);
+const phrase2Query = groupdocs.search.SearchQuery.createPhraseSearchQuery(word4Query, word5Query);
+const orQuery = groupdocs.search.SearchQuery.createOrQuery(phrase1Query, phrase2Query);
+const contentQuery = groupdocs.search.SearchQuery.createFieldQuery(
+  groupdocs.search.CommonFieldNames.Content,
+  orQuery,
+);
+
+const rootQuery = groupdocs.search.SearchQuery.createOrQuery(filenameQuery, contentQuery);
+const result2 = index.search(rootQuery);
 ```
 
 ## Using format specific fields
@@ -82,23 +94,23 @@ There are also fields that may be present in documents of any type. The names of
 An example of using standard field names of documents is presented in the following example.
 
 ```javascript
-String indexFolder = "c:\\MyIndex";
-String documentsFolder = "c:\\MyDocuments";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search in the content field with text query
-String query1 = WordsFieldNames.Company + ": Dycum";
-SearchResult result1 = index.search(query1);
- 
+const query1 = groupdocs.search.WordsFieldNames.Company + ": Dycum";
+const result1 = index.search(query1);
+
 // Search in the content field with object query
-SearchQuery wordQuery = SearchQuery.createWordQuery("Dycum");
-SearchQuery fieldQuery = SearchQuery.createFieldQuery(WordsFieldNames.Company, wordQuery);
-SearchResult result2 = index.search(fieldQuery);
+const wordQuery = groupdocs.search.SearchQuery.createWordQuery("Dycum");
+const fieldQuery = groupdocs.search.SearchQuery.createFieldQuery(groupdocs.search.WordsFieldNames.Company, wordQuery);
+const result2 = index.search(fieldQuery);
 ```
 
 The following are the names of standard fields included in the library grouped by the formats containing them.

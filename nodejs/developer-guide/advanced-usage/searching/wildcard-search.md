@@ -22,48 +22,52 @@ It is important to know that wildcard search is flexible enough to use for prefi
 Examples of wildcard search with queries in text form are presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search in the index
-SearchResult result1 = index.search("m?rry"); // Search for 'merry', 'marry', etc.
-SearchResult result2 = index.search("card?(1~6)"); // Search for 'cardiff', 'cardinal', 'cardio', 'cards', etc.
+const query1 = 'm???is';
+const result1 = index.search(query1); // Search for 'mauris', 'mollis', 'mattis', 'magnis', etc.
+const query2 = 'pri?(1~7)';
+const result2 = index.search(query2); // Search for 'private', 'principles', 'principle', etc.
 ```
 
 To build a query for the wildcard search in object form, use the [WordPattern](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.common/WordPattern) class. This class contains methods for adding known parts of a word and wildcards to a template. An example of constructing a query in object form is presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
-// Search with pattern "m?rry"
-// Search for 'merry', 'marry', etc.
-WordPattern pattern1 = new WordPattern();
-pattern1.appendString("m");
+
+// Search with pattern "m???is"
+// Search for 'mauris', 'mollis', 'mattis', 'magnis', etc.
+const pattern1 = new groupdocs.search.WordPattern();
+pattern1.appendString('m');
 pattern1.appendOneCharacterWildcard();
-pattern1.appendString("rry");
-SearchQuery query1 = SearchQuery.createWordPatternQuery(pattern1);
-SearchResult result1 = index.search(query1);
- 
-// Search with pattern "card?(1~6)"
-// Search for 'cardiff', 'cardinal', 'cardio', 'cards', etc.
-WordPattern pattern2 = new WordPattern();
-pattern2.appendString("card");
-pattern2.appendWildcard(1, 6);
-SearchQuery query2 = SearchQuery.createWordPatternQuery(pattern2);
-SearchResult result2 = index.search(query2);
+pattern1.appendOneCharacterWildcard();
+pattern1.appendOneCharacterWildcard();
+pattern1.appendString('is');
+const query1 = groupdocs.search.SearchQuery.createWordPatternQuery(pattern1);
+const result1 = index.search(query1);
+
+// Search with pattern "pri?(1~7)"
+// Search for 'private', 'principles', 'principle', etc.
+const pattern2 = new groupdocs.search.WordPattern();
+pattern2.appendString('pri');
+pattern2.appendWildcard(1, 7);
+const query2 = groupdocs.search.SearchQuery.createWordPatternQuery(pattern2);
+const result2 = index.search(query2);
 ```
 
 ## More resources

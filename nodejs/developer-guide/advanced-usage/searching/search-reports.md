@@ -25,30 +25,32 @@ Each index search report contains the following information:
 The following example demonstrates how to get search reports from an index.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Searching in index
-SearchResult result1 = index.search("Einstein");
-SearchResult result2 = index.search("\"Theory of Relativity\"");
- 
+const query1 = 'water';
+const result1 = index.search(query1);
+const query2 = '"Lorem ipsum"';
+const result2 = index.search(query2);
+
 // Getting search reports
-SearchReport[] reports = index.getSearchReports();
- 
+const reports = index.getSearchReports();
+
 // Printing reports to the console
-for (SearchReport report : reports) {
-    System.out.println("Query: " + report.getTextQuery());
-    System.out.println("Time: " + report.getStartTime());
-    System.out.println("Duration: " + report.getSearchDuration());
-    System.out.println("Documents: " + report.getDocumentCount());
-    System.out.println("Occurrences: " + report.getOccurrenceCount());
-    System.out.println();
+for (const report of reports) {
+  console.log('Query: ' + report.getTextQuery());
+  console.log('Time: ' + report.getStartTime());
+  console.log('Duration: ' + report.getSearchDuration());
+  console.log('Documents: ' + report.getDocumentCount());
+  console.log('Occurrences: ' + report.getOccurrenceCount());
+  console.log();
 }
 ```
 

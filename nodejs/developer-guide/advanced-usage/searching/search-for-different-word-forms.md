@@ -17,26 +17,26 @@ To generate various forms of words, a class that implements the [IWordFormsProv
 The following example demonstrates how to perform search for different word forms in an index.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Creating a search options instance
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.setUseWordFormsSearch(true); // Enabling search for word forms
- 
+
 // Searching in the index
-SearchResult result = index.search("relative", options);
- 
+const query = 'wished';
+const result = index.search(query, options);
+
 // The following words can be found:
-// relative
-// relatives
-// relatively
+// wished
+// wish
 ```
 
 ## More resources

@@ -47,51 +47,52 @@ The found document field is represented by an instance of the [FoundDocumentFie
 The following example shows how to print information on the documents found in the console.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentFolder = 'c:/MyDocuments/';
+
 // Creating an index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentFolder);
- 
+
 // Creating search options
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.getFuzzySearch().setEnabled(true); // Enabling the fuzzy search
-options.getFuzzySearch().setFuzzyAlgorithm(new TableDiscreteFunction(3)); // Setting the maximum number of differences to 3
- 
-// Search for documents containing the word 'Einstein' or the phrase 'Theory of Relativity'
-SearchResult result = index.search("Einstein OR \"Theory of Relativity\"", options);
- 
+options.getFuzzySearch().setFuzzyAlgorithm(new groupdocs.search.TableDiscreteFunction(3)); // Setting the maximum number of differences to 3
+
+// Search for documents containing the word 'water' or the phrase 'Lorem ipsum'
+const query = 'water OR "Lorem ipsum"';
+const result = index.search(query, options);
+
 // Printing the result
-System.out.println("Documents: " + result.getDocumentCount());
-System.out.println("Total occurrences: " + result.getOccurrenceCount());
-for (int i = 0; i < result.getDocumentCount(); i++) {
-    FoundDocument document = result.getFoundDocument(i);
-    System.out.println("\tDocument: " + document.getDocumentInfo().getFilePath());
-    System.out.println("\tOccurrences: " + document.getOccurrenceCount());
-    for (FoundDocumentField field : document.getFoundFields()) {
-        System.out.println("\t\tField: " + field.getFieldName());
-        System.out.println("\t\tOccurrences: " + document.getOccurrenceCount());
-        // Printing found terms
-        if (field.getTerms() != null) {
-            for (int k = 0; k < field.getTerms().length; k++) {
-                System.out.println("\t\t\t" + field.getTerms()[k] + " - " + field.getTermsOccurrences()[k]);
-            }
-        }
-        // Printing found phrases
-        if (field.getTermSequences() != null) {
-            for (int k = 0; k < field.getTermSequences().length; k++) {
-                String[] terms = field.getTermSequences()[k];
-                String sequence = "";
-                for (String term : terms) {
-                    sequence += term + " ";
-                }
-                System.out.println("\t\t\t" + sequence + " - " + field.getTermSequencesOccurrences()[k]);
-            }
-        }
+console.log('Documents: ' + result.getDocumentCount());
+console.log('Total occurrences: ' + result.getOccurrenceCount());
+for (let i = 0; i < result.getDocumentCount(); i++) {
+  const document = result.getFoundDocument(i);
+  console.log('\tDocument: ' + document.getDocumentInfo().getFilePath());
+  console.log('\tOccurrences: ' + document.getOccurrenceCount());
+  for (const field of document.getFoundFields()) {
+    console.log('\t\tField: ' + field.getFieldName());
+    console.log('\t\tOccurrences: ' + document.getOccurrenceCount());
+    // Printing found terms
+    if (field.getTerms() != null) {
+      for (let k = 0; k < field.getTerms().length; k++) {
+        console.log('\t\t\t' + field.getTerms()[k] + ' - ' + field.getTermsOccurrences()[k]);
+      }
     }
+    // Printing found phrases
+    if (field.getTermSequences() != null) {
+      for (let k = 0; k < field.getTermSequences().length; k++) {
+        const terms = field.getTermSequences()[k];
+        let sequence = '';
+        for (const term of terms) {
+          sequence += term + ' ';
+        }
+        console.log('\t\t\t' + sequence + ' - ' + field.getTermSequencesOccurrences()[k]);
+      }
+    }
+  }
 }
 ```
 

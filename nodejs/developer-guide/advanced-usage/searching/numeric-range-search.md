@@ -8,28 +8,29 @@ keywords: numeric range search
 productName: GroupDocs.Search for Node.js via Java
 hideChildren: False
 ---
-Numeric range search or numerical search allows you to search in documents any integer numbers in the range from 0 to 9223372036854775807 (Long.MAX\_VALUE). Please note that the number in the text must not be separated by spaces, otherwise it will already be several numbers. A search query of this type is specified as follows:
+Numeric range search or numerical search allows you to search in documents any integer numbers in the range from 0 to 9223372036854775807. Please note that the number in the text must not be separated by spaces, otherwise it will already be several numbers. A search query of this type is specified as follows:
 
 number ~~ number
 
 The example below demonstrates the numeric range search in text and object forms.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search with text query
-SearchResult result1 = index.search("500 ~~ 600");
- 
+const query1 = '400 ~~ 4000';
+const result1 = index.search(query1);
+
 // Search with object query
-SearchQuery query2 = SearchQuery.createNumericRangeQuery(500, 600);
-SearchResult result2 = index.search(query2);
+const query2 = groupdocs.search.SearchQuery.createNumericRangeQuery(400, 4000);
+const result2 = index.search(query2);
 ```
 
 ## More resources

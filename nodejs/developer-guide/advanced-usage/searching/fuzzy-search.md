@@ -29,49 +29,53 @@ where similarityLevel is a parameter of the fuzzy search algorithm; termLength i
 An example of setting a fuzzy search algorithm of this type is presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
-String query = "Einstein";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+const query = 'Einstein';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
-SearchOptions options = new SearchOptions();
+
+const options = new groupdocs.search.SearchOptions();
 options.getFuzzySearch().setEnabled(true); // Enabling the fuzzy search
-options.getFuzzySearch().setFuzzyAlgorithm(new SimilarityLevel(0.8)); // Creating the fuzzy search algorithm
+options.getFuzzySearch().setFuzzyAlgorithm(new groupdocs.search.SimilarityLevel(0.8)); // Creating the fuzzy search algorithm
 // This function specifies 0 as the maximum number of mistakes for words from 1 to 4 characters.
 // It specifies 1 as the maximum number of mistakes for words from 5 to 9 characters.
 // It specifies 2 as the maximum number of mistakes for words from 10 to 14 characters. And so on.
- 
+
 // Search in index
-SearchResult result = index.search(query, options);
+const result = index.search(query, options);
 ```
 
 The fuzzy search algorithm can also be specified by a table of correspondences between the length of the searched word and the maximum number of possible differences. For this, the algorithm presented by the [TableDiscreteFunction](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.options/TableDiscreteFunction) class is used. In this case, the correspondence table can be calculated based on the parameters of a step function. An example of setting a fuzzy search algorithm in the form of a step function is presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
-String query = "Einstein";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+const query = 'Einstein';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
-SearchOptions options = new SearchOptions();
+
+const options = new groupdocs.search.SearchOptions();
 options.getFuzzySearch().setEnabled(true); // Enabling the fuzzy search
-options.getFuzzySearch().setFuzzyAlgorithm(new TableDiscreteFunction(1, new Step(5, 2), new Step(8, 3))); // Creating the fuzzy search algorithm
+options
+  .getFuzzySearch()
+  .setFuzzyAlgorithm(
+    new groupdocs.search.TableDiscreteFunction(1, new groupdocs.search.Step(5, 2), new groupdocs.search.Step(8, 3)),
+  ); // Creating the fuzzy search algorithm
 // This function specifies 1 as the maximum number of mistakes for words from 1 to 4 characters.
 // It specifies 2 as the maximum number of mistakes for words from 5 to 7 characters.
 // It specifies 3 as the maximum number of mistakes for words from 8 and more characters.
- 
+
 // Search in index
-SearchResult result = index.search(query, options);
+const result = index.search(query, options);
 ```
 
 The fuzzy search options object allows you to specify the following options:

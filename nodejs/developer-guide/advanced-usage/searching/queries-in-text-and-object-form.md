@@ -21,43 +21,43 @@ Each example in this documentation is usually given with the search query in tex
 The example of complex query in object form is given below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating index
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing
 index.add(documentsFolder);
- 
+
 // Creating subquery 1 - simple word query
-SearchQuery subquery1 = SearchQuery.createWordQuery("future");
-subquery1.setSearchOptions(new SearchOptions()); // Setting search options only for subquery 1
+const subquery1 = groupdocs.search.SearchQuery.createWordQuery('future');
+subquery1.setSearchOptions(new groupdocs.search.SearchOptions()); // Setting search options only for subquery 1
 subquery1.getSearchOptions().getFuzzySearch().setEnabled(true);
-subquery1.getSearchOptions().getFuzzySearch().setFuzzyAlgorithm(new TableDiscreteFunction(3)); // The maximum number of differences is 3
- 
-// Creating subquery 2 - numeric range query
-SearchQuery subquery2 = SearchQuery.createNumericRangeQuery(1, 1000000);
- 
-// Creating subquery 3 - regular expression query 
-SearchQuery subquery3 = SearchQuery.createRegexQuery("(.)\\1");
- 
+subquery1.getSearchOptions().getFuzzySearch().setFuzzyAlgorithm(new groupdocs.search.TableDiscreteFunction(3)); // The maximum number of differences is 3
+
+// Creating subquery 2 - wildcard query
+const subquery2 = groupdocs.search.SearchQuery.createWildcardQuery(1);
+
+// Creating subquery 3 - regular expression query
+const subquery3 = groupdocs.search.SearchQuery.createRegexQuery('(.)\\1');
+
 // Combining subqueries into one query - phrase search query
-SearchQuery query = SearchQuery.createPhraseSearchQuery(subquery1, subquery2, subquery3);
- 
+const query = groupdocs.search.SearchQuery.createPhraseSearchQuery(subquery1, subquery2, subquery3);
+
 // Creating overall search options with increased capacity of occurrences
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.setMaxOccurrenceCountPerTerm(1000000);
 options.setMaxTotalOccurrenceCount(10000000);
- 
+
 // Searching
-SearchResult result = index.search(query, options);
- 
+const result = index.search(query, options);
+
 // The result may contain the following word sequences:
-// futile 12 blessed
-// father 7 excellent
-// tyre 8 assyria
-// return 147 229
+// futile * blessed
+// father * excellent
+// tyre * assyria
+// return * 229
 ```
 
 ## More resources

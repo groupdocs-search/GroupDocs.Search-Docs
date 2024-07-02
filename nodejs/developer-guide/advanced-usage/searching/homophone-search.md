@@ -17,22 +17,23 @@ The default homophone dictionary contains homophones only for the English langua
 The following example demonstrates the homophone search.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Creating a search options object
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.setUseHomophoneSearch(true); // Enabling homophone search
- 
-// Search for the word 'coal'
-// In addition to the word 'coal', the words 'cole' and 'kohl' will also be found
-SearchResult result = index.search("coal", options);
+
+// Search for the word 'call'
+// In addition to the word 'call', the word 'caul' will also be found
+const query = 'call';
+const result = index.search(query, options);
 ```
 
 ## More resources

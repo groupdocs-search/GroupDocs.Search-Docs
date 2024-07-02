@@ -28,53 +28,54 @@ The order of processing each word in a search query is as follows:
 1. If separators are present in the word, they are replaced by spaces, and the word search is converted to a phrase search.
 2. If special characters are present in the word, they are escaped.
 
-
-
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
 
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Setting character types
-index.getDictionaries().getAlphabet().setRange(new char[] { '&' }, CharacterType.Letter);
-index.getDictionaries().getAlphabet().setRange(new char[] { '-' }, CharacterType.Separator);
+const characters1 = java.newArray('char', ['&']);
+const characters2 = java.newArray('char', ['-']);
+index.getDictionaries().getAlphabet().setRange(characters1, groupdocs.search.CharacterType.Letter);
+index.getDictionaries().getAlphabet().setRange(characters2, groupdocs.search.CharacterType.Separator);
 
 // Indexing documents from the specified folder
 index.add(documentsFolder);
 
 // Defining a search query
-String word = "rock&roll-music";
+const word = 'rock&roll-music';
 
 // Replacing separators with the space characters
-StringBuilder result = new StringBuilder();
-for (int i = 0; i < word.length(); i++) {
-    char character = word.charAt(i);
-    CharacterType characterType = index.getDictionaries().getAlphabet().getCharacterType(character);
-    if (characterType == CharacterType.Separator) {
-        result.append(' ');
-    } else {
-        result.append(character);
-    }
+let result = '';
+for (let i = 0; i < word.length; i++) {
+  const character = word.charAt(i);
+  const ch = java.newChar(character);
+  const characterType = index.getDictionaries().getAlphabet().getCharacterType(ch);
+  if (String(characterType) == String(groupdocs.search.CharacterType.Separator)) {
+    result += ' ';
+  } else {
+    result += character;
+  }
 }
 
 // Escaping special characters
-String specialCharacters = "():\"&|!^~*?\\";
-for (int i = result.length() - 1; i >= 0; i--) {
-    char c = result.charAt(i);
-    if (specialCharacters.indexOf(c) != -1) {
-        result.insert(i, '\\');
-    }
+const specialCharacters = '():"&|!^~*?\\';
+for (let i = result.length - 1; i >= 0; i--) {
+  const c = result.charAt(i);
+  if (specialCharacters.indexOf(c) != -1) {
+    result = result.slice(0, i) + '\\' + result.slice(i);
+  }
 }
 
-String query = result.toString();
-if (query.contains(" ")) {
-    query = "\"" + query + "\"";
+let query = result.toString();
+if (query.includes(' ')) {
+  query = '"' + query + '"';
 }
 
 // Searching
-SearchResult searchResult = index.search(query);
+const searchResult = index.search(query);
 ```
 
 ## More resources

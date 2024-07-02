@@ -29,25 +29,25 @@ Please note that if stop words are used in a search query, the phrase will still
 The following example demonstrates performing the phrase search with a query in text and object form.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
-// Search for the phrase 'theory of relativity' in text form
-String query1 = "\"theory of relativity\"";
-SearchResult result1 = index.search(query1);
- 
-// Search for the phrase 'theory of relativity' in object form
-SearchQuery word1 = SearchQuery.createWordQuery("theory");
-SearchQuery word2 = SearchQuery.createWordQuery("of");
-SearchQuery word3 = SearchQuery.createWordQuery("relativity");
-SearchQuery query2 = SearchQuery.createPhraseSearchQuery(word1, word2, word3);
-SearchResult result2 = index.search(query2);
+
+// Search for the phrase 'sollicitudin at ligula' in text form
+const query1 = '"sollicitudin at ligula"';
+const result1 = index.search(query1);
+
+// Search for the phrase 'sollicitudin at ligula' in object form
+const word1 = groupdocs.search.SearchQuery.createWordQuery('sollicitudin');
+const word2 = groupdocs.search.SearchQuery.createWordQuery('at');
+const word3 = groupdocs.search.SearchQuery.createWordQuery('ligula');
+const query2 = groupdocs.search.SearchQuery.createPhraseSearchQuery(word1, word2, word3);
+const result2 = index.search(query2);
 ```
 
 ## Phrase search with wildcards
@@ -66,29 +66,29 @@ Phrase search query with wildcards is flexible enough to be used instead of span
 The following example demonstrates the use of wildcards in phrase search queries in text and object form.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search for the phrase in text form
-String query1 = "\"theory *1~~2 relativity\"";
-SearchResult result1 = index.search(query1);
- 
+const query1 = '"sollicitudin *0~~3 ligula"';
+const result1 = index.search(query1);
+
 // Search for the phrase in object form
-SearchQuery word1 = SearchQuery.createWordQuery("theory");
-SearchQuery wildcard2 = SearchQuery.createWildcardQuery(1, 2);
-SearchQuery word3 = SearchQuery.createWordQuery("relativity");
-SearchQuery query2 = SearchQuery.createPhraseSearchQuery(word1, wildcard2, word3);
-SearchResult result2 = index.search(query2);
- 
+const word1 = groupdocs.search.SearchQuery.createWordQuery('sollicitudin');
+const wildcard2 = groupdocs.search.SearchQuery.createWildcardQuery(0, 3);
+const word3 = groupdocs.search.SearchQuery.createWordQuery('ligula');
+const query2 = groupdocs.search.SearchQuery.createPhraseSearchQuery(word1, wildcard2, word3);
+const result2 = index.search(query2);
+
 // The search can find the following phrases:
-// "theory of relativity"
-// "theory of special relativity"
+// "sollicitudin of ligula"
+// "sollicitudin ligula"
 ```
 
 Phrase search can be combined with other types of searches. The specification of search queries in text form is presented on the [Query language specification]({{< ref "search/nodejs-java/developer-guide/advanced-usage/searching/query-language-specification.md" >}}) page. A table of the possibility of nesting search queries in object form is presented on the [Nesting search queries in object form]({{< ref "search/nodejs-java/developer-guide/advanced-usage/searching/nesting-search-queries-in-object-form.md" >}}) page.
@@ -96,34 +96,33 @@ Phrase search can be combined with other types of searches. The specification of
 The following example demonstrates the use of both wildcards representing words and characters in words.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Search for the phrase in text form
-String query1 = "\"Test?(0~1) *1~~2 relativity\"";
-SearchResult result1 = index.search(query1);
- 
+const query1 = '"sollicitudin  *0~~3  ?(0~4)la"';
+const result1 = index.search(query1);
+
 // Search for the phrase in object form
-WordPattern pattern = new WordPattern();
-pattern.appendString("Test");
-pattern.appendWildcard(0, 1);
-SearchQuery wordPattern1 = SearchQuery.createWordPatternQuery(pattern);
-SearchQuery wildcard2 = SearchQuery.createWildcardQuery(1, 2);
-SearchQuery word3 = SearchQuery.createWordQuery("relativity");
-SearchQuery query2 = SearchQuery.createPhraseSearchQuery(wordPattern1, wildcard2, word3);
-SearchResult result2 = index.search(query2);
- 
+const word1 = groupdocs.search.SearchQuery.createWordQuery('sollicitudin');
+const wildcard2 = groupdocs.search.SearchQuery.createWildcardQuery(0, 3);
+const pattern = new groupdocs.search.WordPattern();
+pattern.appendWildcard(0, 4);
+pattern.appendString('la');
+const wordPattern3 = groupdocs.search.SearchQuery.createWordPatternQuery(pattern);
+const query2 = groupdocs.search.SearchQuery.createPhraseSearchQuery(word1, wildcard2, wordPattern3);
+const result2 = index.search(query2);
+
 // The search can find the following phrases:
-// "Test of special relativity"
-// "Tests of special relativity"
-// "Test of general relativity"
-// "Tests of general relativity"
+// "sollicitudin of ligula"
+// "sollicitudin ligula"
+// "sollicitudin, nulla"
 ```
 
 ## More resources

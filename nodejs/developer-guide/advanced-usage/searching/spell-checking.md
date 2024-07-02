@@ -24,24 +24,25 @@ The spelling corrector options class contains the following options:
 The following example shows how to perform a search using the spelling correction.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Creating a search options instance
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.getSpellingCorrector().setEnabled(true); // Enabling the spelling correction
 options.getSpellingCorrector().setMaxMistakeCount(1); // Setting the maximum number of mistakes
 options.getSpellingCorrector().setOnlyBestResults(true); // Enabling the option for only the best results of the spelling correction
- 
-// Search for the word "Rleativity" containing a spelling error
-// The word "Relativity" will be found that differs from the search query in two transposed letters
-SearchResult result = index.search("Rleativity", options);
+
+// Search for the word "houseohld" containing a spelling error
+// The word "household" will be found that differs from the search query in two transposed letters
+const query = 'houseohld';
+const result = index.search(query, options);
 ```
 
 ## More resources

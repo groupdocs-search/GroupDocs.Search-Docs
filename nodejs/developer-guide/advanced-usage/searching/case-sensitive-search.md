@@ -15,43 +15,34 @@ Note that case-sensitive search is not compatible with other types of search (se
 The following example demonstrates how to perform case-sensitive search with a query in text form.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
-// Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
-// Indexing documents from the specified folder
-index.add(documentsFolder);
- 
-SearchOptions options = new SearchOptions();
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
+const index = new groupdocs.search.Index(indexFolder); // Creating index in the specified folder
+index.add(documentsFolder); // Indexing documents from the specified folder
+
+const options = new groupdocs.search.SearchOptions();
 options.setUseCaseSensitiveSearch(true); // Enabling case sensitive search
- 
-// Searching in the index
-String query = "Windows";
-SearchResult result = index.search(query, options);
+
+const query = 'Advantages';
+const result = index.search(query, options); // Searching
 ```
 
 The next example demonstrates how to perform case-sensitive search with a query in object form.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
-// Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
-// Indexing documents from the specified folder
-index.add(documentsFolder);
- 
-SearchOptions options = new SearchOptions();
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
+const index = new groupdocs.search.Index(indexFolder); // Creating index in the specified folder
+index.add(documentsFolder); // Indexing documents from the specified folder
+
+const options = new groupdocs.search.SearchOptions();
 options.setUseCaseSensitiveSearch(true); // Enabling case sensitive search
- 
-// Creating search query in object form
-SearchQuery query = SearchQuery.createWordQuery("Windows");
- 
-// Searching in the index
-SearchResult result = index.search(query, options);
+
+const query = groupdocs.search.SearchQuery.createWordQuery('Advantages'); // Creating search query in object form
+
+const result = index.search(query, options); // Searching
 ```
 
 ## More resources

@@ -15,21 +15,22 @@ Aliases are stored in the alias dictionary. By default the alias dictionary is e
 An example of using aliases for searching is presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Adding aliases to the alias dictionary
-index.getDictionaries().getAliasDictionary().add("t", "(theory OR relativity)");
-index.getDictionaries().getAliasDictionary().add("e", "(Einstein OR Albert)");
- 
+index.getDictionaries().getAliasDictionary().add('t', '(gravida OR promotion)');
+index.getDictionaries().getAliasDictionary().add('e', '(viverra OR farther)');
+
 // Search in the index
-SearchResult result = index.search("@t OR @e");
+const query = '@t OR @e';
+const result = index.search(query);
 ```
 
 ## More resources

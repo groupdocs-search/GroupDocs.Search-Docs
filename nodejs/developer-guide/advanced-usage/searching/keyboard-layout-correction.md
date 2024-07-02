@@ -14,24 +14,23 @@ To automatically fix such misprints, the keyboard layout correction feature can 
 
 The following example demonstrates using of the keyboard layout correction feature.
 
-
-
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Creating a search options object
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.getKeyboardLayoutCorrector().setEnabled(true); // Enabling keyboard layout correction
- 
-// Search for word 'Уштыеушт' gives documents containing word 'Einstein'
-SearchResult result = index.search("Уштыеушт", options);
+
+// Search for word 'ызщкеыьфт' gives documents containing word 'sportsman'
+const query = 'ызщкеыьфт';
+const result = index.search(query, options);
 ```
 
 ## More resources

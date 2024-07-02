@@ -15,23 +15,23 @@ This page contains a description of how to get a list of indexed documents from 
 To get a list of indexed documents from an index, use the [getIndexedDocuments](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index#getIndexedDocuments()) method of the [Index](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index) class. Documents with the extensions ZIP, PST, OST can also contain internal documents. To get a list of internal documents, use the [getIndexedDocumentItems](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index#getIndexedDocumentItems(com.groupdocs.search.results.DocumentInfo)) method of the [Index](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search/Index) class. For ZIP archives, this way you can access documents of arbitrary nesting depth. An example of obtaining a list of documents from an index is presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
 // Getting list of indexed documents
-DocumentInfo[] documents = index.getIndexedDocuments();
-for (DocumentInfo document : documents) {
-    System.out.println(document.getFilePath());
-    DocumentInfo[] items = index.getIndexedDocumentItems(document); // Getting list of document items
-    for (DocumentInfo item : items) {
-        System.out.println("\t" + item.getInnerPath());
-    }
+const documents = index.getIndexedDocuments();
+for (const document of documents) {
+  console.log(document.getFilePath());
+  const items = index.getIndexedDocumentItems(document); // Getting list of document items
+  for (const item of items) {
+    console.log('\t' + item.getInnerPath());
+  }
 }
 ```
 
@@ -44,22 +44,39 @@ The generated text of the document is passed to an instance of a class derived f
 After generating the text of a document into a file, this file can be opened by an Internet browser. The following example shows how to extract document text from an index.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
+// Creating an index settings instance
+const settings = new groupdocs.search.IndexSettings();
+settings.setTextStorageSettings(new groupdocs.search.TextStorageSettings(groupdocs.search.Compression.High)); // Enabling the storage of extracted text in the index
 
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder, settings);
 
 // Indexing documents from the specified folder
 index.add(documentsFolder);
 
 // Getting list of indexed documents
-DocumentInfo[] documents = index.getIndexedDocuments();
+const documents = index.getIndexedDocuments();
 
 // Getting a document text
 if (documents.length > 0) {
-    FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, "C:\\Text.html");
-    index.getDocumentText(documents[0], outputAdapter);
+  const outputAdapter = new groupdocs.search.FileOutputAdapter(
+      groupdocs.search.OutputFormat.Html,
+    Utils.OutputPath + 'AdvancedUsage/Searching/gettingIndexedDocuments/Text.html',
+  );
+  index.getDocumentText(documents[0], outputAdapter);
+
+  // Getting list of files in the archive
+  const items = index.getIndexedDocumentItems(documents[0]);
+  if (items.length > 0) {
+    const outputAdapter2 = new groupdocs.search.FileOutputAdapter(
+      groupdocs.search.OutputFormat.Html,
+      Utils.OutputPath + 'AdvancedUsage/Searching/gettingIndexedDocuments/ItemText.html',
+    );
+    index.getDocumentText(items[0], outputAdapter2);
+  }
 }
 ```
 
