@@ -1,11 +1,11 @@
 ---
 id: index-browser
-url: search/java/index-browser
+url: search/nodejs-java/index-browser
 title: Index Browser
 weight: 8
 description: "Index Browser is a .NET application for managing indexes created using the GroupDocs.Search library"
 keywords: Index Browser, managing indexes
-productName: GroupDocs.Search for Java
+productName: GroupDocs.Search for Node.js via java
 hideChildren: False
 ---
 ## Index Browser
@@ -33,6 +33,6 @@ To open an index, select the desired index in the list and click the **Load inde
 
 To add documents to the index, open the **Operations** tab. Click the **Add directory** or **Add files** button to select a folder or file, respectively. The added paths to files or folders will appear in the **Selected paths** list. Click the **Start indexing** button and wait for the indexing process to complete.
 
-To search the index, open the **Search** tab. Enter your search query in the **Query** field. Below the query field, specify the search options you require. Press the **Search** button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table](https://docs.groupdocs.com/search/java/search-operation-table/).
+To search the index, open the **Search** tab. Enter your search query in the **Query** field. Below the query field, specify the search options you require. Press the **Search** button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table](https://docs.groupdocs.com/search/nodejs-java/search-operation-table/).
 
 To navigate through the found documents, select the file you are interested in by clicking on it in the list. The text of the document will be displayed on the right side of the window. The arrow buttons allow you to move in the text from one found occurrence to another.
