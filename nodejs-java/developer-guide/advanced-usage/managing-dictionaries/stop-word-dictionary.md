@@ -27,31 +27,45 @@ To import words from a file, use the [importDictionary](https://reference.group
 The following example demonstrates the use of methods of the stop word dictionary.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index from in specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
 if (index.getDictionaries().getStopWordDictionary().getCount() > 0) {
-    // Removing all words from the dictionary
-    index.getDictionaries().getStopWordDictionary().clear();
+  // Removing all words from the dictionary
+  index.getDictionaries().getStopWordDictionary().clear();
 }
- 
+
 // Adding stop words to the dictionary
-String[] words = new String[] { "a", "an", "the", "but", "by" };
+const words = java.newArray('java.lang.String', ['a', 'an', 'the', 'but', 'by']);
 index.getDictionaries().getStopWordDictionary().addRange(words);
- 
-if (index.getDictionaries().getStopWordDictionary().contains("but") &&
-    index.getDictionaries().getStopWordDictionary().contains("by")) {
-    // Removing words from the dictionary
-    index.getDictionaries().getStopWordDictionary().removeRange(new String[] { "but", "by" });
+
+if (
+  index.getDictionaries().getStopWordDictionary().contains('but') &&
+  index.getDictionaries().getStopWordDictionary().contains('by')
+) {
+  // Removing words from the dictionary
+  index
+    .getDictionaries()
+    .getStopWordDictionary()
+    .removeRange(java.newArray('java.lang.String', ['but', 'by']));
 }
- 
+
 // Export words to a file
-index.getDictionaries().getStopWordDictionary().exportDictionary("C:\\Words.txt");
- 
+const fileName = Utils.OutputPath + 'AdvancedUsage/ManagingDictionaries/stopWordDictionary/Words.txt';
+index.getDictionaries().getStopWordDictionary().exportDictionary(fileName);
+
 // Import words from a file
-index.getDictionaries().getStopWordDictionary().importDictionary("C:\\Words.txt");
+index.getDictionaries().getStopWordDictionary().importDictionary(fileName);
+
+// Indexing documents from the specified folder
+index.add(documentsFolder);
+
+// Search in the index
+const query = 'but';
+const result = index.search(query);
 ```
 
 ## More resources

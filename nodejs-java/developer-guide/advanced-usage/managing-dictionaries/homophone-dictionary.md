@@ -29,48 +29,56 @@ To import homophones from a file, use the [importDictionary](https://reference.
 The following example demonstrates the use of methods of the homophone dictionary.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
 
 // Creating an index from in specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
-// Creating an index in memory with default homophone dictionary
-Index index = new Index();
+// Indexing documents from the specified folder
+index.add(documentsFolder);
 
 // Getting homophones for word 'braid'
-String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomophones("braid");
-System.out.println("Homophones for 'braid':");
-for (String homophone : homophones) {
-    System.out.println(homophone);
+const homophones = index.getDictionaries().getHomophoneDictionary().getHomophones('braid');
+console.log("Homophones for 'braid':");
+for (const homophone of homophones) {
+  console.log(homophone);
 }
 
 // Getting groups of homophones to which word 'braid' belongs to
-String[][] groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups("braid");
-System.out.println("Homophone groups for 'braid':");
-for (String[] group : groups) {
-    for (String group1 : group) {
-        System.out.print(group1 + " ");
-    }
-    System.out.println();
+const groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups('braid');
+console.log("Homophone groups for 'braid':");
+for (const group of groups) {
+  for (const group1 of group) {
+    console.log(group1 + ' ');
+  }
+  console.log();
 }
 
 if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
-    // Removing all homophones from the dictionary
-    index.getDictionaries().getHomophoneDictionary().clear();
+  // Removing all homophones from the dictionary
+  index.getDictionaries().getHomophoneDictionary().clear();
 }
 
 // Adding homophones to the dictionary
-String[][] homophoneGroups = new String[][] {
-    new String[] { "awe", "oar", "or", "ore" },
-    new String[] { "aye", "eye", "i" },
-};
+const homophoneGroups = java.newInstanceSync('java.util.ArrayList');
+homophoneGroups.add(java.newArray('java.lang.String', ['awe', 'oar', 'or', 'ore']));
+homophoneGroups.add(java.newArray('java.lang.String', ['aye', 'eye', 'i']));
+homophoneGroups.add(java.newArray('java.lang.String', ['call', 'caul']));
 index.getDictionaries().getHomophoneDictionary().addRange(homophoneGroups);
 
 // Export homophones to a file
-index.getDictionaries().getHomophoneDictionary().exportDictionary("C:\\Homophones.dat");
+const fileName = Utils.OutputPath + 'AdvancedUsage/ManagingDictionaries/homophoneDictionary/Homophones.dat';
+index.getDictionaries().getHomophoneDictionary().exportDictionary(fileName);
 
 // Import homophones from a file
-index.getDictionaries().getHomophoneDictionary().importDictionary("C:\\Homophones.dat");
+index.getDictionaries().getHomophoneDictionary().importDictionary(fileName);
+
+// Search in the index
+const query = 'caul';
+const options = new groupdocs.search.SearchOptions();
+options.setUseHomophoneSearch(true);
+const result = index.search(query, options);
 ```
 
 ## More resources

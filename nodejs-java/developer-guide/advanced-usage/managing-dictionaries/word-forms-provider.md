@@ -13,59 +13,72 @@ The [IWordFormsProvider](https://reference.groupdocs.com/search/nodejs-java/com
 The [IWordFormsProvider](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.dictionaries/IWordFormsProvider) interface contains only one [getWordForms](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.dictionaries/IWordFormsProvider#getWordForms(java.lang.String)) method, which returns various forms for the word passed as an argument. An example implementation of a simple provider of word forms is presented below.
 
 ```javascript
-public class SimpleWordFormsProvider implements IWordFormsProvider {
-    public final String[] getWordForms(String word)     {
-        ArrayList<String> result = new ArrayList<String>();
- 
-        // Assume that the input word is in the plural, then we add the singular
-        if (word.length() > 2 &&
-            word.toLowerCase().endsWith("es")) {
-            result.add(word.substring(0, word.length() - 2));
-        }
-        if (word.length() > 1 &&
-            word.toLowerCase().endsWith("s")) {
-            result.add(word.substring(0, word.length() - 1));
-        }
- 
-        // Then assume that the input word is in the singular, we add the plural
-        if (word.length() > 1 &&
-            word.toLowerCase().endsWith("y")) {
-            result.add(word.substring(0, word.length() - 1).concat("is"));
-        }
-        result.add(word.concat("s"));
-        result.add(word.concat("es"));
-        // All rules are implemented in the EnglishWordFormsProvider class
- 
-        return result.toArray(new String[0]);
+const wordFormsProvider = java.newProxy('com.groupdocs.search.dictionaries.IWordFormsProvider', {
+  getWordForms: function (word) {
+    const result = [];
+
+    // Assume that the input word is in the plural, then we add the singular
+    if (word.length > 2 && word.toLowerCase().endsWith('es')) {
+      result.push(word.substr(0, word.length - 2));
     }
-}
+    if (word.length > 1 && word.toLowerCase().endsWith('s')) {
+      result.push(word.substr(0, word.length - 1));
+    }
+
+    // Then assume that the input word is in the singular, we add the plural
+    if (word.length > 1 && word.toLowerCase().endsWith('y')) {
+      result.push(word.substr(0, word.length - 1) + 'is');
+    }
+    result.push(word + 's');
+    result.push(word + 'es');
+    // All rules are implemented in the EnglishWordFormsProvider class
+
+    return java.newArray('java.lang.String', result);
+  },
+});
 ```
 
 By default, the [EnglishWordFormsProvider](https://reference.groupdocs.com/search/nodejs-java/com.groupdocs.search.dictionaries/EnglishWordFormsProvider) class is used, which for English generates various forms of nouns, adjectives, pronouns, verbs, etc. An example of setting a custom provider of word forms is presented below.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
-String documentsFolder = "c:\\MyDocuments\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index in the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder, true);
+
+// Subscribing to the event
+index.getEvents().ErrorOccurred.add(
+  java.newProxy('com.groupdocs.search.events.EventHandler', {
+    invoke: function (sender, args) {
+      console.log(args.getMessage());
+    },
+  }),
+);
+
 // Indexing documents from the specified folder
 index.add(documentsFolder);
- 
+
+String.prototype.endsWith = function (str) {
+  var lastIndex = this.lastIndexOf(str);
+  return lastIndex !== -1 && lastIndex + str.length === this.length;
+};
+
 // Setting the custom word forms provider instance
-index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
- 
+const wordFormsProvider = ... // See code example above
+index.getDictionaries().setWordFormsProvider(wordFormsProvider);
+
 // Creating a search options instance
-SearchOptions options = new SearchOptions();
+const options = new groupdocs.search.SearchOptions();
 options.setUseWordFormsSearch(true); // Enabling search for word forms
- 
+
 // Searching in the index
-SearchResult result = index.search("relative", options);
- 
+const query = 'mrs';
+const result = index.search(query, options);
+
 // The following words can be found:
-// relative
-// relatives
+// mrs
+// mr
 ```
 
 ## More resources

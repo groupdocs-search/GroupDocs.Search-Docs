@@ -31,39 +31,45 @@ To import the list of aliases from a file, use the [importDictionary](https://r
 The following example demonstrates the use of methods of the alias dictionary.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating or opening an index from the specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
+// Indexing documents from the specified folder
+index.add(documentsFolder);
+
 if (index.getDictionaries().getAliasDictionary().getCount() > 0) {
-    // Deleting all existing aliases
-    index.getDictionaries().getAliasDictionary().clear();
+  // Deleting all existing aliases
+  index.getDictionaries().getAliasDictionary().clear();
 }
- 
+
 // Adding aliases to the alias dictionary
-index.getDictionaries().getAliasDictionary().add("t", "(theory OR relativity)");
-index.getDictionaries().getAliasDictionary().add("e", "(Einstein OR Albert)");
-AliasReplacementPair[] pairs = new AliasReplacementPair[] {
-    new AliasReplacementPair("d", "daterange(2017-01-01 ~~ 2019-12-31)"),
-    new AliasReplacementPair("n", "(100 ~~ 900)"),
-};
+index.getDictionaries().getAliasDictionary().add('t', '(gravida OR promotion)');
+index.getDictionaries().getAliasDictionary().add('e', '(viverra OR farther)');
+const pairs = java.newArray('com.groupdocs.search.dictionaries.AliasReplacementPair', [
+  new groupdocs.search.AliasReplacementPair('d', 'daterange(2017-01-01 ~~ 2019-12-31)'),
+  new groupdocs.search.AliasReplacementPair('n', '(400 ~~ 4000)'),
+]);
 index.getDictionaries().getAliasDictionary().addRange(pairs);
- 
-if (index.getDictionaries().getAliasDictionary().contains("e")) {
-    // Getting an alias replacement
-    String replacement = index.getDictionaries().getAliasDictionary().getText("e");
-    System.out.println("e - " + replacement);
+
+if (index.getDictionaries().getAliasDictionary().contains('e')) {
+  // Getting an alias replacement
+  const replacement = index.getDictionaries().getAliasDictionary().getText('e');
+  console.log('e - ' + replacement);
 }
- 
+
 // Export aliases to a file
-index.getDictionaries().getAliasDictionary().exportDictionary("C:\\Aliases.dat");
- 
+const fileName = Utils.OutputPath + 'AdvancedUsage/ManagingDictionaries/aliasDictionary/Aliases.dat';
+index.getDictionaries().getAliasDictionary().exportDictionary(fileName);
+
 // Import aliases from a file
-index.getDictionaries().getAliasDictionary().importDictionary("C:\\Aliases.dat");
- 
+index.getDictionaries().getAliasDictionary().importDictionary(fileName);
+
 // Search in the index
-SearchResult result = index.search("@t OR @e");
+const query = '@t OR @e';
+const result = index.search(query);
 ```
 
 ## More resources

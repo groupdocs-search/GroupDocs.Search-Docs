@@ -25,26 +25,41 @@ To import types of all characters from a file, use the [importDictionary](https
 The following example demonstrates the use of methods of the alphabet.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating or opening an index from the specified folder
-Index index = new Index(indexFolder);
+const index = new groupdocs.search.Index(indexFolder);
 
 // Export the alphabet to a file
-index.getDictionaries().getAlphabet().exportDictionary("C:\\Alphabet.dat");
- 
+const fileName = Utils.OutputPath + 'AdvancedUsage/ManagingDictionaries/alphabet/Alphabet.dat';
+index.getDictionaries().getAlphabet().exportDictionary(fileName);
+
 if (index.getDictionaries().getAlphabet().getCount() > 0) {
-    // Setting a type of all characters to Separator
-    index.getDictionaries().getAlphabet().clear();
+  // Setting a type of all characters to Separator
+  index.getDictionaries().getAlphabet().clear();
 }
- 
+
 // Import the alphabet from a file
-index.getDictionaries().getAlphabet().importDictionary("C:\\Alphabet.dat");
- 
-if (index.getDictionaries().getAlphabet().getCharacterType('-') != CharacterType.Blended) {
-    // Setting a type of hyphen character to Blended
-    index.getDictionaries().getAlphabet().setRange(new char[] { '-' }, CharacterType.Blended);
+index.getDictionaries().getAlphabet().importDictionary(fileName);
+
+if (
+  String(index.getDictionaries().getAlphabet().getCharacterType(java.newChar('-'))) !=
+  String(groupdocs.search.CharacterType.Blended)
+) {
+  // Setting a type of hyphen character to Blended
+  index
+    .getDictionaries()
+    .getAlphabet()
+    .setRange(java.newArray('char', ['-']), groupdocs.search.CharacterType.Blended);
 }
+
+// Indexing documents from the specified folder
+index.add(documentsFolder);
+
+// Search in the index
+const query = 'Elliot-Murray-Kynynmound';
+const result = index.search(query);
 ```
 
 ## More resources

@@ -25,25 +25,37 @@ To import words from a file, use the [importDictionary](https://reference.group
 The following example demonstrates the use of methods of the spelling corrector.
 
 ```javascript
-String indexFolder = "c:\\MyIndex\\";
- 
+const indexFolder = 'c:/MyIndex/';
+const documentsFolder = 'c:/MyDocuments/';
+
 // Creating an index from in specified folder
-Index index = new Index(indexFolder);
- 
+const index = new groupdocs.search.Index(indexFolder);
+
+// Indexing documents from the specified folder
+index.add(documentsFolder);
+
 if (index.getDictionaries().getSpellingCorrector().getCount() > 0) {
-    // Removing all words from the dictionary
-    index.getDictionaries().getSpellingCorrector().clear();
+  // Removing all words from the dictionary
+  index.getDictionaries().getSpellingCorrector().clear();
 }
- 
+
 // Adding words to the dictionary
-String[] words = new String[] { "achieve", "accomplish", "attain", "reach" };
+const words = java.newArray('java.lang.String', ['achieve', 'accomplish', 'attain', 'expression', 'reach']);
 index.getDictionaries().getSpellingCorrector().addRange(words);
- 
+
 // Export words to a file
-index.getDictionaries().getSpellingCorrector().exportDictionary("C:\\Words.txt");
- 
+const fileName = Utils.OutputPath + 'AdvancedUsage/ManagingDictionaries/spellingCorrector/Words.txt';
+index.getDictionaries().getSpellingCorrector().exportDictionary(fileName);
+
 // Import words from a file
-index.getDictionaries().getSpellingCorrector().importDictionary("C:\\Words.txt");
+index.getDictionaries().getSpellingCorrector().importDictionary(fileName);
+
+// Search in the index
+const query = 'experssino';
+const options = new groupdocs.search.SearchOptions();
+options.getSpellingCorrector().setEnabled(true);
+options.getSpellingCorrector().setMaxMistakeCount(2);
+const result = index.search(query, options);
 ```
 
 ## More resources
