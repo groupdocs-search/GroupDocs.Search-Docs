@@ -110,7 +110,7 @@ hideChildren: true
         <ul style="list-style:none;padding-top: 10px">
             <li>
                 <h4>
-                <a class="home-resource-link" rel="nofollow" href="https://github.com/groupdocs-search/GroupDocs.Search-for-.NET" >{{< icon "gdoc_github" >}} GroupDocs.Search for Java</a>
+                <a class="home-resource-link" rel="nofollow" href="https://github.com/groupdocs-search/GroupDocs.Search-for-Java" >{{< icon "gdoc_github" >}} GroupDocs.Search for Java</a>
                 </h4>
                 <p>Open-source project for APIs example usage</p>
             </li>
