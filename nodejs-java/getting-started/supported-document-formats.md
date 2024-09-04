@@ -13,79 +13,79 @@ The following table contains file formats supported by GroupDocs.Search.
 | Document Type | Document Type Description | Indexing Content, Metadata | Supported Versions | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Word Processing |   |   |   |   |   |
-| [DOC](https://docs.fileformat.com/word-processing/doc/) | Microsoft Word Document | Content and Metadata |   | Microsoft Word 97+ |
-| [DOT](https://docs.fileformat.com/word-processing/dot/) | Microsoft Word Document Template | Content and Metadata |   | Microsoft Word 97+ |
-| [DOCX](https://docs.fileformat.com/word-processing/docx/) | Office Open XML Document | Content and Metadata |   |   |
-| [DOCM](https://docs.fileformat.com/word-processing/docm/) | Office Open XML Document \[Macro-enabled\] | Content and Metadata |   |   |
-| [DOTX](https://docs.fileformat.com/word-processing/dotx/) | Office Open XML Document Template | Content and Metadata |   |   |
-| [DOTM](https://docs.fileformat.com/word-processing/dotm/) | Office Open XML Document Template \[Macro-enabled\] | Content and Metadata |   |   |
-| [TXT](https://docs.fileformat.com/word-processing/txt/) | Plain text | Content and Metadata |   |   |
-| [ODT](https://docs.fileformat.com/word-processing/odt/) | Open Document Text | Content and Metadata |   |   |
-| [OTT](https://docs.fileformat.com/word-processing/ott/) | Open Document Text Template | Content and Metadata |   |   |
-| [RTF](https://docs.fileformat.com/word-processing/rtf/) | Rich Text Format | Content and Metadata | 1.9 |  |
+| [DOC](https://docs.fileformat.com/word-processing/doc/) | Microsoft Word Document | Content and metadata |   | Microsoft Word 97+ |
+| [DOT](https://docs.fileformat.com/word-processing/dot/) | Microsoft Word Document Template | Content and metadata |   | Microsoft Word 97+ |
+| [DOCX](https://docs.fileformat.com/word-processing/docx/) | Office Open XML Document | Content and metadata |   |   |
+| [DOCM](https://docs.fileformat.com/word-processing/docm/) | Office Open XML Document \[Macro-enabled\] | Content and metadata |   |   |
+| [DOTX](https://docs.fileformat.com/word-processing/dotx/) | Office Open XML Document Template | Content and metadata |   |   |
+| [DOTM](https://docs.fileformat.com/word-processing/dotm/) | Office Open XML Document Template \[Macro-enabled\] | Content and metadata |   |   |
+| [TXT](https://docs.fileformat.com/word-processing/txt/) | Plain text | Content and metadata |   |   |
+| [ODT](https://docs.fileformat.com/word-processing/odt/) | Open Document Text | Content and metadata |   |   |
+| [OTT](https://docs.fileformat.com/word-processing/ott/) | Open Document Text Template | Content and metadata |   |   |
+| [RTF](https://docs.fileformat.com/word-processing/rtf/) | Rich Text Format | Content and metadata | 1.9 |  |
 | PDF |   |   |   |   |   |
-| [PDF](https://docs.fileformat.com/pdf/) | Portable Document Format File | Content and Metadata |   |   |
+| [PDF](https://docs.fileformat.com/pdf/) | Portable Document Format File | Content and metadata |   |   |
 | Markup |   |   |   |   |   |
-| [HTML](https://docs.fileformat.com/web/html/) | Hypertext Markup Language File | Content and Metadata |   |   |
-| [XHTML](https://docs.fileformat.com/web/xhtml/) | Extensible Hypertext Markup Language File | Content and Metadata |   |   |
-| [MHTML](https://docs.fileformat.com/web/mhtml/) | MIME HTML File | Content and Metadata |   | Not supported by .NET Core version in Linux |
-| [MD](https://docs.fileformat.com/word-processing/md/) | Markdown | Content and Metadata |   |   |
-| [XML](https://docs.fileformat.com/web/xml/) | XML File | Content and Metadata |   |   |
+| [HTML](https://docs.fileformat.com/web/html/) | Hypertext Markup Language File | Content and metadata |   |   |
+| [XHTML](https://docs.fileformat.com/web/xhtml/) | Extensible Hypertext Markup Language File | Content and metadata |   |   |
+| [MHTML](https://docs.fileformat.com/web/mhtml/) | MIME HTML File | Content and metadata |   | Not supported by .NET Core version in Linux |
+| [MD](https://docs.fileformat.com/word-processing/md/) | Markdown | Content and metadata |   |   |
+| [XML](https://docs.fileformat.com/web/xml/) | XML File | Content and metadata |   |   |
 | Ebooks |   |   |   |   |   |
-| [CHM](https://docs.fileformat.com/web/chm/) | Compiled HTML Help File | Content and Metadata | 1.4 |   |
-| [EPUB](https://docs.fileformat.com/ebook/epub/) | Open eBook File | Content and Metadata | 2.0, 3.0, 3.1 |   |
-| [FB2](https://docs.fileformat.com/ebook/fb2/) | FictionBook 2.0 File | Content and Metadata | 2.0 |   |
+| [CHM](https://docs.fileformat.com/web/chm/) | Compiled HTML Help File | Content and metadata | 1.4 |   |
+| [EPUB](https://docs.fileformat.com/ebook/epub/) | Open eBook File | Content and metadata | 2.0, 3.0, 3.1 |   |
+| [FB2](https://docs.fileformat.com/ebook/fb2/) | FictionBook 2.0 File | Content and metadata | 2.0 |   |
 | Speadsheet |   |   |   |   |   |
-| [XLS](https://docs.fileformat.com/spreadsheet/xls/) | Microsoft Excel Spreadsheet | Content and Metadata |   | Microsoft Excel 97+ |
-| [XLT](https://docs.fileformat.com/spreadsheet/xlt/)| Microsoft Excel Spreadsheet Template | Content and Metadata |   | Microsoft Excel 97+ |
-| [XLSX](https://docs.fileformat.com/spreadsheet/xlsx/) | Office Open XML Spreadsheet | Content and Metadata |   |   |
-| [XLSM](https://docs.fileformat.com/spreadsheet/xlsm/) | Office Open XML Spreadsheet \[Macro-enabled\] | Content and Metadata |   |   |
-| [XLSB](https://docs.fileformat.com/spreadsheet/xlsb/) | Office Open XML Spreadsheet \[Binary\] | Content and Metadata |   |   |
-| [XLTX](https://docs.fileformat.com/spreadsheet/xltx/) | Office Open XML Spreadsheet Template | Content and Metadata |   |   |
-| [XLTM](https://docs.fileformat.com/spreadsheet/xltm/) | Office Open XML Spreadsheet Template \[Macro-enabled\] | Content and Metadata |   |   |
-| [XLA](https://docs.fileformat.com/spreadsheet/xla/) | Microsoft Excel 97-2003 Add-In | Content and Metadata |   |   |
-| [XLAM](https://docs.fileformat.com/spreadsheet/xlam/) | Microsoft Excel Open XML Add-In | Content and Metadata |   |   |
-| [ODS](https://docs.fileformat.com/spreadsheet/ods/) | Open Document Spreadsheet | Content and Metadata |   |   |
-| [OTS](https://docs.fileformat.com/spreadsheet/ots/) | Open Document Spreadsheet Template | Content and Metadata |   |   |
-| [CSV](https://docs.fileformat.com/spreadsheet/csv/) | Comma Separated Values | Content and Metadata |   |   |
-| [TSV](https://docs.fileformat.com/spreadsheet/tsv/) | Tab Separated Values | Content and Metadata |   |   |
-| XML | SpreadsheetML | Content and Metadata |   |   |
+| [XLS](https://docs.fileformat.com/spreadsheet/xls/) | Microsoft Excel Spreadsheet | Content and metadata |   | Microsoft Excel 97+ |
+| [XLT](https://docs.fileformat.com/spreadsheet/xlt/)| Microsoft Excel Spreadsheet Template | Content and metadata |   | Microsoft Excel 97+ |
+| [XLSX](https://docs.fileformat.com/spreadsheet/xlsx/) | Office Open XML Spreadsheet | Content and metadata |   |   |
+| [XLSM](https://docs.fileformat.com/spreadsheet/xlsm/) | Office Open XML Spreadsheet \[Macro-enabled\] | Content and metadata |   |   |
+| [XLSB](https://docs.fileformat.com/spreadsheet/xlsb/) | Office Open XML Spreadsheet \[Binary\] | Content and metadata |   |   |
+| [XLTX](https://docs.fileformat.com/spreadsheet/xltx/) | Office Open XML Spreadsheet Template | Content and metadata |   |   |
+| [XLTM](https://docs.fileformat.com/spreadsheet/xltm/) | Office Open XML Spreadsheet Template \[Macro-enabled\] | Content and metadata |   |   |
+| [XLA](https://docs.fileformat.com/spreadsheet/xla/) | Microsoft Excel 97-2003 Add-In | Content and metadata |   |   |
+| [XLAM](https://docs.fileformat.com/spreadsheet/xlam/) | Microsoft Excel Open XML Add-In | Content and metadata |   |   |
+| [ODS](https://docs.fileformat.com/spreadsheet/ods/) | Open Document Spreadsheet | Content and metadata |   |   |
+| [OTS](https://docs.fileformat.com/spreadsheet/ots/) | Open Document Spreadsheet Template | Content and metadata |   |   |
+| [CSV](https://docs.fileformat.com/spreadsheet/csv/) | Comma Separated Values | Content and metadata |   |   |
+| [TSV](https://docs.fileformat.com/spreadsheet/tsv/) | Tab Separated Values | Content and metadata |   |   |
+| XML | SpreadsheetML | Content and metadata |   |   |
 | Presentations ||||||
-| [PPT](https://docs.fileformat.com/presentation/ppt/) | PowerPoint Presentation | Content and Metadata |   | Microsoft PowerPoint 97+ |
-| [PPS](https://docs.fileformat.com/presentation/pps/) | PowerPoint Slideshow | Content and Metadata |   | Microsoft PowerPoint 97+ |
-| [POT](https://docs.fileformat.com/presentation/pot/) | PowerPoint Template | Content and Metadata |   | Microsoft PowerPoint 97+ |
-| [PPTX](https://docs.fileformat.com/presentation/pptx/) | Office Open XML Presentation | Content and Metadata |   |   |
-| [PPTM](https://docs.fileformat.com/presentation/pptm/) | Office Open XML Presentation \[Macro-enabled\] | Content and Metadata |   |   |
-| [POTX](https://docs.fileformat.com/presentation/potx/)  | Office Open XML Presentation Template | Content and Metadata |   |   |
-| [POTM](https://docs.fileformat.com/presentation/potm/) | Office Open XML Presentation Template \[Macro-enabled\] | Content and Metadata |   |   |
-| [PPSX](https://docs.fileformat.com/presentation/ppsx/) | Office Open XML Presentation Slideshow | Content and Metadata |   |   |
-| [PPSM](https://docs.fileformat.com/presentation/ppsm/) | Office Open XML Presentation Slideshow \[Macro-enabled\] | Content and Metadata |   |   |
-| [ODP](https://docs.fileformat.com/presentation/odp/) | Open Document Presentation | Content and Metadata |   |   |
+| [PPT](https://docs.fileformat.com/presentation/ppt/) | PowerPoint Presentation | Content and metadata |   | Microsoft PowerPoint 97+ |
+| [PPS](https://docs.fileformat.com/presentation/pps/) | PowerPoint Slideshow | Content and metadata |   | Microsoft PowerPoint 97+ |
+| [POT](https://docs.fileformat.com/presentation/pot/) | PowerPoint Template | Content and metadata |   | Microsoft PowerPoint 97+ |
+| [PPTX](https://docs.fileformat.com/presentation/pptx/) | Office Open XML Presentation | Content and metadata |   |   |
+| [PPTM](https://docs.fileformat.com/presentation/pptm/) | Office Open XML Presentation \[Macro-enabled\] | Content and metadata |   |   |
+| [POTX](https://docs.fileformat.com/presentation/potx/)  | Office Open XML Presentation Template | Content and metadata |   |   |
+| [POTM](https://docs.fileformat.com/presentation/potm/) | Office Open XML Presentation Template \[Macro-enabled\] | Content and metadata |   |   |
+| [PPSX](https://docs.fileformat.com/presentation/ppsx/) | Office Open XML Presentation Slideshow | Content and metadata |   |   |
+| [PPSM](https://docs.fileformat.com/presentation/ppsm/) | Office Open XML Presentation Slideshow \[Macro-enabled\] | Content and metadata |   |   |
+| [ODP](https://docs.fileformat.com/presentation/odp/) | Open Document Presentation | Content and metadata |   |   |
 | Emails |   |   |   |   |   |
-| [PST](https://docs.fileformat.com/email/pst/) | Outlook Personal Information Store File | Content and Metadata |   |   |
-| [OST](https://docs.fileformat.com/email/ost/) | Outlook Offline Data File | Content and Metadata |   |   |
-| [EML](https://docs.fileformat.com/email/eml/) | E-Mail Message | Content and Metadata |   |   |
-| [EMLX](https://docs.fileformat.com/email/emlx/) | Apple Mail Message | Content and Metadata |   |   |
-| [MSG](https://docs.fileformat.com/email/msg/) | Outlook Mail Message | Content and Metadata |   |   |
+| [PST](https://docs.fileformat.com/email/pst/) | Outlook Personal Information Store File | Content and metadata |   |   |
+| [OST](https://docs.fileformat.com/email/ost/) | Outlook Offline Data File | Content and metadata |   |   |
+| [EML](https://docs.fileformat.com/email/eml/) | E-Mail Message | Content and metadata |   |   |
+| [EMLX](https://docs.fileformat.com/email/emlx/) | Apple Mail Message | Content and metadata |   |   |
+| [MSG](https://docs.fileformat.com/email/msg/) | Outlook Mail Message | Content and metadata |   |   |
 | Notes |   |   |   |   |   |
-| [OneNote](https://docs.fileformat.com/note-taking/one/) | OneNote Document | Content and Metadata | Local files of Microsoft OneNote 2010-2016 | Not supported by .NET Core version in Linux |
+| [OneNote](https://docs.fileformat.com/note-taking/one/) | OneNote Document | Content and metadata | Local files of Microsoft OneNote 2010-2016 | Not supported by .NET Core version in Linux |
 | Archives |   |   |   |   |   |
-| [ZIP](https://docs.fileformat.com/compression/zip/) | Zipped File | Content and Metadata |   |   |
+| [ZIP](https://docs.fileformat.com/compression/zip/) | Zipped File | Content and metadata |   |   |
 | Audio |   |   |   |   |   |
 | [MP3](https://docs.fileformat.com/audio/mp3/) | MPEG-2 Audio Layer III | Metadata only |   |   |
 | [WAV](https://docs.fileformat.com/audio/wav/) | Waveform Audio File Format | Metadata only |   |   |
 | Image |   |   |   |   |   |
-| [BMP](https://docs.fileformat.com/image/bmp/) | Bitmap Picture | Metadata only |   |   |
-| [GIF](https://docs.fileformat.com/image/gif/) | Graphical Interchange Format File | Metadata only |   |   |
-| [JP2](https://docs.fileformat.com/image/jp2/) | JPEG 2000 Core Image File | Metadata only |   |   |
-| [PNG](https://docs.fileformat.com/image/png/) | Portable Network Graphics | Metadata only |   |   |
-| [WEBP](https://docs.fileformat.com/image/webp/) | WebP Image Format File | Metadata only |   |   |
-| [TIFF](https://docs.fileformat.com/image/tiff/) | Tagged Image File Format | Metadata only |   |   |
-| [EMF](https://docs.fileformat.com/image/emf/) | Enhanced Windows Metafile | Metadata only |   |   |
-| [WMF](https://docs.fileformat.com/image/wmf/) | Windows Metafile | Metadata only |   |   |
-| [JPG](https://docs.fileformat.com/image/jpeg/) | JPEG Image | Metadata only |   |   |
-| [PSD](https://docs.fileformat.com/image/psd/) | Adobe Photoshop Document | Metadata only |   |   |
-| [DJVU](https://docs.fileformat.com/image/djvu/) | DjVu Image | Metadata only |   |   |
+| [BMP](https://docs.fileformat.com/image/bmp/) | Bitmap Picture | OCR and metadata |   |   |
+| [GIF](https://docs.fileformat.com/image/gif/) | Graphical Interchange Format File | OCR and metadata |   |   |
+| [JP2](https://docs.fileformat.com/image/jp2/) | JPEG 2000 Core Image File | OCR and metadata |   |   |
+| [PNG](https://docs.fileformat.com/image/png/) | Portable Network Graphics | OCR and metadata |   |   |
+| [WEBP](https://docs.fileformat.com/image/webp/) | WebP Image Format File | OCR and metadata |   |   |
+| [TIFF](https://docs.fileformat.com/image/tiff/) | Tagged Image File Format | OCR and metadata |   |   |
+| [EMF](https://docs.fileformat.com/image/emf/) | Enhanced Windows Metafile | OCR and metadata |   |   |
+| [WMF](https://docs.fileformat.com/image/wmf/) | Windows Metafile | OCR and metadata |   |   |
+| [JPG](https://docs.fileformat.com/image/jpeg/) | JPEG Image | OCR and metadata |   |   |
+| [PSD](https://docs.fileformat.com/image/psd/) | Adobe Photoshop Document | OCR and metadata |   |   |
+| [DJVU](https://docs.fileformat.com/image/djvu/) | DjVu Image | OCR and metadata |   |   |
 | Project Management |   |   |   |   |   |
 | [MPP](https://docs.fileformat.com/project-management/mpp/) | Microsoft Project File | Metadata only |   |   |
 | Torrent |   |   |   |   |   |
@@ -102,4 +102,3 @@ The following table contains file formats supported by GroupDocs.Search.
 | [QT](https://docs.fileformat.com/video/qt/) | Apple QuickTime Movie | Metadata only |   |   |
 | [FLV](https://docs.fileformat.com/video/flv/) | Animate Video File | Metadata only |   |   |
 | [ASF](https://docs.fileformat.com/video/wmv/) | Advanced Systems Format File | Metadata only |   |   |
-
