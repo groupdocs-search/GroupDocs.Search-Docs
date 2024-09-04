@@ -10,7 +10,7 @@ hideChildren: False
 ---
 The following table contains file formats supported by GroupDocs.Search.
 
-| Document Type | Document Type Description | Indexing Content, Metadata | Supported Versions | Notes |
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Word Processing |   |   |   |   |   |
 | [DOC](https://docs.fileformat.com/word-processing/doc/) | Microsoft Word Document | Content and metadata |   | Microsoft Word 97+ |
@@ -75,17 +75,17 @@ The following table contains file formats supported by GroupDocs.Search.
 | [MP3](https://docs.fileformat.com/audio/mp3/) | MPEG-2 Audio Layer III | Metadata only |   |   |
 | [WAV](https://docs.fileformat.com/audio/wav/) | Waveform Audio File Format | Metadata only |   |   |
 | Image |   |   |   |   |   |
-| [BMP](https://docs.fileformat.com/image/bmp/) | Bitmap Picture | OCR and metadata |   |   |
-| [GIF](https://docs.fileformat.com/image/gif/) | Graphical Interchange Format File | OCR and metadata |   |   |
-| [JP2](https://docs.fileformat.com/image/jp2/) | JPEG 2000 Core Image File | OCR and metadata |   |   |
-| [PNG](https://docs.fileformat.com/image/png/) | Portable Network Graphics | OCR and metadata |   |   |
-| [WEBP](https://docs.fileformat.com/image/webp/) | WebP Image Format File | OCR and metadata |   |   |
-| [TIFF](https://docs.fileformat.com/image/tiff/) | Tagged Image File Format | OCR and metadata |   |   |
-| [EMF](https://docs.fileformat.com/image/emf/) | Enhanced Windows Metafile | OCR and metadata |   |   |
-| [WMF](https://docs.fileformat.com/image/wmf/) | Windows Metafile | OCR and metadata |   |   |
-| [JPG](https://docs.fileformat.com/image/jpeg/) | JPEG Image | OCR and metadata |   |   |
-| [PSD](https://docs.fileformat.com/image/psd/) | Adobe Photoshop Document | OCR and metadata |   |   |
-| [DJVU](https://docs.fileformat.com/image/djvu/) | DjVu Image | OCR and metadata |   |   |
+| [BMP](https://docs.fileformat.com/image/bmp/) | Bitmap Picture | Content and metadata |   |   |
+| [GIF](https://docs.fileformat.com/image/gif/) | Graphical Interchange Format File | Content and metadata |   |   |
+| [JP2](https://docs.fileformat.com/image/jp2/) | JPEG 2000 Core Image File | Content and metadata |   |   |
+| [PNG](https://docs.fileformat.com/image/png/) | Portable Network Graphics | Content and metadata |   |   |
+| [WEBP](https://docs.fileformat.com/image/webp/) | WebP Image Format File | Content and metadata |   |   |
+| [TIFF](https://docs.fileformat.com/image/tiff/) | Tagged Image File Format | Content and metadata |   |   |
+| [EMF](https://docs.fileformat.com/image/emf/) | Enhanced Windows Metafile | Content and metadata |   |   |
+| [WMF](https://docs.fileformat.com/image/wmf/) | Windows Metafile | Content and metadata |   |   |
+| [JPG](https://docs.fileformat.com/image/jpeg/) | JPEG Image | Content and metadata |   |   |
+| [PSD](https://docs.fileformat.com/image/psd/) | Adobe Photoshop Document | Content and metadata |   |   |
+| [DJVU](https://docs.fileformat.com/image/djvu/) | DjVu Image | Content and metadata |   |   |
 | Project Management |   |   |   |   |   |
 | [MPP](https://docs.fileformat.com/project-management/mpp/) | Microsoft Project File | Metadata only |   |   |
 | Torrent |   |   |   |   |   |
