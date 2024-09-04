@@ -25,36 +25,36 @@ The Index Browser project is available on GitHub:
 
 After launching the Index Browser application, click the **Set license** button and select the license file to work with the GroupDocs.Search for .NET library.
 
-<img src="/search/net/images/set-license.png" alt="set-license" width="820"/>
+<img src="/search/net/images/set-license.png" alt="set-license" width="656"/>
 
 To create an index, click the **Create index** button.
 
-<img src="/search/net/images/create-index.png" alt="create-index" width="820"/>
+<img src="/search/net/images/create-index.png" alt="create-index" width="656"/>
 
 Enter the index location directory on the disk in the field **Index folder**. Enter the index name (to be displayed in the list). Click the **Create** button.
 
-<img src="/search/net/images/create.png" alt="create" width="820"/>
+<img src="/search/net/images/create.png" alt="create" width="656"/>
 
 To unload the index from memory, click the **Close index** button in the upper right corner of the application window.
 
-<img src="/search/net/images/close-index.png" alt="close-index" width="820"/>
+<img src="/search/net/images/close-index.png" alt="close-index" width="656"/>
 
 To open an index, select the desired index in the list and click the **Load index** button. A window for working with the index will open.
 
-<img src="/search/net/images/load-index.png" alt="load-index" width="820"/>
+<img src="/search/net/images/load-index.png" alt="load-index" width="656"/>
 
 To add documents to the index, open the **Operations** tab. Click the **Add directory** or **Add files** button to select a folder or file, respectively.
 
-<img src="/search/net/images/add-files.png" alt="add-files" width="820"/>
+<img src="/search/net/images/add-files.png" alt="add-files" width="656"/>
 
 The added paths to files or folders will appear in the **Selected paths** list. Click the **Start indexing** button and wait for the indexing process to complete.
 
-<img src="/search/net/images/start-indexing.png" alt="start-indexing" width="820"/>
+<img src="/search/net/images/start-indexing.png" alt="start-indexing" width="656"/>
 
 To search the index, open the **Search** tab. Enter your search query in the **Query** field. Below the query field, specify the search options you require. Press the **Search** button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table](https://docs.groupdocs.com/search/net/search-operation-table/).
 
-<img src="/search/net/images/search.png" alt="search" width="820"/>
+<img src="/search/net/images/search.png" alt="search" width="656"/>
 
 To navigate through the found documents, select the file you are interested in by clicking on it in the list. The text of the document will be displayed on the right side of the window. The arrow buttons allow you to move in the text from one found occurrence to another.
 
-<img src="/search/net/images/arrow-buttons.png" alt="arrow-buttons" width="820"/>
+<img src="/search/net/images/arrow-buttons.png" alt="arrow-buttons" width="656"/>
