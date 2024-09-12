@@ -49,7 +49,7 @@ index.Add(data, new IndexingOptions());
 SearchResult result = index.Search("Einstein");
 ```
 
-Note that when indexed documents change and need to be updated in the index, the same code must be executed. That is, data must be extracted separately from the updated documents and then the extracted data must be added to the index.
+Note that when indexed documents change and need to be updated in the index, the same code must be executed. That is, data must be extracted separately from the updated documents and then the extracted data must be added to the index. The most important thing here is to add an updated document with the same key, then the document will be replaced in the index.
 
 ## More resources
 
