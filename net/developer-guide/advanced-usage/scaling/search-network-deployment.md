@@ -29,10 +29,10 @@ The following code example demonstrates starting a slave node on the server.
 **C#**
 
 ```csharp
-SearchNetworkNode node1 = new SearchNetworkNode(
+SearchNetworkNode node1 = SearchNetworkNode.CreateSlaveNode(
     1,
     basePath + "Node1",
-    new TcpSettings(basePort + 1, sendTimeout, receiveTimeout));
+    new TcpSettings(basePort + 1, sendTimeout, receiveTimeout, connectTimeout, retryTimeout));
 node1.Start();
 ```
 
@@ -41,10 +41,10 @@ The following code example demonstrates starting a master node on the server.
 **C#**
 
 ```csharp
-SearchNetworkNode node0 = new SearchNetworkNode(
+SearchNetworkNode node0 = SearchNetworkNode.CreateMasterNode(
     0,
     basePath + "Node0",
-    new TcpSettings(basePort, sendTimeout, receiveTimeout),
+    new TcpSettings(basePort, sendTimeout, receiveTimeout, connectTimeout, retryTimeout),
     new ConsoleLogger(),
     configuration);
 
