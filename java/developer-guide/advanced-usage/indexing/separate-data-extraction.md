@@ -46,6 +46,8 @@ index.add(data, new IndexingOptions());
 SearchResult result = index.search("Einstein");
 ```
 
+Note that when indexed documents change and need to be updated in the index, the same code must be executed. That is, data must be extracted separately from the updated documents and then the extracted data must be added to the index.
+
 ## More resources
 
 ### GitHub examples
