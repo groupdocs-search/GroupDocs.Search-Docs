@@ -13,16 +13,6 @@ hideChildren: False
 
 NuGet is the easiest way to download and install GroupDocs.Search for .NET. There are ways to install it in your project.
 
-#### Install via Package Manager Console
-
-```
-PM> NuGet\Install-Package GroupDocs.Search
-```
-
-```
-PM> NuGet\Install-Package GroupDocs.Search.NETFramework
-```
-
 #### Install via Package Manager GUI
 
 Follow these steps to reference GroupDocs.Search using Package Manager GUI:
@@ -41,10 +31,18 @@ You can follow the steps below to reference GroupDocs.Search for .NET using the
 
 *   Open your solution/project in Visual Studio.
 *   Select Tools -> NuGet Package Manager -> Package Manager Console from the menu to open package manager console.
-*   Type the command 'Install-Package GroupDocs.Search' and press enter to install the latest release into your application.  
+*   Type the command 'Install-Package GroupDocs.Search' or 'Install-Package GroupDocs.Search.NETFramework' and press enter to install the latest release into your application.  
     After successful installation, GroupDocs.Search will be referenced in your application.  
 
 ![](/search/net/images/installation_1.png)
+
+```
+PM> NuGet\Install-Package GroupDocs.Search
+```
+
+```
+PM> NuGet\Install-Package GroupDocs.Search.NETFramework
+```
 
 ## Install from official GroupDocs website
 
