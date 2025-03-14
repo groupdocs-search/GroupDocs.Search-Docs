@@ -19,11 +19,13 @@ jobs:
       PRODUCT: search
 
     steps:
+      - name: Clean up current folder
+        run: rm -rf ./* ./.??*
+
       - uses: actions/checkout@v4
 
       - name: Submodule update
         run: |
-          rm -rf common
           git submodule update --init --recursive
           git submodule foreach git pull origin master
 
