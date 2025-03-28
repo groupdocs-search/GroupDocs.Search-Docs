@@ -44,6 +44,7 @@ index.Add(documentsFolder);
 ```
 
 External tools, such as Utf.Unknown, can be used to determine the encoding of a text file during indexing.
+Any encoding can be detected, including ANSI.
 
 ```
 PM> NuGet\Install-Package UTF.Unknown
