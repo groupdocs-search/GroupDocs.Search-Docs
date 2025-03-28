@@ -16,7 +16,6 @@ To automatically detect encoding of a text file, the [AutoDetectEncoding](https:
 *   UTF-16 BE,
 *   UTF-8,
 *   UTF-7,
-*   ANSI.
 
 By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event is raised. If the encoding of a text file has not been detected or specified in the event arguments, then the default encoding, UTF-8, is used. Available encodings are presented in the [Encodings](https://reference.groupdocs.com/net/search/groupdocs.search.common/encodings) class. When the encoding of a text file is detected and used for indexing, it is saved in the index to use in such methods of [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class like [Highlight](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/highlight/index) and [GetDocumentText](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/getdocumenttext/index).
 
@@ -42,6 +41,29 @@ index.Events.FileIndexing += (sender, args) =>
  
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
+```
+
+External tools, such as Utf.Unknown, can be used to determine the encoding of a text file during indexing.
+
+```
+PM> NuGet\Install-Package UTF.Unknown
+```
+
+Below is an example of using the external library to determine the encoding of a text file.
+
+**C#**
+
+```csharp
+index.Events.FileIndexing += (sender, args) =>
+{
+    byte[] data = File.ReadAllBytes(args.DocumentFullPath);
+    UtfUnknown.DetectionResult result = UtfUnknown.CharsetDetector.DetectFromBytes(data);
+    if (result.Detected != null)
+    {
+        Console.WriteLine("Encoding detected: " + result.Detected.EncodingName);
+        args.Encoding = result.Detected.EncodingName;
+    }
+};
 ```
 
 ## More resources
