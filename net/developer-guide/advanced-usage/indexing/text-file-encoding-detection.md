@@ -8,7 +8,7 @@ keywords: detect encoding of a text file, detect encoding
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-To automatically detect encoding of a text file, the [AutoDetectEncoding](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/autodetectencoding) property defined in the [IndexSettings](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can be used. Setting this property to true allows to detect the following encodings:
+To automatically detect encoding of a text file, the [AutoDetectEncoding](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/autodetectencoding) property defined in the [IndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/) class can be used. Setting this property to true allows to detect the following encodings:
 
 *   UTF-32 LE,
 *   UTF-32 BE,
