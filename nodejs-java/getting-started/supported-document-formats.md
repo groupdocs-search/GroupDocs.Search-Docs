@@ -8,11 +8,14 @@ keywords: DOCX, DOCM, DOC, DOT, DOTM, XLS, XLSX, PDF, PPT, JPG, PNG, HTML, EML
 productName: GroupDocs.Search for Node.js via Java
 hideChildren: False
 ---
-The following table contains file formats supported by GroupDocs.Search.
+The following table contains file formats supported by GroupDocs.Search for Node.js via Java. You can use the input below to filter supported formats by extension.
+
+{{< table-filter placeholder="Start typing to find file format" forumUrl="https://forum.groupdocs.com/c/search/16">}}
+
+## Word Processing
 
 | Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Word Processing |   |   |   |   |   |
 | [DOC](https://docs.fileformat.com/word-processing/doc/) | Microsoft Word Document | Content and metadata |   | Microsoft Word 97+ |
 | [DOT](https://docs.fileformat.com/word-processing/dot/) | Microsoft Word Document Template | Content and metadata |   | Microsoft Word 97+ |
 | [DOCX](https://docs.fileformat.com/word-processing/docx/) | Office Open XML Document | Content and metadata |   |   |
@@ -23,19 +26,34 @@ The following table contains file formats supported by GroupDocs.Search.
 | [ODT](https://docs.fileformat.com/word-processing/odt/) | Open Document Text | Content and metadata |   |   |
 | [OTT](https://docs.fileformat.com/word-processing/ott/) | Open Document Text Template | Content and metadata |   |   |
 | [RTF](https://docs.fileformat.com/word-processing/rtf/) | Rich Text Format | Content and metadata | 1.9 |  |
-| PDF |   |   |   |   |   |
+
+## PDF
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [PDF](https://docs.fileformat.com/pdf/) | Portable Document Format File | Content and metadata |   |   |
-| Markup |   |   |   |   |   |
+
+## Markup
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [HTML](https://docs.fileformat.com/web/html/) | Hypertext Markup Language File | Content and metadata |   |   |
 | [XHTML](https://docs.fileformat.com/web/xhtml/) | Extensible Hypertext Markup Language File | Content and metadata |   |   |
 | [MHTML](https://docs.fileformat.com/web/mhtml/) | MIME HTML File | Content and metadata |   | Not supported by .NET Core version in Linux |
 | [MD](https://docs.fileformat.com/word-processing/md/) | Markdown | Content and metadata |   |   |
 | [XML](https://docs.fileformat.com/web/xml/) | XML File | Content and metadata |   |   |
-| Ebooks |   |   |   |   |   |
+
+## Ebooks
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [CHM](https://docs.fileformat.com/web/chm/) | Compiled HTML Help File | Content and metadata | 1.4 |   |
 | [EPUB](https://docs.fileformat.com/ebook/epub/) | Open eBook File | Content and metadata | 2.0, 3.0, 3.1 |   |
 | [FB2](https://docs.fileformat.com/ebook/fb2/) | FictionBook 2.0 File | Content and metadata | 2.0 |   |
-| Speadsheet |   |   |   |   |   |
+
+## Speadsheet
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [XLS](https://docs.fileformat.com/spreadsheet/xls/) | Microsoft Excel Spreadsheet | Content and metadata |   | Microsoft Excel 97+ |
 | [XLT](https://docs.fileformat.com/spreadsheet/xlt/)| Microsoft Excel Spreadsheet Template | Content and metadata |   | Microsoft Excel 97+ |
 | [XLSX](https://docs.fileformat.com/spreadsheet/xlsx/) | Office Open XML Spreadsheet | Content and metadata |   |   |
@@ -50,7 +68,11 @@ The following table contains file formats supported by GroupDocs.Search.
 | [CSV](https://docs.fileformat.com/spreadsheet/csv/) | Comma Separated Values | Content and metadata |   |   |
 | [TSV](https://docs.fileformat.com/spreadsheet/tsv/) | Tab Separated Values | Content and metadata |   |   |
 | XML | SpreadsheetML | Content and metadata |   |   |
-| Presentations ||||||
+
+## Presentations
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [PPT](https://docs.fileformat.com/presentation/ppt/) | PowerPoint Presentation | Content and metadata |   | Microsoft PowerPoint 97+ |
 | [PPS](https://docs.fileformat.com/presentation/pps/) | PowerPoint Slideshow | Content and metadata |   | Microsoft PowerPoint 97+ |
 | [POT](https://docs.fileformat.com/presentation/pot/) | PowerPoint Template | Content and metadata |   | Microsoft PowerPoint 97+ |
@@ -61,20 +83,40 @@ The following table contains file formats supported by GroupDocs.Search.
 | [PPSX](https://docs.fileformat.com/presentation/ppsx/) | Office Open XML Presentation Slideshow | Content and metadata |   |   |
 | [PPSM](https://docs.fileformat.com/presentation/ppsm/) | Office Open XML Presentation Slideshow \[Macro-enabled\] | Content and metadata |   |   |
 | [ODP](https://docs.fileformat.com/presentation/odp/) | Open Document Presentation | Content and metadata |   |   |
-| Emails |   |   |   |   |   |
+
+## Emails
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [PST](https://docs.fileformat.com/email/pst/) | Outlook Personal Information Store File | Content and metadata |   |   |
 | [OST](https://docs.fileformat.com/email/ost/) | Outlook Offline Data File | Content and metadata |   |   |
 | [EML](https://docs.fileformat.com/email/eml/) | E-Mail Message | Content and metadata |   |   |
 | [EMLX](https://docs.fileformat.com/email/emlx/) | Apple Mail Message | Content and metadata |   |   |
 | [MSG](https://docs.fileformat.com/email/msg/) | Outlook Mail Message | Content and metadata |   |   |
-| Notes |   |   |   |   |   |
+
+## Notes
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [OneNote](https://docs.fileformat.com/note-taking/one/) | OneNote Document | Content and metadata | Local files of Microsoft OneNote 2010-2016 | Not supported by .NET Core version in Linux |
-| Archives |   |   |   |   |   |
+
+## Archives
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [ZIP](https://docs.fileformat.com/compression/zip/) | Zipped File | Content and metadata |   |   |
-| Audio |   |   |   |   |   |
+
+## Audio
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [MP3](https://docs.fileformat.com/audio/mp3/) | MPEG-2 Audio Layer III | Metadata only |   |   |
 | [WAV](https://docs.fileformat.com/audio/wav/) | Waveform Audio File Format | Metadata only |   |   |
-| Image |   |   |   |   |   |
+
+## Image
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [BMP](https://docs.fileformat.com/image/bmp/) | Bitmap Picture | Content and metadata |   |   |
 | [GIF](https://docs.fileformat.com/image/gif/) | Graphical Interchange Format File | Content and metadata |   |   |
 | [JP2](https://docs.fileformat.com/image/jp2/) | JPEG 2000 Core Image File | Content and metadata |   |   |
@@ -86,17 +128,37 @@ The following table contains file formats supported by GroupDocs.Search.
 | [JPG](https://docs.fileformat.com/image/jpeg/) | JPEG Image | Content and metadata |   |   |
 | [PSD](https://docs.fileformat.com/image/psd/) | Adobe Photoshop Document | Content and metadata |   |   |
 | [DJVU](https://docs.fileformat.com/image/djvu/) | DjVu Image | Content and metadata |   |   |
-| Project Management |   |   |   |   |   |
+
+## Project Management
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [MPP](https://docs.fileformat.com/project-management/mpp/) | Microsoft Project File | Metadata only |   |   |
-| Torrent |   |   |   |   |   |
+
+##  Torrent
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [TORRENT](https://docs.fileformat.com/misc/torrent/) | BitTorrent File | Metadata only |   |   |
-| Diagram |   |   |   |   |   |
+
+## Diagram
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [VSD](https://docs.fileformat.com/image/vsd/) | Visio Drawing File | Metadata only |   |   |
 | [VSS](https://docs.fileformat.com/image/vss/) | Visio Stencil File | Metadata only |   |   |
-| Medicine |   |   |   |   |   |
+
+## Medicine
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [DCM](https://docs.fileformat.com/image/dcm/) | DICOM Image | Metadata only |   |   |
 | [DICOM](https://docs.fileformat.com/image/dcm/) | DICOM Image | Metadata only |   |   |
-| Video |   |   |   |   |   |
+
+## Video
+
+| Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
+| --- | --- | --- | --- | --- | --- |
 | [AVI](https://docs.fileformat.com/video/avi/) | Audio Video Interleave File | Metadata only |   |   |
 | [MOV](https://docs.fileformat.com/video/mov/) | Apple QuickTime Movie | Metadata only |   |   |
 | [QT](https://docs.fileformat.com/video/qt/) | Apple QuickTime Movie | Metadata only |   |   |
