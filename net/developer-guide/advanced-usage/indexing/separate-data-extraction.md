@@ -38,15 +38,18 @@ ExtractedData deserializedData = ExtractedData.Deserialize(array);
 // Creating an index
 Index index = new Index(indexFolder);
 
-// Indexing the data
-ExtractedData[] data = new ExtractedData[]
+if (deserializedData.IsExtractionSuccessful)
 {
-    deserializedData
-};
-index.Add(data, new IndexingOptions());
+    // Indexing the data
+    ExtractedData[] data = new ExtractedData[]
+    {
+        deserializedData
+    };
+    index.Add(data, new IndexingOptions());
 
-// Searching in the index
-SearchResult result = index.Search("Einstein");
+    // Searching in the index
+    SearchResult result = index.Search("Einstein");
+}
 ```
 
 Note that when indexed documents change and need to be updated in the index, the same code must be executed. That is, data must be extracted separately from the updated documents and then the extracted data must be added to the index.
