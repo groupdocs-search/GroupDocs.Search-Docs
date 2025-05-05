@@ -65,6 +65,14 @@ options.IsAsync = true; // Specifying the asynchronous performing of the operati
 index.Add(documentFolder, options);
 ```
 
+## AutoDetectEncoding property
+
+The [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/autodetectencoding/) property is a flag that allows you to automatically detect the following encodings of text files during indexing: UTF-32 LE, UTF-32 BE, UTF-16 LE, UTF-16 BE, UTF-8, UTF-7. By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing)event is raised. Detailed information on detecting and setting the encoding of text files is presented on the page [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}).
+
+## Encoding property
+
+The [Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/encoding/) property specifies the encoding used to extract text from text files. The default value is null, which means that the default encoding UTF-8 is used. If [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/autodetectencoding/) is true then value of this property is used as the default encoding.
+
 ## Threads property
 
 The [Threads](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/threads) property is used to set the number of threads used for indexing. The default value is 1. The number of indexing threads cannot be less than 1 or more than 4.
@@ -89,6 +97,19 @@ options.Threads = 2; // Setting the number of indexing threads
 // Indexing documents from the specified folder
 index.Add(documentFolder, options); 
 ```
+
+## UseRawTextExtraction property
+
+The [UseRawTextExtraction](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/userawtextextraction/) property allows you to specify a value indicating whether to use raw text extraction mode whenever possible during indexing. The raw text extraction mode can significantly speed up the indexing process at the cost of losing the formatting quality of the extracted text. The default value for this property is true.
+
+## UseBackupPrivilege property
+
+The [UseBackupPrivilege](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/usebackupprivilege/) property allows you to specify whether the process should use the backup privilege to access files and directories. When set to true, this property allows the process to bypass file and directory security checks, permitting access to protected resources typically restricted by ACLs – as long as the process has the proper privileges.
+
+This feature is only supported on Windows operating systems. On non-Windows platforms,
+enabling this property has no effect.
+
+Note that this requires the process to be running with administrative rights.
 
 ## MetadataIndexingOptions property
 

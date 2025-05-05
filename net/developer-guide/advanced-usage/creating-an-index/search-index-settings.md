@@ -10,10 +10,6 @@ hideChildren: False
 ---
 This page contains a description of all index settings that can be specified in an instance of the [IndexSettings](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings) class.
 
-## AutoDetectEncoding property
-
-The [AutoDetectEncoding](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/autodetectencoding) property is a flag that allows you to automatically detect the following encodings of text files during indexing: UTF-32 LE, UTF-32 BE, UTF-16 LE, UTF-16 BE, UTF-8, UTF-7, ANSI. By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing)event is raised. Detailed information on detecting and setting the encoding of text files is presented on the page [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}).
-
 ## CustomExtractors property
 
 The [CustomExtractors](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/customextractors) property returns a collection of custom text extractors that allows adding new extractors for supported or not supported formats. A complete example of implementing a custom text extractor and using it to extract text is presented on the page [Custom text extractors]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-extractors.md" >}}).
@@ -63,10 +59,6 @@ The [UseCharacterReplacements](https://reference.groupdocs.com/net/search/groupd
 ## UseStopWords property
 
 The [UseStopWords](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/usestopwords) property allows you to specify a value indicating whether to use stop words during indexing or not. Stop words are frequently used words that do not carry a semantic load, which are removed from an index to reduce its size. The default value for this parameter is true. Detailed information on stop words and their use is presented on the page [Indexing with stop words]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}).
-
-## UseRawTextExtraction property
-
-Property [UseRawTextExtraction](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/properties/userawtextextraction) allows you to specify a value indicating whether to use raw text  extraction mode whenever possible during indexing. The raw text  extraction mode can significantly speed up the indexing process at the  cost of losing the formatting quality of the extracted text. The default value for this property is true.
 
 
 
