@@ -67,11 +67,11 @@ index.Add(documentFolder, options);
 
 ## AutoDetectEncoding property
 
-The [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/autodetectencoding/) property is a flag that allows you to automatically detect the following encodings of text files during indexing: UTF-32 LE, UTF-32 BE, UTF-16 LE, UTF-16 BE, UTF-8, UTF-7. By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing)event is raised. Detailed information on detecting and setting the encoding of text files is presented on the page [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}).
+The [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/autodetectencoding/) property is a flag that allows you to automatically detect the following encodings of text files during indexing: UTF-32 LE, UTF-32 BE, UTF-16 LE, UTF-16 BE, UTF-8, UTF-7. By default, the encoding auto detection of text files is disabled. But in any case, the encoding of a text file can be set during indexing when the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event is raised. Detailed information on detecting and setting the encoding of text files is presented on the page [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}).
 
 ## Encoding property
 
-The [Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/encoding/) property specifies the encoding used to extract text from text files. The default value is null, which means that the default encoding UTF-8 is used. If [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/autodetectencoding/) is true then value of this property is used as the default encoding.
+The [Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/encoding/) property specifies the encoding used to extract text from text files. The default value is null, which means that the default encoding UTF-8 is used. If [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/autodetectencoding/) is true then value of this property is used as the default encoding.
 
 ## Threads property
 
@@ -100,11 +100,11 @@ index.Add(documentFolder, options); 
 
 ## UseRawTextExtraction property
 
-The [UseRawTextExtraction](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/userawtextextraction/) property allows you to specify a value indicating whether to use raw text extraction mode whenever possible during indexing. The raw text extraction mode can significantly speed up the indexing process at the cost of losing the formatting quality of the extracted text. The default value for this property is true.
+The [UseRawTextExtraction](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/userawtextextraction/) property allows you to specify a value indicating whether to use raw text extraction mode whenever possible during indexing. The raw text extraction mode can significantly speed up the indexing process at the cost of losing the formatting quality of the extracted text. The default value for this property is true.
 
 ## UseBackupPrivilege property
 
-The [UseBackupPrivilege](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/usebackupprivilege/) property allows you to specify whether the process should use the backup privilege to access files and directories. When set to true, this property allows the process to bypass file and directory security checks, permitting access to protected resources typically restricted by ACLs – as long as the process has the proper privileges.
+The [UseBackupPrivilege](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/usebackupprivilege/) property allows you to specify whether the process should use the backup privilege to access files and directories. When set to true, this property allows the process to bypass file and directory security checks, permitting access to protected resources typically restricted by ACLs – as long as the process has the proper privileges.
 
 This feature is only supported on Windows operating systems. On non-Windows platforms,
 enabling this property has no effect.
@@ -113,7 +113,7 @@ Note that this requires the process to be running with administrative rights.
 
 ## MetadataIndexingOptions property
 
-The [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions/properties/metadataindexingoptions) property is represented by an object of the [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions) class. This class contains properties for setting metadata indexing options:
+The [MetadataIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/metadataindexingoptions/) property is represented by an object of the [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions) class. This class contains properties for setting metadata indexing options:
 
 * The [IndexingEmptyValues](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptyvalues) property sets a value indicating whether to index empty field values or not. The default value is true.
 * The [IndexingEmptyNames](https://reference.groupdocs.com/net/search/groupdocs.search.options/metadataindexingoptions/properties/indexingemptynames) property sets a value indicating whether to index empty field names or not. The default value is true.
@@ -151,7 +151,7 @@ index.Add(documentFolder, options);
 
 ## OcrIndexingOptions property
 
-The [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/ocrindexingoptions) property is represented by an object of the [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
+The [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/ocrindexingoptions/) property is represented by an object of the [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions) class. This class contains properties for setting OCR processing options:
 
 * The [EnabledForSeparateImages](https://reference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to recognize text in separate image files. The default value is false.
 * The [EnabledForEmbeddedImages](https://reference.groupdocs.com/net/search/groupdocs.search.options/ocrindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to recognize text in embedded images. The default value is false.
@@ -160,7 +160,7 @@ The [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.se
 
 ## ImageIndexingOptions property
 
-The [ImageIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/properties/imageindexingoptions) property is represented by an object of the [ImageIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions) class. This class provides image indexing options for reverse image search:
+The [ImageIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/imageindexingoptions/) property is represented by an object of the [ImageIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions) class. This class provides image indexing options for reverse image search:
 
 * The [EnabledForSeparateImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforseparateimages) property sets a value indicating whether to index separate image files. The default value is false.
 * The [EnabledForEmbeddedImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/imageindexingoptions/properties/enabledforembeddedimages) property sets a value indicating whether to index embedded images (for example, images in a DOCX document). The default value is false.
