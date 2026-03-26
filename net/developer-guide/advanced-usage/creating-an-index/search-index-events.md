@@ -19,20 +19,21 @@ The [OperationFinished](https://reference.groupdocs.com/net/search/groupdocs.sea
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Subscribing to the event
 index.Events.OperationFinished += (sender, args) =>
 {
     // Writing operation details to the console
     Console.WriteLine("Operation finished: " + args.OperationType);
     Console.WriteLine("Message: " + args.Message);
-    Console.WriteLine("Index folder: " + args.IndexFolder);
-    Console.WriteLine("Time: " + args.Time);
+    // OperationFinishedEventArgs provides only OperationType and Message.
+    // If you need additional information (e.g., index folder or time),
+    // you can obtain it from the Index instance directly.
 };
- 
+
 // Indexing documents from the specified folder
 IndexingOptions options = new IndexingOptions();
 options.IsAsync = true; // Enabling asynchronous indexing mode
@@ -49,20 +50,20 @@ The [ErrorOccured](https://reference.groupdocs.com/net/search/groupdocs.search.e
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
 string query = "Einstein";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Subscribing to the event
 index.Events.ErrorOccurred += (sender, args) =>
 {
     // Writing an error message to the console
     Console.WriteLine(args.Message);
 };
- 
+
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+
 // Searching in the index
 SearchResult result = index.Search(query);
 ```
@@ -76,10 +77,10 @@ The [OperationProgressChanged](https://reference.groupdocs.com/net/search/groupd
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Subscribing to the event
 index.Events.OperationProgressChanged += (sender, args) =>
 {
@@ -88,7 +89,7 @@ index.Events.OperationProgressChanged += (sender, args) =>
     Console.WriteLine("Processed documents: " + args.ProcessedDocuments);
     Console.WriteLine("Progress percentage: " + args.ProgressPercentage);
 };
- 
+
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
 ```
@@ -126,10 +127,10 @@ The [PasswordRequired](https://reference.groupdocs.com/net/search/groupdocs.sear
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Subscribing to the event
 index.Events.PasswordRequired += (sender, args) =>
 {
@@ -138,7 +139,7 @@ index.Events.PasswordRequired += (sender, args) =>
         args.Password = "123456";
     }
 };
- 
+
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
 ```
@@ -159,10 +160,10 @@ The following example demonstrates how to add additional fields to documents end
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Subscribing to the event
 index.Events.FileIndexing += (sender, args) =>
 {
@@ -173,12 +174,13 @@ index.Events.FileIndexing += (sender, args) =>
             new DocumentField("Tags", "Protected")
         };
     }
+    // Skip indexing if the path does NOT contain "important"
     if (!args.DocumentFullPath.ToLowerInvariant().Contains("important"))
     {
         args.SkipIndexing = true;
     }
 };
- 
+
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
 ```
@@ -192,23 +194,25 @@ The [StatusChanged](https://reference.groupdocs.com/net/search/groupdocs.search.
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Subscribing to the event
 index.Events.StatusChanged += (sender, args) =>
 {
-    if (args.Status != IndexStatus.InProgress)
+    // IndexStatus.Ready indicates that the index has finished processing
+    if (args.Status == IndexStatus.Ready)
     {
         // A notification of the operation completion should be here
+        Console.WriteLine("Index operation completed.");
     }
 };
- 
+
 // Setting the flag for asynchronous indexing
 IndexingOptions options = new IndexingOptions();
 options.IsAsync = true;
- 
+
 // Asynchronous indexing documents from the specified folder
 // The method terminates before the operation completes
 index.Add(documentsFolder, options);
@@ -223,13 +227,13 @@ The [SearchPhaseCompleted](https://reference.groupdocs.com/net/search/groupdocs.
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+
 // Subscribing to the event
 index.Events.SearchPhaseCompleted += (sender, args) =>
 {
@@ -241,7 +245,7 @@ index.Events.SearchPhaseCompleted += (sender, args) =>
     }
     Console.WriteLine();
 };
- 
+
 SearchOptions options = new SearchOptions();
 options.UseSynonymSearch = true;
 options.UseWordFormsSearch = true;
@@ -252,7 +256,7 @@ SearchResult result = index.Search("Einstein", options);
 
 ## ImagePreparing event
 
-The [ImagePreparing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/imagepreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
+The [ImagePreparing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/imagepreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
 
 **C#**
 
