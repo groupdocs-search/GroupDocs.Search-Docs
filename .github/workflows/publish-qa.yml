@@ -1,15 +1,9 @@
-# Build & deploy documentation
+# Build and publish documentation
 
-name: Build & Deploy
+name: publish-qa
 
 # Controls when the workflow will run
-on:
-  # Triggers the workflow on push
-  push:
-  # Triggers the workflow on pull
-  pull_request:
-  # Run this workflow manually from the Actions tab
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
 
@@ -41,23 +35,29 @@ jobs:
           cp -r net common/content/${{ env.PRODUCT }}
           cp -r nodejs-java common/content/${{ env.PRODUCT }}
           cp _index.md common/content/${{ env.PRODUCT }}
-          hugo --source common --minify
+          hugo --source common --minify --baseURL 'https://docs-qa.groupdocs.com/'
+
+
+      - name: Move MD files to ugly URLs
+        run: |
+          chmod +x common/move_md_to_ugly_urls.sh
+          ./common/move_md_to_ugly_urls.sh common/public
 
       - name: Deploy sitemap
         uses: nogsantos/scp-deploy@master
         with:
           src: common/public/product-sitemap.xml
           host: ${{ secrets.DOCS_SSH_HOST }}
-          remote: ${{ secrets.DOCS_SSH_DIR }}/sitemaps/${{ env.PRODUCT }}.xml
+          remote: ${{ secrets.DOCS_QA_SSH_DIR }}/sitemaps/${{ env.PRODUCT }}.xml
           user: ${{ secrets.DOCS_SSH_USER }}
           key: ${{ secrets.DOCS_SSH_KEY }}
 
       - name: Deploy documentation
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -vzr --delete
+          switches: -vzr --delete --chmod=D755,F644
           path: common/public/${{ env.PRODUCT }}
-          remote_path: ${{ secrets.DOCS_SSH_DIR }}
+          remote_path: ${{ secrets.DOCS_QA_SSH_DIR }}
           remote_host: ${{ secrets.DOCS_SSH_HOST }}
           remote_user: ${{ secrets.DOCS_SSH_USER }}
           remote_key: ${{ secrets.DOCS_SSH_KEY }}

@@ -1,0 +1,67 @@
+# Build and publish documentation
+
+name: publish-prod
+
+# Controls when the workflow will run
+on: 
+  push:
+    branches:    
+      - master
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: self-hosted
+    env:
+      PRODUCT: search
+
+    steps:
+      - name: Clean up current folder
+        run: rm -rf ./* ./.??*
+
+      - uses: actions/checkout@v4
+
+      - name: Submodule update
+        run: |
+          git submodule update --init --recursive
+          git submodule foreach git pull origin master
+
+      - name: Install Hugo
+        run: |
+          curl -LO https://github.com/gohugoio/hugo/releases/download/v0.101.0/hugo_extended_0.101.0_Linux-64bit.deb
+          sudo dpkg -i hugo_extended_0.101.0_Linux-64bit.deb
+          
+      - name: Run and build Hugo
+        run: |
+          mkdir -p common/content/${{ env.PRODUCT }}
+          cp -r java common/content/${{ env.PRODUCT }}
+          cp -r net common/content/${{ env.PRODUCT }}
+          cp -r nodejs-java common/content/${{ env.PRODUCT }}
+          cp _index.md common/content/${{ env.PRODUCT }}
+          hugo --source common --minify
+
+
+      - name: Move MD files to ugly URLs
+        run: |
+          chmod +x common/move_md_to_ugly_urls.sh
+          ./common/move_md_to_ugly_urls.sh common/public
+
+      - name: Deploy sitemap
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: common/public/product-sitemap.xml
+          host: ${{ secrets.DOCS_SSH_HOST }}
+          remote: ${{ secrets.DOCS_SSH_DIR }}/sitemaps/${{ env.PRODUCT }}.xml
+          user: ${{ secrets.DOCS_SSH_USER }}
+          key: ${{ secrets.DOCS_SSH_KEY }}
+
+      - name: Deploy documentation
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -vzr --delete --chmod=D755,F644
+          path: common/public/${{ env.PRODUCT }}
+          remote_path: ${{ secrets.DOCS_SSH_DIR }}
+          remote_host: ${{ secrets.DOCS_SSH_HOST }}
+          remote_user: ${{ secrets.DOCS_SSH_USER }}
+          remote_key: ${{ secrets.DOCS_SSH_KEY }}
