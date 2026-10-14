@@ -2,9 +2,9 @@
 id: document-filtering-during-indexing
 url: search/net/document-filtering-during-indexing
 title: Document filtering during indexing
-weight: 7
+weight: 9
 description: "This page contains a description of the use of document filters for indexing, as well as descriptions of all types of filters with examples of their creation."
-keywords: document filters for indexing, document filters
+keywords: document filters for indexing, document filters, DocumentFilter, skip documents
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
@@ -12,7 +12,7 @@ This page contains a description of the use of document filters for indexing, as
 
 ## Setting a filter
 
-To indicate which documents from adding folders should be indexed and which not, the [DocumentFilter](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/documentfilter) property of the [IndexSettings](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can be used to specify a filter based on various properties of these documents. If a document adding separately or located in an adding folder does not match the filter, then it will not be added and indexed. The default value is null, which means that all added files will be indexed if their format is supported. The following example demonstrates how to set a document filter for indexing.
+To indicate which documents from added folders should be indexed and which should not, the [DocumentFilter](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/documentfilter/) property of the [IndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/) class can be used to specify a filter based on various properties of these documents. If a document added separately or located in an added folder does not match the filter, it is not indexed. The default value is null, which means that all added files will be indexed if their format is supported. The filter can be changed at any time, also for an existing index through the [Index.IndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search/index/indexsettings/) property; the next [update]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) of the index applies the changed filter to the indexed folders. The following example demonstrates how to set a document filter for indexing.
 
 **C#**
 
@@ -40,13 +40,13 @@ The first type of filters is based on the time the document file was created. Su
 **C#**
 
 ```csharp
-// The first filter skips files created earlier than January 1, 2017, 00:00:00 a.m.
+// The first filter skips files created earlier than January 1, 2017, 00:00:00
 DocumentFilter filter1 = DocumentFilter.CreateCreationTimeLowerBound(new DateTime(2017, 1, 1));
  
-// The second filter skips files created later than June 15, 2018, 00:00:00 a.m.
+// The second filter skips files created later than June 15, 2018, 00:00:00
 DocumentFilter filter2 = DocumentFilter.CreateCreationTimeUpperBound(new DateTime(2018, 6, 15));
  
-// The third filter skips files created outside the range from January 1, 2017, 00:00:00 a.m. to June 15, 2018, 00:00:00 a.m.
+// The third filter skips files created outside the range from January 1, 2017, 00:00:00 to June 15, 2018, 00:00:00
 DocumentFilter filter3 = DocumentFilter.CreateCreationTimeRange(new DateTime(2017, 1, 1), new DateTime(2018, 6, 15));
 ```
 
@@ -57,19 +57,19 @@ The next type of filters works similarly, but based on the document file modific
 **C#**
 
 ```csharp
-// The first filter skips files modified earlier than January 1, 2017, 00:00:00 a.m.
+// The first filter skips files modified earlier than January 1, 2017, 00:00:00
 DocumentFilter filter1 = DocumentFilter.CreateModificationTimeLowerBound(new DateTime(2017, 1, 1));
  
-// The second filter skips files modified later than June 15, 2018, 00:00:00 a.m.
+// The second filter skips files modified later than June 15, 2018, 00:00:00
 DocumentFilter filter2 = DocumentFilter.CreateModificationTimeUpperBound(new DateTime(2018, 6, 15));
  
-// The third filter skips files modified outside the range from January 1, 2017, 00:00:00 a.m. to June 15, 2018, 00:00:00 a.m.
+// The third filter skips files modified outside the range from January 1, 2017, 00:00:00 to June 15, 2018, 00:00:00
 DocumentFilter filter3 = DocumentFilter.CreateModificationTimeRange(new DateTime(2017, 1, 1), new DateTime(2018, 6, 15));
 ```
 
 ## File path filters
 
-The next type of filters allows you to set a regular expression for skipping those documents whose full paths do not match the specified pattern. This type of filters uses the **System.Text.RegularExpressions.Regex** class to compare with a pattern.
+The next type of filters allows you to set a regular expression for skipping those documents whose full paths do not match the specified pattern. The pattern can be specified with or without [RegexOptions](https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions). This type of filters uses the **System.Text.RegularExpressions.Regex** class to compare with a pattern.
 
 **C#**
 
@@ -136,7 +136,7 @@ settings.DocumentFilter = finalFilter;
 
 ## Logical OR filter
 
-The filter of the following type allows you to compose a complex filter from several other filters, using the logic "OR". This composite filter requires fulfillment of the condition of at least one internal filter for each added file. The example below shows how to create a filter that limits the size of text files to 5 mb and other files to 10 mb.
+The filter of the following type allows you to compose a complex filter from several other filters, using the logic "OR". This composite filter requires fulfillment of the condition of at least one internal filter for each added file. The example below shows how to create a filter that limits the size of text files to 5 MB and other files to 10 MB.
 
 **C#**
 

@@ -12,7 +12,7 @@ hideChildren: False
 
 Index Browser is a .NET (Framework and Core) application for managing indexes created using the GroupDocs.Search library.
 
-The Index Browser allows you:
+The Index Browser allows you to:
 
 - Create and delete indexes.
 - Add documents to opened index.
@@ -51,7 +51,7 @@ The added paths to files or folders will appear in the **Selected paths** list. 
 
 <img src="/search/net/images/start-indexing.png" alt="start-indexing" width="656"/>
 
-To search the index, open the **Search** tab. Enter your search query in the **Query** field. Below the query field, specify the search options you require. Press the **Search** button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table](https://docs.groupdocs.com/search/net/search-operation-table/).
+To search the index, open the **Search** tab. Enter your search query in the **Query** field. Below the query field, specify the search options you require. Press the **Search** button or the Enter key on your keyboard. A list of found files will be displayed on the left side of the window. Please note that to search for a phrase, you must enclose the query in double quotes. For more information about the search query language, see the article [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}).
 
 <img src="/search/net/images/search.png" alt="search" width="656"/>
 

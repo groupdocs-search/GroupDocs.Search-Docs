@@ -12,7 +12,15 @@ This page contains information about the purpose and use of all index events.
 
 ## OperationFinished event
 
-The [OperationFinished](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationfinished) event occurs when an index operation completes – indexing, updating, merging, or optimizing (segment merging). This event can be used to receive notification of the completion of an asynchronous operation. The following example demonstrates the use of the event.
+The [OperationFinished](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/operationfinished/) event occurs when an index operation completes. The [OperationType](https://reference.groupdocs.com/search/net/groupdocs.search.events/operationfinishedeventargs/operationtype/) property of the event arguments returns a value of the [OperationType](https://reference.groupdocs.com/search/net/groupdocs.search.events/operationtype/) enumeration:
+
+*   **Indexing** - adding documents to an index;
+*   **Updating** - updating documents in an index;
+*   **Merging** - merging indexes;
+*   **Optimizing** - optimizing an index (merging its segments);
+*   **Deleting** - deleting documents from an index by paths or by document keys.
+
+This event can be used to receive notification of the completion of an asynchronous operation. The following example demonstrates the use of the event.
 
 **C#**
 
@@ -41,7 +49,7 @@ index.Add(documentsFolder, options);
 
 ## ErrorOccurred event
 
-The [ErrorOccured](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/erroroccurred) event occurs when an error happens in an index. Errors in an index can be caused, for example, by file system errors or unsupported formats of indexed documents. An example of receiving error notifications in the index is presented below.
+The [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event occurs when an error happens in an index. Errors in an index can be caused, for example, by file system errors or unsupported formats of indexed documents. The [IsCritical](https://reference.groupdocs.com/search/net/groupdocs.search.events/indexerroreventargs/iscritical/) property of the event arguments indicates a critical error after which the index gets the [Failed](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexstatus/) status and has to be opened again. The [CheckSegments](https://reference.groupdocs.com/search/net/groupdocs.search/index/checksegments/) method also reports the damage found and the repairs made through this event (see [Checking index integrity]({{< ref "search/net/developer-guide/advanced-usage/indexing/checking-index-integrity.md" >}})). An example of receiving error notifications in the index is presented below.
 
 **C#**
 
@@ -57,7 +65,7 @@ Index index = new Index(indexFolder);
 index.Events.ErrorOccurred += (sender, args) =>
 {
     // Writing an error message to the console
-    Console.WriteLine(args.Message);
+    Console.WriteLine((args.IsCritical ? "Critical error: " : "Error: ") + args.Message);
 };
  
 // Indexing documents from the specified folder
@@ -69,7 +77,7 @@ SearchResult result = index.Search(query);
 
 ## OperationProgressChanged event
 
-The [OperationProgressChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/operationprogresschanged) event occurs when the progress of an indexing or updating operation changes. The example below demonstrates how to track the progress of an index operation.
+The [OperationProgressChanged](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/operationprogresschanged/) event occurs when the progress of an indexing or updating operation changes. The event arguments ([OperationProgressEventArgs](https://reference.groupdocs.com/search/net/groupdocs.search.events/operationprogresseventargs/)) contain the total number of documents to process, the numbers of processed and skipped documents, the progress percentage, as well as the key, the path and the status of the last processed document. The example below demonstrates how to track the progress of an index operation.
 
 **C#**
 
@@ -86,6 +94,8 @@ index.Events.OperationProgressChanged += (sender, args) =>
     Console.WriteLine("Last processed: " + args.LastDocumentPath);
     Console.WriteLine("Result: " + args.LastDocumentStatus);
     Console.WriteLine("Processed documents: " + args.ProcessedDocuments);
+    Console.WriteLine("Skipped documents: " + args.SkippedDocuments);
+    Console.WriteLine("Total documents: " + args.TotalDocuments);
     Console.WriteLine("Progress percentage: " + args.ProgressPercentage);
 };
  
@@ -95,7 +105,7 @@ index.Add(documentsFolder);
 
 ## OptimizationProgressChanged event
 
-The [OptimizationProgressChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/optimizationprogresschanged) event occurs when the progress of an index optimization operation changes. The example below demonstrates how to track the progress of the index optimization operation.
+The [OptimizationProgressChanged](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/optimizationprogresschanged/) event occurs when the progress of an index optimization operation changes. The example below demonstrates how to track the progress of the index optimization operation.
 
 **C#**
 
@@ -119,7 +129,7 @@ index.Optimize();
 
 ## PasswordRequired event
 
-The [PasswordRequired](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/passwordrequired) event occurs when an index requires a password to open a document. An example of processing this event is presented below.
+The [PasswordRequired](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/passwordrequired/) event occurs when an index requires a password to open a document. An example of processing this event is presented below.
 
 **C#**
 
@@ -145,12 +155,14 @@ index.Add(documentsFolder);
 
 ## FileIndexing event
 
-The [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event occurs immediately before the start of indexing a document. This event can be used for
+The [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event occurs immediately before the start of indexing a document. This event can be used for
 
 *   Skipping indexing of the current document (see also [Document filtering during indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-filtering-during-indexing.md" >}}) page);
 *   Specifying the encoding of the current text document (see also [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}) page);
 *   Specifying a custom text extractor for the current document (see also [Custom text extractors]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-extractors.md" >}}) page);
-*   Setting additional arbitrary fields for the current document..
+*   Setting additional arbitrary fields for the current document;
+*   Setting the [attributes](https://reference.groupdocs.com/search/net/groupdocs.search.events/fileindexingeventargs/attributes/) of the current document (see also [Document attributes]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-attributes.md" >}}) page);
+*   Specifying a custom [word splitter](https://reference.groupdocs.com/search/net/groupdocs.search.events/fileindexingeventargs/wordsplitter/) for the current document (see also [Custom text segmenter]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-segmenter.md" >}}) page).
 
 The following example demonstrates how to add additional fields to documents ending in "Protected.pdf" and how to skip indexing documents containing "important" text in their paths.
 
@@ -173,7 +185,7 @@ index.Events.FileIndexing += (sender, args) =>
             new DocumentField("Tags", "Protected")
         };
     }
-    if (!args.DocumentFullPath.ToLowerInvariant().Contains("important"))
+    if (args.DocumentFullPath.ToLowerInvariant().Contains("important"))
     {
         args.SkipIndexing = true;
     }
@@ -185,7 +197,7 @@ index.Add(documentsFolder);
 
 ## StatusChanged event
 
-The [StatusChanged](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/statuschanged) event occurs when an index status changes. The following example demonstrates how to use this event to notify the completion of an index operation.
+The [StatusChanged](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/statuschanged/) event occurs when an index status changes. The new status is available in the [Status](https://reference.groupdocs.com/search/net/groupdocs.search.events/baseindexeventargs/status/) property of the event arguments. The following example demonstrates how to use this event to notify the completion of an index operation.
 
 **C#**
 
@@ -199,7 +211,7 @@ Index index = new Index(indexFolder);
 // Subscribing to the event
 index.Events.StatusChanged += (sender, args) =>
 {
-    if (args.Status != IndexStatus.InProgress)
+    if (args.Status == IndexStatus.Ready || args.Status == IndexStatus.Failed)
     {
         // A notification of the operation completion should be here
     }
@@ -216,7 +228,7 @@ index.Add(documentsFolder, options);
 
 ## SearchPhaseCompleted event
 
-The [SearchPhaseCompleted](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/searchphasecompleted) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). The following example demonstrates the use of this event.
+The [SearchPhaseCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/searchphasecompleted/) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). The following example demonstrates the use of this event.
 
 **C#**
 
@@ -252,7 +264,7 @@ SearchResult result = index.Search("Einstein", options);
 
 ## ImagePreparing event
 
-The [ImagePreparing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/imagepreparing) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
+The [ImagePreparing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/imagepreparing/) event occurs immediately before adding indexed image to an index. The event can be used, for example, to save an image separately from its containing document, since it provides an image data stream. The following example demonstrates the use of this event.
 
 **C#**
 

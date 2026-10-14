@@ -2,13 +2,15 @@
 id: delete-indexed-paths
 url: search/net/delete-indexed-paths
 title: Delete indexed paths
-weight: 5
+weight: 7
 description: "GroupDocs.Search supports the ability to remove indexed files and folders from an index. Only files or folders that were explicitly added to the index can be deleted."
-keywords: remove indexed files, added to the index
+keywords: delete indexed paths, remove indexed files, remove indexed folders, GetIndexedPaths
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-GroupDocs.Search supports the ability to remove indexed files and folders from an index. Only files or folders that were explicitly added to the index can be deleted. It is not possible to remove a file or folder from the index that is a child of the indexed folder. To delete files and folders inside indexed paths, use the document filter (see [Document filtering during indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-filtering-during-indexing.md" >}})). To get a list of indexed paths, use the [GetIndexedPaths](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexedpaths) method of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class.
+GroupDocs.Search supports the ability to remove indexed files and folders from an index. Only files or folders that were explicitly added to the index can be deleted. It is not possible to remove a file or folder from the index that is a child of the indexed folder. To delete files and folders inside indexed paths, use the document filter (see [Document filtering during indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-filtering-during-indexing.md" >}})). To get a list of indexed paths, use the [GetIndexedPaths](https://reference.groupdocs.com/search/net/groupdocs.search/index/getindexedpaths/) method of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) class.
+
+Deleting documents does not rewrite the index. Deleted documents are excluded from search results immediately, but their data remain in the index files until the index is [optimized]({{< ref "search/net/developer-guide/advanced-usage/indexing/optimize-index.md" >}}). Therefore, after deleting a large number of documents, call the [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search/index/optimize/) method to physically remove them and free up disk space. The [DeleteResult](https://reference.groupdocs.com/search/net/groupdocs.search.results/deleteresult/) object returned by the [Delete](https://reference.groupdocs.com/search/net/groupdocs.search/index/delete/) method contains the total, successful and failed counts, the results for individual items and the error messages.
 
 The following example shows how to remove indexed paths from an index.
 

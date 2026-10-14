@@ -8,7 +8,7 @@ keywords: search network events, network events, subscribe to event, track progr
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page contains information about the purpose and use of all search network events.
+This page contains information about the purpose and use of all search network events. The events are available through the [Events](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/events/) property of the [SearchNetworkNode](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/) class, which returns an instance of the [NodeEventHub](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/) class.
 
 ## ConfigurationCompleted event
 
@@ -17,6 +17,10 @@ The [ConfigurationCompleted](https://reference.groupdocs.com/search/net/groupdoc
 ## IndexingCompleted event
 
 The [IndexingCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/indexingcompleted/) event occurs when indexing of all enqueued documents is finished.
+
+## ExtractionCompleted event
+
+The [ExtractionCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/extractioncompleted/) event occurs when the extraction of all enqueued documents started by the [Extract](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/extract/) method is finished. See the [Indexing documents]({{< ref "search/net/developer-guide/advanced-usage/scaling/indexing-documents.md" >}}) page.
 
 ## DeletionCompleted event
 
@@ -40,7 +44,7 @@ The [StatusChanged](https://reference.groupdocs.com/search/net/groupdocs.search.
 
 ## DataExtracted event
 
-The [DataExtracted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/dataextracted/) event occurs when the data has been extracted from a document.
+The [DataExtracted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/dataextracted/) event occurs when the data have been extracted from a document. The extracted data are available through the [Data](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/dataextractedeventargs/data/) property of the event arguments.
 
 ## DocumentIndexed event
 
@@ -52,7 +56,7 @@ The [DocumentDeleted](https://reference.groupdocs.com/search/net/groupdocs.searc
 
 ## ErrorOccurred event
 
-The [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event occurs when an error occurs in one of the nodes of the search network.
+The [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of a node occurs when an error occurs on this node. The event arguments contain the indexes of the node and the service where the error occurred. The errors of all nodes are also written to the logger of the master node.
 
 ## IndexingProgressChanged event
 
@@ -64,12 +68,40 @@ The [OptimizationProgressChanged](https://reference.groupdocs.com/search/net/gro
 
 ## Code example
 
+The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
+
+**C#**
+
+```csharp
+string basePath = @"c:\SearchNetwork\";
+int basePort = 49100;
+
+// Loading the search network configuration from a file
+Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+
+// Creating, configuring and starting the master node; the timeouts are specified in milliseconds
+SearchNetworkNode node = SearchNetworkNode.CreateMasterNode(
+    0,
+    basePath + "Node0",
+    new TcpSettings(basePort, 3000, 3000, 3000, 1000),
+    new FileLogger(basePath + "Log.txt", 4.0),
+    configuration);
+node.ConfigureAllNodes();
+node.Start();
+```
+
+The following code example, which continues the previous one, demonstrates subscribing to the search network events.
+
 **C#**
 
 ```csharp
 node.Events.IndexingCompleted += (s, e) =>
 {
     Console.WriteLine("Indexing complete");
+};
+node.Events.ExtractionCompleted += (s, e) =>
+{
+    Console.WriteLine("Extraction complete");
 };
 node.Events.DeletionCompleted += (s, e) =>
 {

@@ -3,12 +3,26 @@ id: query-language-specification
 url: search/net/query-language-specification
 title: Query language specification
 weight: 16
-description: "This article gives the knowledge about the complete specification of the search query DSL used in text queries."
+description: "This article presents the complete specification of the search query DSL used in text queries."
 keywords: search query DSL, Domain Specific Language, Query language specification
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 The text below represents the complete specification of the search query DSL (Domain Specific Language) used in text queries. See also [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}), [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}).
+
+Before a query is parsed, each alias reference in the query is replaced with the text associated with the alias in the alias dictionary of the index. An alias reference has the following syntax:
+
+*alias-reference*:
+
+*   @*alias-name*
+
+*alias-name*:
+
+*   One or more characters from the ranges a-z and 0-9
+
+An alias reference is replaced only if it is preceded by the beginning of the query, a space or an opening parenthesis, and is followed by a space, a closing parenthesis or the end of the query. For details, see the [Using aliases]({{< ref "search/net/developer-guide/advanced-usage/searching/using-aliases.md" >}}) page.
+
+The syntax of a query after alias substitution is as follows.
 
 *query*:
 
@@ -37,7 +51,7 @@ The text below represents the complete specification of the search query DSL (Do
 
 *phrase-query*:
 
-*   *phrase-item-list*
+*   " *phrase-item-list* "
 
 *phrase-item-list*:
 

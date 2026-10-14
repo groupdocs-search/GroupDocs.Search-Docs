@@ -2,30 +2,30 @@
 id: indexing-reports
 url: search/net/indexing-reports
 title: Indexing reports
-weight: 14
-description: "This article demonstrates that how indexing reports can be retrieved from the index using search API"
-keywords: search API, indexing reports
+weight: 17
+description: "This article explains how to retrieve indexing reports with information on indexing and updating operations from an index."
+keywords: indexing reports, IndexingReport, GetIndexingReports, MaxIndexingReportCount
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-Indexing reports are created for indexing and updating operations. Indexing reports can be retrieved from the index using the [GetIndexingReports](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexingreports) method. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
+Indexing reports are created for indexing and updating operations. Indexing reports can be retrieved from the index using the [GetIndexingReports](https://reference.groupdocs.com/search/net/groupdocs.search/index/getindexingreports/) method. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
 
-You can configure the maximum number of stored reports using the [MaxIndexingReportCount](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/maxindexingreportcount) property of the [IndexSettings](https://reference.groupdocs.com/net/search/groupdocs.search/indexsettings) class. The default value is 5. Learn more about index settings on the page [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}.
+You can configure the maximum number of stored reports using the [MaxIndexingReportCount](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/maxindexingreportcount/) property of the [IndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/) class. The default value is 5. Learn more about index settings on the page [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
 
-Each index report contains the following information:
+Each indexing report ([IndexingReport](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/)) contains the following information:
 
-*   The total number of documents in the index;
-*   The total number of words in the index;
-*   The total length of indexed documents in MB;
-*   Number of index segments;
-*   The total size of the index on disk in bytes;
-*   The indexing start time;
-*   The indexing end time;
-*   The indexing duration;
-*   List of errors;
-*   List of indexed documents;
-*   List of updated documents;
-*   List of removed documents.
+*   The total number of documents in the index ([TotalDocumentsInIndex](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totaldocumentsinindex/));
+*   The total number of terms in the index ([TotalTermCount](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totaltermcount/));
+*   The total length of indexed documents in MB ([IndexedDocumentsSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/indexeddocumentssize/));
+*   The number of index segments ([SegmentCount](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/segmentcount/));
+*   The total size of the index on disk in bytes ([TotalIndexSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totalindexsize/));
+*   The indexing start time ([StartTime](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/starttime/));
+*   The indexing end time ([EndTime](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/endtime/));
+*   The indexing duration ([IndexingTime](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/indexingtime/));
+*   The list of errors ([Errors](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/errors/));
+*   The list of indexed documents ([IndexedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/indexeddocuments/));
+*   The list of updated documents ([UpdatedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/updateddocuments/));
+*   The list of removed documents ([RemovedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/removeddocuments/)).
 
 The following example demonstrates how to get indexing reports from an index.
 
@@ -55,6 +55,12 @@ foreach (IndexingReport report in reports)
     Console.WriteLine("Terms total: " + report.TotalTermCount);
     Console.WriteLine("Indexed documents size (MB): " + report.IndexedDocumentsSize);
     Console.WriteLine("Index size (MB): " + (report.TotalIndexSize / 1024.0 / 1024.0));
+    Console.WriteLine("Segments: " + report.SegmentCount);
+    Console.WriteLine("Indexed documents: " + report.IndexedDocuments.Length);
+    foreach (string error in report.Errors)
+    {
+        Console.WriteLine("Error: " + error);
+    }
     Console.WriteLine();
 }
 ```

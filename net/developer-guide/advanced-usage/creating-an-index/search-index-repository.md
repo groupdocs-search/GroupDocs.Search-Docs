@@ -8,9 +8,9 @@ keywords: combine several indexes, searching all indexes at once, searching all 
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [IndexRepository](https://reference.groupdocs.com/net/search/groupdocs.search/indexrepository) class can be used to combine several indexes into a group for searching all indexes at once. In addition, a single call to the [Update](https://reference.groupdocs.com/net/search/groupdocs.search/indexrepository/methods/update/index) method can update all indexes in the repository. And also the index repository serves as an event hub for all indexes in it. That is, you can subscribe to any events available for the index also through the index repository. However, note that indexing documents is performed separately for each index.
+The [IndexRepository](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/) class can be used to combine several indexes into a group for searching all indexes at once. In addition, a single call to the [Update](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/update/) method can update all indexes in the repository. The index repository also serves as an event hub for all indexes in it: you can subscribe to any events available for an index also through the index repository. However, note that indexing documents is performed separately for each index.
 
-To start using the index repository, indexes must be created or loaded and added to an instance of the index repository. Examples of creating and adding indexes to the repository are presented below.
+To start using the index repository, indexes must be created or loaded and added to an instance of the index repository with the [AddToRepository](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/addtorepository/) method, or created directly in the repository with the [Create](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/create/) method. The [Indexes](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/indexes/) property returns the indexes of the repository. Examples of creating and adding indexes to the repository are presented below.
 
 **C#**
 

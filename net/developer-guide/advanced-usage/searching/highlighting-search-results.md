@@ -3,7 +3,7 @@ id: highlighting-search-results
 url: search/net/highlighting-search-results
 title: Highlighting search results
 weight: 8
-description: "This article gives knowledge on how to highlight search results in the text of a document."
+description: "This article describes how to highlight search results in the text of a document."
 keywords: highlight search results
 productName: GroupDocs.Search for .NET
 hideChildren: False
@@ -12,29 +12,29 @@ This page describes how to highlight search results in the text of a document.
 
 ## Hit highlighting in the text of entire document
 
-After performing a search, occurrences of found words and phrases for a particular document can be highlighted in the text of the document using the [Highlight](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/highlight/index) method of the [Index](https://reference.groupdocs.com/net/search/groupdocs.search/index) class. To do this, a highlighter of the corresponding type must be passed as an argument to the method.
+After performing a search, occurrences of found words and phrases for a particular document can be highlighted in the text of the document using the [Highlight](https://reference.groupdocs.com/search/net/groupdocs.search/index/highlight/) method of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) class. To do this, a highlighter of the corresponding type must be passed as an argument to the method.
 
-The Index class also represents an overload of the [Highlight](https://reference.groupdocs.com/net/search/groupdocs.search/index/methods/highlight/index) method, which takes an object of the [HighlightOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/highlightoptions) class as an argument. The [HighlightOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/highlightoptions) class contains properties for setting the following options:
+The Index class also provides an overload of the [Highlight](https://reference.groupdocs.com/search/net/groupdocs.search/index/highlight/) method, which takes an object of the [HighlightOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/) class as an argument. The [HighlightOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/) class contains properties for setting the following options:
 
-*   [CustomExtractor](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/customextractor) is an extractor used during indexing, it is necessary if the text of the document was not saved in the index.
-*   [AdditionalFields](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/additionalfields) are additional document fields added during document indexing which are also necessary if the document text was not saved in the index.
-*   [Cancellation](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/cancellation) is an object used to cancel the operation.
-*   [GenerateHead](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/generatehead) is a flag to specify whether the Head tag is generated in the output HTML.
-*   [MetadataIndexingOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/metadataindexingoptions) is an object for specifying metadata indexing options.
-*   [UseInlineStyles](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/useinlinestyles) is a flag to specify whether inline styles or CSS class are used to highlight occurrences.
-*   [HighlightColor](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/highlightcolor) is a color used to highlight occurrences.
-*   [TermHighlightStartTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/termhighlightstarttag) is the start tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
-*   [TermHighlightEndTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/termhighlightendtag) is the end tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
+*   [CustomExtractor](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/customextractor/) is an extractor used during indexing, it is necessary if the text of the document was not saved in the index.
+*   [AdditionalFields](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/additionalfields/) are additional document fields added during document indexing which are also necessary if the document text was not saved in the index.
+*   [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/cancellation/) is an object used to cancel the operation.
+*   [GenerateHead](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/generatehead/) is a flag to specify whether the Head tag is generated in the output HTML. The default value is true.
+*   [MetadataIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/metadataindexingoptions/) is an object for specifying metadata indexing options. This property and the other properties inherited from the [BaseOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/) class (for example, [Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/encoding/), [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/autodetectencoding/) and [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/ocrindexingoptions/)) specify how the text of the document is extracted; they are necessary if the document text was not saved in the index.
+*   [UseInlineStyles](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/useinlinestyles/) is a flag to specify whether inline styles or CSS class are used to highlight occurrences. The default value is true.
+*   [HighlightColor](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/highlightcolor/) is a color used to highlight occurrences. The default value is (255, 216, 0).
+*   [TermHighlightStartTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termhighlightstarttag/) is the start tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
+*   [TermHighlightEndTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termhighlightendtag/) is the end tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
 
 The other options are used for highlighting occurrences in text fragments.
 
-To highlight search results in the text of the whole document, a highlighter of the [DocumentHighlighter](https://reference.groupdocs.com/net/search/groupdocs.search.highlighters/documenthighlighter) class is used. To create a highlighter of this type, you must pass an object of a class derived from the abstract class [OutputAdapter](https://reference.groupdocs.com/net/search/groupdocs.search.common/outputadapter) to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
+To highlight search results in the text of the whole document, a highlighter of the [DocumentHighlighter](https://reference.groupdocs.com/search/net/groupdocs.search.highlighters/documenthighlighter/) class is used. To create a highlighter of this type, you must pass an object of a class derived from the abstract class [OutputAdapter](https://reference.groupdocs.com/search/net/groupdocs.search.common/outputadapter/) to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
 
 If after generation the text of a document was saved to a file, this file can be opened by an Internet browser to navigate the occurrences of the words found. To navigate the occurrences, the following text is added to the URL in a browser:
 
 #hitN
 
-where N is a number starting from zero. The full document URL in a browser might look like this:
+where N is a number starting from zero. The full document URL in a browser might look like this:
 
 [file:///C:/Text.html#hit0](file:///C:/Text.html#hit0)
 
@@ -83,13 +83,13 @@ if (result.DocumentCount > 0)
 
 ## Hit highlighting in text fragments
 
-Occurrences can also be highlighted in separate HTML or plain text fragments. For this, the highlighter of the [FragmentHighlighter](https://reference.groupdocs.com/net/search/groupdocs.search.highlighters/fragmenthighlighter) class is used. The following properties are presented in the [HighlightOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/highlightoptions) class to use with the highlighter of this type:
+Occurrences can also be highlighted in separate HTML or plain text fragments. For this, the highlighter of the [FragmentHighlighter](https://reference.groupdocs.com/search/net/groupdocs.search.highlighters/fragmenthighlighter/) class is used. The following properties are presented in the [HighlightOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/) class to use with the highlighter of this type:
 
-*   [TermsBefore](https://reference.groupdocs.com/net/search/groupdocs.search.options/highlightoptions/properties/termsbefore) is used to specify the maximum number of words in a text fragment before highlighted word. The value must be in the range from 0 to 10000. The default value is 7.
-*   [TermsAfter](https://reference.groupdocs.com/net/search/groupdocs.search.options/highlightoptions/properties/termsafter) is used to specify the maximum number of words in a text fragment after highlighted word. The value must be in the range from 0 to 10000. The default value is 7.
-*   [TermsTotal](https://reference.groupdocs.com/net/search/groupdocs.search.options/highlightoptions/properties/termstotal) is used to specify the maximum number of words in a text fragment. The value must be in the range from 0 to 10000. The default value is 21.
-*   [TermHighlightStartTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/termhighlightstarttag) is the start tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
-*   [TermHighlightEndTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/termhighlightendtag) is the end tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
+*   [TermsBefore](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termsbefore/) is used to specify the maximum number of words in a text fragment before highlighted word. The value must be in the range from 0 to 10000. The default value is 7.
+*   [TermsAfter](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termsafter/) is used to specify the maximum number of words in a text fragment after highlighted word. The value must be in the range from 0 to 10000. The default value is 7.
+*   [TermsTotal](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termstotal/) is used to specify the maximum number of words in a text fragment. The value must be in the range from 0 to 10000. The default value is 21.
+*   [TermHighlightStartTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termhighlightstarttag/) is the start tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
+*   [TermHighlightEndTag](https://reference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/termhighlightendtag/) is the end tag of the highlighting of the found word. This tag is used only when highlighting in plain text.
 
 Generated text fragments with highlighted occurrences can be used, for example, to generate web pages containing search results on a site.
 
@@ -122,26 +122,29 @@ options.TermsTotal = 15;
 options.HighlightColor = new Color(0, 0, 127);
 options.UseInlineStyles = true;
 
-// Highlighting found words in separate text fragments of a document
-FoundDocument document = result.GetFoundDocument(0);
-FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
-index.Highlight(document, highlighter, options);
-
-// Getting the result
-FragmentContainer[] fragmentContainers = highlighter.GetResult();
-for (int i = 0; i < fragmentContainers.Length; i++)
+if (result.DocumentCount > 0)
 {
-    FragmentContainer container = fragmentContainers[i];
-    string[] fragments = container.GetFragments();
-    if (fragments.Length > 0)
+    // Highlighting found words in separate text fragments of a document
+    FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
+    FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
+    index.Highlight(document, highlighter, options);
+
+    // Getting the result
+    FragmentContainer[] fragmentContainers = highlighter.GetResult();
+    for (int i = 0; i < fragmentContainers.Length; i++)
     {
-        Console.WriteLine(container.FieldName);
-        Console.WriteLine();
-        for (int j = 0; j < fragments.Length; j++)
+        FragmentContainer container = fragmentContainers[i];
+        string[] fragments = container.GetFragments();
+        if (fragments.Length > 0)
         {
-            // Printing HTML markup to console
-            Console.WriteLine(fragments[j]);
+            Console.WriteLine(container.FieldName);
             Console.WriteLine();
+            for (int j = 0; j < fragments.Length; j++)
+            {
+                // Printing HTML markup to console
+                Console.WriteLine(fragments[j]);
+                Console.WriteLine();
+            }
         }
     }
 }

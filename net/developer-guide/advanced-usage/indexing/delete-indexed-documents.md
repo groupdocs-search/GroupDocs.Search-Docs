@@ -2,14 +2,16 @@
 id: delete-indexed-documents
 url: search/net/delete-indexed-documents
 title: Delete indexed documents
-weight: 4
-description: "GroupDocs.Search has the ability to remove individual documents from the index that are indexed from a stream or structure."
-keywords: remove individual documents, remove individual documents from the index
+weight: 6
+description: "This article explains how to delete documents indexed from streams or structures from an index by their document keys."
+keywords: delete documents, remove documents from index, document key, DeleteResult
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 
-GroupDocs.Search has the ability to remove individual documents from the index that are indexed from a stream or structure. To remove documents indexed by a file system path, see [Deleting indexed paths]({{< ref "search/net/developer-guide/advanced-usage/indexing/delete-indexed-paths.md" >}}).
+GroupDocs.Search has the ability to remove individual documents from the index that are indexed from a stream or structure. Such documents are identified by their document keys. To remove documents indexed by a file system path, see [Delete indexed paths]({{< ref "search/net/developer-guide/advanced-usage/indexing/delete-indexed-paths.md" >}}).
+
+Deleting documents does not rewrite the index. Deleted documents are excluded from search results immediately, but their data remain in the index files until the index is [optimized]({{< ref "search/net/developer-guide/advanced-usage/indexing/optimize-index.md" >}}). Therefore, after deleting a large number of documents, call the [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search/index/optimize/) method to physically remove them and free up disk space. The [DeleteResult](https://reference.groupdocs.com/search/net/groupdocs.search.results/deleteresult/) object returned by the [Delete](https://reference.groupdocs.com/search/net/groupdocs.search/index/delete/) method contains the total, successful and failed counts, the results for individual items and the error messages.
 
 The following example shows how to remove documents from an index by document key.
 
@@ -67,6 +69,10 @@ SearchResult searchResult = index.Search("Einstein");
 // Deleting indexed document from the index
 string[] documentKeys = new string[] { documentLoader.DocumentKey };
 DeleteResult deleteResult = index.Delete(new UpdateOptions(), documentKeys);
+Console.WriteLine("Deleted documents: " + deleteResult.SuccessCount);
+
+// Physically removing the deleted documents from the index files
+index.Optimize();
 ```
 
 ## More resources

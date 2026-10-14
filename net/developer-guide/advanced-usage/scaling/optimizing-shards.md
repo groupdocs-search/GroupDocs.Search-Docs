@@ -8,13 +8,35 @@ keywords: optimize search network, optimize distributed index, search network op
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-All search network shards can be optimized with a single call the [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/optimize/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class.
+All search network shards can be optimized with a single call of the [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/optimize/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class.
 
-The optimization minimizes the number of index segments on each shard. As a result, search performance increases.
+The optimization merges the index segments of each shard, minimizing their number, and physically removes the data of deleted documents. As a result, search performance increases and the shards take less disk space. After optimizing a very large index, a shard may still contain several segments. The progress of the optimization can be tracked by subscribing to the [OptimizationProgressChanged](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/optimizationprogresschanged/) event.
 
-An asynchronous execution flag is available as an option. In the case of asynchronous optimization, you can track the completion of the operation by subscribing to the [OptimizationCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/optimizationcompleted/) event.
+An asynchronous execution flag is available as an option ([OptimizeOptions.IsAsync](https://reference.groupdocs.com/search/net/groupdocs.search.options/optimizeoptions/isasync/)). In the case of asynchronous optimization, you can track the completion of the operation by subscribing to the [OptimizationCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/optimizationcompleted/) event.
 
-The following code example demonstrates how to perform search network optimization.
+The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
+
+**C#**
+
+```csharp
+string basePath = @"c:\SearchNetwork\";
+int basePort = 49100;
+
+// Loading the search network configuration from a file
+Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+
+// Creating, configuring and starting the master node; the timeouts are specified in milliseconds
+SearchNetworkNode node = SearchNetworkNode.CreateMasterNode(
+    0,
+    basePath + "Node0",
+    new TcpSettings(basePort, 3000, 3000, 3000, 1000),
+    new FileLogger(basePath + "Log.txt", 4.0),
+    configuration);
+node.ConfigureAllNodes();
+node.Start();
+```
+
+The following code example, which continues the previous one, demonstrates how to perform search network optimization.
 
 **C#**
 

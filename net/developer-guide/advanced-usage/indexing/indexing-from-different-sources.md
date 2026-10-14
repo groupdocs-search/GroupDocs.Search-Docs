@@ -2,9 +2,9 @@
 id: indexing-from-different-sources
 url: search/net/indexing-from-different-sources
 title: Indexing from different sources
-weight: 10
-description: "GroupDocs.Search allows indexing documents from various sources"
-keywords: indexing documents from various sources, indexing documents
+weight: 13
+description: "This article explains how to index documents from files, streams and structures, as well as lazy-loaded documents from URL, FTP, Amazon S3 and Azure Blob Storage."
+keywords: indexing documents from various sources, index from stream, index from structure, lazy loading, IDocumentLoader
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
@@ -15,13 +15,13 @@ GroupDocs.Search allows indexing documents from various sources:
 - From a stream.
 - From a data structure as an array of fields.
 
-The library also allows indexing from all presented sources with lazy initialization.
+The library also allows indexing from all presented sources with lazy initialization: a document created with the [Document.CreateLazy](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/createlazy/) method is loaded by an [IDocumentLoader](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/) implementation only when the index processes it. The [LoadDocument](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/loaddocument/) method of the loader returns the loaded document, and the [CloseDocument](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/closedocument/) method is called to release its resources.
 
-Please note that the update operation automatically generates a list of changed files only when indexing from the local file system. When indexing from streams or structures, documents cannot be updated with the update operation. To update documents from these sources, you must re-index the modified documents by passing their keys and updated data to the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method.
+Please note that the update operation automatically generates a list of changed files only when indexing from the local file system. When indexing from streams or structures, documents cannot be updated with the update operation. To update documents from these sources, you must re-index the modified documents by passing their keys and updated data to the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method.
 
 ## Indexing from a file
 
-It should be borne in mind that the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method with the parameter of type [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/add/index) method. The following example demonstrates how to index a document from a file.
+It should be borne in mind that the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method with the parameter of type [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method. The following example demonstrates how to index a document from a file.
 
 **C#**
 
@@ -110,8 +110,11 @@ The following example demonstrates how to index a document by URL when lazy init
 **C#**
 
 ```csharp
-private class DocumentLoaderFromUrl : IDocumentLoader
+public class DocumentLoaderFromUrl : IDocumentLoader
 {
+    // A single HttpClient instance is reused for all requests
+    private static readonly HttpClient httpClient = new HttpClient();
+
     private readonly string documentKey;
     private readonly string url;
     private readonly string extension;
@@ -125,23 +128,13 @@ private class DocumentLoaderFromUrl : IDocumentLoader
   
     public Document LoadDocument()
     {
-        ServicePointManager.Expect100Continue = true;
-        ServicePointManager.SecurityProtocol =
-            SecurityProtocolType.Ssl3 |
-            SecurityProtocolType.Tls |
-            SecurityProtocolType.Tls12 |
-            SecurityProtocolType.Tls11;
-  
-        WebRequest request = WebRequest.Create(url);
-        using (WebResponse response = request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        {
-            MemoryStream memoryStream = new MemoryStream();
-            stream.CopyTo(memoryStream);
-            memoryStream.Position = 0;
-            Document document = Document.CreateFromStream(documentKey, DateTime.Now, extension, memoryStream);
-            return document;
-        }
+        // HttpClient uses the security protocols allowed by the operating system (TLS 1.2 or later)
+        // On .NET Framework, TLS 1.2 may have to be enabled explicitly:
+        // ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+        byte[] data = httpClient.GetByteArrayAsync(url).GetAwaiter().GetResult();
+        MemoryStream memoryStream = new MemoryStream(data);
+        Document document = Document.CreateFromStream(documentKey, DateTime.Now, extension, memoryStream);
+        return document;
     }
   
     public void CloseDocument()
@@ -151,7 +144,7 @@ private class DocumentLoaderFromUrl : IDocumentLoader
  
  
 string indexFolder = @"c:\MyIndex";
-string url = "http://example.com/ExampleDocument.pdf";
+string url = "https://example.com/ExampleDocument.pdf";
   
 // Creating an index
 Index index = new Index(indexFolder);
@@ -177,13 +170,13 @@ The following example demonstrates how to index a document from FTP when lazy in
 **C#**
 
 ```csharp
-private class DocumentLoaderFromUrl : IDocumentLoader
+public class DocumentLoaderFromFtp : IDocumentLoader
 {
     private readonly string documentKey;
     private readonly string url;
     private readonly string extension;
   
-    public DocumentLoaderFromUrl(string documentKey, string url, string extension)
+    public DocumentLoaderFromFtp(string documentKey, string url, string extension)
     {
         this.documentKey = documentKey;
         this.url = url;
@@ -218,7 +211,7 @@ Index index = new Index(indexFolder);
   
 // Creating a document object
 string documentKey = url;
-IDocumentLoader documentLoader = new DocumentLoaderFromUrl(documentKey, url, ".pdf");
+IDocumentLoader documentLoader = new DocumentLoaderFromFtp(documentKey, url, ".pdf");
 Document document = Document.CreateLazy(DocumentSourceKind.Stream, documentKey, documentLoader);
 Document[] documents = new Document[]
 {
@@ -232,12 +225,12 @@ index.Add(documents, options);
 
 ## Indexing from Amazon S3 Storage
 
-The following example demonstrates how to index a document from Amazon S3 Storage when lazy initialized.
+The following example demonstrates how to index a document from Amazon S3 Storage when lazy initialized. The example uses the [AWSSDK.S3](https://www.nuget.org/packages/AWSSDK.S3/) package.
 
 **C#**
 
 ```csharp
-private class DocumentLoaderFromAmazon : IDocumentLoader
+public class DocumentLoaderFromAmazon : IDocumentLoader
 {
     private readonly string documentKey;
     private readonly string extension;
@@ -259,7 +252,7 @@ private class DocumentLoaderFromAmazon : IDocumentLoader
             Key = storageKey,
             BucketName = bucketName,
         };
-        using (GetObjectResponse response = client.GetObject(request))
+        using (GetObjectResponse response = client.GetObjectAsync(request).GetAwaiter().GetResult())
         {
             MemoryStream memoryStream = new MemoryStream();
             response.ResponseStream.CopyTo(memoryStream);
@@ -296,12 +289,12 @@ index.Add(documents, options);
 
 ## Indexing from Azure Blob Storage
 
-The following example demonstrates how to index a document from Azure Blob Storage when lazy initialized.
+The following example demonstrates how to index a document from Azure Blob Storage when lazy initialized. The example uses the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/) package.
 
 **C#**
 
 ```csharp
-private class DocumentLoaderFromAzure : IDocumentLoader
+public class DocumentLoaderFromAzure : IDocumentLoader
 {
     private readonly string documentKey;
     private readonly string extension;
@@ -316,20 +309,12 @@ private class DocumentLoaderFromAzure : IDocumentLoader
   
     public Document LoadDocument()
     {
-        string accountName = "***";
-        string accountKey = "***";
-        string endpoint = $"https://{accountName}.blob.core.windows.net/";
+        string connectionString = "***"; // The connection string of the storage account
         string containerName = "***";
-        StorageCredentials storageCredentials = new StorageCredentials(accountName, accountKey);
-        CloudStorageAccount cloudStorageAccount = new CloudStorageAccount(
-            storageCredentials, new Uri(endpoint), null, null, null);
-        CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
-        CloudBlobContainer container = cloudBlobClient.GetContainerReference(containerName);
-        container.CreateIfNotExists();
-  
-        CloudBlob blob = container.GetBlobReference(blobName);
+        BlobClient blobClient = new BlobClient(connectionString, containerName, blobName);
+
         MemoryStream memoryStream = new MemoryStream();
-        blob.DownloadToStream(memoryStream);
+        blobClient.DownloadTo(memoryStream);
         memoryStream.Position = 0;
   
         Document document = Document.CreateFromStream(documentKey, DateTime.Now, extension, memoryStream);

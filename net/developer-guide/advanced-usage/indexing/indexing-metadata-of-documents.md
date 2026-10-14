@@ -2,13 +2,13 @@
 id: indexing-metadata-of-documents
 url: search/net/indexing-metadata-of-documents
 title: Indexing metadata of documents
-weight: 11
-description: "API allows creating of full-text and / or metadata index on documents. To index only metadata without main content of documents, you only need to set IndexType.MetadataIndex when creating an index."
+weight: 14
+description: "This article explains how to create an index that contains only the metadata of documents by setting IndexType.MetadataIndex when creating the index."
 keywords: metadata index, index only metadata
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-GroupDocs.Search allows creating of full-text and / or metadata index on documents. To index only metadata without main content of documents, you only need to set IndexType.MetadataIndex when creating an index. The size of an index of this type will be very small.
+GroupDocs.Search allows creating a full-text index or a metadata index of documents. To index only metadata without the main content of documents, set the [IndexType](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/indextype/) property of the index settings to [IndexType.MetadataIndex](https://reference.groupdocs.com/search/net/groupdocs.search.options/indextype/) when creating an index. The size of an index of this type will be very small. The index type is fixed when the index is created, so it cannot be changed for an existing index.
 
 The following example demonstrates the creation of the metadata index.
 
@@ -22,8 +22,8 @@ string documentsFolder = @"c:\MyDocuments\";
 IndexSettings settings = new IndexSettings();
 settings.IndexType = IndexType.MetadataIndex; // Setting index type
  
-// Creating an index in the specified folder
-Index index = new Index(indexFolder, settings);
+// Creating a new index in the specified folder
+Index index = new Index(indexFolder, settings, true);
  
 // Indexing documents from the specified folder
 index.Add(documentsFolder);

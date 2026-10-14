@@ -3,16 +3,18 @@ id: keyboard-layout-correction
 url: search/net/keyboard-layout-correction
 title: Keyboard layout correction
 weight: 10
-description: "This article gives the knowledge that the keyboard layout correction feature can be used when entering search queries, users of your software may make input errors, forgetting to switch the desired keyboard layout."
+description: "This article describes the keyboard layout correction feature, which fixes words in search queries typed in a wrong keyboard layout."
 keywords: Keyboard layout correction
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 When entering search queries, users of your software may make input errors, forgetting to switch the desired keyboard layout. For example, entering the word 'Einstein' in the Russian keyboard layout will result in the word 'Уштыеушт' appearing.
 
-To automatically fix such misprints, the keyboard layout correction feature can be used. To enable this feature, you must set the true value for the [Enabled](https://reference.groupdocs.com/net/search/groupdocs.search.options/keyboardlayoutcorrectoroptions/properties/enabled) property in the search options. By default, this feature is disabled.
+To automatically fix such misprints, the keyboard layout correction feature can be used. To enable this feature, you must set the true value for the [Enabled](https://reference.groupdocs.com/search/net/groupdocs.search.options/keyboardlayoutcorrectoroptions/enabled/) property in the search options. By default, this feature is disabled.
 
-The following example demonstrates using of the keyboard layout correction feature.
+Keyboard layout correction cannot be combined with case-sensitive search. If both are enabled, the search returns an empty result and the error is reported through the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event (see [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md#incompatible-options" >}})).
+
+The following example demonstrates the use of the keyboard layout correction feature.
 
 **C#**
 
@@ -30,7 +32,7 @@ index.Add(documentsFolder);
 SearchOptions options = new SearchOptions();
 options.KeyboardLayoutCorrector.Enabled = true; // Enabling keyboard layout correction
 
-// Search for word 'Уштыеушт' gives documents containing word 'Einstein'
+// Search for the word 'Уштыеушт' gives documents containing the word 'Einstein'
 SearchResult result = index.Search("Уштыеушт", options);
 ```
 

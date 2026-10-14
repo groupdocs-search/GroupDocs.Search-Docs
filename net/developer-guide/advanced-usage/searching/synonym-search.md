@@ -3,16 +3,16 @@ id: synonym-search
 url: search/net/synonym-search
 title: Synonym search
 weight: 27
-description: "This article shows that how synonym search allows you to find not only the words specified in the search query, but also the synonyms, words that means the same."
+description: "This article describes synonym search, which allows you to find not only the words specified in the search query, but also their synonyms."
 keywords: Synonym search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-Synonym search allows you to find not only the words specified in the search query, but also the synonyms, words that means the same.
+Synonym search allows you to find not only the words specified in the search query, but also their synonyms, that is, words that mean the same.
 
-To enable synonym search, you must set the [UseSynonymSearch](https://reference.groupdocs.com/net/search/groupdocs.search.options/searchoptions/properties/usesynonymsearch) property of the [SearchOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/searchoptions) class to true. By default, synonym search is disabled.
+To enable synonym search, you must set the [UseSynonymSearch](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/usesynonymsearch/) property of the [SearchOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/) class to true. By default, synonym search is disabled. Synonym search cannot be combined with case-sensitive search. If synonym search is enabled together with case-sensitive search, or if the synonym dictionary of the index is empty, the search returns an empty result and the error is reported through the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event (see [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md#incompatible-options" >}})).
 
-The default synonym dictionary contains synonyms only for the English language. To manage the synonym dictionary, see the [Synonym dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
+The default synonym dictionary contains synonyms only for the English language. To manage the synonym dictionary, see the [Synonym dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
 The following example demonstrates the synonym search.
 
@@ -21,17 +21,17 @@ The following example demonstrates the synonym search.
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+ 
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
- 
+ 
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+ 
 // Creating a search options object
 SearchOptions options = new SearchOptions();
 options.UseSynonymSearch = true; // Enabling synonym search
- 
+ 
 // Search for the word 'answer'
 // In addition to the word 'answer', the words 'reply' and 'response' will also be found
 SearchResult result = index.Search("answer", options);

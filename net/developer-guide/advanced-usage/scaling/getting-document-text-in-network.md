@@ -12,13 +12,37 @@ To obtain the extracted text of indexed documents in the search network, the [Ge
 
 The first parameter of the [GetDocumentText](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getdocumenttext/) method is a document represented by the [NetworkDocumentInfo](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkdocumentinfo/) class. A list of all indexed documents in the search network can be obtained using the [GetIndexedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getindexeddocuments/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class.
 
-The second parameter of the [GetDocumentText](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getdocumenttext/) method is the result output adapter. In this operation, the same output adapter classes are used as those used in similar operations of a single index. For information about output adapters, see the article [Output adapters](https://docs.groupdocs.com/search/net/output-adapters/).
+The second parameter of the [GetDocumentText](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getdocumenttext/) method is the result output adapter. In this operation, the same output adapter classes are used as those used in similar operations of a single index. For information about output adapters, see the [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}) page.
 
-The following code example demonstrates retrieving the text of documents indexed in the search network, as well as outputting the resulting data to the console.
+The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
 
 **C#**
 
 ```csharp
+string basePath = @"c:\SearchNetwork\";
+int basePort = 49100;
+
+// Loading the search network configuration from a file
+Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+
+// Creating, configuring and starting the master node; the timeouts are specified in milliseconds
+SearchNetworkNode node = SearchNetworkNode.CreateMasterNode(
+    0,
+    basePath + "Node0",
+    new TcpSettings(basePort, 3000, 3000, 3000, 1000),
+    new FileLogger(basePath + "Log.txt", 4.0),
+    configuration);
+node.ConfigureAllNodes();
+node.Start();
+```
+
+The following code example, which continues the previous one, demonstrates retrieving the text of a document indexed in the search network, as well as outputting the resulting data to the console.
+
+**C#**
+
+```csharp
+string fileName = "Lorem ipsum.pdf"; // The name of the document to get the text of
+
 Searcher searcher = node.Searcher;
 
 List<NetworkDocumentInfo> documents = new List<NetworkDocumentInfo>();
@@ -39,7 +63,7 @@ for (int i = 0; i < shardIndices.Length; i++)
 for (int i = 0; i < documents.Count; i++)
 {
     NetworkDocumentInfo document = documents[i];
-    if (document.DocumentInfo.ToString().Contains(containsInPath))
+    if (document.DocumentInfo.ToString().Contains(fileName))
     {
         Console.WriteLine();
         Console.WriteLine(document.DocumentInfo.ToString());

@@ -3,20 +3,32 @@ id: build-search-query
 url: search/net/build-search-query
 title: Build search query
 weight: 2
-description: "This page contains information about building text search queries of various types. More examples on building search queries are provided on the page"
+description: "This article describes how to build text search queries of various types: simple, wildcard, faceted, numeric range, date range, regular expression, boolean and phrase queries."
 keywords: search queries, building text search queries
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page contains information about building text search queries of various types. More examples on building search queries are provided on the page [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}). A detailed specification of search query language is presented on the page [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}).
+This page contains information about building text search queries of various types. More examples on building search queries are provided on the page [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}). A detailed specification of search query language is presented on the page [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}).
 
 In addition to text search queries, there is also the ability to create queries in an object form. Search query forms are described on the page [Queries in text and object form]({{< ref "search/net/developer-guide/advanced-usage/searching/queries-in-text-and-object-form.md" >}}).
 
 You can also use search options to customize your search queries. Detailed information on search options is provided on the page [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md" >}}).
 
+The examples on this page are fragments that search in an existing index containing indexed documents. Such an index can be created as follows.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+Index index = new Index(indexFolder); // Creating an index in the specified folder
+index.Add(documentsFolder); // Indexing documents from the specified folder
+```
+
 ## Simple search query
 
-The first type of search query is a simple search query. Queries of this type are used to search for a single word in the text of a document. The example is presented below.
+The first type of search query is a simple search query. Queries of this type are used to search for a single word in the text of a document. The example is presented below.
 
 **C#**
 
@@ -27,27 +39,27 @@ SearchResult result = index.Search(query); // Search in the index
 
 ## Wildcard search query
 
-A more complex type of query is a wildcard search query. There are 2 types of wildcard characters in a word: a one character wildcard and a character group wildcard. Detailed information about wildcards in a word is provided on the page [Wildcard search]({{< ref "search/net/developer-guide/advanced-usage/searching/wildcard-search.md" >}}). The example below demonstrates use of the one character wildcard.
+A more complex type of query is a wildcard search query. There are 2 types of wildcard characters in a word: a one character wildcard and a character group wildcard. Detailed information about wildcards in a word is provided on the page [Wildcard search]({{< ref "search/net/developer-guide/advanced-usage/searching/wildcard-search.md" >}}). The example below demonstrates use of the one character wildcard.
 
 **C#**
 
 ```csharp
 string query = "?ffect";
-SearchResult result = index.Search(query); // Search for words 'affect', 'effect', ets.
+SearchResult result = index.Search(query); // Search for words 'affect', 'effect', etc.
 ```
 
-The character group wildcard allows you to specify a range of unknown characters in the form ?(N~M), where N and M are in the range from 0 to 255. The next example demonstrates use of the character group wildcard.
+The character group wildcard allows you to specify a range of unknown characters in the form ?(N~M), where N and M are in the range from 0 to 255. The next example demonstrates use of the character group wildcard.
 
 **C#**
 
 ```csharp
 string query = "princip?(2~4)";
-SearchResult result = index.Search(query); // Search for words 'principal', 'principle', 'principles', 'principally', ets.
+SearchResult result = index.Search(query); // Search for words 'principal', 'principle', 'principles', 'principally', etc.
 ```
 
 ## Faceted search query
 
-The next type of query - faceted search query - allows you to specify the document field for the search. Detailed information about faceted search is presented on the page [Faceted search]({{< ref "search/net/developer-guide/advanced-usage/searching/faceted-search.md" >}}). The following example shows how to search only in 'Content' field.
+The next type of query - faceted search query - allows you to specify the document field for the search. Detailed information about faceted search is presented on the page [Faceted search]({{< ref "search/net/developer-guide/advanced-usage/searching/faceted-search.md" >}}). The following example shows how to search only in 'Content' field.
 
 **C#**
 
@@ -58,7 +70,7 @@ SearchResult result = index.Search(query); // Search for word 'Einstein' only in
 
 ## Numeric range search query
 
-The following type of query allows you to specify a range of numbers to search - numeric range search query. Detailed information about numeric range search is presented on the page [Numeric range search]({{< ref "search/net/developer-guide/advanced-usage/searching/numeric-range-search.md" >}}). The example below demonstrates how to search for numbers in the range from 2000 to 3000.
+The following type of query allows you to specify a range of numbers to search - numeric range search query. Detailed information about numeric range search is presented on the page [Numeric range search]({{< ref "search/net/developer-guide/advanced-usage/searching/numeric-range-search.md" >}}). The example below demonstrates how to search for numbers in the range from 2000 to 3000.
 
 **C#**
 
@@ -69,14 +81,14 @@ SearchResult result = index.Search(query); // Search for numbers from 2000 to 30
 
 ## Date range search query
 
-Search for dates from a particular range is performed using a date range search query. Details on the date range search are presented on the page [Date range search]({{< ref "search/net/developer-guide/advanced-usage/searching/date-range-search.md" >}}). The example demonstrates how to search for dates in the format 'MM/dd/yyyy' in the range from 01/01/2000 to 06/15/2001.
+Search for dates from a particular range is performed using a date range search query. Details on the date range search are presented on the page [Date range search]({{< ref "search/net/developer-guide/advanced-usage/searching/date-range-search.md" >}}). The example demonstrates how to search for dates in the format 'MM/dd/yyyy' in the range from 01/01/2000 to 06/15/2001.
 
 **C#**
 
 ```csharp
 SearchOptions options = new SearchOptions(); // Creating a search options object
 options.DateFormats.Clear(); // Removing default date formats
- 
+ 
 // Creating a date format pattern 'MM/dd/yyyy'
 DateFormatElement[] elements = new DateFormatElement[]
 {
@@ -87,10 +99,10 @@ DateFormatElement[] elements = new DateFormatElement[]
     DateFormatElement.YearFourDigits,
 };
 DateFormat dateFormat = new DateFormat(elements, "/");
- 
+ 
 options.DateFormats.Add(dateFormat); // Adding the date format pattern to the date format collection
 string query = "daterange(2000-01-01 ~~ 2001-06-15)"; // Dates in the search query are always specified in the format 'yyyy-MM-dd'
- 
+ 
 SearchResult result = index.Search(query, options); // Search in index
 ```
 
@@ -107,7 +119,7 @@ SearchResult result = index.Search(query); // Search for three or more identical
 
 ## Boolean search query
 
-The next type of search query is a boolean search query. Queries of this type allow you to use the logical conditions for the presence or absence of particular words in documents. The boolean operators AND, OR, NOT can be used in queries of this type. Detailed information about this type of search is presented on the page [Boolean search]({{< ref "search/net/developer-guide/advanced-usage/searching/boolean-search.md" >}}). The following example demonstrates how to search for documents containing the word 'Einstein' but not containing the word 'relativity'.
+The next type of search query is a boolean search query. Queries of this type allow you to use the logical conditions for the presence or absence of particular words in documents. The boolean operators AND, OR, NOT can be used in queries of this type. Detailed information about this type of search is presented on the page [Boolean search]({{< ref "search/net/developer-guide/advanced-usage/searching/boolean-search.md" >}}). The following example demonstrates how to search for documents containing the word 'Einstein' but not containing the word 'relativity'.
 
 **C#**
 
@@ -116,18 +128,18 @@ string query = "Einstein AND NOT relativity";
 SearchResult result = index.Search(query);
 ```
 
-Boolean search queries can be combined using parentheses and other types of queries. For example, the following query searches for all documents containing words that start with 'relativ' in the document path or that contain the word 'Einstein' in the document content.
+Boolean search queries can be combined using parentheses and other types of queries. For example, the following query searches for all documents containing words that start with 'relativ' in the file name or that contain both the words 'Einstein' and 'Albert' in the document content.
 
 **C#**
 
 ```csharp
 string query = "FileName: relativ?(1~3) OR Content: (Einstein AND Albert)";
-SearchResult result = index.Search(query); // Search for documents whose paths contain 'relative', 'relativity', ets., or documents containing both 'Einstein' and 'Albert' in the content
+SearchResult result = index.Search(query); // Search for documents whose file names contain 'relative', 'relativity', etc., or documents containing both 'Einstein' and 'Albert' in the content
 ```
 
 ## Phrase search query
 
-Another type of query - a phrase search query - allows you to search entire phrases in documents. Detailed information on the phase search is on the page [Phrase search]({{< ref "search/net/developer-guide/advanced-usage/searching/phrase-search.md" >}}). An example of the phrase search is presented below.
+Another type of query - a phrase search query - allows you to search entire phrases in documents. Detailed information on the phrase search is on the page [Phrase search]({{< ref "search/net/developer-guide/advanced-usage/searching/phrase-search.md" >}}). An example of the phrase search is presented below.
 
 **C#**
 

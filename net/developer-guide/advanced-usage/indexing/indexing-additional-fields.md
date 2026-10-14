@@ -2,15 +2,15 @@
 id: indexing-additional-fields
 url: search/net/indexing-additional-fields
 title: Indexing additional fields
-weight: 9
-description: "This article demonstrate that how to associate each document with certain additional metadata."
-keywords: additional metadata,how to associate each document 
+weight: 12
+description: "This article explains how to associate indexed documents with additional fields, such as tags or subjects."
+keywords: additional fields, additional metadata, FileIndexing, DocumentField
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 Sometimes when indexing, it is necessary to associate each document with certain additional metadata, for example, a set of tags, a number in the library catalog, the subject of a document, etc. To accomplish this task, additional fields can be added to each indexed document in addition to those already in the document itself.
 
-Additional fields are associated with the document through the arguments of the [FileIndexing](https://reference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event that occurs before indexing each added document. When adding each field, its name and contents are specified. The name of the added field can match the names of other added fields or fields of the document itself. During the search inside the fields with the same name, coincidences with the text of all fields with the specified name will be taken into account.
+Additional fields are associated with the document through the arguments of the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event that occurs before indexing each added document. When adding each field, its name and contents are specified. The name of the added field can match the names of other added fields or fields of the document itself. When searching in a field, matches in all fields with the specified name are taken into account. For documents added with the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method overload that takes an array of [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/) objects, additional fields can also be set through the [AdditionalFields](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/additionalfields/) property of a document before indexing.
 
 The example below demonstrates the associating of additional fields with documents during indexing.
 

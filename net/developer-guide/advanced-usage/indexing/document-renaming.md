@@ -2,17 +2,17 @@
 id: document-renaming
 url: search/net/document-renaming
 title: Document renaming
-weight: 8
-description: "This article demonstrate that how to save computing resources, you can notify the index about the renaming of the document, and then the document will not be reindexed during the update operation"
-keywords: renaming of the document
+weight: 10
+description: "This article explains how to notify an index about a renamed document so that the document is not reindexed during the update operation."
+keywords: document renaming, rename notification, Notify, update index
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 Sometimes a situation arises when an indexed document is renamed, but its contents have not changed. In this case, to save computing resources, you can notify the index about the renaming of the document, and then the document will not be reindexed during the update operation.
 
-To notify an index about renaming a document, the [Notify](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/notify) method is used with the corresponding notification object as a parameter.
+To notify an index about renaming a document, the [Notify](https://reference.groupdocs.com/search/net/groupdocs.search/index/notify/) method is used with a notification object created by the [Notification.CreateRenameNotification](https://reference.groupdocs.com/search/net/groupdocs.search.common/notification/createrenamenotification/) method as a parameter. The [Notify](https://reference.groupdocs.com/search/net/groupdocs.search/index/notify/) method returns true if the notification was successfully performed.
 
-You should keep in mind that if an index is notified of the renaming of a document, it will not be reindexed the next time you call the [Update](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/update) method, even if its contents have changed. The following example demonstrates how to notify an index of a renamed document.
+You should keep in mind that if an index is notified of the renaming of a document, it will not be reindexed the next time you call the [Update](https://reference.groupdocs.com/search/net/groupdocs.search/index/update/) method, even if its contents have changed. The following example demonstrates how to notify an index of a renamed document.
 
 **C#**
 

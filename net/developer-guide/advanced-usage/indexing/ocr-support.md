@@ -2,17 +2,19 @@
 id: ocr-support
 url: search/net/ocr-support
 title: OCR support
-weight: 18
-description: "This article demonstrates the ability to connect an external module (library) for the recognition of printed text (optical character recognition, OCR) on images, either separate or embedded in documents"
-keywords: optical character recognition, OCR
+weight: 21
+description: "This article demonstrates the ability to connect an external module (library) for the recognition of printed text (optical character recognition, OCR) on images, either separate or embedded in documents."
+keywords: optical character recognition, OCR, IOcrConnector, OcrIndexingOptions, recognize text in images
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 OCR support means the ability to connect an external module (library) for the recognition of printed text (optical character recognition, OCR) on images, either separate or embedded in documents.
 
-To connect OCR, you need to implement the IOcrConnector interface in the client code.
+To connect OCR, you need to implement the [IOcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/iocrconnector/) interface in the client code and assign the connector to the [OcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/ocrconnector/) property of the [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/) object of the indexing options. The [Recognize](https://reference.groupdocs.com/search/net/groupdocs.search.options/iocrconnector/recognize/) method receives an [OcrContext](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrcontext/) object, which provides the image stream, the location of the image ([ImageLocation](https://reference.groupdocs.com/search/net/groupdocs.search.options/imagelocation/): a separate image file, an image embedded in a document or an image that is an item of a container) and the image file extension. The method returns the recognized text. The [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/) class also specifies for which images text recognition is enabled (see [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md" >}})).
 
 The following example demonstrates how to implement the OCR connector using Aspose.OCR library for text recognition in images.
+
+**C#**
 
 ```csharp
 string indexFolder = @"c:\MyIndex";
@@ -78,8 +80,9 @@ public class AsposeOcrConnector : IOcrConnector
 
     private string RecognizePrivate(OcrContext context)
     {
-        MemoryStream memoryStream = new MemoryStream((int)context.ImageStream.Length);
+        MemoryStream memoryStream = new MemoryStream();
         context.ImageStream.CopyTo(memoryStream);
+        memoryStream.Position = 0; // Rewinding the stream before recognition
 
         AsposeOcr asposeOcr = new AsposeOcr();
         string result = asposeOcr.RecognizeImage(memoryStream);
@@ -89,6 +92,8 @@ public class AsposeOcrConnector : IOcrConnector
 ```
 
 The next example demonstrates how to implement the OCR connector using Aspose Cloud OCR API.
+
+**C#**
 
 ```csharp
 // Implementing the OCR connector that uses Aspose Cloud OCR
@@ -119,6 +124,8 @@ public class AsposeCloudOcrConnector : IOcrConnector
 
 And the following example demonstrates how to implement the OCR connector using Tesseract.
 
+**C#**
+
 ```csharp
 // Implementing the OCR connector that uses Tesseract
 // You need to install the following packages:
@@ -132,12 +139,15 @@ public class TesseractOcrConnector : IOcrConnector
 
     public string Recognize(OcrContext context)
     {
-        var buffer = new byte[context.ImageStream.Length];
-        context.ImageStream.Read(buffer, 0, buffer.Length);
+        byte[] buffer;
+        using (MemoryStream memoryStream = new MemoryStream())
+        {
+            context.ImageStream.CopyTo(memoryStream); // Reading the whole image stream
+            buffer = memoryStream.ToArray();
+        }
 
-        var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-        path = Path.Combine(path, "tessdata");
-        path = path.Replace("file:\\", "");
+        // The language data are expected in the tessdata folder of the application folder
+        string path = Path.Combine(AppContext.BaseDirectory, "tessdata");
 
         using (var engine = new TesseractEngine(path, "eng", EngineMode.Default))
         using (Pix img = Pix.LoadFromMemory(buffer))

@@ -3,16 +3,16 @@ id: search-for-different-word-forms
 url: search/net/search-for-different-word-forms
 title: Search for different word forms
 weight: 20
-description: "This article shows that how to allow you to search for nouns in the singular or plural, adjectives in the degree of comparison, forms of regular and irregular verbs, etc."
+description: "This article describes the search for different word forms, which allows you to search for nouns in the singular or plural, degrees of comparison of adjectives, forms of regular and irregular verbs, etc."
 keywords: Search for different word forms
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The search for different word forms allows you to search for nouns in the singular or plural, adjectives in the degree of comparison, forms of regular and irregular verbs, etc.
+The search for different word forms allows you to search for nouns in the singular or plural, degrees of comparison of adjectives, forms of regular and irregular verbs, etc.
 
-Search for different word forms is enabled if the [UseWordFormsSearch](https://reference.groupdocs.com/net/search/groupdocs.search.options/searchoptions/properties/usewordformssearch) property of the [SearchOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/searchoptions) class is set to true. By default, the search for different word forms is disabled.
+Search for different word forms is enabled if the [UseWordFormsSearch](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/usewordformssearch/) property of the [SearchOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/) class is set to true. By default, the search for different word forms is disabled. The search for different word forms cannot be combined with case-sensitive search. If both are enabled, the search returns an empty result and the error is reported through the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event (see [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md#incompatible-options" >}})).
 
-To generate various forms of words, a class that implements the [IWordFormsProvider](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface is used. The default class is [EnglishWordFormsProvider](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/englishwordformsprovider), which supports English-only word forms. To add support for word forms in other languages, see the [Word forms provider]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/word-forms-provider.md" >}}) page.
+To generate various forms of words, a class that implements the [IWordFormsProvider](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/iwordformsprovider/) interface is used. The default class is [EnglishWordFormsProvider](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/englishwordformsprovider/), which supports English-only word forms. To add support for word forms in other languages, see the [Word forms provider]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/word-forms-provider.md" >}}) page.
 
 The following example demonstrates how to perform search for different word forms in an index.
 
@@ -21,20 +21,20 @@ The following example demonstrates how to perform search for different word form
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+ 
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
- 
+ 
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+ 
 // Creating a search options instance
 SearchOptions options = new SearchOptions();
 options.UseWordFormsSearch = true; // Enabling search for word forms
- 
+ 
 // Searching in the index
 SearchResult result = index.Search("relative", options);
- 
+ 
 // The following words can be found:
 // relative
 // relatives

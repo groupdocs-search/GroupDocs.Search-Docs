@@ -3,24 +3,26 @@ id: spelling-corrector
 url: search/net/spelling-corrector
 title: Spelling corrector
 weight: 6
-description: "This article gives the knowledge of the API methods which can be used to perform operations about spelling corrector."
-keywords: Spelling corrector
+description: "This article describes the API for managing the spelling corrector dictionary of an index."
+keywords: spelling corrector, spell checking dictionary
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [SpellingCorrector](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector) class is designed to correct spelling errors in search queries, as well as to store words with correct spelling. You can learn about spelling correction in search queries on the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page.
+The [SpellingCorrector](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/spellingcorrector/) class is designed to correct spelling errors in search queries, as well as to store words with correct spelling. You can learn about spelling correction in search queries on the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page.
 
-To get the number of words in the spelling corrector dictionary, use the [Count](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/properties/count) property.
+The spelling corrector dictionary can be changed at any time, also in an index that contains documents.
 
-To get an array of words containing in the spelling corrector dictionary, the [GetWords](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/getwords) method is used.
+To get the number of words in the spelling corrector dictionary, use the [Count](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/spellingcorrector/count/) property.
 
-To add words to the spelling corrector dictionary, use the [AddRange](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/addrange/index) method.
+To get an array of words contained in the spelling corrector dictionary, the [GetWords](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/spellingcorrector/getwords/) method is used.
 
-The [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/spellingcorrector/methods/clear) method is used to remove all words from the spelling corrector dictionary.
+To add words to the spelling corrector dictionary, use the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/spellingcorrector/addrange/) method.
 
-To export words to a file, use the [ExportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
+The [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/spellingcorrector/clear/) method is used to remove all words from the spelling corrector dictionary.
 
-To import words from a file, use the [ImportDictionary](https://reference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
+To export words to a file, use the [ExportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/exportdictionary/) method.
+
+To import words from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
 
 The following example demonstrates the use of methods of the spelling corrector.
 
@@ -28,25 +30,29 @@ The following example demonstrates the use of methods of the spelling corrector.
 
 ```csharp
 string indexFolder = @"c:\MyIndex\";
- 
-// Creating an index from in specified folder
+
+// Creating or opening an index in the specified folder
 Index index = new Index(indexFolder);
- 
+
 if (index.Dictionaries.SpellingCorrector.Count > 0)
 {
     // Removing all words from the dictionary
     index.Dictionaries.SpellingCorrector.Clear();
 }
- 
+
 // Adding words to the dictionary
 string[] words = new string[] { "achieve", "accomplish", "attain", "reach" };
 index.Dictionaries.SpellingCorrector.AddRange(words);
- 
-// Export words to a file
-index.Dictionaries.SpellingCorrector.ExportDictionary(@"C:\Words.txt");
- 
-// Import words from a file
-index.Dictionaries.SpellingCorrector.ImportDictionary(@"C:\Words.txt");
+
+// Getting all words of the dictionary
+string[] allWords = index.Dictionaries.SpellingCorrector.GetWords();
+Console.WriteLine("Words in the dictionary: " + allWords.Length);
+
+// Exporting words to a file
+index.Dictionaries.SpellingCorrector.ExportDictionary(@"c:\Words.txt");
+
+// Importing words from a file
+index.Dictionaries.SpellingCorrector.ImportDictionary(@"c:\Words.txt");
 ```
 
 ## More resources

@@ -2,8 +2,8 @@
 id: custom-text-segmenter
 url: search/net/custom-text-segmenter
 title: Custom text segmenter
-weight: 3
-description: "GroupDocs.Search provides the ability to set up custom text segmenting."
+weight: 5
+description: "This article explains how to use an external library to split text into words during indexing by implementing the IWordSplitter interface."
 keywords: custom text segmenter, word splitter, text splitter
 productName: GroupDocs.Search for .NET
 hideChildren: False
@@ -13,6 +13,8 @@ Some languages, in particular hieroglyphic languages, typically require special 
 This is necessary due to the lack of spaces between words, polysemantic phrases, set expressions, and complex lexical rules.
 
 Currently, the GroupDocs.Search library does not contain such special algorithms for splitting Chinese, Japanese, and Korean text into words. However, it provides the ability to use external custom algorithms for this. To connect an external text segmentation library, you must implement the [IWordSplitter](https://reference.groupdocs.com/search/net/groupdocs.search.common/iwordsplitter/) interface and pass an object implementing this interface to the [WordSplitter](https://reference.groupdocs.com/search/net/groupdocs.search.events/fileindexingeventargs/wordsplitter/) property of the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event arguments.
+
+The words returned by the word splitter are checked against the [tokenization dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary.md" >}}) of the index ([Dictionaries.TokenizationDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionaryrepository/tokenizationdictionary/)): a word is indexed only if it contains at least one character that is not a separator in this dictionary; other words, for example punctuation marks, are skipped. The tokenization dictionary has the same structure as the alphabet, and by default it also defines the CJK ideographs as letters. Like the alphabet, it can be changed only while the index contains no documents. Note also that words longer than 80 characters are not indexed.
 
 The code example below demonstrates how to use the external library [Jieba.NET](https://www.nuget.org/packages/jieba.NET/) for Chinese text segmentation.
 

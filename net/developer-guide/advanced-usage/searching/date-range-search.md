@@ -3,47 +3,47 @@ id: date-range-search
 url: search/net/date-range-search
 title: Date range search
 weight: 3
-description: "This article gives the knowledge that how to search by date with date range search."
+description: "This article describes how to search by date with date range search and how to specify date formats."
 keywords: search by date, date range search
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page describes how you can search by date with date range search. As well it describes the creation of date wise search queries, and also describes the management of formats for date range search.
+This page describes how you can search by date with date range search. It also describes the creation of date range search queries and the management of formats for date range search.
 
 ## Creating date range search queries
 
-Date range search allows you to search in documents dates from a given range in given date formats.
+Date range search allows you to search documents for dates from a given range written in given date formats.
 
 Queries for date range search in text form are specified in the following format:
 
 *   daterange( date ~~ date )
 
-where date is the date in yyyy-MM-dd format, for example, 2019-09-13. Please note that in a search query, dates are always set in the same format.
+where date is the date in yyyy-MM-dd format, for example, 2019-09-13. Please note that in a search query, dates are always set in the same format.
 
-The following example demonstrates how to search by date using queries in text and object form.
+The following example demonstrates how to search by date using queries in text and object form.
 
 **C#**
 
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+ 
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
- 
+ 
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+ 
 // Search for dates using query in text form
 string query1 = "daterange(2017-01-01 ~~ 2019-12-31)";
 SearchResult result1 = index.Search(query1);
- 
-// Search for dates using query in text form
+ 
+// Search for dates using query in object form
 SearchQuery query2 = SearchQuery.CreateDateRangeQuery(new DateTime(2017, 1, 1), new DateTime(2019, 12, 31));
 SearchResult result2 = index.Search(query2);
 ```
 
-## Specifying date range search formats
+## Specifying date range search formats
 
 To perform the date range search, the date templates specified in the search options are used. The following formats are used by default:
 
@@ -51,18 +51,18 @@ To perform the date range search, the date templates specified in the search opt
 *   MM/dd/yyyy
 *   yyyy-MM-dd
 
-Formats for date range search are set in the [DateFormats](https://reference.groupdocs.com/net/search/groupdocs.search.options/searchoptions/properties/dateformats) property of the [SearchOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/searchoptions) class. To add a format, use the [Add](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatcollection/methods/add) method, to remove it, use the [Remove](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatcollection/methods/remove) method, to clear a collection of existing formats, use the [Clear](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatcollection/methods/clear) method. Each format in the collection is defined by an instance of the [DateFormat](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformat) class. To create a new format, you must specify a sequence of format elements and a separator character. All available format elements are represented in the [DateFormatElement](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement) class:
+Formats for date range search are set in the [DateFormats](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/dateformats/) property of the [SearchOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/) class. To add a format, use the [Add](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatcollection/add/) method, to remove it, use the [Remove](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatcollection/remove/) method, to clear a collection of existing formats, use the [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatcollection/clear/) method. Each format in the collection is defined by an instance of the [DateFormat](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformat/) class. To create a new format, you must specify a sequence of format elements and a date separator string. The sequence must contain at least two elements. All available format elements are represented in the [DateFormatElement](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/) class:
 
-*   [DayOfMonth](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/dayofmonth) specifies the day of month element, represented by one or two digits;
-*   [DayOfMonthTwoDigits](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/dayofmonthtwodigits) specifies the day of month element, represented by two digits;
-*   [Month](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/month) specifies the month element, represented by one or two digits;
-*   [MonthTwoDigits](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/monthtwodigits) specifies the month element, represented by two digits;
-*   [MonthAbbreviatedName](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/monthabbreviatedname) specifies the month element, represented by abbreviated name;
-*   [MonthFullName](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/monthfullname) specifies the month element, represented by full name;
-*   [Year](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/year) specifies the year element, represented by one, two, three, or four digits;
-*   [YearTwoDigits](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/yeartwodigits) specifies the year element, represented by two digits;
-*   [YearFourDigits](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/yearfourdigits) specifies the year element, represented by four digits;
-*   [DateSeparator](https://reference.groupdocs.com/net/search/groupdocs.search.options/dateformatelement/properties/dateseparator) specifies the date separator element.
+*   [DayOfMonth](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/dayofmonth/) specifies the day of month element, represented by one or two digits;
+*   [DayOfMonthTwoDigits](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/dayofmonthtwodigits/) specifies the day of month element, represented by two digits;
+*   [Month](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/month/) specifies the month element, represented by one or two digits;
+*   [MonthTwoDigits](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthtwodigits/) specifies the month element, represented by two digits;
+*   [MonthAbbreviatedName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthabbreviatedname/) specifies the month element, represented by abbreviated name;
+*   [MonthFullName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthfullname/) specifies the month element, represented by full name;
+*   [Year](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/year/) specifies the year element, represented by one, two, three, or four digits;
+*   [YearTwoDigits](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/yeartwodigits/) specifies the year element, represented by two digits;
+*   [YearFourDigits](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/yearfourdigits/) specifies the year element, represented by four digits;
+*   [DateSeparator](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/dateseparator/) specifies the date separator element.
 
 An example of setting the date format for the search is presented below.
 
@@ -71,13 +71,13 @@ An example of setting the date format for the search is presented below.
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+ 
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
- 
+ 
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+ 
 // Setting date formats
 SearchOptions options = new SearchOptions();
 options.DateFormats.Clear(); // Removing default date formats
@@ -92,10 +92,48 @@ DateFormatElement[] elements = new DateFormatElement[]
 // Creating a date format pattern 'MM/dd/yyyy'
 DateFormat dateFormat = new DateFormat(elements, "/");
 options.DateFormats.Add(dateFormat);
- 
+ 
 // Searching in the index.
 // For the given query, for example, the date 09/27/2019 will be found,
 // but the date 2019-09-27 will not be found, because it is presented in a format that is not specified in the search options.
+SearchResult result = index.Search("daterange(2017-01-01 ~~ 2019-12-31)", options);
+```
+
+The [DateFormat](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformat/) class has two constructors:
+
+*   DateFormat(DateFormatElement[] formatElements, string dateSeparator) creates a format with the specified date separator. Month names, if the format contains them, are taken from the current culture.
+*   DateFormat(string cultureName, DateFormatElement[] formatElements) creates a format that uses the date separator and the month names of the specified culture, for example, "en-US" or "de-DE". This constructor is useful for formats containing the [MonthAbbreviatedName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthabbreviatedname/) or [MonthFullName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthfullname/) elements.
+
+The following example demonstrates the creation of a format with month names in German, for example, '27.September.2019'.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+// Creating an index in the specified folder
+Index index = new Index(indexFolder);
+
+// Indexing documents from the specified folder
+index.Add(documentsFolder);
+
+// Creating a date format pattern 'dd.MMMM.yyyy' with the date separator and month names of the German culture
+DateFormatElement[] elements = new DateFormatElement[]
+{
+    DateFormatElement.DayOfMonthTwoDigits,
+    DateFormatElement.DateSeparator,
+    DateFormatElement.MonthFullName,
+    DateFormatElement.DateSeparator,
+    DateFormatElement.YearFourDigits,
+};
+DateFormat dateFormat = new DateFormat("de-DE", elements);
+
+// Adding the format to the default date formats
+SearchOptions options = new SearchOptions();
+options.DateFormats.Add(dateFormat);
+
+// Searching in the index
 SearchResult result = index.Search("daterange(2017-01-01 ~~ 2019-12-31)", options);
 ```
 

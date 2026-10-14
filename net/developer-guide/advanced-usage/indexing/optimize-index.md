@@ -2,15 +2,19 @@
 id: optimize-index
 url: search/net/optimize-index
 title: Optimize index
-weight: 19
-description: "This article explains that how to optimize index to reduce the number of segments in an index."
-keywords: optimize index
+weight: 22
+description: "This article explains how to optimize an index to reduce the number of its segments and physically remove deleted documents."
+keywords: optimize index, index segments, merge segments, remove deleted documents
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An index optimization operation allows you to reduce the number of segments in an index, thereby increasing search performance in the index.
+An index optimization operation allows you to reduce the number of segments in an index, thereby increasing search performance in the index. Each indexing operation adds at least one new segment to an index, so an index to which documents are often added should be optimized from time to time.
 
-To perform this operation, there is an overload that takes the [MergeOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/mergeoptions) instance as a parameter. In the [MergeOptions](https://reference.groupdocs.com/net/search/groupdocs.search.options/mergeoptions) class, there is a property for specifying a cancellation object and a property for specifying whether to perform the operation asynchronously. By default, the operation is performed synchronously.
+The optimization also physically removes [deleted documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/delete-indexed-documents.md" >}}) from the index. Deleting documents does not rewrite the index: deleted documents are excluded from search immediately, but their data remain in the index files until the index is optimized.
+
+The memory consumption of the optimization does not depend on the index size: a very large index is optimized into several segments of limited size, so the [SegmentCount](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexinfo/segmentcount/) property of [Index.IndexInfo](https://reference.groupdocs.com/search/net/groupdocs.search/index/indexinfo/) may be greater than 1 after optimizing such an index.
+
+To perform this operation, call the parameterless [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search/index/optimize/) method or the overload that takes the [MergeOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/mergeoptions/) instance as a parameter. In the [MergeOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/mergeoptions/) class, there is a property for specifying a cancellation object and a property for specifying whether to perform the operation asynchronously. By default, the operation is performed synchronously.
 
 The following example demonstrates how to perform the index optimization.
 
@@ -35,6 +39,8 @@ options.Cancellation.CancelAfter(100000); // Setting maximum duration of the ope
  
 // Merging segments of the index
 index.Optimize(options);
+
+Console.WriteLine("Segment count: " + index.IndexInfo.SegmentCount);
 ```
 
 ## More resources

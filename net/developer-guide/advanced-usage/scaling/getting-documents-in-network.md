@@ -8,13 +8,35 @@ keywords: getting indexed documents in network, getting documents in distributed
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-To obtain a list of indexed documents in a specific search network shard, you must call the [GetIndexedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getindexeddocuments/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class.
+To obtain a list of indexed documents in a specific search network shard, call the [GetIndexedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getindexeddocuments/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class. The method returns an array of [NetworkDocumentInfo](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkdocumentinfo/) objects; each of them contains the information about the document ([DocumentInfo](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkdocumentinfo/documentinfo/) property) and the index of the shard that contains it ([ShardIndex](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkdocumentinfo/shardindex/) property).
 
-To obtain a list of shards of the search network, use the [GetShardIndices](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/getshardindices/) method of the [SearchNetworkNode](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/) class.
+To obtain a list of shards of the search network, use the [GetShardIndices](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/getshardindices/) method of the [SearchNetworkNode](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/) class. To get the index of the node on which a shard is located, use the [GetNodeIndex](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/getnodeindex/) method.
 
-It is also possible to get a list of nested items of indexed container document. To do this, use the [GetIndexedDocumentItems](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getindexeddocumentitems/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class.
+It is also possible to get a list of nested items of an indexed container document. To do this, use the [GetIndexedDocumentItems](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getindexeddocumentitems/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class.
 
-The following code example demonstrates obtaining a list of documents indexed in the search network, as well as outputting the resulting data to the console.
+The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
+
+**C#**
+
+```csharp
+string basePath = @"c:\SearchNetwork\";
+int basePort = 49100;
+
+// Loading the search network configuration from a file
+Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+
+// Creating, configuring and starting the master node; the timeouts are specified in milliseconds
+SearchNetworkNode node = SearchNetworkNode.CreateMasterNode(
+    0,
+    basePath + "Node0",
+    new TcpSettings(basePort, 3000, 3000, 3000, 1000),
+    new FileLogger(basePath + "Log.txt", 4.0),
+    configuration);
+node.ConfigureAllNodes();
+node.Start();
+```
+
+The following code example, which continues the previous one, demonstrates obtaining a list of documents indexed in the search network, as well as outputting the resulting data and the attributes of the documents to the console.
 
 **C#**
 

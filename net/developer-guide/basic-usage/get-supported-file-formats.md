@@ -3,22 +3,23 @@ id: get-supported-file-formats
 url: search/net/get-supported-file-formats
 title: Get supported file formats
 weight: 5
-description: "This page describes how the search api is used to obtain a list of supported file types."
-keywords: search api
+description: "This article describes how to obtain the list of file types supported by GroupDocs.Search for .NET."
+keywords: supported file types, supported formats, FileType, GetSupportedFileTypes
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [GetSupportedFileTypes](https://reference.groupdocs.com/net/search/groupdocs.search.results/filetype/methods/getsupportedfiletypes) method of the [FileType](https://reference.groupdocs.com/net/search/groupdocs.search.results/filetype) class is used to obtain a list of supported file types.
+The [GetSupportedFileTypes](https://reference.groupdocs.com/search/net/groupdocs.search.results/filetype/getsupportedfiletypes/) method of the [FileType](https://reference.groupdocs.com/search/net/groupdocs.search.results/filetype/) class is used to obtain a list of supported file types.
 
-An example of obtaining a list of supported file types is presented below.
+The returned collection also contains the [FileType.Unknown](https://reference.groupdocs.com/search/net/groupdocs.search.results/filetype/unknown/) value, which has an empty extension. An example of obtaining a list of supported file types is presented below. The example uses LINQ methods, so it requires the *System.Linq* namespace.
 
 **C#**
 
 ```csharp
 IEnumerable<FileType> supportedFileTypes = FileType
     .GetSupportedFileTypes()
+    .Where(ft => ft != FileType.Unknown) // Skipping the unknown file type
     .OrderBy(ft => ft.Extension);
- 
+ 
 foreach (FileType fileType in supportedFileTypes)
 {
     Console.WriteLine(fileType.Extension.PadRight(8) + " - " + fileType.Description);

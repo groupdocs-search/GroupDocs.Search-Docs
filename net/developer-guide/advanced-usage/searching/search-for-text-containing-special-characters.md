@@ -8,7 +8,7 @@ keywords: Search for text containing special characters
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-In the case where the search query must contain special characters that are not control characters, these characters must be escaped.
+If a search query must contain special characters that are used as ordinary characters and not as query syntax elements, these characters must be escaped.
 The special characters are:
 <pre>
 ( ) : " & | ! ^ ~ * ? \ <i>space</i>
@@ -17,12 +17,14 @@ These characters can be escaped by adding a \\ sign to the left of the character
 \\& - escaping & character;  
 \\~ - escaping ~ character;  
 \\s - escaping space character.  
-See [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}) for detailes on search query syntax.
+See [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}) for details on search query syntax.
 
-However, it must be remembered that if the escaped character is a separator, then it will still not be found in the text, since it is not indexed. And as a result, words containing such characters will also not be found when searching for an exact match.
+However, if the escaped character is a separator, it will still not be found in the text, since separators are not indexed. As a result, words containing such characters will also not be found when searching for an exact match.
 
-If the search query contains separator characters, words containing these characters will not be found. Since, in fact, when indexing, these characters break the word into parts, and they themselves are deleted and not indexed.
+If the search query contains separator characters, words containing these characters will not be found, because during indexing these characters break the word into parts and are not indexed themselves.
 Therefore, when performing a search, the query must be checked for the content of separator characters. Each word containing such characters should be broken into several smaller words and form a search phrase.
+
+In the example below, the character types are set in the alphabet of a new index before documents are added. Since version 26.10, the alphabet can be changed only while the index contains no documents; otherwise, InvalidOperationException is thrown. For details, see the [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) page.
 
 The order of processing each word in a search query is as follows:
 1. If separators are present in the word, they are replaced by spaces, and the word search is converted to a phrase search.
@@ -34,10 +36,10 @@ The order of processing each word in a search query is as follows:
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
 
-// Creating an index in the specified folder
-Index index = new Index(indexFolder);
+// Creating a new index in the specified folder (the existing index files are deleted)
+Index index = new Index(indexFolder, true);
 
-// Setting character types
+// Setting character types before indexing documents
 index.Dictionaries.Alphabet.SetRange(new char[] { '&' }, CharacterType.Letter);
 index.Dictionaries.Alphabet.SetRange(new char[] { '-' }, CharacterType.Separator);
 

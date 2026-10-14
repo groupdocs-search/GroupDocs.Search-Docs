@@ -2,15 +2,24 @@
 id: document-attributes
 url: search/net/document-attributes
 title: Document attributes
-weight: 6
+weight: 8
 description: "Document attributes is a special feature designed for marking indexed documents with text labels without the need for re-indexing."
-keywords: Document attributes, marking indexed documents, re-indexing 
+keywords: document attributes, marking indexed documents, AttributeChangeBatch, ChangeAttributes, filter by attribute
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 Document attributes is a special feature designed for marking indexed documents with text labels without the need for re-indexing. Added attributes can be further used to filter documents during the search.
 
-To add and delete attributes of indexed documents, use the [ChangeAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/methods/changeattributes) method of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index) class. This method accepts an [AttributeChangeBatch](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch) object containing the required attribute changes as a parameter.
+To add and delete attributes of indexed documents, use the [ChangeAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/changeattributes/) method of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) class. This method accepts an [AttributeChangeBatch](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/) object containing the required attribute changes as a parameter. The [AttributeChangeBatch](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/) class provides the following methods:
+
+*   [Add](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/add/) adds the specified attributes to one or several indexed documents;
+*   [AddToAll](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/addtoall/) adds the specified attributes to all documents in the index;
+*   [Remove](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/remove/) removes the specified attributes from one or several indexed documents;
+*   [RemoveAll](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/removeall/) removes all attributes from one or several indexed documents;
+*   [RemoveFromAll](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/removefromall/) removes the specified attributes from all documents in the index;
+*   [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/clear/) removes all attributes from all documents in the index. Note that this method does not clear the batch, but adds a change to it.
+
+The changes are applied in the order in which they are added to the batch. The attributes of an indexed document can be obtained with the [GetAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/getattributes/) method.
 
 The following example demonstrates how to add and remove attributes from indexed documents.
 
@@ -45,7 +54,7 @@ options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 SearchResult result = index.Search("Einstein", options);
 ```
 
-Attributes can be associated with documents during indexing using the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/events/fileindexing) event. The following example demonstrates this.
+Attributes can be associated with documents during indexing using the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event. The following example demonstrates this.
 
 **C#**
 

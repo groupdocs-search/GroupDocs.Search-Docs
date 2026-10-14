@@ -8,38 +8,71 @@ keywords: highlighting search results in network, highlighting results in distri
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-Search results in the search network can be highlighted in the text of the found document using the [Highlight](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/highlight/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class.
+Search results in the search network can be highlighted in the text of the found document using the [Highlight](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/highlight/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class. The found document is passed to the method as a [NetworkFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkfounddocument/) object obtained from a [search result]({{< ref "search/net/developer-guide/advanced-usage/scaling/text-search-in-network.md" >}}).
 
-The set of available classes for highlighting text, as well as the highlighting options, are identical to those used for highlighting search results in a single index. Please see also the [Highlighting search results](https://docs.groupdocs.com/search/net/highlighting-search-results/) page.
+The set of available classes for highlighting text, as well as the highlighting options, are identical to those used for highlighting search results in a single index. Please see also the [Highlighting search results]({{< ref "search/net/developer-guide/advanced-usage/searching/highlighting-search-results.md" >}}) page.
 
-The following code example demonstrates highlighting search results on the search network.
+The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
 
 **C#**
 
 ```csharp
+string basePath = @"c:\SearchNetwork\";
+int basePort = 49100;
+
+// Loading the search network configuration from a file
+Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+
+// Creating, configuring and starting the master node; the timeouts are specified in milliseconds
+SearchNetworkNode node = SearchNetworkNode.CreateMasterNode(
+    0,
+    basePath + "Node0",
+    new TcpSettings(basePort, 3000, 3000, 3000, 1000),
+    new FileLogger(basePath + "Log.txt", 4.0),
+    configuration);
+node.ConfigureAllNodes();
+node.Start();
+```
+
+The following code example, which continues the previous one, demonstrates highlighting search results on the search network.
+
+**C#**
+
+```csharp
+string query = "Einstein";
+int maxFragments = 5; // The maximum number of fragments to output for each field
+
 Searcher searcher = node.Searcher;
 
-FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.PlainText);
-
-HighlightOptions options = new HighlightOptions();
-options.TermsAfter = 5;
-options.TermsBefore = 5;
-options.TermsTotal = 15;
-searcher.Highlight(document, highlighter, options);
-
-FragmentContainer[] result = highlighter.GetResult();
-Console.WriteLine();
-for (int i = 0; i < result.Length; i++)
+// Searching in the search network
+NetworkSearchResult searchResult = searcher.SearchFirst(query, new SearchOptions());
+if (searchResult.DocumentCount > 0)
 {
-    FragmentContainer container = result[i];
-    if (container.Count == 0) continue;
+    // Getting the first found document
+    NetworkFoundDocument document = searchResult.GetFoundDocument(0);
 
-    string[] fragments = container.GetFragments();
-    Console.WriteLine(container.FieldName);
-    int count = Math.Min(fragments.Length, maxFragments);
-    for (int j = 0; j < count; j++)
+    FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.PlainText);
+
+    HighlightOptions options = new HighlightOptions();
+    options.TermsAfter = 5;
+    options.TermsBefore = 5;
+    options.TermsTotal = 15;
+    searcher.Highlight(document, highlighter, options);
+
+    FragmentContainer[] result = highlighter.GetResult();
+    Console.WriteLine();
+    for (int i = 0; i < result.Length; i++)
     {
-        Console.WriteLine("\t" + fragments[j]);
+        FragmentContainer container = result[i];
+        if (container.Count == 0) continue;
+
+        string[] fragments = container.GetFragments();
+        Console.WriteLine(container.FieldName);
+        int count = Math.Min(fragments.Length, maxFragments);
+        for (int j = 0; j < count; j++)
+        {
+            Console.WriteLine("\t" + fragments[j]);
+        }
     }
 }
 ```
