@@ -1,0 +1,207 @@
+{
+  "serverVersion": "26.10.1",
+  "capturedFrom": "local build (docker-first product, no NuGet package)",
+  "tools": [
+    {
+      "name": "add_to_index",
+      "description": "Adds documents to a full-text search index so they can be searched: a single file, a folder (indexed recursively), or the whole storage folder. Indexes PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT, ODT, ODS, ODP, RTF, TXT, HTML, EPUB, FB2, EML, EMLX, MSG, PST, OST, ONE, ZIP and 70+ more formats, including documents inside archives and email attachments. Call this immediately whenever the user asks to index documents, make files searchable, or search documents that have not been indexed yet — the index is created on demand, so create_index is not required first. Do NOT pre-check whether the path exists; pass what the user said. documentsPath is relative to the storage folder ('contracts', 'reports/2026/q3.pdf'); omit it to index everything in storage. Adding a path that is already indexed re-reads only what changed. Large folders take time: indexing reads every document. Returns a short report: documents added in this call, total documents in the index, the index name, and any files the engine could not read. In evaluation mode an index holds at most 100 documents; indexing stops at that count. On failure the response starts with 'Indexing failed for' followed by the exception type and message, and isError is set; a missing path lists the files and folders that do exist.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "documentsPath": {
+            "description": "File or folder to index, relative to the storage folder, e.g. 'contracts' or 'contracts/lease.pdf'. Omit to index the whole storage folder.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "indexName": {
+            "description": "Name of the index to add to, e.g. 'contracts'. Created if it does not exist. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          }
+        }
+      }
+    },
+    {
+      "name": "search",
+      "description": "Searches an index for documents that contain the query and returns the matching files ranked by relevance, with occurrence counts and the terms found. Call this whenever the user asks which documents mention something, to find, look up or search content across their files — after the documents have been indexed with add_to_index. Query syntax (GroupDocs.Search DSL): a single word ('invoice'); a phrase in double quotes ('\"force majeure\"') — always quote multi-word phrases, unquoted words separated by spaces do not match; combine with AND or &, OR or |, NOT or !, and parentheses ('termination AND (notice OR penalty)'); '?' replaces one character ('?ffect', 'princip?(2~4)'); date ranges daterange(2026-01-01 ~~ 2026-06-30); number ranges 100 ~~ 500; field prefixes filename: or content: ('filename: invoice'); a query starting with ^ is a regular expression ('^inv[0-9]+'). There is no trailing '*' wildcard — use ? patterns or fuzzy=true for spelling variants. To read the matching paragraphs rather than just the file names, call get_text_fragments with the same query. Returns JSON: `query`, `index`, `documentsFound`, `documentsReturned`, `totalOccurrences`, `truncated`, optional `evaluation`, and `documents` (array of { `filePath` relative to the storage folder, `innerPath` for items inside archives or emails, `relevance`, `occurrences`, `terms`, `fields` }). documentsFound 0 means nothing matched — not an error. In evaluation mode at most 10 documents are returned. On failure the response starts with 'Search failed for' followed by the reason, and isError is set; an unknown index lists the indexes that exist.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "description": "Search query, e.g. 'invoice', 'termination AND notice', '\"force majeure\"' (quoted phrase), 'filename: lease', 'daterange(2026-01-01 ~~ 2026-12-31)'.",
+            "type": "string"
+          },
+          "maxResults": {
+            "description": "Maximum number of documents to return. Default 10.",
+            "type": "integer",
+            "default": 10
+          },
+          "fuzzy": {
+            "description": "Also match words with small spelling differences (fuzzy search). Default false.",
+            "type": "boolean",
+            "default": false
+          },
+          "caseSensitive": {
+            "description": "Match letter case exactly. Default false.",
+            "type": "boolean",
+            "default": false
+          },
+          "indexName": {
+            "description": "Name of the index to search, e.g. 'contracts'. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_text_fragments",
+      "description": "Returns the passages of indexed documents that match a query — each match with the words around it — so the user can read what a document says without opening it. Call this when the user wants to see the matching text, quote a clause, or answer a question from their documents ('what does the lease say about termination?'), usually after search has shown which files match. Takes the same query syntax as search. Works on documents indexed by this server (text is stored in the index). Returns plain text: a header line with the document count, then per document a '=== <file> (<n> occurrence(s)) ===' line followed by up to maxFragmentsPerDocument fragments, each prefixed with the field it came from. In evaluation mode at most 10 documents are considered. On failure the response starts with 'Fragment extraction failed for' followed by the reason, and isError is set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "description": "Search query, same syntax as the search tool.",
+            "type": "string"
+          },
+          "termsBefore": {
+            "description": "Words of context before each match. Default 8.",
+            "type": "integer",
+            "default": 8
+          },
+          "termsAfter": {
+            "description": "Words of context after each match. Default 8.",
+            "type": "integer",
+            "default": 8
+          },
+          "maxFragmentsPerDocument": {
+            "description": "Maximum fragments per document. Default 3.",
+            "type": "integer",
+            "default": 3
+          },
+          "maxDocuments": {
+            "description": "Maximum documents to include. Default 5.",
+            "type": "integer",
+            "default": 5
+          },
+          "indexName": {
+            "description": "Name of the index, e.g. 'contracts'. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "update_index",
+      "description": "Brings a search index up to date with the files on disk: re-reads documents that changed, adds new files that appeared inside already-indexed folders, and drops documents whose files were deleted. Call this when the user says files were edited, added or removed, asks to 'refresh' or 're-index', or before searching an index that may be stale. It only looks at paths already in the index; to index a new folder use add_to_index. Returns a short report: documents added, updated and removed, and the total now in the index. In evaluation mode new files are only added while the index holds fewer than 100 documents. On failure the response starts with 'Index update failed for' followed by the exception type and message, and isError is set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "indexName": {
+            "description": "Name of the index to update, e.g. 'contracts'. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          }
+        }
+      }
+    },
+    {
+      "name": "remove_from_index",
+      "description": "Removes an indexed path — a folder or file that was passed to add_to_index — from a search index, so its documents stop appearing in search results. The files on disk are not touched. Call this when the user wants documents excluded from search, e.g. 'stop searching the drafts folder' or 'remove old-contract.pdf from the index'. documentPath is relative to the storage folder and must be one of the index's indexed paths (get_index_info lists them). The engine removes whole indexed paths only: a single file inside an indexed folder cannot be removed on its own — remove the folder, then add back the files or sub-folders you want with add_to_index. Returns a sentence with the number of documents removed and the total left in the index. On failure the response starts with 'Removal failed for' followed by the reason, and isError is set; a path that is not an indexed path lists the ones that are.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "documentPath": {
+            "description": "File or folder to remove, relative to the storage folder, e.g. 'drafts' or 'contracts/old-contract.pdf'.",
+            "type": "string"
+          },
+          "indexName": {
+            "description": "Name of the index, e.g. 'contracts'. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "documentPath"
+        ]
+      }
+    },
+    {
+      "name": "get_index_info",
+      "description": "Describes a search index without changing it: whether it exists, how many documents it holds, which paths are indexed, which documents failed to index, its format version, and the other indexes available. Call this when the user asks what is indexed, how big an index is, which indexes exist, or before searching to confirm the right documents are in the index. Safe to call with no arguments: it reports on the default index even when that index does not exist yet. Also lists the document formats the engine can index when includeSupportedFormats is true. Returns JSON: `index`, `exists`, `documentCount`, `indexedPaths` (relative to the storage folder), `documentsWithErrors`, `version`, `segmentCount`, `termCount`, `status`, `availableIndexes`, optional `supportedFormats` and `evaluation`. On failure the response starts with 'Index-info lookup failed for' followed by the exception type and message, and isError is set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "indexName": {
+            "description": "Name of the index, e.g. 'contracts'. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "includeSupportedFormats": {
+            "description": "Also list the file formats the engine can index. Default false.",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    {
+      "name": "create_index",
+      "description": "Creates a named full-text search index, or opens it when it already exists, and reports what it holds. An index is a persistent, searchable copy of the text of your documents; it survives server restarts and lives in the server's index folder, never next to the documents. You rarely need to call this first — add_to_index creates the index on demand. Call it when the user wants a separate index for a set of documents ('make an index called contracts'), to check whether an index exists, or with recreate=true to wipe an index and start over. Indexes written by GroupDocs.Search 22.7–26.8 are converted to the current format automatically and the original is kept. Pass index names such as 'contracts' or 'legal/2026', never filesystem paths. Returns one or two sentences: whether the index was created or opened, and its document count and indexed paths (relative to the storage folder). In evaluation mode an index holds at most 100 documents. On failure the response starts with 'Index creation failed for' followed by the exception type and message, and isError is set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "indexName": {
+            "description": "Name of the index, for example 'contracts'. Omit to use the default index.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "recreate": {
+            "description": "Delete the index's existing content and start empty. Default false.",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    {
+      "name": "get_license_status",
+      "description": "Returns how this MCP server is licensed, and — under metered licensing — how much has been consumed. Call this when the user asks about licensing, evaluation limitations, metered usage, remaining credit, or which product engine version is running. Returns a JSON object with `mode` (\"evaluation\", \"licensed\" or \"metered\"), `licensed` (true for both licensed and metered), `consumption` (null unless metered; otherwise `quantity` and `credit`, or `error` if the reading failed), and `server` / `engine` name and version. Takes no arguments and never modifies anything.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}
