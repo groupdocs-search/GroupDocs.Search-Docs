@@ -96,3 +96,8 @@ Both: [Licensing]({{< ref "search/mcp/getting-started/licensing.md" >}}).
 **What ports does it open?** None. stdio only.
 
 **What does the index contain?** The documents' extracted text and search data. Protect and dispose of it like the documents.
+
+## Read more
+
+* [3 architectures for AI document processing, and the one that keeps files inside your network](https://blog.groupdocs.com/total/on-premise-ai-document-processing-mcp/) — the same scenario on the GroupDocs blog, with worked examples and the trade-offs.
+

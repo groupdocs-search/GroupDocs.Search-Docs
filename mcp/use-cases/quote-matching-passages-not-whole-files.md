@@ -146,3 +146,8 @@ passage and its file. Try OR-lists or fuzzy=true when a query finds nothing.
 * [On-premise deployment]({{< ref "search/mcp/use-cases/on-premise-document-search.md" >}})
 * [Tools reference]({{< ref "search/mcp/tools-reference/_index.md" >}}) · [Licensing]({{< ref "search/mcp/getting-started/licensing.md" >}}) · [Troubleshooting & FAQ]({{< ref "search/mcp/troubleshooting-faq.md" >}})
 * Questions: [Search forum](https://forum.groupdocs.com/c/search/16)
+
+## Read more
+
+* [Grounded answers from your files: quote the passage, not the model's memory](https://blog.groupdocs.com/search/grounded-answers-quote-passages-local-index-mcp/) — the same scenario on the GroupDocs blog, with worked examples and the trade-offs.
+
