@@ -1,0 +1,1 @@
+((Creation time range: 1/1/2015 12:00:00 AM - 1/1/2016 12:00:00 AM) AND (File extensions: .txt) AND (File length upper bound: 8388608))

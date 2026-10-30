@@ -1,0 +1,15 @@
+Error: Error during text extraction from documents\damaged.pdf
+GroupDocs.Parser.Exceptions.UnsupportedDocumentFormatException: Exception of type 'GroupDocs.Parser.Exceptions.UnsupportedDocumentFormatException' was thrown.
+   at .(Stream , LoadOptions )
+   at .()
+   at GroupDocs.Parser.Parser.GetMetadata()
+   at .()
+   at .(Document ,  , String )
+Error: Error during text extraction from documents\protected.pdf
+GroupDocs.Parser.Exceptions.InvalidPasswordException: Exception of type 'GroupDocs.Parser.Exceptions.InvalidPasswordException' was thrown.
+   at .(Stream , LoadOptions )
+   at .()
+   at GroupDocs.Parser.Parser.GetMetadata()
+   at .()
+   at .(Document ,  , String )
+Documents found: 3

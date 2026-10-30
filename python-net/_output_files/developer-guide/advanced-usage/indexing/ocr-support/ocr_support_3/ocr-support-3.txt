@@ -1,0 +1,1 @@
+pytesseract is not installed: an image of 14241 bytes is not recognized

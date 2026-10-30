@@ -1,0 +1,8 @@
+Albert Einstein (1879-1955) was a theoretical physicist who developed the theory of relativity.
+
+In 1905 Einstein published four papers. One of them introduced the theory of special relativity,
+which rests on the principle that the laws of physics are the same for all observers moving at a
+constant speed. Ten years later the general theory of relativity described gravity as the
+curvature of space and time.
+
+Einstein's ideas continue to affect modern physics, and the principles he stated are still taught today.

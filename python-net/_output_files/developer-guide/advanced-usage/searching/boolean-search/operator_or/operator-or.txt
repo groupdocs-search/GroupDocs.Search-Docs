@@ -1,0 +1,6 @@
+Documents found by the text query: 4
+Documents found by the object query: 4
+    einstein-biography.txt ['einstein', 'relativity']
+    gravity-notes.txt ['relativity']
+    nobel-prize.txt ['einstein']
+    relativity-primer.txt ['relativity']

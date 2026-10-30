@@ -1,0 +1,3 @@
+The type of U+3042: SEPARATOR
+Characters that are not separators: 101197
+Documents found: 1

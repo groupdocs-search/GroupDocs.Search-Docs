@@ -1,0 +1,4 @@
+Images found: 3
+holiday-photos.zip / photos\sunset.png, image 0, frame 0, different bits: 0
+sunset.png, image 0, frame 0, different bits: 0
+sunset-brighter.png, image 0, frame 0, different bits: 4

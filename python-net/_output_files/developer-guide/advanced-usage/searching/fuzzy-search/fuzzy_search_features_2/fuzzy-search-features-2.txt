@@ -1,0 +1,4 @@
+Documents found: 3
+    einstein-biography.txt ['einstein']
+    newspaper-archive.txt ['einstain', 'einstien', 'eynstajn']
+    nobel-prize.txt ['einstein']

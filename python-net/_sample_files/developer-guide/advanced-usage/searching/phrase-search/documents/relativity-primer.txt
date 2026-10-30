@@ -1,0 +1,3 @@
+The special theory of relativity explains how space and time are linked for objects that move at a constant speed.
+The theory of special relativity also predicts that moving clocks run slow.
+Tests of special relativity and a test of general relativity are described at the end of this primer.

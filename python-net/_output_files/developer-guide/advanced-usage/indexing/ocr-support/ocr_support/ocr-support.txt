@@ -1,0 +1,3 @@
+Image: SEPARATE, extension '', 14241 bytes
+Image: EMBEDDED, extension '', 14241 bytes
+Documents found: 1

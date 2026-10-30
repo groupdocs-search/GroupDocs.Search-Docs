@@ -1,0 +1,8 @@
+Documents found by the text query: 2
+Documents found by the object query: 2
+    einstein-biography.txt ['content']
+    nobel-prize.txt ['content']
+Documents found in all fields: 3
+    albert-einstein-letters.txt ['filename']
+    einstein-biography.txt ['filename', 'content']
+    nobel-prize.txt ['content']

@@ -1,0 +1,3 @@
+Notification applied: True
+Indexed: Newton.txt
+Indexed: NewDocumentName.txt

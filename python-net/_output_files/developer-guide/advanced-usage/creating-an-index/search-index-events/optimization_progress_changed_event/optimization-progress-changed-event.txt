@@ -1,0 +1,6 @@
+Processed segments: 2
+Total segments: 3
+Progress percentage: 66.66666666666667
+Processed segments: 3
+Total segments: 3
+Progress percentage: 100

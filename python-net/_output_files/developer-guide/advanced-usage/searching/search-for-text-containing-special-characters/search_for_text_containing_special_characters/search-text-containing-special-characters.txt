@@ -1,0 +1,3 @@
+Query: "rock\&roll music"
+Documents found: 1
+    music-history.txt

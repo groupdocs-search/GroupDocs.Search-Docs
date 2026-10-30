@@ -1,0 +1,5 @@
+Documents found by the text query: 3
+Documents found by the object query: 3
+    catalogue-us.txt
+    observatory-log.txt
+    seminar-programme.txt

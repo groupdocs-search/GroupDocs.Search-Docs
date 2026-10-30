@@ -1,0 +1,5 @@
+Date formats: dd\.MM\.yyyy, MM\/dd\/yyyy, yyyy\-MM\-dd, dd/MMMM/yyyy
+Documents found: 3
+    catalogue-us.txt
+    observatory-log.txt
+    seminar-programme.txt

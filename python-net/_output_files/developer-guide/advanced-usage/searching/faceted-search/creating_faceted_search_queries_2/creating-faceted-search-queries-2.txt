@@ -1,0 +1,5 @@
+Documents found by the text query: 3
+Documents found by the object query: 3
+    albert-einstein-letters.txt ['filename']
+    einstein-biography.txt ['content']
+    relativity-primer.txt ['content']

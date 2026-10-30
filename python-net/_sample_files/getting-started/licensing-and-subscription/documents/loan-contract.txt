@@ -1,0 +1,7 @@
+Loan contract
+
+The Bern Physics Archive lends four original letters to the Museum of Science in Lucerne for the
+exhibition "Letters across Europe", from 3 March to 28 June. The museum insures the letters from
+wall to wall and shows them under light of at most 50 lux.
+
+The contract is signed by Lena Brunner, curator.

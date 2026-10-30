@@ -1,0 +1,23 @@
+Documents: 3
+Total occurrences: 9
+	Document: documents\einstein-biography.txt
+	Occurrences: 5
+		Field: filename
+		Occurrences: 1
+			einstein            1
+		Field: content
+		Occurrences: 4
+			einstein            2
+			theory * relativity           2
+	Document: documents\newspaper-archive.txt
+	Occurrences: 3
+		Field: content
+		Occurrences: 3
+			einstain            1
+			einstien            1
+			eynstajn            1
+	Document: documents\relativity-primer.txt
+	Occurrences: 1
+		Field: content
+		Occurrences: 1
+			theory * relativity           1

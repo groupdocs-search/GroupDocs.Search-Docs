@@ -1,0 +1,2 @@
+documents\einstein.txt ['principle', 'principles']
+documents\nobel-prize-1921.txt ['principal']

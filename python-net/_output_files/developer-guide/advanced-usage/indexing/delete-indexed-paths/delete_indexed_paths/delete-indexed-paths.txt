@@ -1,0 +1,8 @@
+Indexed paths:
+	documents
+	documents2
+
+Deleted paths: 1
+
+Indexed paths:
+	documents2

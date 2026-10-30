@@ -1,0 +1,2 @@
+Operation finished: INDEXING
+Indexed documents: 5

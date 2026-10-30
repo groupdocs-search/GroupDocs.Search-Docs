@@ -1,0 +1,5 @@
+Index segments: 5
+Document count: 1
+Occurrence count: 3
+Document count: 1
+Occurrence count: 1

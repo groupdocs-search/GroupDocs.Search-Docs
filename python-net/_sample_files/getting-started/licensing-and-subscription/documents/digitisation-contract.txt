@@ -1,0 +1,5 @@
+Digitisation contract
+
+Tomas Keller scans the lecture notes of the reading-room collection at 600 dpi and delivers
+uncompressed TIFF masters with one access copy per page. The archive keeps the masters on two
+separate storage systems. This contract ends when the last box is returned to the shelves.

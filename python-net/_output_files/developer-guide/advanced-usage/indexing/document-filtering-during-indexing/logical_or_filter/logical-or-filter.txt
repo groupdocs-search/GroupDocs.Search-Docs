@@ -1,0 +1,1 @@
+(((File extensions: .txt) AND (File length upper bound: 5242880)) OR ((NOT (File extensions: .txt)) AND (File length upper bound: 10485760)))

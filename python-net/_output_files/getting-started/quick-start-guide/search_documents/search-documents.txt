@@ -1,0 +1,4 @@
+Documents found: 2
+Occurrences found: 3
+einstein.txt - 2 occurrences
+relativity.txt - 1 occurrences

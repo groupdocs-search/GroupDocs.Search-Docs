@@ -1,0 +1,2 @@
+chardet is not installed: the default encoding is used
+chardet is not installed: the default encoding is used

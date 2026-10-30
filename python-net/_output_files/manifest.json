@@ -1,0 +1,1136 @@
+{
+  "developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility#example1": {
+    "type": "text",
+    "file": "updating-an-index-of-a-previous-version.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility/updating_an_index_of_a_previous_version/updating-an-index-of-a-previous-version.txt",
+    "preview": "The index has been updated.\nIndexed documents: 4",
+    "function": "updating_an_index_of_a_previous_version"
+  },
+  "developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility#example2": {
+    "type": "text",
+    "file": "merging-compatibility.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility/merging_compatibility/merging-compatibility.txt",
+    "preview": "Indexed documents after merging: 7",
+    "function": "merging_compatibility"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example1": {
+    "type": "text",
+    "file": "operation-finished-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/operation_finished_event/operation-finished-event.txt",
+    "preview": "Operation finished: INDEXING\nMessage: Files has been added to Index e180c83d-2c46-4cff-b4d6-8be087de3682.\nIndex folder: index\nTime: 2026-10-29 19:04:58.548210+02:00",
+    "function": "operation_finished_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example2": {
+    "type": "text",
+    "file": "error-occurred-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/error_occurred_event/error-occurred-event.txt",
+    "preview": "Error: Error during text extraction from documents\\damaged.pdf\r\nGroupDocs.Parser.Exceptions.UnsupportedDocumentFormatException: Exception of type 'GroupDocs.Parser.Exceptions.UnsupportedDocumentFormatException' was thrown.\r\n   at \b\u0003\u0003.\u0002(Stream \u0002, LoadOptions \b)\r\n   at \b\u0017\u0003.\u000e\u0010\u001a\u0003\u0016\u0002()\r\n   at GroupDocs.Parser.Parser.GetMetadata()\r\n   at \u0005\u001a\u0002.\u0005\u0019\u0002\u0003\u0016\b()\r\n   at \u0002\u0018\u001b.\u0002(Document \u0002, \u000e\u0019\u0002 \b, String \u0005)\nError: Error during text extraction from documents\\protected.pdf\r\nGroupDocs.Parser.Exceptions.InvalidPasswordExc\n[TRUNCATED]",
+    "function": "error_occurred_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example3": {
+    "type": "text",
+    "file": "operation-progress-changed-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/operation_progress_changed_event/operation-progress-changed-event.txt",
+    "preview": "Last processed: documents\\curie.txt\nResult: SUCCESSFULLY_PROCESSED\nProcessed documents: 1\nSkipped documents: 0\nTotal documents: 9\nProgress percentage: 11.11111111111111\nLast processed: documents\\damaged.pdf\nResult: PROCESSED_WITH_ERROR\nProcessed documents: 2\nSkipped documents: 0\n[TRUNCATED]",
+    "function": "operation_progress_changed_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example4": {
+    "type": "text",
+    "file": "optimization-progress-changed-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/optimization_progress_changed_event/optimization-progress-changed-event.txt",
+    "preview": "Processed segments: 2\nTotal segments: 3\nProgress percentage: 66.66666666666667\nProcessed segments: 3\nTotal segments: 3\nProgress percentage: 100",
+    "function": "optimization_progress_changed_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example5": {
+    "type": "text",
+    "file": "password-required-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/password_required_event/password-required-event.txt",
+    "preview": "Password supplied for: documents\\protected.pdf\nDocuments found: 1",
+    "function": "password_required_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example6": {
+    "type": "text",
+    "file": "file-indexing-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/file_indexing_event/file-indexing-event.txt",
+    "preview": "Skipped: documents\\important-notes.txt\nTagged: documents\\report.pdf\nDocuments found: 1",
+    "function": "file_indexing_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example7": {
+    "type": "text",
+    "file": "status-changed-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/status_changed_event/status-changed-event.txt",
+    "preview": "The operation is completed. Index status: READY",
+    "function": "status_changed_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example8": {
+    "type": "text",
+    "file": "search-phase-completed-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/search_phase_completed_event/search-phase-completed-event.txt",
+    "preview": "Search phase: ALIAS_SUBSTITUTION\nWords: 1\n\tEinstein\n\nSearch phase: HOMOPHONE_SEARCH\nWords: 1\n\teinstein\n\nSearch phase: SYNONYM_SEARCH\nWords: 1\n[TRUNCATED]",
+    "function": "search_phase_completed_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-events#example9": {
+    "type": "text",
+    "file": "image-preparing-event.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-events/image_preparing_event/image-preparing-event.txt",
+    "preview": "Document: documents\\laboratory.jpg\nImage inner path: \nImage index: 0\nImage frames: 1\nDocument: documents\\photos.docx\nImage inner path: \nImage index: 0\nImage frames: 1",
+    "function": "image_preparing_event"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-location#example1": {
+    "type": "text",
+    "file": "search-index-location.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-location/search_index_location/search-index-location.txt",
+    "preview": "Documents found: 2",
+    "function": "search_index_location"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-location#example2": {
+    "type": "file",
+    "file": "log.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-location/search_index_location_2/log.txt",
+    "preview": "2026-10-29 19:05:05.063\tIndex loaded into memory completely.",
+    "function": "search_index_location_2"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-repository#example1": {
+    "type": "text",
+    "file": "search-index-repository.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-repository/search_index_repository/search-index-repository.txt",
+    "preview": "Indexes in the repository: 2",
+    "function": "search_index_repository"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-repository#example2": {
+    "type": "text",
+    "file": "search-index-repository-2.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-repository/search_index_repository_2/search-index-repository-2.txt",
+    "preview": "Index: index2\nError: Error during text extraction from documents2\\damaged.pdf\r\nGroupDocs.Parser.Exceptions.UnsupportedDocumentFormatException: Exception of type 'GroupDocs.Parser.Exceptions.UnsupportedDocumentFormatException' was thrown.\r\n   at \b\u0003\u0003.\u0002(Stream \u0002, LoadOptions \b)\r\n   at \b\u0017\u0003.\u000e\u0010\u001a\u0003\u0016\u0002()\r\n   at GroupDocs.Parser.Parser.GetMetadata()\r\n   at \u0005\u001a\u0002.\u0005\u0019\u0002\u0003\u0016\b()\r\n   at \u0002\u0018\u001b.\u0002(Document \u0002, \u000e\u0019\u0002 \b, String \u0005)\nIndex: index2\nError: Error during text extraction from documents2\\damaged.pdf\r\n[TRUNCATED]",
+    "function": "search_index_repository_2"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-settings#example1": {
+    "type": "text",
+    "file": "search-threads-property.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-settings/search_threads_property/search-threads-property.txt",
+    "preview": "Documents found: 2",
+    "function": "search_threads_property"
+  },
+  "developer-guide/advanced-usage/creating-an-index/search-index-settings#example2": {
+    "type": "text",
+    "file": "skip-blended-only-terms-property.txt",
+    "path": "developer-guide/advanced-usage/creating-an-index/search-index-settings/skip_blended_only_terms_property/skip-blended-only-terms-property.txt",
+    "preview": "Skip blended-only terms: False",
+    "function": "skip_blended_only_terms_property"
+  },
+  "developer-guide/advanced-usage/indexing/character-replacement-during-indexing#example1": {
+    "type": "text",
+    "file": "character-replacement-during-indexing.txt",
+    "path": "developer-guide/advanced-usage/indexing/character-replacement-during-indexing/character_replacement_during_indexing/character-replacement-during-indexing.txt",
+    "preview": "Documents found: 2",
+    "function": "character_replacement_during_indexing"
+  },
+  "developer-guide/advanced-usage/indexing/character-types#example1": {
+    "type": "text",
+    "file": "regular-characters.txt",
+    "path": "developer-guide/advanced-usage/indexing/character-types/regular_characters/regular-characters.txt",
+    "preview": "Documents found: 2",
+    "function": "regular_characters"
+  },
+  "developer-guide/advanced-usage/indexing/character-types#example2": {
+    "type": "text",
+    "file": "blended-characters.txt",
+    "path": "developer-guide/advanced-usage/indexing/character-types/blended_characters/blended-characters.txt",
+    "preview": "Elliot-Murray-Kynynmound: 1 document(s)\nElliot: 1 document(s)\nMurray: 1 document(s)\nKynynmound: 1 document(s)",
+    "function": "blended_characters"
+  },
+  "developer-guide/advanced-usage/indexing/character-types#example3": {
+    "type": "text",
+    "file": "indexing-each-character-as-a-whole-word.txt",
+    "path": "developer-guide/advanced-usage/indexing/character-types/indexing_each_character_as_a_whole_word/indexing-each-character-as-a-whole-word.txt",
+    "preview": "Documents found: 1\nOccurrences found: 2",
+    "function": "indexing_each_character_as_a_whole_word"
+  },
+  "developer-guide/advanced-usage/indexing/checking-index-integrity#example1": {
+    "type": "text",
+    "file": "checking-and-repairing-an-index.txt",
+    "path": "developer-guide/advanced-usage/indexing/checking-index-integrity/checking_and_repairing_an_index/checking-and-repairing-an-index.txt",
+    "preview": "No damage found: the index is intact.",
+    "function": "checking_and_repairing_an_index"
+  },
+  "developer-guide/advanced-usage/indexing/custom-text-extractors#example2": {
+    "type": "text",
+    "file": "custom-text-extractors-2.txt",
+    "path": "developer-guide/advanced-usage/indexing/custom-text-extractors/custom_text_extractors_2/custom-text-extractors-2.txt",
+    "preview": "Documents found: 1",
+    "function": "custom_text_extractors_2"
+  },
+  "developer-guide/advanced-usage/indexing/custom-text-extractors#example3": {
+    "type": "text",
+    "file": "custom-extractors-container-documents.txt",
+    "path": "developer-guide/advanced-usage/indexing/custom-text-extractors/custom_extractors_for_container_documents/custom-extractors-container-documents.txt",
+    "preview": "Einstein.txt\nplanets.lines\n\tLine 1\n\tLine 2\n\tLine 3\nserver.log\nFound in: Line 2",
+    "function": "custom_extractors_for_container_documents"
+  },
+  "developer-guide/advanced-usage/indexing/custom-text-segmenter#example1": {
+    "type": "text",
+    "file": "custom-text-segmenter.txt",
+    "path": "developer-guide/advanced-usage/indexing/custom-text-segmenter/custom_text_segmenter/custom-text-segmenter.txt",
+    "preview": "Documents found: 1",
+    "function": "custom_text_segmenter"
+  },
+  "developer-guide/advanced-usage/indexing/delete-indexed-documents#example1": {
+    "type": "text",
+    "file": "delete-indexed-documents.txt",
+    "path": "developer-guide/advanced-usage/indexing/delete-indexed-documents/delete_indexed_documents/delete-indexed-documents.txt",
+    "preview": "Documents found: 1\nDeleted documents: 1",
+    "function": "delete_indexed_documents"
+  },
+  "developer-guide/advanced-usage/indexing/delete-indexed-paths#example1": {
+    "type": "text",
+    "file": "delete-indexed-paths.txt",
+    "path": "developer-guide/advanced-usage/indexing/delete-indexed-paths/delete_indexed_paths/delete-indexed-paths.txt",
+    "preview": "Indexed paths:\n\tdocuments\n\tdocuments2\n\nDeleted paths: 1\n\nIndexed paths:\n\tdocuments2",
+    "function": "delete_indexed_paths"
+  },
+  "developer-guide/advanced-usage/indexing/document-attributes#example1": {
+    "type": "text",
+    "file": "document-attributes.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-attributes/document_attributes/document-attributes.txt",
+    "preview": "Found: KeyPoints.docx\nAttributes of KeyPoints.docx: main, key",
+    "function": "document_attributes"
+  },
+  "developer-guide/advanced-usage/indexing/document-attributes#example2": {
+    "type": "text",
+    "file": "document-attributes-2.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-attributes/document_attributes_2/document-attributes-2.txt",
+    "preview": "Found: KeyPoints.docx",
+    "function": "document_attributes_2"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example1": {
+    "type": "text",
+    "file": "setting-a-filter.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/setting_a_filter/setting-a-filter.txt",
+    "preview": "Indexed: Einstein.txt\nIndexed: Relativity.pdf\nIndexed: Summary.html",
+    "function": "setting_a_filter"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example2": {
+    "type": "text",
+    "file": "creation-time-filters.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/creation_time_filters/creation-time-filters.txt",
+    "preview": "(Creation time lower bound: 1/1/2017 12:00:00 AM)\n(Creation time upper bound: 6/15/2018 12:00:00 AM)\n(Creation time range: 1/1/2017 12:00:00 AM - 6/15/2018 12:00:00 AM)",
+    "function": "creation_time_filters"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example3": {
+    "type": "text",
+    "file": "modification-time-filters.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/modification_time_filters/modification-time-filters.txt",
+    "preview": "(Modification time lower bound: 1/1/2017 12:00:00 AM)\n(Modification time upper bound: 6/15/2018 12:00:00 AM)\n(Modification time range: 1/1/2017 12:00:00 AM - 6/15/2018 12:00:00 AM)",
+    "function": "modification_time_filters"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example4": {
+    "type": "text",
+    "file": "file-path-filters.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/file_path_filters/file-path-filters.txt",
+    "preview": "(File name regex: Einstein)",
+    "function": "file_path_filters"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example5": {
+    "type": "text",
+    "file": "file-length-filters.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/file_length_filters/file-length-filters.txt",
+    "preview": "(File length lower bound: 51200)\n(File length upper bound: 10485760)\n(File length range: 102400 - 5242880)",
+    "function": "file_length_filters"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example6": {
+    "type": "text",
+    "file": "file-extension-filter.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/file_extension_filter/file-extension-filter.txt",
+    "preview": "(File extensions: .fb2, .epub, .txt)",
+    "function": "file_extension_filter"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example7": {
+    "type": "text",
+    "file": "logical-not-filter.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/logical_not_filter/logical-not-filter.txt",
+    "preview": "(NOT (File extensions: .htm, .html))",
+    "function": "logical_not_filter"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example8": {
+    "type": "text",
+    "file": "logical-and-filter.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/logical_and_filter/logical-and-filter.txt",
+    "preview": "((Creation time range: 1/1/2015 12:00:00 AM - 1/1/2016 12:00:00 AM) AND (File extensions: .txt) AND (File length upper bound: 8388608))",
+    "function": "logical_and_filter"
+  },
+  "developer-guide/advanced-usage/indexing/document-filtering-during-indexing#example9": {
+    "type": "text",
+    "file": "logical-or-filter.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-filtering-during-indexing/logical_or_filter/logical-or-filter.txt",
+    "preview": "(((File extensions: .txt) AND (File length upper bound: 5242880)) OR ((NOT (File extensions: .txt)) AND (File length upper bound: 10485760)))",
+    "function": "logical_or_filter"
+  },
+  "developer-guide/advanced-usage/indexing/document-renaming#example1": {
+    "type": "text",
+    "file": "document-renaming.txt",
+    "path": "developer-guide/advanced-usage/indexing/document-renaming/document_renaming/document-renaming.txt",
+    "preview": "Notification applied: True\nIndexed: Newton.txt\nIndexed: NewDocumentName.txt",
+    "function": "document_renaming"
+  },
+  "developer-guide/advanced-usage/indexing/extraction-in-separate-process#example2": {
+    "type": "text",
+    "file": "extraction-in-separate-process.txt",
+    "path": "developer-guide/advanced-usage/indexing/extraction-in-separate-process/extraction_in_separate_process/extraction-in-separate-process.txt",
+    "preview": "Documents found: 2",
+    "function": "extraction_in_separate_process"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-additional-fields#example1": {
+    "type": "text",
+    "file": "indexing-additional-fields.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-additional-fields/indexing_additional_fields/indexing-additional-fields.txt",
+    "preview": "Found: Bhagavad-Gita-lecture.pdf",
+    "function": "indexing_additional_fields"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-from-different-sources#example1": {
+    "type": "text",
+    "file": "indexing-file.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-from-different-sources/indexing_from_a_file/indexing-file.txt",
+    "preview": "Documents found: 1",
+    "function": "indexing_from_a_file"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-from-different-sources#example2": {
+    "type": "text",
+    "file": "indexing-stream.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-from-different-sources/indexing_from_a_stream/indexing-stream.txt",
+    "preview": "Documents found: 1",
+    "function": "indexing_from_a_stream"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-from-different-sources#example3": {
+    "type": "text",
+    "file": "indexing-structure.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-from-different-sources/indexing_from_a_structure/indexing-structure.txt",
+    "preview": "Documents found: 1",
+    "function": "indexing_from_a_structure"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-metadata-of-documents#example1": {
+    "type": "text",
+    "file": "indexing-metadata-of-documents.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-metadata-of-documents/indexing_metadata_of_documents/indexing-metadata-of-documents.txt",
+    "preview": "Documents found: 1",
+    "function": "indexing_metadata_of_documents"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-options#example1": {
+    "type": "text",
+    "file": "cancellation-property.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-options/cancellation_property/cancellation-property.txt",
+    "preview": "Indexed documents: 4",
+    "function": "cancellation_property"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-options#example2": {
+    "type": "text",
+    "file": "is-async-property.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-options/is_async_property/is-async-property.txt",
+    "preview": "Index status: READY\nDocuments found: 3",
+    "function": "is_async_property"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-options#example3": {
+    "type": "text",
+    "file": "threads-property.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-options/threads_property/threads-property.txt",
+    "preview": "Indexed documents: 4",
+    "function": "threads_property"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-options#example4": {
+    "type": "text",
+    "file": "metadata-indexing-options-property.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-options/metadata_indexing_options_property/metadata-indexing-options-property.txt",
+    "preview": "Indexed documents: 4",
+    "function": "metadata_indexing_options_property"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-password-protected-documents#example1": {
+    "type": "text",
+    "file": "indexing-using-the-password-dictionary.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-password-protected-documents/indexing_using_the_password_dictionary/indexing-using-the-password-dictionary.txt",
+    "preview": "Documents found: 1",
+    "function": "indexing_using_the_password_dictionary"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-password-protected-documents#example2": {
+    "type": "text",
+    "file": "indexing-using-the-password-required-event.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-password-protected-documents/indexing_using_the_password_required_event/indexing-using-the-password-required-event.txt",
+    "preview": "Documents found: 1",
+    "function": "indexing_using_the_password_required_event"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-reports#example1": {
+    "type": "text",
+    "file": "indexing-reports.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-reports/indexing_reports/indexing-reports.txt",
+    "preview": "Time: 2026-10-29 19:05:39.198203+02:00\nDuration: 0:00:00.135150\nDocuments total: 2\nTerms total: 86\nIndexed documents size (MB): 0.000308990478515625\nIndex size (MB): 2.0021800994873047\nSegments: 1\nIndexed documents: 2\n\nTime: 2026-10-29 19:05:39.333857+02:00\n[TRUNCATED]",
+    "function": "indexing_reports"
+  },
+  "developer-guide/advanced-usage/indexing/indexing-with-stop-words#example1": {
+    "type": "text",
+    "file": "indexing-with-stop-words.txt",
+    "path": "developer-guide/advanced-usage/indexing/indexing-with-stop-words/indexing_with_stop_words/indexing-with-stop-words.txt",
+    "preview": "Documents found: 2",
+    "function": "indexing_with_stop_words"
+  },
+  "developer-guide/advanced-usage/indexing/logging#example1": {
+    "type": "file",
+    "file": "log.txt",
+    "path": "developer-guide/advanced-usage/indexing/logging/use_of_standard_file_logger/log.txt",
+    "preview": "2026-10-29 19:05:40.145\tIndex created on disk.\n2026-10-29 19:05:40.146\tIndexing started\n2026-10-29 19:05:40.282\tIndexing finished",
+    "function": "use_of_standard_file_logger"
+  },
+  "developer-guide/advanced-usage/indexing/logging#example3": {
+    "type": "text",
+    "file": "implementing-custom-logger-2.txt",
+    "path": "developer-guide/advanced-usage/indexing/logging/implementing_custom_logger_2/implementing-custom-logger-2.txt",
+    "preview": "Index created on disk.",
+    "function": "implementing_custom_logger_2"
+  },
+  "developer-guide/advanced-usage/indexing/merge-indexes#example1": {
+    "type": "text",
+    "file": "merging.txt",
+    "path": "developer-guide/advanced-usage/indexing/merge-indexes/merging_example/merging.txt",
+    "preview": "Documents in index1: 3",
+    "function": "merging_example"
+  },
+  "developer-guide/advanced-usage/indexing/ocr-support#example1": {
+    "type": "text",
+    "file": "ocr-support.txt",
+    "path": "developer-guide/advanced-usage/indexing/ocr-support/ocr_support/ocr-support.txt",
+    "preview": "Image: SEPARATE, extension '', 14241 bytes\nImage: EMBEDDED, extension '', 14241 bytes\nDocuments found: 1",
+    "function": "ocr_support"
+  },
+  "developer-guide/advanced-usage/indexing/ocr-support#example2": {
+    "type": "text",
+    "file": "ocr-support-2.txt",
+    "path": "developer-guide/advanced-usage/indexing/ocr-support/ocr_support_2/ocr-support-2.txt",
+    "preview": "Image to recognize: SEPARATE, extension '', 14241 bytes",
+    "function": "ocr_support_2"
+  },
+  "developer-guide/advanced-usage/indexing/ocr-support#example3": {
+    "type": "text",
+    "file": "ocr-support-3.txt",
+    "path": "developer-guide/advanced-usage/indexing/ocr-support/ocr_support_3/ocr-support-3.txt",
+    "preview": "pytesseract is not installed: an image of 14241 bytes is not recognized",
+    "function": "ocr_support_3"
+  },
+  "developer-guide/advanced-usage/indexing/optimize-index#example1": {
+    "type": "text",
+    "file": "optimize-index.txt",
+    "path": "developer-guide/advanced-usage/indexing/optimize-index/optimize_index/optimize-index.txt",
+    "preview": "Segment count: 1",
+    "function": "optimize_index"
+  },
+  "developer-guide/advanced-usage/indexing/separate-data-extraction#example1": {
+    "type": "text",
+    "file": "separate-data-extraction.txt",
+    "path": "developer-guide/advanced-usage/indexing/separate-data-extraction/separate_data_extraction/separate-data-extraction.txt",
+    "preview": "Documents found: 1",
+    "function": "separate_data_extraction"
+  },
+  "developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents#example1": {
+    "type": "text",
+    "file": "storing-text-of-indexed-documents.txt",
+    "path": "developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents/storing_text_of_indexed_documents/storing-text-of-indexed-documents.txt",
+    "preview": "Documents found: 2",
+    "function": "storing_text_of_indexed_documents"
+  },
+  "developer-guide/advanced-usage/indexing/text-file-encoding-detection#example1": {
+    "type": "text",
+    "file": "text-file-encoding-detection.txt",
+    "path": "developer-guide/advanced-usage/indexing/text-file-encoding-detection/text_file_encoding_detection/text-file-encoding-detection.txt",
+    "preview": "Documents found: 1",
+    "function": "text_file_encoding_detection"
+  },
+  "developer-guide/advanced-usage/indexing/text-file-encoding-detection#example2": {
+    "type": "text",
+    "file": "text-file-encoding-detection-2.txt",
+    "path": "developer-guide/advanced-usage/indexing/text-file-encoding-detection/text_file_encoding_detection_2/text-file-encoding-detection-2.txt",
+    "preview": "chardet is not installed: the default encoding is used\nchardet is not installed: the default encoding is used",
+    "function": "text_file_encoding_detection_2"
+  },
+  "developer-guide/advanced-usage/indexing/update-index#example1": {
+    "type": "text",
+    "file": "update-indexed-documents.txt",
+    "path": "developer-guide/advanced-usage/indexing/update-index/update_indexed_documents/update-indexed-documents.txt",
+    "preview": "Indexed documents: 2",
+    "function": "update_indexed_documents"
+  },
+  "developer-guide/advanced-usage/indexing/update-index#example2": {
+    "type": "text",
+    "file": "update-index-version.txt",
+    "path": "developer-guide/advanced-usage/indexing/update-index/update_index_version/update-index-version.txt",
+    "preview": "The index is updated: 4 documents",
+    "function": "update_index_version"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/alias-dictionary#example1": {
+    "type": "text",
+    "file": "alias-dictionary.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/alias-dictionary/alias_dictionary/alias-dictionary.txt",
+    "preview": "e - (Einstein OR Albert)\nDocuments found: 2",
+    "function": "alias_dictionary"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/alphabet#example1": {
+    "type": "text",
+    "file": "alphabet.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/alphabet/alphabet/alphabet.txt",
+    "preview": "The type of hyphen: SEPARATOR\nThe type of U+1D400: LETTER\nThe type of U+1D41A: LETTER\nCharacters that are not separators: 2337",
+    "function": "alphabet"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/alphabet#example2": {
+    "type": "text",
+    "file": "alphabet-2.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/alphabet/alphabet_2/alphabet-2.txt",
+    "preview": "Characters that are not separators: 2337",
+    "function": "alphabet_2"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/character-replacements#example1": {
+    "type": "text",
+    "file": "character-replacements.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/character-replacements/character_replacements/character-replacements.txt",
+    "preview": "Character replacements: 3\nThe replacement for Ä is a",
+    "function": "character_replacements"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/document-passwords#example1": {
+    "type": "text",
+    "file": "document-passwords.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/document-passwords/document_passwords/document-passwords.txt",
+    "preview": "Documents found: 1",
+    "function": "document_passwords"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/homophone-dictionary#example1": {
+    "type": "text",
+    "file": "homophone-dictionary.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/homophone-dictionary/homophone_dictionary/homophone-dictionary.txt",
+    "preview": "Homophones for 'braid':\nbrayed\nHomophone groups for 'braid':\nbraid brayed\nWords in the dictionary: 7",
+    "function": "homophone_dictionary"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/spelling-corrector#example1": {
+    "type": "text",
+    "file": "spelling-corrector.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/spelling-corrector/spelling_corrector/spelling-corrector.txt",
+    "preview": "Words in the dictionary: 4",
+    "function": "spelling_corrector"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/stop-word-dictionary#example1": {
+    "type": "text",
+    "file": "stop-word-dictionary.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/stop-word-dictionary/stop_word_dictionary/stop-word-dictionary.txt",
+    "preview": "Stop words: 3",
+    "function": "stop_word_dictionary"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary#example1": {
+    "type": "text",
+    "file": "synonym-dictionary.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary/synonym_dictionary/synonym-dictionary.txt",
+    "preview": "Synonyms for 'make':\nbrand\nconstruct\nbuild\ncook\nfix\nready\nprepare\ninduce\nstimulate\n[TRUNCATED]",
+    "function": "synonym_dictionary"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary#example2": {
+    "type": "text",
+    "file": "tokenization-dictionary-2.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary/tokenization_dictionary_2/tokenization-dictionary-2.txt",
+    "preview": "The type of U+3042: SEPARATOR\nCharacters that are not separators: 101197\nDocuments found: 1",
+    "function": "tokenization_dictionary_2"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary#example3": {
+    "type": "text",
+    "file": "tokenization-dictionary-3.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary/tokenization_dictionary_3/tokenization-dictionary-3.txt",
+    "preview": "Characters that are not separators: 101197",
+    "function": "tokenization_dictionary_3"
+  },
+  "developer-guide/advanced-usage/managing-dictionaries/word-forms-provider#example2": {
+    "type": "text",
+    "file": "word-forms-provider-2.txt",
+    "path": "developer-guide/advanced-usage/managing-dictionaries/word-forms-provider/word_forms_provider_2/word-forms-provider-2.txt",
+    "preview": "documents\\einstein-notes.txt\n\tFound words: relative, relatives",
+    "function": "word_forms_provider_2"
+  },
+  "developer-guide/advanced-usage/searching/boolean-search#example1": {
+    "type": "text",
+    "file": "operator-and.txt",
+    "path": "developer-guide/advanced-usage/searching/boolean-search/operator_and/operator-and.txt",
+    "preview": "Documents found by the text query: 2\nDocuments found by the object query: 2\n    einstein-biography.txt\n    relativity-primer.txt",
+    "function": "operator_and"
+  },
+  "developer-guide/advanced-usage/searching/boolean-search#example2": {
+    "type": "text",
+    "file": "operator-or.txt",
+    "path": "developer-guide/advanced-usage/searching/boolean-search/operator_or/operator-or.txt",
+    "preview": "Documents found by the text query: 4\nDocuments found by the object query: 4\n    einstein-biography.txt ['einstein', 'relativity']\n    gravity-notes.txt ['relativity']\n    nobel-prize.txt ['einstein']\n    relativity-primer.txt ['relativity']",
+    "function": "operator_or"
+  },
+  "developer-guide/advanced-usage/searching/boolean-search#example3": {
+    "type": "text",
+    "file": "operator-not.txt",
+    "path": "developer-guide/advanced-usage/searching/boolean-search/operator_not/operator-not.txt",
+    "preview": "Documents found by the text query: 2\nDocuments found by the object query: 2\n    gravity-notes.txt\n    relativity-primer.txt",
+    "function": "operator_not"
+  },
+  "developer-guide/advanced-usage/searching/boolean-search#example4": {
+    "type": "text",
+    "file": "complex-queries.txt",
+    "path": "developer-guide/advanced-usage/searching/boolean-search/complex_queries/complex-queries.txt",
+    "preview": "Documents found by the text query: 1\nDocuments found by the object query: 1\n    relativity-primer.txt",
+    "function": "complex_queries"
+  },
+  "developer-guide/advanced-usage/searching/boolean-search#example5": {
+    "type": "text",
+    "file": "complex-queries-2.txt",
+    "path": "developer-guide/advanced-usage/searching/boolean-search/complex_queries_2/complex-queries-2.txt",
+    "preview": "Query: ((theory AND special) AND relativity)\nDocuments found: 1\n    relativity-primer.txt",
+    "function": "complex_queries_2"
+  },
+  "developer-guide/advanced-usage/searching/case-sensitive-search#example1": {
+    "type": "text",
+    "file": "case-sensitive-search.txt",
+    "path": "developer-guide/advanced-usage/searching/case-sensitive-search/case_sensitive_search/case-sensitive-search.txt",
+    "preview": "Documents found: 1\n    operating-systems.txt ['Windows']",
+    "function": "case_sensitive_search"
+  },
+  "developer-guide/advanced-usage/searching/case-sensitive-search#example2": {
+    "type": "text",
+    "file": "case-sensitive-search-2.txt",
+    "path": "developer-guide/advanced-usage/searching/case-sensitive-search/case_sensitive_search_2/case-sensitive-search-2.txt",
+    "preview": "Documents found: 1\n    operating-systems.txt ['Windows']",
+    "function": "case_sensitive_search_2"
+  },
+  "developer-guide/advanced-usage/searching/date-range-search#example1": {
+    "type": "text",
+    "file": "creating-date-range-search-queries.txt",
+    "path": "developer-guide/advanced-usage/searching/date-range-search/creating_date_range_search_queries/creating-date-range-search-queries.txt",
+    "preview": "Documents found by the text query: 3\nDocuments found by the object query: 3\n    catalogue-us.txt\n    observatory-log.txt\n    seminar-programme.txt",
+    "function": "creating_date_range_search_queries"
+  },
+  "developer-guide/advanced-usage/searching/date-range-search#example2": {
+    "type": "text",
+    "file": "specifying-date-range-search-formats.txt",
+    "path": "developer-guide/advanced-usage/searching/date-range-search/specifying_date_range_search_formats/specifying-date-range-search-formats.txt",
+    "preview": "Documents found: 1\n    catalogue-us.txt",
+    "function": "specifying_date_range_search_formats"
+  },
+  "developer-guide/advanced-usage/searching/date-range-search#example3": {
+    "type": "text",
+    "file": "specifying-date-range-search-formats-2.txt",
+    "path": "developer-guide/advanced-usage/searching/date-range-search/specifying_date_range_search_formats_2/specifying-date-range-search-formats-2.txt",
+    "preview": "Date formats: dd\\.MM\\.yyyy, MM\\/dd\\/yyyy, yyyy\\-MM\\-dd, dd/MMMM/yyyy\nDocuments found: 3\n    catalogue-us.txt\n    observatory-log.txt\n    seminar-programme.txt",
+    "function": "specifying_date_range_search_formats_2"
+  },
+  "developer-guide/advanced-usage/searching/document-filtering-in-search-result#example1": {
+    "type": "text",
+    "file": "setting-a-filter.txt",
+    "path": "developer-guide/advanced-usage/searching/document-filtering-in-search-result/setting_a_filter/setting-a-filter.txt",
+    "preview": "Documents found: 1\n    einstein-biography.txt",
+    "function": "setting_a_filter"
+  },
+  "developer-guide/advanced-usage/searching/document-filtering-in-search-result#example2": {
+    "type": "text",
+    "file": "file-path-filters.txt",
+    "path": "developer-guide/advanced-usage/searching/document-filtering-in-search-result/file_path_filters/file-path-filters.txt",
+    "preview": "Documents found: 2\n    einstein-biography.txt\n    einstein-relativity.fb2",
+    "function": "file_path_filters"
+  },
+  "developer-guide/advanced-usage/searching/document-filtering-in-search-result#example3": {
+    "type": "text",
+    "file": "file-extension-filter.txt",
+    "path": "developer-guide/advanced-usage/searching/document-filtering-in-search-result/file_extension_filter/file-extension-filter.txt",
+    "preview": "Documents found: 2\n    einstein-relativity.fb2\n    relativity-guide.epub",
+    "function": "file_extension_filter"
+  },
+  "developer-guide/advanced-usage/searching/document-filtering-in-search-result#example4": {
+    "type": "text",
+    "file": "attribute-filter.txt",
+    "path": "developer-guide/advanced-usage/searching/document-filtering-in-search-result/attribute_filter/attribute-filter.txt",
+    "preview": "Documents found: 1\n    relativity-lecture.pdf",
+    "function": "attribute_filter"
+  },
+  "developer-guide/advanced-usage/searching/document-filtering-in-search-result#example5": {
+    "type": "text",
+    "file": "combining-filters.txt",
+    "path": "developer-guide/advanced-usage/searching/document-filtering-in-search-result/combining_filters/combining-filters.txt",
+    "preview": "((File name regex: Einstein) AND (File extensions: .fb2, .epub)) - documents found: 1\n    einstein-relativity.fb2\n((File name regex: Einstein) OR (File extensions: .doc, .docx, .pdf)) - documents found: 4\n    einstein-biography.txt\n    einstein-relativity.fb2\n    relativity-lecture.pdf\n    relativity-primer.docx\n(NOT (File extensions: .txt)) - documents found: 4\n    einstein-relativity.fb2\n    relativity-guide.epub\n[TRUNCATED]",
+    "function": "combining_filters"
+  },
+  "developer-guide/advanced-usage/searching/faceted-search#example1": {
+    "type": "text",
+    "file": "creating-faceted-search-queries.txt",
+    "path": "developer-guide/advanced-usage/searching/faceted-search/creating_faceted_search_queries/creating-faceted-search-queries.txt",
+    "preview": "Documents found by the text query: 2\nDocuments found by the object query: 2\n    einstein-biography.txt ['content']\n    nobel-prize.txt ['content']\nDocuments found in all fields: 3\n    albert-einstein-letters.txt ['filename']\n    einstein-biography.txt ['filename', 'content']\n    nobel-prize.txt ['content']",
+    "function": "creating_faceted_search_queries"
+  },
+  "developer-guide/advanced-usage/searching/faceted-search#example2": {
+    "type": "text",
+    "file": "creating-faceted-search-queries-2.txt",
+    "path": "developer-guide/advanced-usage/searching/faceted-search/creating_faceted_search_queries_2/creating-faceted-search-queries-2.txt",
+    "preview": "Documents found by the text query: 3\nDocuments found by the object query: 3\n    albert-einstein-letters.txt ['filename']\n    einstein-biography.txt ['content']\n    relativity-primer.txt ['content']",
+    "function": "creating_faceted_search_queries_2"
+  },
+  "developer-guide/advanced-usage/searching/faceted-search#example3": {
+    "type": "text",
+    "file": "using-format-specific-fields.txt",
+    "path": "developer-guide/advanced-usage/searching/faceted-search/using_format_specific_fields/using-format-specific-fields.txt",
+    "preview": "Documents found by the text query: 1\nDocuments found by the object query: 1\n    annual-report.docx ['company']",
+    "function": "using_format_specific_fields"
+  },
+  "developer-guide/advanced-usage/searching/fuzzy-search#example1": {
+    "type": "text",
+    "file": "fuzzy-search-features.txt",
+    "path": "developer-guide/advanced-usage/searching/fuzzy-search/fuzzy_search_features/fuzzy-search-features.txt",
+    "preview": "Documents found: 3\n    einstein-biography.txt ['einstein']\n    newspaper-archive.txt ['einstain', 'einstien']\n    nobel-prize.txt ['einstein']",
+    "function": "fuzzy_search_features"
+  },
+  "developer-guide/advanced-usage/searching/fuzzy-search#example2": {
+    "type": "text",
+    "file": "fuzzy-search-features-2.txt",
+    "path": "developer-guide/advanced-usage/searching/fuzzy-search/fuzzy_search_features_2/fuzzy-search-features-2.txt",
+    "preview": "Documents found: 3\n    einstein-biography.txt ['einstein']\n    newspaper-archive.txt ['einstain', 'einstien', 'eynstajn']\n    nobel-prize.txt ['einstein']",
+    "function": "fuzzy_search_features_2"
+  },
+  "developer-guide/advanced-usage/searching/getting-indexed-documents#example1": {
+    "type": "text",
+    "file": "getting-indexed-documents.txt",
+    "path": "developer-guide/advanced-usage/searching/getting-indexed-documents/getting_indexed_documents/getting-indexed-documents.txt",
+    "preview": "documents\\einstein-biography.txt\ndocuments\\letters-archive.zip\n\tletters\\letter-1905.txt\n\tletters\\letter-1915.txt\n\treadme.txt\ndocuments\\relativity-primer.txt",
+    "function": "getting_indexed_documents"
+  },
+  "developer-guide/advanced-usage/searching/getting-indexed-documents#example2": {
+    "type": "text",
+    "file": "getting-indexed-documents-2.txt",
+    "path": "developer-guide/advanced-usage/searching/getting-indexed-documents/getting_indexed_documents_2/getting-indexed-documents-2.txt",
+    "preview": "documents\\einstein-biography.txt (.txt)",
+    "function": "getting_indexed_documents_2"
+  },
+  "developer-guide/advanced-usage/searching/getting-indexed-documents#example3": {
+    "type": "file",
+    "file": "Text.html",
+    "path": "developer-guide/advanced-usage/searching/getting-indexed-documents/getting_text_of_indexed_documents/Text.html",
+    "preview": "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<title>documents\\einstein-biography.txt</title>\n</head>\n<body>\n<p>documents\\einstein-biography.txt</p>\n<p></p>\n<h3>filename</h3>\n[TRUNCATED]",
+    "function": "getting_text_of_indexed_documents"
+  },
+  "developer-guide/advanced-usage/searching/highlighting-search-results#example1": {
+    "type": "file",
+    "file": "Highlighted.txt",
+    "path": "developer-guide/advanced-usage/searching/highlighting-search-results/hit_highlighting_in_the_text_of_entire_document/Highlighted.txt",
+    "preview": "filename: documents\\einstein-biography.txt\nformatfamily: wordprocessing\ncreationdate: 10/29/2026 19:06:04\nmodificationdate: 10/29/2026 18:00:18\ncontent: Albert Einstein was a theoretical physicist who developed the theory of relativity.\nIn 1905 Einstein published his first paper on relativity, and in 1915 he completed the general theory of relativity.\nHis work changed our picture of the <Term>Universe</Term>: space and time form one fabric that mass can bend.",
+    "function": "hit_highlighting_in_the_text_of_entire_document"
+  },
+  "developer-guide/advanced-usage/searching/highlighting-search-results#example2": {
+    "type": "file",
+    "file": "Fragments.html",
+    "path": "developer-guide/advanced-usage/searching/highlighting-search-results/hit_highlighting_in_text_fragments/Fragments.html",
+    "preview": "<p>documents\\<a title=\"einstein\" name=\"hit0\"><span style=\"background-color: rgba(0, 0, 127, 1);\">einstein</span></a>-biography.txt</p>\n<p>/2026 18:00:18Albert <a title=\"einstein\" name=\"hit1\"><span style=\"background-color: rgba(0, 0, 127, 1);\">Einstein</span></a> was a theoretical physicist who</p>\n<p> theory of relativity.<br>\n\nIn 1905 <a title=\"einstein\" name=\"hit2\"><span style=\"background-color: rgba(0, 0, 127, 1);\">Einstein</span></a> published his first paper on</p>",
+    "function": "hit_highlighting_in_text_fragments"
+  },
+  "developer-guide/advanced-usage/searching/homophone-search#example1": {
+    "type": "text",
+    "file": "homophone-search.txt",
+    "path": "developer-guide/advanced-usage/searching/homophone-search/homophone_search/homophone-search.txt",
+    "preview": "Documents found: 2\n    coal-mining.txt ['coal', 'cole']\n    cosmetics-history.txt ['kohl']",
+    "function": "homophone_search"
+  },
+  "developer-guide/advanced-usage/searching/keyboard-layout-correction#example1": {
+    "type": "text",
+    "file": "keyboard-layout-correction.txt",
+    "path": "developer-guide/advanced-usage/searching/keyboard-layout-correction/keyboard_layout_correction/keyboard-layout-correction.txt",
+    "preview": "Documents found: 2\n    einstein-biography.txt ['einstein']\n    nobel-prize.txt ['einstein']",
+    "function": "keyboard_layout_correction"
+  },
+  "developer-guide/advanced-usage/searching/nesting-search-queries-in-object-form#example1": {
+    "type": "text",
+    "file": "nesting-search-queries-in-object-form.txt",
+    "path": "developer-guide/advanced-usage/searching/nesting-search-queries-in-object-form/nesting_search_queries_in_object_form/nesting-search-queries-in-object-form.txt",
+    "preview": "content:\"theory of *0~~1 relativity\"\n\ttheory (field: content)\n\tof (field: content)\n\t*0~~1 (field: content)\n\trelativity (field: content)\nDocuments found: 2\n    einstein-biography.txt\n        theory * relativity\n    relativity-primer.txt\n        theory * relativity\n[TRUNCATED]",
+    "function": "nesting_search_queries_in_object_form"
+  },
+  "developer-guide/advanced-usage/searching/numeric-range-search#example1": {
+    "type": "text",
+    "file": "numeric-range-search.txt",
+    "path": "developer-guide/advanced-usage/searching/numeric-range-search/numeric_range_search/numeric-range-search.txt",
+    "preview": "Documents found by the text query: 1\nDocuments found by the object query: 1\n    library-stats.txt ['550']",
+    "function": "numeric_range_search"
+  },
+  "developer-guide/advanced-usage/searching/output-adapters#example1": {
+    "type": "file",
+    "file": "Stream.html",
+    "path": "developer-guide/advanced-usage/searching/output-adapters/output_adapters/Stream.html",
+    "preview": "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<title>documents\\einstein-biography.txt</title>\n</head>\n<body>\n<p>documents\\einstein-biography.txt</p>\n<p></p>\n<h3>filename</h3>\n[TRUNCATED]",
+    "function": "output_adapters"
+  },
+  "developer-guide/advanced-usage/searching/phrase-search#example1": {
+    "type": "text",
+    "file": "phrase-search-in-groupdocs-search.txt",
+    "path": "developer-guide/advanced-usage/searching/phrase-search/phrase_search_in_groupdocs_search/phrase-search-in-groupdocs-search.txt",
+    "preview": "Documents found by the text query: 2\nDocuments found by the object query: 2\n    einstein-biography.txt\n    relativity-primer.txt",
+    "function": "phrase_search_in_groupdocs_search"
+  },
+  "developer-guide/advanced-usage/searching/phrase-search#example2": {
+    "type": "text",
+    "file": "phrase-search-with-wildcards.txt",
+    "path": "developer-guide/advanced-usage/searching/phrase-search/phrase_search_with_wildcards/phrase-search-with-wildcards.txt",
+    "preview": "Documents found by the text query: 2\nDocuments found by the object query: 2\n    einstein-biography.txt\n        theory * relativity\n    relativity-primer.txt\n        theory * relativity\n        theory * * relativity",
+    "function": "phrase_search_with_wildcards"
+  },
+  "developer-guide/advanced-usage/searching/phrase-search#example3": {
+    "type": "text",
+    "file": "phrase-search-with-wildcards-2.txt",
+    "path": "developer-guide/advanced-usage/searching/phrase-search/phrase_search_with_wildcards_2/phrase-search-with-wildcards-2.txt",
+    "preview": "Documents found by the text query: 1\nDocuments found by the object query: 1\n    relativity-primer.txt\n        test * * relativity\n        tests * * relativity",
+    "function": "phrase_search_with_wildcards_2"
+  },
+  "developer-guide/advanced-usage/searching/queries-in-text-and-object-form#example1": {
+    "type": "text",
+    "file": "queries-in-text-and-object-form.txt",
+    "path": "developer-guide/advanced-usage/searching/queries-in-text-and-object-form/queries_in_text_and_object_form/queries-in-text-and-object-form.txt",
+    "preview": "Documents found: 1\n    launch-plan.txt\n        future 12 balloons\n        picture 3 balloons",
+    "function": "queries_in_text_and_object_form"
+  },
+  "developer-guide/advanced-usage/searching/regular-expression-search#example1": {
+    "type": "text",
+    "file": "regular-expression-search.txt",
+    "path": "developer-guide/advanced-usage/searching/regular-expression-search/regular_expression_search/regular-expression-search.txt",
+    "preview": "Documents found by the text query: 3\nDocuments found by the object query: 3\n    library-stats.txt ['00', '550']\n    quantum-theory.txt ['00']\n    zoo-guide.txt ['00', 'aardvark', 'eel', 'llama']",
+    "function": "regular_expression_search"
+  },
+  "developer-guide/advanced-usage/searching/regular-expression-search#example2": {
+    "type": "text",
+    "file": "regular-expression-search-2.txt",
+    "path": "developer-guide/advanced-usage/searching/regular-expression-search/regular_expression_search_2/regular-expression-search-2.txt",
+    "preview": "Documents found: 3\n    library-stats.txt ['00', '550']\n    quantum-theory.txt ['00']\n    zoo-guide.txt ['00', 'aardvark', 'eel', 'llama']",
+    "function": "regular_expression_search_2"
+  },
+  "developer-guide/advanced-usage/searching/reverse-image-search#example1": {
+    "type": "text",
+    "file": "reverse-image-search.txt",
+    "path": "developer-guide/advanced-usage/searching/reverse-image-search/reverse_image_search/reverse-image-search.txt",
+    "preview": "Images found: 3\nholiday-photos.zip / photos\\sunset.png, image 0, frame 0, different bits: 0\nsunset.png, image 0, frame 0, different bits: 0\nsunset-brighter.png, image 0, frame 0, different bits: 4",
+    "function": "reverse_image_search"
+  },
+  "developer-guide/advanced-usage/searching/search-by-chunks#example1": {
+    "type": "text",
+    "file": "how-to-perform-search-by-chunks.txt",
+    "path": "developer-guide/advanced-usage/searching/search-by-chunks/how_to_perform_search_by_chunks/how-to-perform-search-by-chunks.txt",
+    "preview": "Index segments: 5\nDocument count: 1\nOccurrence count: 3\nDocument count: 1\nOccurrence count: 1",
+    "function": "how_to_perform_search_by_chunks"
+  },
+  "developer-guide/advanced-usage/searching/search-by-chunks#example2": {
+    "type": "text",
+    "file": "cancellation-of-search-by-chunks.txt",
+    "path": "developer-guide/advanced-usage/searching/search-by-chunks/cancellation_of_search_by_chunks/cancellation-of-search-by-chunks.txt",
+    "preview": "Document count: 1\nDocument count: 1",
+    "function": "cancellation_of_search_by_chunks"
+  },
+  "developer-guide/advanced-usage/searching/search-for-different-word-forms#example1": {
+    "type": "text",
+    "file": "search-different-word-forms.txt",
+    "path": "developer-guide/advanced-usage/searching/search-for-different-word-forms/search_for_different_word_forms/search-different-word-forms.txt",
+    "preview": "Documents found: 1\n    family-visit.txt ['relative', 'relatives', 'relatively']",
+    "function": "search_for_different_word_forms"
+  },
+  "developer-guide/advanced-usage/searching/search-for-text-containing-special-characters#example1": {
+    "type": "text",
+    "file": "search-text-containing-special-characters.txt",
+    "path": "developer-guide/advanced-usage/searching/search-for-text-containing-special-characters/search_for_text_containing_special_characters/search-text-containing-special-characters.txt",
+    "preview": "Query: \"rock\\&roll music\"\nDocuments found: 1\n    music-history.txt",
+    "function": "search_for_text_containing_special_characters"
+  },
+  "developer-guide/advanced-usage/searching/search-options#example1": {
+    "type": "text",
+    "file": "retrieve-attributes-property.txt",
+    "path": "developer-guide/advanced-usage/searching/search-options/retrieve_attributes_property/retrieve-attributes-property.txt",
+    "preview": "documents\\einstein-biography.txt: main, biography\ndocuments\\nobel-prize.txt:",
+    "function": "retrieve_attributes_property"
+  },
+  "developer-guide/advanced-usage/searching/search-options#example2": {
+    "type": "text",
+    "file": "incompatible-options.txt",
+    "path": "developer-guide/advanced-usage/searching/search-options/incompatible_options/incompatible-options.txt",
+    "preview": "Case-sensitive search is not supported together with fuzzy search.\nDocument count: 0",
+    "function": "incompatible_options"
+  },
+  "developer-guide/advanced-usage/searching/search-reports#example1": {
+    "type": "text",
+    "file": "search-reports.txt",
+    "path": "developer-guide/advanced-usage/searching/search-reports/search_reports/search-reports.txt",
+    "preview": "Query: Einstein\nTime: 2026-10-29 19:06:16.346091+02:00\nDuration: 0:00:00.020339\nDocuments: 1\nOccurrences: 3\n\nQuery: \"Theory of Relativity\"\nTime: 2026-10-29 19:06:16.366760+02:00\nDuration: 0:00:00.000273\nDocuments: 2\n[TRUNCATED]",
+    "function": "search_reports"
+  },
+  "developer-guide/advanced-usage/searching/search-results#example1": {
+    "type": "text",
+    "file": "search-results.txt",
+    "path": "developer-guide/advanced-usage/searching/search-results/search_results/search-results.txt",
+    "preview": "Documents: 3\nTotal occurrences: 9\n\tDocument: documents\\einstein-biography.txt\n\tOccurrences: 5\n\t\tField: filename\n\t\tOccurrences: 1\n\t\t\teinstein            1\n\t\tField: content\n\t\tOccurrences: 4\n\t\t\teinstein            2\n[TRUNCATED]",
+    "function": "search_results"
+  },
+  "developer-guide/advanced-usage/searching/spell-checking#example1": {
+    "type": "text",
+    "file": "spell-checking.txt",
+    "path": "developer-guide/advanced-usage/searching/spell-checking/spell_checking/spell-checking.txt",
+    "preview": "Documents found: 2\n    einstein-biography.txt ['relativity']\n    relativity-primer.txt ['relativity']",
+    "function": "spell_checking"
+  },
+  "developer-guide/advanced-usage/searching/synonym-search#example1": {
+    "type": "text",
+    "file": "synonym-search.txt",
+    "path": "developer-guide/advanced-usage/searching/synonym-search/synonym_search/synonym-search.txt",
+    "preview": "Documents found: 1\n    correspondence.txt ['reply', 'response']",
+    "function": "synonym_search"
+  },
+  "developer-guide/advanced-usage/searching/using-aliases#example1": {
+    "type": "text",
+    "file": "using-aliases.txt",
+    "path": "developer-guide/advanced-usage/searching/using-aliases/using_aliases/using-aliases.txt",
+    "preview": "Documents found: 4\n    einstein-biography.txt ['einstein', 'theory', 'relativity', 'albert']\n    nobel-prize.txt ['einstein']\n    quantum-theory.txt ['theory']\n    relativity-primer.txt ['relativity', 'theory']",
+    "function": "using_aliases"
+  },
+  "developer-guide/advanced-usage/searching/wildcard-search#example1": {
+    "type": "text",
+    "file": "wildcard-search.txt",
+    "path": "developer-guide/advanced-usage/searching/wildcard-search/wildcard_search/wildcard-search.txt",
+    "preview": "m?rry - documents found: 1\n    word-games.txt ['marry', 'merry']\ncard?(1~6) - documents found: 1\n    word-games.txt ['cardiff', 'cardinal', 'cardio', 'cards']",
+    "function": "wildcard_search"
+  },
+  "developer-guide/advanced-usage/searching/wildcard-search#example2": {
+    "type": "text",
+    "file": "wildcard-search-2.txt",
+    "path": "developer-guide/advanced-usage/searching/wildcard-search/wildcard_search_2/wildcard-search-2.txt",
+    "preview": "m?rry - documents found: 1\n    word-games.txt ['marry', 'merry']\ncard?(1~6) - documents found: 1\n    word-games.txt ['cardiff', 'cardinal', 'cardio', 'cards']",
+    "function": "wildcard_search_2"
+  },
+  "developer-guide/basic-usage/build-search-query#example1": {
+    "type": "text",
+    "file": "build-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/build_search_query/build-search-query.txt",
+    "preview": "Indexed documents: 4",
+    "function": "build_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example2": {
+    "type": "text",
+    "file": "simple-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/simple_search_query/simple-search-query.txt",
+    "preview": "Documents found: 2",
+    "function": "simple_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example3": {
+    "type": "text",
+    "file": "wildcard-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/wildcard_search_query/wildcard-search-query.txt",
+    "preview": "documents\\einstein.txt ['affect']\ndocuments\\nobel-prize-1921.txt ['effect']",
+    "function": "wildcard_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example4": {
+    "type": "text",
+    "file": "wildcard-search-query-2.txt",
+    "path": "developer-guide/basic-usage/build-search-query/wildcard_search_query_2/wildcard-search-query-2.txt",
+    "preview": "documents\\einstein.txt ['principle', 'principles']\ndocuments\\nobel-prize-1921.txt ['principal']",
+    "function": "wildcard_search_query_2"
+  },
+  "developer-guide/basic-usage/build-search-query#example5": {
+    "type": "text",
+    "file": "faceted-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/faceted_search_query/faceted-search-query.txt",
+    "preview": "Documents found: 2",
+    "function": "faceted_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example6": {
+    "type": "text",
+    "file": "numeric-range-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/numeric_range_search_query/numeric-range-search-query.txt",
+    "preview": "documents\\einstein.txt ['2026']\ndocuments\\nobel-prize-1921.txt ['2026', '2001', '2500']\ndocuments\\relativity.txt ['2026']\ndocuments\\time.txt ['2026']",
+    "function": "numeric_range_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example7": {
+    "type": "text",
+    "file": "date-range-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/date_range_search_query/date-range-search-query.txt",
+    "preview": "Documents found: 1",
+    "function": "date_range_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example8": {
+    "type": "text",
+    "file": "regular-expression-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/regular_expression_search_query/regular-expression-search-query.txt",
+    "preview": "documents\\nobel-prize-1921.txt ['www']",
+    "function": "regular_expression_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example9": {
+    "type": "text",
+    "file": "boolean-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/boolean_search_query/boolean-search-query.txt",
+    "preview": "Documents found: 1",
+    "function": "boolean_search_query"
+  },
+  "developer-guide/basic-usage/build-search-query#example10": {
+    "type": "text",
+    "file": "boolean-search-query-2.txt",
+    "path": "developer-guide/basic-usage/build-search-query/boolean_search_query_2/boolean-search-query-2.txt",
+    "preview": "Documents found: 3",
+    "function": "boolean_search_query_2"
+  },
+  "developer-guide/basic-usage/build-search-query#example11": {
+    "type": "text",
+    "file": "phrase-search-query.txt",
+    "path": "developer-guide/basic-usage/build-search-query/phrase_search_query/phrase-search-query.txt",
+    "preview": "Documents found: 1",
+    "function": "phrase_search_query"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example1": {
+    "type": "text",
+    "file": "step-1-create-new-index.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_1_create_new_index/step-1-create-new-index.txt",
+    "preview": "Index folder: index",
+    "function": "step_1_create_new_index"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example2": {
+    "type": "text",
+    "file": "step-2-open-existing-index.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_2_open_existing_index/step-2-open-existing-index.txt",
+    "preview": "Indexed documents: 5",
+    "function": "step_2_open_existing_index"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example3": {
+    "type": "text",
+    "file": "step-3-subscribe-to-index-events.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_3_subscribe_to_index_events/step-3-subscribe-to-index-events.txt",
+    "preview": "Error during text extraction from documents\\protected.docx\r\nGroupDocs.Parser.Exceptions.InvalidPasswordException: Exception of type 'GroupDocs.Parser.Exceptions.InvalidPasswordException' was thrown.\r\n   at \u0005\u0015\u001b.\u0002(Stream \u0002, LoadOptions \b, Boolean \u0005)\r\n   at \b\u0019\u001b.\u0002()\r\n   at \b\u0019\u001b.\u000e\u0010\u001a\u0003\u0016\u0002()\r\n   at GroupDocs.Parser.Parser.GetMetadata()\r\n   at \u0005\u001a\u0002.\u0005\u0019\u0002\u0003\u0016\b()\r\n   at \u0002\u0018\u001b.\u0002(Document \u0002, \u000e\u0019\u0002 \b, String \u0005)",
+    "function": "step_3_subscribe_to_index_events"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example4": {
+    "type": "text",
+    "file": "step-4-add-files-synchronously.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_4_add_files_synchronously/step-4-add-files-synchronously.txt",
+    "preview": "Indexed documents: 5",
+    "function": "step_4_add_files_synchronously"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example5": {
+    "type": "text",
+    "file": "step-5-add-files-asynchronously.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_5_add_files_asynchronously/step-5-add-files-asynchronously.txt",
+    "preview": "Operation finished: INDEXING\nIndexed documents: 5",
+    "function": "step_5_add_files_asynchronously"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example6": {
+    "type": "text",
+    "file": "step-6-perform-search.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_6_perform_search/step-6-perform-search.txt",
+    "preview": "Documents found: 2",
+    "function": "step_6_perform_search"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example7": {
+    "type": "text",
+    "file": "step-7-use-search-results.txt",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_7_use_search_results/step-7-use-search-results.txt",
+    "preview": "Documents found: 2\nTotal occurrences found: 6\n\tDocument: documents\\einstein.txt\n\tOccurrences: 4\n\tDocument: documents\\nobel-prize-1921.txt\n\tOccurrences: 2",
+    "function": "step_7_use_search_results"
+  },
+  "developer-guide/basic-usage/build-your-first-search-solution#example8": {
+    "type": "file",
+    "file": "Highlighted.html",
+    "path": "developer-guide/basic-usage/build-your-first-search-solution/step_7_use_search_results_2/Highlighted.html",
+    "preview": "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<title>documents\\einstein.txt</title>\n</head>\n<body>\n<p>documents\\einstein.txt</p>\n<p></p>\n<h3>filename</h3>\n[TRUNCATED]",
+    "function": "step_7_use_search_results_2"
+  },
+  "developer-guide/basic-usage/get-supported-file-formats#example1": {
+    "type": "text",
+    "file": "get-supported-file-formats.txt",
+    "path": "developer-guide/basic-usage/get-supported-file-formats/get_supported_file_formats/get-supported-file-formats.txt",
+    "preview": ".asf     - Advanced Systems Format File\n.avi     - Audio Video Interleave File\n.bmp     - Bitmap Picture\n.chm     - Microsoft Compiled HTML Help\n.csv     - Comma-Separated Values\n.dc3     - Medicine Image File Format\n.dcm     - DICOM Image\n.dic     - DICOM Image\n.dicom   - DICOM Image\n.djv     - DjVu Image\n[TRUNCATED]",
+    "function": "get_supported_file_formats"
+  },
+  "developer-guide/basic-usage/work-with-search-results#example1": {
+    "type": "text",
+    "file": "obtain-search-result-information.txt",
+    "path": "developer-guide/basic-usage/work-with-search-results/obtain_search_result_information/obtain-search-result-information.txt",
+    "preview": "Documents: 3\nTotal occurrences: 10\n\tDocument: documents\\einstein.txt\n\tOccurrences: 6\n\t\tField: filename\n\t\tOccurrences: 1\n\t\t\teinstein            1\n\t\tField: content\n\t\tOccurrences: 5\n\t\t\teinstein            3\n[TRUNCATED]",
+    "function": "obtain_search_result_information"
+  },
+  "developer-guide/basic-usage/work-with-search-results#example2": {
+    "type": "file",
+    "file": "Highlighted.html",
+    "path": "developer-guide/basic-usage/work-with-search-results/highlight_search_results/Highlighted.html",
+    "preview": "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<title>documents\\time.txt</title>\n</head>\n<body>\n<p>documents\\time.txt</p>\n<p></p>\n<h3>filename</h3>\n[TRUNCATED]",
+    "function": "highlight_search_results"
+  },
+  "developer-guide/migration-notes#example1": {
+    "type": "text",
+    "file": "opening-indexes-of-previous-versions.txt",
+    "path": "developer-guide/migration-notes/opening_indexes_of_previous_versions/opening-indexes-of-previous-versions.txt",
+    "preview": "Documents found: 2",
+    "function": "opening_indexes_of_previous_versions"
+  },
+  "developer-guide/migration-notes#example2": {
+    "type": "text",
+    "file": "term-dictionaries-are-fixed-once-an-index-contains-documents.txt",
+    "path": "developer-guide/migration-notes/term_dictionaries_are_fixed_once_an_index_contains_documents/term-dictionaries-are-fixed-once-an-index-contains-documents.txt",
+    "preview": "Indexed documents: 4",
+    "function": "term_dictionaries_are_fixed_once_an_index_contains_documents"
+  },
+  "developer-guide/migration-notes#example3": {
+    "type": "text",
+    "file": "incompatible-indexes-are-not-merged.txt",
+    "path": "developer-guide/migration-notes/incompatible_indexes_are_not_merged/incompatible-indexes-are-not-merged.txt",
+    "preview": "The indexes cannot be merged because they divide the text of documents into terms differently. The index 'other-index' differs from the current index in: StopWordDictionary.\n[.NET System.InvalidOperationException]\n   at \b\u001b\u0017.\u0002(IndexRepository \u0002, MergeOptions \b, \u000e\u0017\u0017 \u0005, OperationType \u0006)\r\n   at \b\u0019\u0002.\u0002(IndexRepository \u0002, MergeOptions \b, \u000e\u0017\u0017 \u0005, OperationType \u0006)\r\n   at \b\u0019\u0002.\u0002(Index \u0002, MergeOptions \b)\r\n   at GroupDocs.Search.Index.Merge(Index index, MergeOptions options)\r\n   at InvokeStub_Index.Merge(Obje\n[TRUNCATED]",
+    "function": "incompatible_indexes_are_not_merged"
+  },
+  "developer-guide/migration-notes#example4": {
+    "type": "text",
+    "file": "search-is-multithreaded-by-default.txt",
+    "path": "developer-guide/migration-notes/search_is_multithreaded_by_default/search-is-multithreaded-by-default.txt",
+    "preview": "Documents found: 2",
+    "function": "search_is_multithreaded_by_default"
+  },
+  "developer-guide/migration-notes#example5": {
+    "type": "text",
+    "file": "search-by-chunks-returns-a-different-number-of-chunks.txt",
+    "path": "developer-guide/migration-notes/search_by_chunks_returns_a_different_number_of_chunks/search-by-chunks-returns-a-different-number-of-chunks.txt",
+    "preview": "Documents found: 2",
+    "function": "search_by_chunks_returns_a_different_number_of_chunks"
+  },
+  "getting-started/hello-world#code-example-hello-world": {
+    "type": "text",
+    "file": "hello-world.txt",
+    "path": "getting-started/hello-world/hello_world/hello-world.txt",
+    "preview": "Documents found: 2\neinstein.txt - 2 occurrences\nnobel-prize-1921.txt - 1 occurrences",
+    "function": "hello_world"
+  },
+  "getting-started/licensing-and-subscription#code-example-searching-limitations": {
+    "type": "text",
+    "file": "searching-limitations.txt",
+    "path": "getting-started/licensing-and-subscription/searching_limitations/searching-limitations.txt",
+    "preview": "digitisation-contract.txt\nloan-contract.txt",
+    "function": "searching_limitations"
+  },
+  "getting-started/quick-start-guide#demo_app_search_documents": {
+    "type": "text",
+    "file": "search-documents.txt",
+    "path": "getting-started/quick-start-guide/search_documents/search-documents.txt",
+    "preview": "Documents found: 2\nOccurrences found: 3\neinstein.txt - 2 occurrences\nrelativity.txt - 1 occurrences",
+    "function": "search_documents"
+  },
+  "getting-started/quick-start-guide#demo_app_fuzzy_search": {
+    "type": "text",
+    "file": "fuzzy-search.txt",
+    "path": "getting-started/quick-start-guide/fuzzy_search/fuzzy-search.txt",
+    "preview": "Documents found: 2\neinstein.txt - einstein\nnobel-prize-1921.txt - einstein",
+    "function": "fuzzy_search"
+  },
+  "getting-started/quick-start-guide#demo_app_highlight_results": {
+    "type": "text",
+    "file": "highlight-results.txt",
+    "path": "getting-started/quick-start-guide/highlight_results/highlight-results.txt",
+    "preview": "relativity.txt\n    in the absence of [gravity]. General relativity explains the\neinstein.txt\n    theory of relativity described [gravity] as the curvature of",
+    "function": "highlight_results"
+  },
+  "product-overview#product-overview-quick-example": {
+    "type": "text",
+    "file": "quick.txt",
+    "path": "product-overview/quick_example/quick.txt",
+    "preview": "Documents found: 2\nrelativity-notes.pdf - 5 occurrences\nrelativity-guide.epub - 5 occurrences",
+    "function": "quick_example"
+  },
+  "product-overview#product-overview-search-with-options": {
+    "type": "text",
+    "file": "search-options.txt",
+    "path": "product-overview/search_with_options/search-options.txt",
+    "preview": "Documents found: 4\neinstein-summary.html - 2 occurrences\nrelativity-notes.pdf - 2 occurrences\neinstein-biography.docx - 2 occurrences\nnobel-prize-1921.txt - 2 occurrences",
+    "function": "search_with_options"
+  }
+}

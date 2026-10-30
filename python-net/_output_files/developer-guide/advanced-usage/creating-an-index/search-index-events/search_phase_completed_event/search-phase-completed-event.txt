@@ -1,0 +1,44 @@
+Search phase: ALIAS_SUBSTITUTION
+Words: 1
+	Einstein
+
+Search phase: HOMOPHONE_SEARCH
+Words: 1
+	einstein
+
+Search phase: SYNONYM_SEARCH
+Words: 1
+	einstein
+
+Search phase: WORD_FORMS_SEARCH
+Words: 12
+	einstein
+	einstein's
+	einsteins
+	einsteinned
+	einsteined
+	einsteinning
+	einsteining
+	einsteinner
+	einsteiner
+	einsteinnest
+	einsteinest
+	einsteinly
+
+Search phase: FUZZY_SEARCH
+Words: 15
+	einstein
+	einstein's
+	einsteins
+	einsteinned
+	einsteined
+	einsteinning
+	einsteining
+	einsteinner
+	einsteiner
+	einsteinnest
+	einsteinest
+	einsteinly
+	winter
+	extended
+	digitised

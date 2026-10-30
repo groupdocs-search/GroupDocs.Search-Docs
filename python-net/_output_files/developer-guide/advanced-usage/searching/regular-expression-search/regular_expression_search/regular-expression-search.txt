@@ -1,0 +1,5 @@
+Documents found by the text query: 3
+Documents found by the object query: 3
+    library-stats.txt ['00', '550']
+    quantum-theory.txt ['00']
+    zoo-guide.txt ['00', 'aardvark', 'eel', 'llama']

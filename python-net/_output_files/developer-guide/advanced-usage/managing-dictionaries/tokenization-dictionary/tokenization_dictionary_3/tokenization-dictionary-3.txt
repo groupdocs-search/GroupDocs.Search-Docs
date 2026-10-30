@@ -1,0 +1,1 @@
+Characters that are not separators: 101197

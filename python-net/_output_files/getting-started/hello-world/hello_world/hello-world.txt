@@ -1,0 +1,3 @@
+Documents found: 2
+einstein.txt - 2 occurrences
+nobel-prize-1921.txt - 1 occurrences

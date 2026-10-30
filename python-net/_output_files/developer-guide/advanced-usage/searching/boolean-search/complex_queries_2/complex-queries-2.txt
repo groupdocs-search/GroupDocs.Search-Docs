@@ -1,0 +1,3 @@
+Query: ((theory AND special) AND relativity)
+Documents found: 1
+    relativity-primer.txt

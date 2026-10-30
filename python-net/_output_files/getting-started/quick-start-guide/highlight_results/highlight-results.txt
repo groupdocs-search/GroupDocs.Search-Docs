@@ -1,0 +1,4 @@
+relativity.txt
+    in the absence of [gravity]. General relativity explains the
+einstein.txt
+    theory of relativity described [gravity] as the curvature of

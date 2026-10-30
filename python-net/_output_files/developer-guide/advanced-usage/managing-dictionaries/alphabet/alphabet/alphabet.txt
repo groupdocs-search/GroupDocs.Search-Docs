@@ -1,0 +1,4 @@
+The type of hyphen: SEPARATOR
+The type of U+1D400: LETTER
+The type of U+1D41A: LETTER
+Characters that are not separators: 2337

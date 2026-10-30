@@ -1,0 +1,8 @@
+Error during text extraction from documents\protected.docx
+GroupDocs.Parser.Exceptions.InvalidPasswordException: Exception of type 'GroupDocs.Parser.Exceptions.InvalidPasswordException' was thrown.
+   at .(Stream , LoadOptions , Boolean )
+   at .()
+   at .()
+   at GroupDocs.Parser.Parser.GetMetadata()
+   at .()
+   at .(Document ,  , String )

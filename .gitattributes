@@ -1,0 +1,3 @@
+# Sample inputs are stored byte for byte: GroupDocs.Search-SampleFiles hashes them, and a checkout
+# must not change the line endings of the text samples the examples search.
+python-net/_sample_files/** -text

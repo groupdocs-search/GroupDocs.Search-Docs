@@ -1,0 +1,3 @@
+Documents found by the text query: 1
+Documents found by the object query: 1
+    relativity-primer.txt

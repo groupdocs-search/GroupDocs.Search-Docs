@@ -1,0 +1,54 @@
+Last processed: documents\curie.txt
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 1
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 11.11111111111111
+Last processed: documents\damaged.pdf
+Result: PROCESSED_WITH_ERROR
+Processed documents: 2
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 22.22222222222222
+Last processed: documents\einstein-notes.txt
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 3
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 33.333333333333336
+Last processed: documents\important-notes.txt
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 4
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 44.44444444444444
+Last processed: documents\laboratory.jpg
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 5
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 55.55555555555556
+Last processed: documents\newton.txt
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 6
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 66.66666666666667
+Last processed: documents\photos.docx
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 7
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 77.77777777777777
+Last processed: documents\protected.pdf
+Result: PROCESSED_WITH_ERROR
+Processed documents: 8
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 88.88888888888889
+Last processed: documents\report.pdf
+Result: SUCCESSFULLY_PROCESSED
+Processed documents: 9
+Skipped documents: 0
+Total documents: 9
+Progress percentage: 100

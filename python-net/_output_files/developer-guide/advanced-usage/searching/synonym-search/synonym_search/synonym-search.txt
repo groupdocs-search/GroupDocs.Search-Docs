@@ -1,0 +1,2 @@
+Documents found: 1
+    correspondence.txt ['reply', 'response']

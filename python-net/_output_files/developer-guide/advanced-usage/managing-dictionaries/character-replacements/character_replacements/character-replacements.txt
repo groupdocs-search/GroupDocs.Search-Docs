@@ -1,0 +1,2 @@
+Character replacements: 3
+The replacement for Ä is a

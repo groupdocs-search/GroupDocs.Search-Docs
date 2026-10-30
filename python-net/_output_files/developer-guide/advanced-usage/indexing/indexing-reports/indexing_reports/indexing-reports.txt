@@ -1,0 +1,17 @@
+Time: 2026-10-29 19:05:39.198203+02:00
+Duration: 0:00:00.135150
+Documents total: 2
+Terms total: 86
+Indexed documents size (MB): 0.000308990478515625
+Index size (MB): 2.0021800994873047
+Segments: 1
+Indexed documents: 2
+
+Time: 2026-10-29 19:05:39.333857+02:00
+Duration: 0:00:00.138310
+Documents total: 3
+Terms total: 109
+Indexed documents size (MB): 0.000225067138671875
+Index size (MB): 2.003826141357422
+Segments: 2
+Indexed documents: 1

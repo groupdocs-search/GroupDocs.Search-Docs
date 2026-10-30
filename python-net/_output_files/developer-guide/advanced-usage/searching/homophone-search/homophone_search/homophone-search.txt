@@ -1,0 +1,3 @@
+Documents found: 2
+    coal-mining.txt ['coal', 'cole']
+    cosmetics-history.txt ['kohl']

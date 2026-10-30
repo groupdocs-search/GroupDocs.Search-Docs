@@ -1,0 +1,3 @@
+Skipped: documents\important-notes.txt
+Tagged: documents\report.pdf
+Documents found: 1

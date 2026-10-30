@@ -1,0 +1,4 @@
+The theory of relativity usually encompasses two interrelated theories: special relativity and general relativity.
+
+Special relativity applies to all physical phenomena in the absence of gravity. General relativity explains
+the law of gravitation and its relation to the forces of nature.

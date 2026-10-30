@@ -1,0 +1,8 @@
+Document: documents\laboratory.jpg
+Image inner path: 
+Image index: 0
+Image frames: 1
+Document: documents\photos.docx
+Image inner path: 
+Image index: 0
+Image frames: 1

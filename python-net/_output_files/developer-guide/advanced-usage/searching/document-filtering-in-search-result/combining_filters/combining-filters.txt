@@ -1,0 +1,12 @@
+((File name regex: Einstein) AND (File extensions: .fb2, .epub)) - documents found: 1
+    einstein-relativity.fb2
+((File name regex: Einstein) OR (File extensions: .doc, .docx, .pdf)) - documents found: 4
+    einstein-biography.txt
+    einstein-relativity.fb2
+    relativity-lecture.pdf
+    relativity-primer.docx
+(NOT (File extensions: .txt)) - documents found: 4
+    einstein-relativity.fb2
+    relativity-guide.epub
+    relativity-lecture.pdf
+    relativity-primer.docx

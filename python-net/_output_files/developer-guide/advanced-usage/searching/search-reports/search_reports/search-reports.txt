@@ -1,0 +1,11 @@
+Query: Einstein
+Time: 2026-10-29 19:06:16.346091+02:00
+Duration: 0:00:00.020339
+Documents: 1
+Occurrences: 3
+
+Query: "Theory of Relativity"
+Time: 2026-10-29 19:06:16.366760+02:00
+Duration: 0:00:00.000273
+Documents: 2
+Occurrences: 3

@@ -1,0 +1,6 @@
+Documents found: 2
+Total occurrences found: 6
+	Document: documents\einstein.txt
+	Occurrences: 4
+	Document: documents\nobel-prize-1921.txt
+	Occurrences: 2

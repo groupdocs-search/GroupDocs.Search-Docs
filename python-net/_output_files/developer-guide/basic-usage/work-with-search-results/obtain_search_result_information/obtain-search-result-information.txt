@@ -1,0 +1,22 @@
+Documents: 3
+Total occurrences: 10
+	Document: documents\einstein.txt
+	Occurrences: 6
+		Field: filename
+		Occurrences: 1
+			einstein            1
+		Field: content
+		Occurrences: 5
+			einstein            3
+			theory * relativity           2
+	Document: documents\nobel-prize-1921.txt
+	Occurrences: 2
+		Field: content
+		Occurrences: 2
+			einstein            2
+	Document: documents\relativity.txt
+	Occurrences: 2
+		Field: content
+		Occurrences: 2
+			theory * relativity           1
+			theories * relativity         1

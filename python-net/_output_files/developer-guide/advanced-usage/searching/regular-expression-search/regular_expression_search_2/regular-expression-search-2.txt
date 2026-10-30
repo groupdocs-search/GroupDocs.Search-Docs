@@ -1,0 +1,4 @@
+Documents found: 3
+    library-stats.txt ['00', '550']
+    quantum-theory.txt ['00']
+    zoo-guide.txt ['00', 'aardvark', 'eel', 'llama']

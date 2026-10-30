@@ -1,0 +1,4 @@
+m?rry - documents found: 1
+    word-games.txt ['marry', 'merry']
+card?(1~6) - documents found: 1
+    word-games.txt ['cardiff', 'cardinal', 'cardio', 'cards']

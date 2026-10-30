@@ -1,0 +1,82 @@
+.asf     - Advanced Systems Format File
+.avi     - Audio Video Interleave File
+.bmp     - Bitmap Picture
+.chm     - Microsoft Compiled HTML Help
+.csv     - Comma-Separated Values
+.dc3     - Medicine Image File Format
+.dcm     - DICOM Image
+.dic     - DICOM Image
+.dicom   - DICOM Image
+.djv     - DjVu Image
+.djvu    - DjVu Image
+.doc     - Microsoft Word Document
+.docm    - Microsoft Word Open XML Macro-Enabled Document
+.docx    - Microsoft Word Open XML Document
+.dot     - Microsoft Word Document Template
+.dotm    - Microsoft Word Open XML Macro-Enabled Document Template
+.dotx    - Microsoft Word Open XML Document Template
+.emf     - Enhanced Windows Metafile
+.eml     - Microsoft E-Mail Message
+.emlx    - Apple Mail Message
+.epub    - Electronic Publication
+.fb2     - FictionBook 2.0 File
+.flv     - Animate Video File
+.gif     - Graphical Interchange Format File
+.htm     - Hypertext Markup Language File
+.html    - Hypertext Markup Language File
+.jp2     - JPEG 2000 Core Image File
+.jpe     - JPEG Image
+.jpeg    - JPEG Image
+.jpg     - JPEG Image
+.log     - Log File
+.md      - Markdown Documentation File
+.mht     - Mime HTML File
+.mhtml   - Mime HTML File
+.mov     - Apple QuickTime Movie
+.mp3     - MPEG-2 Audio Layer III
+.mpp     - Microsoft Project File
+.msg     - Microsoft Outlook Mail Message
+.odp     - OpenDocument Presentation
+.ods     - OpenDocument Spreadsheet
+.odt     - OpenDocument Text
+.one     - Microsoft OneNote File Format
+.ost     - Microsoft Outlook Offline Data File
+.ots     - OpenDocument Spreadsheet Template
+.ott     - OpenDocument Text Template
+.pdf     - Portable Document Format
+.png     - Portable Network Graphics
+.pot     - Microsoft PowerPoint 97-2003 Presentation
+.potm    - Microsoft PowerPoint 97-2003 Macro-Enabled Presentation Template
+.potx    - Microsoft PowerPoint Open XML Presentation Template
+.pps     - Microsoft PowerPoint Presentation
+.ppsm    - Microsoft PowerPoint 2007—2013 Macro-Enabled Presentation
+.ppsx    - Microsoft PowerPoint Open XML Slide Show
+.ppt     - Microsoft PowerPoint Presentation
+.pptm    - Microsoft PowerPoint 2007—2013 Macro-Enabled Open XML Presentation
+.pptx    - Microsoft PowerPoint Open XML Presentation
+.psd     - Adobe Photoshop Document
+.pst     - Microsoft Outlook Personal Information Store File
+.qt      - Apple QuickTime Movie
+.rtf     - Rich Text Format
+.tif     - GeoTIFF Image
+.tiff    - Tagged Image File Format
+.torrent - BitTorrent File
+.tsv     - Tab-Separated Values
+.txt     - Text File
+.vsd     - Visio Drawing File
+.vss     - Visio Stencil File
+.wav     - Waveform Audio File Format
+.webp    - WebP Image
+.wmf     - Windows Metafile
+.xhtml   - Extensible Hypertext Markup Language File
+.xla     - Microsoft Excel Add-In File
+.xlam    - Microsoft Excel Open XML Macro-Enabled Add-In
+.xls     - Microsoft Excel Spreadsheet
+.xlsb    - Microsoft Excel Binary Spreadsheet
+.xlsm    - Microsoft Excel Open XML Macro-Enabled Spreadsheet
+.xlsx    - Microsoft Excel 2007-2010 Open XML Spreadsheet
+.xlt     - Microsoft Excel Spreadsheet Template
+.xltm    - Microsoft Excel Open XML Macro-Enabled Spreadsheet Template
+.xltx    - Microsoft Excel Open XML Spreadsheet Template
+.xml     - Extensible Markup Language File
+.zip     - Archive File Format

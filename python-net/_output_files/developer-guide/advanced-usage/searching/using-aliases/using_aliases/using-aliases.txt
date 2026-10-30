@@ -1,0 +1,5 @@
+Documents found: 4
+    einstein-biography.txt ['einstein', 'theory', 'relativity', 'albert']
+    nobel-prize.txt ['einstein']
+    quantum-theory.txt ['theory']
+    relativity-primer.txt ['relativity', 'theory']

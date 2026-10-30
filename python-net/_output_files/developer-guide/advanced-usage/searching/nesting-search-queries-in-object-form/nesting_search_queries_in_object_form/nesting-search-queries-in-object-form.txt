@@ -1,0 +1,11 @@
+content:"theory of *0~~1 relativity"
+	theory (field: content)
+	of (field: content)
+	*0~~1 (field: content)
+	relativity (field: content)
+Documents found: 2
+    einstein-biography.txt
+        theory * relativity
+    relativity-primer.txt
+        theory * relativity
+        theory * * relativity

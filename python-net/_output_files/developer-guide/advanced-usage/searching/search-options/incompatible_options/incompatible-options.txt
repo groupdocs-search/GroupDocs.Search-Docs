@@ -1,0 +1,2 @@
+Case-sensitive search is not supported together with fuzzy search.
+Document count: 0

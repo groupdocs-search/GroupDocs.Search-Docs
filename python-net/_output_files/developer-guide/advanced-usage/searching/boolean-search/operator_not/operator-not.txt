@@ -1,0 +1,4 @@
+Documents found by the text query: 2
+Documents found by the object query: 2
+    gravity-notes.txt
+    relativity-primer.txt
