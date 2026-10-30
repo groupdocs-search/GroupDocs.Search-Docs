@@ -1,0 +1,38 @@
+# GroupDocs.Search documentation
+
+> On-premise SDK docs for full-text search: building search indexes from PDF, Microsoft Office, OpenDocument, email, eBook, archive and image files, and running keyword, phrase, wildcard, regular-expression, fuzzy, boolean, faceted, synonym and homophone queries against them.
+> Platforms: net | java | nodejs-java | python-net | mcp
+> .NET TFMs: netstandard2.1 (NuGet package); the .NET system requirements page also lists net462
+
+## Hubs
+
+- https://docs.groupdocs.com/search/net/
+- https://docs.groupdocs.com/search/java/
+- https://docs.groupdocs.com/search/nodejs-java/
+- https://docs.groupdocs.com/search/python-net/
+- https://docs.groupdocs.com/search/mcp/
+
+## Formats (authoritative tables)
+
+- https://docs.groupdocs.com/search/net/supported-document-formats/
+- https://docs.groupdocs.com/search/java/supported-document-formats/
+- https://docs.groupdocs.com/search/nodejs-java/supported-document-formats/
+- https://docs.groupdocs.com/search/python-net/supported-document-formats/
+- https://docs.groupdocs.com/search/mcp/supported-formats/
+
+## Related surfaces
+
+- Products: https://products.groupdocs.com/search/
+- Releases: https://releases.groupdocs.com/search/
+- API reference: https://reference.groupdocs.com/search/
+- Python agent guide: https://docs.groupdocs.com/search/python-net/agents-and-llm-integration/
+- MCP (link only): https://docs.groupdocs.com/mcp
+- Agent guide in-repo: AGENTS.md
+
+## Per-platform page index and full text
+
+- https://docs.groupdocs.com/search/net/llms.txt and https://docs.groupdocs.com/search/net/llms-full.txt
+- https://docs.groupdocs.com/search/java/llms.txt and https://docs.groupdocs.com/search/java/llms-full.txt
+- https://docs.groupdocs.com/search/nodejs-java/llms.txt and https://docs.groupdocs.com/search/nodejs-java/llms-full.txt
+- https://docs.groupdocs.com/search/python-net/llms.txt and https://docs.groupdocs.com/search/python-net/llms-full.txt
+- https://docs.groupdocs.com/search/mcp/llms.txt and https://docs.groupdocs.com/search/mcp/llms-full.txt
