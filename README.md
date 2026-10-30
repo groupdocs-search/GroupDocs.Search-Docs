@@ -6,7 +6,7 @@ This repository contains Markdown files used to generate [GroupDocs.Search](http
 
 [GroupDocs.Search](https://products.groupdocs.com/search/) is a document search SDK that enables you to perform full-text search across documents with advanced indexing, faceted search, and query capabilities.
 
-Available for .NET, Java, and Node.js.
+Available for .NET, Java, Node.js and Python.
 
 ## Repository Purpose
 
