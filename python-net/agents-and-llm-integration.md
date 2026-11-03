@@ -313,7 +313,8 @@ A single text query string can combine all of these:
 |---|---|---|
 | Keyword | `Lorem` | match a word |
 | Phrase | `"Lorem ipsum"` | match an exact phrase |
-| Wildcard | `?orem`, `Lo*` | `?` = one character, `*` = any run |
+| Wildcard | `?orem`, `Lor?(1~3)` | `?` = one character, `?(n~m)` = n to m characters; `*` is not a wildcard |
+| Phrase wildcard | `"Lorem *2 sit"`, `"Lorem *1~~2 sit"` | an exact number, or a range, of unknown words inside a phrase |
 | Regex | `^Lo.*` | regular expression (leading `^`) |
 | Boolean | `Lorem AND ipsum`, `a OR b`, `a AND NOT b` | combine terms |
 | Faceted | `Content: Lorem`, `FileName: report` | restrict to a field |
@@ -602,7 +603,7 @@ Or auto-apply: `export GROUPDOCS_LIC_PATH="path/to/license.lic"` (a file or a UR
 - **Properties**: use `snake_case` -- auto-mapped to .NET `PascalCase`. A misspelled property raises `AttributeError` with a "Did you mean" hint instead of being stored
 - **Index is a folder**: point `Index(...)` at the same folder to reopen a persisted index; `update()` re-indexes only changes
 - **Settings before documents**: dictionaries and word-splitting settings change only while the index is empty
-- **One query string, many forms**: keyword, `"phrase"`, `?`/`*` wildcards, `^regex`, `AND/OR/NOT`, and `Field:` facets all parse from one string
+- **One query string, many forms**: keyword, `"phrase"`, `?` and `?(n~m)` wildcards, `^regex`, `AND/OR/NOT`, and `Field:` facets all parse from one string
 - **Options objects**: tweak `SearchOptions` sub-objects in place (e.g. `options.fuzzy_search.enabled = True`) before passing to `search`
 - **Enums**: UPPER_CASE members (`OutputFormat.HTML`, `DocumentSourceKind.STREAM`); `FormatFamily` is a class of constants (`FormatFamily.ARCHIVE`)
 - **Collections**: `for found in result`, `for d in index.get_indexed_documents()` and `len(...)` work
