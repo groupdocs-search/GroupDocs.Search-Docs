@@ -18,7 +18,7 @@ structuredData:
 <img src="https://img.shields.io/pypi/dm/groupdocs-search-net?label=pypi%20downloads" alt="PyPI downloads">
 
 {{< button style="primary" link="https://releases.groupdocs.com/search/python-net/release-notes/" >}} <svg class="gdoc-icon gdoc-product-doc__btn-icon"><use xlink:href="/img/groupdocs-stack.svg#document"></use></svg> Release notes {{< /button >}}
-{{< button style="primary" link="https://releases.groupdocs.com/search/python-net/" >}} {{< icon "gdoc_download" >}} Download the wheels {{< /button >}}
+{{< button style="primary" link="https://pypi.org/project/groupdocs-search-net/" >}} {{< icon "gdoc_download" >}} Download from PyPI {{< /button >}}
 {{< button style="primary" link="https://products.groupdocs.app/search/family" >}} <svg class="gdoc-icon gdoc-product-doc__btn-icon"><use xlink:href="/img/groupdocs-stack.svg#app"></use></svg> Online app {{< /button >}}
 
 [GroupDocs.Search for Python via .NET](https://products.groupdocs.com/search/python-net/) is a full-text search API: build an index over a folder of documents, then search it with keyword, phrase, wildcard, regular-expression, boolean, fuzzy, synonym, homophone and faceted queries, and highlight what was found. It indexes the text and metadata of more than 80 formats, including Word processing, spreadsheets, presentations, PDF, email, eBooks, archives and images, with no MS Office or OpenOffice installation required.

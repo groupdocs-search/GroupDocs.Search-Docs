@@ -60,7 +60,7 @@ GroupDocs.Search for Python via .NET is distributed via [PyPI](https://pypi.org/
 pip install groupdocs-search-net
 ```
 
-Until PyPI carries the 26.10 wheels, install a wheel downloaded from the releases website, as described on the [Installation]({{< ref "search/python-net/getting-started/installation.md" >}}) page. One wheel is published per platform:
+pip picks the wheel for your platform. To install without access to PyPI, download it from the releases website, as described on the [Installation]({{< ref "search/python-net/getting-started/installation.md" >}}) page. One wheel is published per platform:
 
 | Platform | Wheel suffix |
 | --- | --- |

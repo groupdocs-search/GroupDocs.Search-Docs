@@ -95,10 +95,6 @@ Ensure the package is installed successfully. You should see the message
 Successfully installed groupdocs-search-net-*
 ```
 
-{{< alert style="info" >}}
-Until PyPI carries the 26.10 wheels, install the wheel for your platform from the [GroupDocs Releases website](https://releases.groupdocs.com/search/python-net/) instead, as described in [Install from a Pre-Downloaded Wheel]({{< ref "search/python-net/getting-started/installation.md#install-from-a-pre-downloaded-wheel" >}}).
-{{< /alert >}}
-
 ## Example 1: Index and search documents
 
 To quickly test the library, let's index a folder of documents and search it for a phrase.
