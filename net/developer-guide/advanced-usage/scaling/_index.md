@@ -27,7 +27,9 @@ The articles in this section describe the following topics:
 *   [Getting document text in network]({{< ref "search/net/developer-guide/advanced-usage/scaling/getting-document-text-in-network.md" >}})
 *   [Managing dictionaries in network]({{< ref "search/net/developer-guide/advanced-usage/scaling/managing-dictionaries-in-network.md" >}})
 
-All nodes of a search network must use the same version of GroupDocs.Search. For upgrading a search network to version 26.10, see the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page.
+All nodes of a search network must use the same version of GroupDocs.Search. Since version 26.11, a node does not connect to a node of an earlier version and writes the reason to its log, so all nodes of a search network have to be upgraded at once. For upgrading a search network to version 26.10, see the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page.
+
+Since version 26.11, the nodes of a search network can prove to each other with a secret network key that they belong to the network (see [Authentication of nodes]({{< ref "search/net/developer-guide/advanced-usage/scaling/configuring-search-network.md#authentication-of-nodes" >}})). A node answers a request that it cannot carry out with the error, and the master node stops waiting for a node that is lost (see [Errors and lost nodes]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md#errors-and-lost-nodes" >}})).
 
 ## More resources
 

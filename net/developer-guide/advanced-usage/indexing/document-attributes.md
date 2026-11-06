@@ -19,7 +19,7 @@ To add and delete attributes of indexed documents, use the [ChangeAttributes](ht
 *   [RemoveFromAll](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/removefromall/) removes the specified attributes from all documents in the index;
 *   [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/clear/) removes all attributes from all documents in the index. Note that this method does not clear the batch, but adds a change to it.
 
-The changes are applied in the order in which they are added to the batch. The attributes of an indexed document can be obtained with the [GetAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/getattributes/) method.
+The changes are applied in the order in which they are added to the batch. The attributes of an indexed document can be obtained with the [GetAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/getattributes/) method. Since version 26.11, while the attributes are changed, the index has the status [IndexStatus.ChangingAttributes](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexstatus/) in [IndexInfo.IndexStatus](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexinfo/indexstatus/) and in the arguments of the events, for example of [StatusChanged](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/statuschanged/); before, it had the status Renaming.
 
 The following example demonstrates how to add and remove attributes from indexed documents.
 
@@ -84,6 +84,8 @@ SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 SearchResult result = index.Search("Einstein", options);
 ```
+
+For documents added with the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method overload that takes an array of [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/) objects, attributes can also be set through the [Attributes](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/attributes/) property of a document before indexing; since version 26.11, this applies to documents of files as well (see [Indexing from different sources]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-from-different-sources.md" >}})). Also since version 26.11, when an [update]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) indexes a changed file again, the file keeps the attributes of its indexed version, also those changed by the [ChangeAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/changeattributes/) method. A handler of the FileIndexing event sees them in the [Attributes](https://reference.groupdocs.com/search/net/groupdocs.search.events/fileindexingeventargs/attributes/) property of the event arguments and replaces them if it sets the property, as the handler of the example above does.
 
 ## More resources
 

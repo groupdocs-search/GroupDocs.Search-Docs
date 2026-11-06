@@ -14,14 +14,22 @@ The [SearchResult](https://reference.groupdocs.com/search/net/groupdocs.search.r
 
 *   The [DocumentCount](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/documentcount/) property returns the number of documents found.
 *   The [OccurrenceCount](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/occurrencecount/) property returns the total number of occurrences found.
-*   The [Truncated](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/truncated/) property returns a value indicating that the result is truncated due to limits specified in the search options.
-*   The [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property returns warnings describing the result, for example, a warning about the presence of a stop word in a search query.
+*   The [Truncated](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/truncated/) property returns a value indicating that the result is truncated: it lacks occurrences that the index has, because a limit of the occurrences specified in the search options is reached (see the [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md#maxtotaloccurrencecount-property" >}}) page) or, since version 26.11, because a part of the index cannot be read.
+*   The [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property returns warnings describing the result, separated by line breaks, for example, a warning about the presence of a stop word in a search query. Since version 26.11, the warnings also tell the errors of the search (see below).
 *   The [NextChunkSearchToken](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/nextchunksearchtoken/) property returns a chunk search token to search for the next chunk, or null if there are no more chunks. For details on search by chunks, see the [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}) page.
 *   The [StartTime](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/starttime/) property returns the start time of the search.
 *   The [EndTime](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/endtime/) property returns the end time of the search.
 *   The [SearchDuration](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/searchduration/) property returns the search duration.
 *   The [GetFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/getfounddocument/) method returns the found document by index.
 *   The [GetEnumerator](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/getenumerator/) method returns an enumerator that iterates through the collection of the documents found.
+
+{{< alert style="info" >}}In the evaluation mode, only the first 10 found documents can be retrieved: the [GetFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/getfounddocument/) method throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) for a document number of 10 or greater, and since version 26.11 an enumeration of the result, for example by foreach or LINQ, throws this exception after the first 10 documents. The [DocumentCount](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/documentcount/) property returns the number of all found documents. See [Evaluation limitations and licensing]({{< ref "search/net/getting-started/evaluation-limitations-and-licensing.md" >}}).{{< /alert >}}
+
+Since version 26.11, every search reports its errors by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index and in the [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property of the result. The [Search](https://reference.groupdocs.com/search/net/groupdocs.search/index/search/) and [SearchNext](https://reference.groupdocs.com/search/net/groupdocs.search/index/searchnext/) methods throw an exception only for an argument that is not valid (ArgumentNullException for a query or a chunk search token that is null, ArgumentException for a query that cannot be the root of a query) and for a disposed index (ObjectDisposedException). Before, a search with a query in object form and the SearchNext method threw the exception of a failure of the search. The warnings of the errors start as follows:
+
+*   "Search failed: " - the query cannot be parsed or used, the search options cannot be used together, or the search has failed. The result is empty, and it has no token of the next chunk, so a search by chunks ends.
+*   "Query part not searched: " - a part of the query cannot be used, for example a regular expression that is not valid. This part finds nothing, and the other parts of the query are searched.
+*   "Segment not searched: " or "Some terms not searched: " - a part of the index cannot be read, because its data is damaged, there is not enough memory or a file cannot be read. The search goes on without this part, and the result is truncated.
 
 The found document is represented by an instance of a [FoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocument/) class. The [FoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocument/) class contains the following members:
 
@@ -58,7 +66,9 @@ The found document field is represented by an instance of a [FoundDocumentField]
 *   The [Serialize](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/serialize/) method serializes the current found document field instance to a byte array.
 *   The [Deserialize](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/deserialize/) method deserializes an instance of found document field from a byte array.
 
-Since version 26.10, search uses as many threads as there are processor cores by default. Therefore, the order of the terms found by fuzzy, wildcard, regular expression, numeric range search and spelling correction may differ from run to run. To get the same order every time, set the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting to NumberOfThreads.One. For details, see the [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md#searchthreads-property" >}}) page.
+Since version 26.11, a term that several parts of a query find, for example the same word twice, as in "cat OR cat", overlapping word patterns, or the synonyms and the fuzzy variants of the words of an OR query, is counted once: in the occurrences of a found document and of its fields, in the occurrences of the search result and in the relevance of the document. Before, the occurrences of such a term were counted once for every part of the query that found it.
+
+Since version 26.10, search uses as many threads as there are processor cores by default. Since version 26.11, the order of the terms found by fuzzy, wildcard, regular expression, numeric range search and spelling correction does not depend on the number of search threads. For details on the number of search threads, see the [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md#searchthreads-property" >}}) page.
 
 The following example shows how to print information on the documents found in the console.
 
@@ -85,6 +95,8 @@ SearchResult result = index.Search("Einstein OR \"Theory of Relativity\"", optio
 // Printing the result
 Console.WriteLine("Documents: " + result.DocumentCount);
 Console.WriteLine("Total occurrences: " + result.OccurrenceCount);
+Console.WriteLine("Truncated: " + result.Truncated);
+Console.WriteLine("Warnings: " + result.Warnings);
 for (int i = 0; i < result.DocumentCount; i++)
 {
     FoundDocument document = result.GetFoundDocument(i);

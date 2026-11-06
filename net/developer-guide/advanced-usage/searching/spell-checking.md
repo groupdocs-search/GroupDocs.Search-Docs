@@ -10,7 +10,7 @@ hideChildren: False
 ---
 During the search, a search query can be checked for spelling errors in words. To enable spelling correction in search queries, the [Enabled](https://reference.groupdocs.com/search/net/groupdocs.search.options/spellingcorrectoroptions/enabled/) property of the spelling corrector options is set to true. By default, the spelling correction is disabled.
 
-The spelling corrector considers the following types of misprints: adding a character, deleting a character, replacing a character, and, optionally, transposing two adjacent characters.
+The spelling corrector considers the following types of misprints: adding a character, deleting a character, replacing a character, and, optionally, transposing two adjacent characters. Since version 26.11, a word of a search query that has more than 80 characters is not corrected; before, with the spelling correction enabled, a search whose query had such a word found nothing.
 
 By default, the spelling corrector dictionary contains only English words. To manage the spelling corrector dictionary, see the [Spelling corrector]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/spelling-corrector.md" >}}) page of the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
@@ -23,7 +23,7 @@ The [SpellingCorrectorOptions](https://reference.groupdocs.com/search/net/groupd
 
 Spelling correction cannot be combined with case-sensitive search. If both are enabled, the search returns an empty result and the error is reported through the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event (see [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md#incompatible-options" >}})).
 
-Since version 26.10, spelling correction uses as many threads as there are processor cores by default. Therefore, the order of the found words in the search result may differ from run to run. To get the same order every time, set the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting to NumberOfThreads.One.
+Since version 26.10, spelling correction uses as many threads as there are processor cores by default. Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page), and the order of the found words in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting); before, it could differ from run to run.
 
 The following example shows how to perform a search using the spelling correction.
 

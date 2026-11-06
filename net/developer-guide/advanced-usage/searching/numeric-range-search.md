@@ -34,7 +34,13 @@ SearchQuery query2 = SearchQuery.CreateNumericRangeQuery(500, 600);
 SearchResult result2 = index.Search(query2);
 ```
 
-Since version 26.10, numeric range search uses as many threads as there are processor cores by default. Therefore, the order of the found numbers in the search result may differ from run to run. To get the same order every time, set the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting to NumberOfThreads.One.
+Since version 26.10, numeric range search uses as many threads as there are processor cores by default. Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page), and the order of the found numbers in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting); before, it could differ from run to run.
+
+Also since version 26.11:
+
+*   The numbers of a range that are found in the index are kept for the next searches with the same query until the index is changed, so a repeated search is faster.
+*   A search is canceled (see the [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md" >}}) page) also while it looks for the numbers of the range among the words of the index.
+*   The numbers of a query in text form are read in the same way in any culture of the current thread: before, a negative number, as in `-5~~10`, failed in some cultures.
 
 ## More resources
 

@@ -148,6 +148,8 @@ SearchQuery andQuery = SearchQuery.CreateAndQuery(
 SearchResult result = index.Search(andQuery);
 ```
 
+When the index uses stop words (see the [Indexing with stop words]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page), a stop word of a query and a part of a query that consists of stop words only do not narrow the result. For example, the queries "the AND relativity" and "relativity AND NOT the" find the documents that contain the word "relativity". Since version 26.11, this applies also to a stop word excluded with the NOT operator and to a part of stop words only, such as "(the OR a)" in "relativity AND (the OR a)"; before, the query "relativity AND NOT the" found all the documents of the index, and the query "relativity AND (the OR a)" found nothing.
+
 ## More resources
 
 ### GitHub examples

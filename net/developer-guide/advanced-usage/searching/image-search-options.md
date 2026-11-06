@@ -16,7 +16,7 @@ The [HashDifferences](https://reference.groupdocs.com/search/net/groupdocs.searc
 
 ## MaxResultCount property
 
-The [MaxResultCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/imagesearchoptions/maxresultcount/) property allows you to specify the maximum number of found images for a reverse image search request. The found images with fewer mismatched bits are returned first. The default value is 1000.
+The [MaxResultCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/imagesearchoptions/maxresultcount/) property allows you to specify the maximum number of found images for a reverse image search request. The found images with fewer mismatched bits are returned first. Since version 26.11, the images with the same number of mismatched bits are in the same order in every search while the index is not changed, so a result that this limit cuts has the same images; before, their order could differ from search to search when the search used several threads. The default value is 1000.
 
 ## SearchDocumentFilter property
 

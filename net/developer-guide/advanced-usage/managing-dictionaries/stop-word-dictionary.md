@@ -14,9 +14,11 @@ The [StopWordDictionary](https://reference.groupdocs.com/search/net/groupdocs.se
 
 The dictionary keeps words in lower case without leading and trailing white space. Therefore, the letter case of words does not matter when words are added, removed or checked.
 
+When the index uses stop words, a stop word of a search query does not narrow the result of the other words of the query. Since version 26.11, this also applies to a stop word excluded with NOT and to a part of a query that consists of stop words only: for example, the queries "cat AND NOT the" and "the AND the AND cat" find the documents that contain the word "cat". See the [Indexing with stop words]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page.
+
 To get the number of stop words in the dictionary, use the [Count](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/stopworddictionary/count/) property.
 
-To add stop words to the dictionary, use the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/stopworddictionary/addrange/) method.
+To add stop words to the dictionary, use the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/stopworddictionary/addrange/) method. A word that is *null*, empty or consists of white space is left out. Since version 26.11, the method throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) for a word that contains an unpaired surrogate (half of a surrogate pair), which the dictionary cannot save; the words are checked before the dictionary is changed, so such a call adds nothing.
 
 To remove words from the dictionary, use the [RemoveRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/stopworddictionary/removerange/) method.
 

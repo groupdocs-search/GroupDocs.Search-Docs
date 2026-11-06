@@ -14,6 +14,38 @@ This page contains a description of all search options that can be specified in 
 
 The [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/cancellation/) property allows you to specify the object to cancel the search operation. The search can be canceled without delay by calling the [Cancel](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancel/) method or by calling the [CancelAfter](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancelafter/) method with the delay in milliseconds as an argument. The default value is null, which means that the search cannot be canceled. To cancel the continuation of a search by chunks, pass the cancellation object to the [SearchNext](https://reference.groupdocs.com/search/net/groupdocs.search/index/searchnext/) method (see the [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}) page).
 
+Since version 26.11, the [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/) class implements IDisposable. A cancellation scheduled by the [CancelAfter](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancelafter/) method keeps a timer until it is requested: dispose of the cancellation object, for example by a using statement, to release the timer. The scheduled cancellation is then not requested; a cancellation that has been requested already stays requested. After the disposal, the CancelAfter method throws ObjectDisposedException.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+string query = "Einstein";
+
+// Creating an index in the specified folder
+Index index = new Index(indexFolder);
+
+// Indexing documents from the specified folder
+index.Add(documentsFolder);
+
+// Creating a cancellation object that is disposed of after the search
+using (Cancellation cancellation = new Cancellation())
+{
+    // The search is canceled if it takes longer than 10 seconds
+    cancellation.CancelAfter(10000);
+
+    // Creating a search options instance
+    SearchOptions options = new SearchOptions();
+    options.Cancellation = cancellation;
+
+    // Search in the index
+    SearchResult result = index.Search(query, options);
+    Console.WriteLine("Document count: " + result.DocumentCount);
+}
+// The cancellation object is disposed of: its timer is released, and the cancellation is not requested later
+```
+
 ## DateFormats property
 
 The [DateFormats](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/dateformats/) property allows you to specify formats for the date range search feature. By default, the collection contains the formats 'dd.MM.yyyy', 'MM/dd/yyyy', and 'yyyy-MM-dd'. For details, see the [Date range search]({{< ref "search/net/developer-guide/advanced-usage/searching/date-range-search.md" >}}) page.
@@ -24,7 +56,7 @@ The [FuzzySearch](https://reference.groupdocs.com/search/net/groupdocs.search.op
 
 ## IsChunkSearch property
 
-The [IsChunkSearch](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/ischunksearch/) property allows you to enable search by chunks. By default, the search by chunks feature is disabled. For details, see the [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}) page.
+The [IsChunkSearch](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/ischunksearch/) property allows you to enable search by chunks. By default, the search by chunks feature is disabled. Since version 26.11, the search by chunks is also available in an index repository. For details, see the [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}) page.
 
 ## KeyboardLayoutCorrector property
 
@@ -32,11 +64,17 @@ The [KeyboardLayoutCorrector](https://reference.groupdocs.com/search/net/groupdo
 
 ## MaxOccurrenceCountPerTerm property
 
-The [MaxOccurrenceCountPerTerm](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxoccurrencecountperterm/) property allows you to specify the maximum number of occurrences of each word found that will be returned as a search result. The default value is 2000000000.
+The [MaxOccurrenceCountPerTerm](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxoccurrencecountperterm/) property allows you to specify the maximum number of occurrences of each word found that will be returned as a search result. The default value is 2000000000. Since version 26.11, a value less than 1 throws ArgumentOutOfRangeException; before, a search with such a value found nothing.
 
 ## MaxTotalOccurrenceCount property
 
-The [MaxTotalOccurrenceCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxtotaloccurrencecount/) property allows you to specify the maximum number of occurrences in total for all found words, which will be returned as a search result. The default value is 2000000000.
+The [MaxTotalOccurrenceCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxtotaloccurrencecount/) property allows you to specify the maximum number of occurrences in total for all found words, which will be returned as a search result. The default value is 2000000000. Since version 26.11, a value less than 1 throws ArgumentOutOfRangeException; before, a search with such a value found nothing.
+
+When a limit of the occurrences is reached, the result is truncated: its [Truncated](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/truncated/) property is true, and its [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property names the part of the query whose occurrences are discarded. Since version 26.11, a search that reaches a limit stops reading the index:
+
+*   The documents after the limit are not found. Before, the search went on and found such documents without occurrences.
+*   The limit is reported by one line of the warnings, or by one line for each chunk of a search by chunks. Before, the warnings had a line for every word and index segment that the limit stopped.
+*   The result is truncated also when the limit lets a part of the query search nothing, and when the query excluded with NOT is truncated.
 
 ## RetrieveAttributes property
 
@@ -102,7 +140,7 @@ The search options are checked when a search starts. In the following cases, the
 *   Synonym search is enabled, but the synonym dictionary of the index is empty.
 *   Homophone search is enabled, but the homophone dictionary of the index is empty.
 
-A search query in text form with a syntax error is handled in the same way: the search returns an empty result, and the error message is passed to the ErrorOccurred event. Therefore, it is recommended to subscribe to the ErrorOccurred event to receive such messages. For details on index events, see the [Search index events]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}) page.
+A search query in text form with a syntax error is handled in the same way: the search returns an empty result, and the error message is passed to the ErrorOccurred event. Therefore, it is recommended to subscribe to the ErrorOccurred event to receive such messages. Since version 26.11, the [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property of such a result also tells the problem by a line that starts with "Search failed: " (see the [Search results]({{< ref "search/net/developer-guide/advanced-usage/searching/search-results.md" >}}) page). For details on index events, see the [Search index events]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}) page.
 
 **C#**
 
@@ -131,6 +169,7 @@ options.FuzzySearch.Enabled = true;
 // The search returns an empty result, and the ErrorOccurred event reports the reason
 SearchResult result = index.Search(query, options);
 Console.WriteLine("Document count: " + result.DocumentCount);
+Console.WriteLine("Warnings: " + result.Warnings); // The reason after "Search failed: "
 ```
 
 ## More resources

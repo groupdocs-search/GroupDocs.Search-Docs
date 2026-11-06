@@ -48,7 +48,7 @@ ISearchDocumentFilter filter = SearchDocumentFilter.CreateFilePathRegularExpress
 
 ## File extension filter
 
-The next supported type of search document filters allows you to specify a list of file extensions of the documents to be returned.
+The next supported type of search document filters allows you to specify a list of file extensions of the documents to be returned. Since version 26.11, an extension, with or without the leading dot, is compared with the end of the file name after a dot, ignoring the letter case: ".doc" matches "a.doc" and "a.DOC", but neither "mydoc" nor "a.xdoc". An extension of several parts, such as ".tar.gz", matches "a.tar.gz", and an empty extension matches the files without an extension. Before, an extension matched any file name that ended with it, for example "doc" matched "mydoc", and an empty extension matched every file.
 
 **C#**
 
@@ -70,7 +70,7 @@ ISearchDocumentFilter filter = SearchDocumentFilter.CreateAttribute("main");
 
 ## Combining filters
 
-Search document filters can be combined using composite filters AND, OR, NOT. The [CreateAnd](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchdocumentfilter/createand/) and [CreateOr](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchdocumentfilter/createor/) methods take two or more filters. The following example shows how to combine search document filters.
+Search document filters can be combined using composite filters AND, OR, NOT. The [CreateAnd](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchdocumentfilter/createand/) and [CreateOr](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchdocumentfilter/createor/) methods take two or more filters. Since version 26.11, a filter can be nested up to 128 levels deep: the CreateNot, CreateAnd and CreateOr methods throw ArgumentException if the filter that they create would be deeper. The following example shows how to combine search document filters.
 
 **C#**
 

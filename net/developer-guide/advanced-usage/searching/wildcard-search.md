@@ -17,7 +17,9 @@ In a search query in text form, there are 2 forms of wildcard characters:
 
 Wildcard search is similar to [regular expression search]({{< ref "search/net/developer-guide/advanced-usage/searching/regular-expression-search.md" >}}), but it works significantly faster when there are fewer groups of wildcard characters and they are closer to the end of a search query.
 
-Wildcard search is flexible enough to be used for prefix queries, since a prefix query is a special case of a wildcard query. Since version 26.10, wildcard search uses as many threads as there are processor cores by default.
+Wildcard search is flexible enough to be used for prefix queries, since a prefix query is a special case of a wildcard query. Since version 26.10, wildcard search uses as many threads as there are processor cores by default. Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page).
+
+A wildcard counts the characters of a word as UTF-16 code units: a character above the basic multilingual plane, for example an emoji that the alphabet of the index makes a letter, counts as two characters, which two one-character wildcards or a wildcard of two characters match.
 
 Examples of wildcard search with queries in text form are presented below.
 
@@ -79,6 +81,15 @@ pattern2.AppendWildcard(1, 6);
 SearchQuery query2 = SearchQuery.CreateWordPatternQuery(pattern2);
 SearchResult result2 = index.Search(query2);
 ```
+
+Since version 26.11, the following rules apply to wildcard search:
+
+*   In a query in text form, a backslash escapes a character of a word pattern, as in a word: an escaped character is a character of the pattern, not a wildcard. For example, in an index whose alphabet makes the question mark a letter, the pattern `wh\?t?` finds "wh?ts" and not "whats". A backslash that is not followed by a character that can be escaped makes the query invalid. See the [Search for text containing special characters]({{< ref "search/net/developer-guide/advanced-usage/searching/search-for-text-containing-special-characters.md" >}}) page.
+*   A pattern whose wildcards need more characters than the longest word that an index holds (80 characters), for example `?(100~200)`, finds nothing. Before, such a pattern found all the words of 80 characters.
+*   A pattern that is too complex to be searched for, whose wildcards of a limited length allow more than about 4000 characters in total, finds nothing, and the error is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index and in the warnings of the result. Before, the [Search](https://reference.groupdocs.com/search/net/groupdocs.search/index/search/) method threw ArgumentException.
+*   A search is canceled (see the [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md" >}}) page) also while it looks for the words of the index that match the pattern.
+*   The words that match a pattern are kept for the next searches with the same query until the index is changed, so a repeated search is faster.
+*   In a case-sensitive search, a word pattern finds the words in any letter case, and the warnings of the result tell it (see the [Case sensitive search]({{< ref "search/net/developer-guide/advanced-usage/searching/case-sensitive-search.md" >}}) page).
 
 ## More resources
 

@@ -160,6 +160,10 @@ public class TesseractOcrConnector : IOcrConnector
 }
 ```
 
+## OCR in the extraction in a separate process
+
+Since version 26.11, the text of the images of the documents that are [extracted in a separate process]({{< ref "search/net/developer-guide/advanced-usage/indexing/extraction-in-separate-process.md" >}}) can be recognized as well. The OCR connector of the indexing options is not passed to the extraction process: assign the connector to the [ExtractionHost.OcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/ocrconnector/) property in the program of that process, and enable the recognition in the [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/) of the indexing options. When the options enable the recognition and the extraction process has no OCR connector, the images are not recognized, and the index reports it once per operation by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event. An example is presented on the [Extraction in separate process]({{< ref "search/net/developer-guide/advanced-usage/indexing/extraction-in-separate-process.md#recognition-of-text-in-images" >}}) page.
+
 ## More resources
 
 ### GitHub examples

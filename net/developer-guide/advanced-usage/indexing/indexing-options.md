@@ -10,9 +10,13 @@ hideChildren: False
 ---
 This page contains a description of all the properties of the [IndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/) class. The [UpdateOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/updateoptions/) class used for [updating an index]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) has the same properties. The properties that both classes inherit from the [BaseOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/) class are linked to that class.
 
+{{< alert style="info" >}}Since version 26.11, a document whose data are too large for a segment of the index, about 2 GB of postings or about 500 million characters of distinct terms, fails with the error "The document is too large to be indexed: a segment of the index cannot hold the data of its terms.", which the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event reports. The terms of the document before the limit are indexed, the document is marked with the [IndexedWithError](https://reference.groupdocs.com/search/net/groupdocs.search.results/documentinfo/indexedwitherror/) flag, and the next documents are indexed. Split such a document, for example a log of several gigabytes, into smaller documents.{{< /alert >}}
+
 ## Cancellation property
 
 The **[Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/cancellation/)** property is used to specify an object of type [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/), used to cancel an index operation. The default value of the [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/cancellation/) property is null. An operation can be cancelled at once with the [Cancel](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancel/) method or after a time period with the [CancelAfter](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancelafter/) method. Note that after cancellation, an index may stop an operation with some delay.
+
+Since version 26.11, the [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/) class implements IDisposable: the [Dispose](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/dispose/) method releases the timer of a cancellation scheduled by [CancelAfter](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancelafter/), and the scheduled cancellation is not requested. Dispose of a cancellation, for example by a using statement, when the operation has finished: otherwise, its timer keeps the object, with the operations that it was given to, until the time comes. A cancellation that has been requested stays requested, and [CancelAfter](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancelafter/) throws ObjectDisposedException after Dispose.
 
 A document whose indexing was interrupted by cancellation remains in the index marked with the [IndexedWithError](https://reference.groupdocs.com/search/net/groupdocs.search.results/documentinfo/indexedwitherror/) flag. The next [update]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) of the index indexes such a document again. Documents added from streams, structures or extracted data cannot be indexed again by an update and have to be added again.
 
@@ -27,13 +31,17 @@ string documentFolder = @"c:\MyDocuments\";
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
  
-// Creating an instance of indexing options
-IndexingOptions options = new IndexingOptions();
-options.Cancellation = new Cancellation(); // Setting a cancellation object
-options.Cancellation.CancelAfter(300000); // Setting a time period of 300 seconds after which the indexing operation will be cancelled
+// Creating a cancellation object; disposing of it releases the timer of CancelAfter
+using (Cancellation cancellation = new Cancellation())
+{
+    // Creating an instance of indexing options
+    IndexingOptions options = new IndexingOptions();
+    options.Cancellation = cancellation; // Setting a cancellation object
+    cancellation.CancelAfter(300000); // Setting a time period of 300 seconds after which the indexing operation will be cancelled
  
-// Indexing documents from the specified folder
-index.Add(documentFolder, options);
+    // Indexing documents from the specified folder
+    index.Add(documentFolder, options);
+}
 ```
 
 ## IsAsync property
@@ -73,7 +81,7 @@ The [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.se
 
 ## Encoding property
 
-The [Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/encoding/) property specifies the encoding used to extract text from text files. The default value is null, which means that the default encoding UTF-8 is used. If [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/autodetectencoding/) is true then value of this property is used as the default encoding.
+The [Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/encoding/) property specifies the encoding used to extract text from text files. The default value is null, which means that the default encoding UTF-8 is used. If [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/autodetectencoding/) is true then value of this property is used as the default encoding. Since version 26.11, an HTML document without a byte order mark is read in this encoding or in the encoding that the FileIndexing event sets, if one is set, and otherwise in the charset that the document declares or in UTF-8 (see [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md#encoding-of-html-documents" >}})).
 
 ## Threads property
 
@@ -105,7 +113,7 @@ index.Add(documentFolder, options);
 The [SeparateProcessOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/separateprocessoptions/) property is represented by an object of the [SeparateProcessOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/) class. This class contains properties for extracting data from documents in a separate process:
 
 * The [ExtractInSeparateProcess](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/extractinseparateprocess/) property sets a value indicating whether a separate process is used to extract data from documents. The default value is false. When it is enabled, data are extracted in one thread, and the [Threads](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/threads/) property is ignored.
-* The [Timeout](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/timeout/) property sets the maximum time to wait for the result of data extraction in a separate process. The default value is 10 minutes.
+* The [Timeout](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/timeout/) property sets the maximum time to wait for the result of data extraction in a separate process. The default value is 10 minutes. Since version 26.11, the separate process also has to connect to the index within this time after it is started.
 * The [AssemblyPath](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/assemblypath/) property sets the path to the assembly of the separate process.
 * The [UseDotnetToStartProcess](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/usedotnettostartprocess/) property sets a value indicating whether `dotnet` is used to start the process. The default value is true. Set it to false to start a self-contained application. On .NET Framework, `dotnet` is never used.
 
@@ -123,6 +131,12 @@ This feature is only supported on Windows operating systems. On non-Windows plat
 enabling this property has no effect.
 
 Note that this requires the process to be running with administrative rights.
+
+With this property, a file that cannot be opened is copied into a temporary file by the backup privilege and indexed from the copy, which is deleted after the extraction. An index on disk writes the copy to its folder; since version 26.11, an index in memory and an [Extractor](https://reference.groupdocs.com/search/net/groupdocs.search/extractor/) without [ExtractorSettings.TempFolder](https://reference.groupdocs.com/search/net/groupdocs.search.common/extractorsettings/tempfolder/) write it to the temporary folder of the system; before, their copies failed. Also since version 26.11:
+
+* A file that cannot be copied either is indexed with an error: it is marked with the [IndexedWithError](https://reference.groupdocs.com/search/net/groupdocs.search.results/documentinfo/indexedwitherror/) flag, and its temporary copy is deleted. Before, the file was not recorded in the index.
+* The privilege is enabled only while the operations that use it run, and it is disabled again after them if it was disabled before. An application that needs the privilege after an operation enables it itself.
+* An account that does not hold the privilege is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event when the operation starts, and the operation goes on.
 
 ## MetadataIndexingOptions property
 
@@ -169,7 +183,7 @@ The [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.se
 * The [EnabledForSeparateImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/enabledforseparateimages/) property sets a value indicating whether to recognize text in separate image files. The default value is false.
 * The [EnabledForEmbeddedImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/enabledforembeddedimages/) property sets a value indicating whether to recognize text in embedded images. The default value is false.
 * The [EnabledForContainerItemImages](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/enabledforcontaineritemimages/) property sets a value indicating whether to recognize text in images that are items in a container (ZIP archive, OST/PST storage). The default value is false.
-* The [OcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/ocrconnector/) property sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used.
+* The [OcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/ocrconnector/) property sets an OCR connector that is used for OCR processing. The default value is null, which means no OCR is used. For the documents extracted in a separate process, the OCR connector of the extraction process is used instead (see [Extraction in separate process]({{< ref "search/net/developer-guide/advanced-usage/indexing/extraction-in-separate-process.md#recognition-of-text-in-images" >}})).
 
 ## ImageIndexingOptions property
 

@@ -24,6 +24,10 @@ To export words to a file, use the [ExportDictionary](https://reference.groupdoc
 
 To import words from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
 
+Since version 26.11, a word of the spelling corrector has from 1 to 80 characters and does not contain the characters U+0000, U+0001, tab, carriage return or line feed. The [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/spellingcorrector/addrange/) method and an import skip the other words, for example, *null* or empty words and words longer than 80 characters, add the rest, and report the number of the skipped words by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event; an empty line of an imported file is skipped without an error. When an index is opened, the longer words of a spelling corrector dictionary saved by an earlier version are left out. A word of a search query that has more than 80 characters is not corrected.
+
+The spelling corrector allows 10 mistakes in a word at most: a greater value of the [MaxMistakeCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/spellingcorrectoroptions/maxmistakecount/) option is taken for 10 (see [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}})).
+
 The following example demonstrates the use of methods of the spelling corrector.
 
 **C#**

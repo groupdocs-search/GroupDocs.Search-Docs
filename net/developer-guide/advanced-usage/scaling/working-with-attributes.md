@@ -54,7 +54,7 @@ ChangeAttributesOptions options = new ChangeAttributesOptions();
 indexer.ChangeAttributes(batch, options);
 ```
 
-To get all the attributes of a document, use the [GetAttributes](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/getattributes/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class. You must pass the document key as a parameter.
+To get all the attributes of a document, use the [GetAttributes](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/getattributes/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class. You must pass the document key as a parameter. Since version 26.11, the method throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) for a document that the network has not indexed, instead of KeyNotFoundException.
 
 The following code example, which continues the code that creates the master node, demonstrates retrieving document attributes from the search network.
 

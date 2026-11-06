@@ -24,6 +24,7 @@ GroupDocs.Search provides the following indexing features:
 *   Check index integrity and restore the functionality of a damaged index.
 *   Atomic index changes and checksum protection of index data.
 *   Load an index into memory completely and save an index to another folder.
+*   Reduce the disk space of an index at the cost of its loading speed.
 *   Assign attributes to indexed documents and change them without reindexing.
 *   Retrieve the text of indexed documents.
 *   Indexing reports and notifications of index operations through events.
@@ -42,7 +43,7 @@ GroupDocs.Search provides the following indexing features:
 *   Ability to separately extract data from documents and index them.
 *   Support for optical character recognition (OCR) on images through a connector to an OCR engine.
 *   Calculation and indexing of image hashes for reverse image search.
-*   The ability to create a distributed search network that automatically balances the load across nodes.
+*   The ability to create a distributed search network that automatically balances the load across nodes and authenticates them with a network key.
 
 ## Searching
 
@@ -69,11 +70,11 @@ GroupDocs.Search provides the following search features:
 *   Perform spell check during search.
 *   Perform keyboard layout correction during search.
 *   Search queries in text or flexible object form.
-*   Highlighting search results in the text of the entire document or in text segments.
+*   Highlighting search results in the text of the entire document or in text segments, also for documents indexed with a custom word splitter.
 *   Multiple simultaneous thread safe search.
 *   Multithreaded search with a configurable number of threads.
 *   Searches are not blocked by indexing, updating, deleting, merging or optimizing operations.
 *   Filtering search results by document attributes.
 *   Search reports.
-*   Search over several indexes simultaneously.
+*   Search over several indexes simultaneously, also by chunks.
 *   Built-in support for reverse image search.

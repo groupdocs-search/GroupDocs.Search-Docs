@@ -4,7 +4,7 @@ url: search/net/search-index-repository
 title: Search index repository
 weight: 2
 description: "The IndexRepository class can be used to combine several indexes into a group for searching all indexes at once."
-keywords: combine several indexes, searching all indexes at once, searching all indexes, combine several indexes into a group
+keywords: combine several indexes, searching all indexes at once, searching all indexes, combine several indexes into a group, search by chunks
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
@@ -36,6 +36,8 @@ index1.Add(documentsFolder1);
 // Adding documents to the index 2
 index2.Add(documentsFolder2);
 ```
+
+The repository does not dispose of its indexes, also when the repository itself is disposed: dispose of each index that the repository creates or that is added to it when the index is no longer needed. An index on disk that is not disposed keeps its folder, and since version 26.11, the [Create](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/create/) and [AddToRepository](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/addtorepository/) methods throw [IOException](https://learn.microsoft.com/dotnet/api/system.io.ioexception) for a folder that another [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) object uses (see [Search index location]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-location.md#index-folder" >}})).
 
 The following example shows how to subscribe to the repository events, update indexes in the repository, and search in the repository.
 
@@ -79,6 +81,47 @@ indexRepository.Update();
  
 // Searching in the repository
 SearchResult result = indexRepository.Search("Einstein");
+```
+
+A search of a repository finds the documents of all its indexes in one result, and a document that several indexes find is one result. Since version 26.11, every found item of a container, for example every attachment of an email or every file of an archive that the query finds, is a result of its own; previously, a search of a repository of several indexes returned one item of each container.
+
+Since version 26.11, the [Merge](https://reference.groupdocs.com/search/net/groupdocs.search/index/merge/) method no longer moves the merged indexes out of their repository: a merged index stays in its repository, so the handlers of the repository events get the events of the index after the merge as well, and the [Index.Repository](https://reference.groupdocs.com/search/net/groupdocs.search/index/repository/) property still returns the repository.
+
+## Search by chunks in an index repository
+
+Since version 26.11, an index repository supports the [search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}). A search with the [IsChunkSearch](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/ischunksearch/) option goes through the chunks of the indexes of the repository one index after another. The result of the [Search](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/search/) method is the first chunk of the first index, and the [SearchNext](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/searchnext/) method of the repository continues the search with the [NextChunkSearchToken](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/nextchunksearchtoken/) of the previous result: it returns the next chunk of the same index or the first chunk of the next index. The search goes through the indexes that the repository had when the search started, and NextChunkSearchToken is null after the last chunk of the last index. A document that several indexes contain is found in a chunk of each of them. To cancel the search of the next chunks, use the SearchNext overload that takes a [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/) object. Previously, a search by chunks of a repository of several indexes returned the first chunks of all its indexes in one result without the token of the next chunk.
+
+The following example demonstrates the search by chunks in an index repository.
+
+**C#**
+
+```csharp
+string indexFolder1 = @"c:\MyIndex1\";
+string indexFolder2 = @"c:\MyIndex2\";
+string documentsFolder1 = @"c:\MyDocuments1\";
+string documentsFolder2 = @"c:\MyDocuments2\";
+
+// Creating indexes in the index repository and adding documents to them
+IndexRepository indexRepository = new IndexRepository();
+Index index1 = indexRepository.Create(indexFolder1);
+index1.Add(documentsFolder1);
+Index index2 = indexRepository.Create(indexFolder2);
+index2.Add(documentsFolder2);
+
+// Searching the indexes of the repository by chunks, one index after another
+SearchOptions options = new SearchOptions();
+options.IsChunkSearch = true;
+SearchResult result = indexRepository.Search("Einstein", options);
+Console.WriteLine("Documents: " + result.DocumentCount);
+while (result.NextChunkSearchToken != null)
+{
+    result = indexRepository.SearchNext(result.NextChunkSearchToken);
+    Console.WriteLine("Documents: " + result.DocumentCount);
+}
+
+// Disposing of the indexes, which the repository does not dispose of
+index1.Dispose();
+index2.Dispose();
 ```
 
 ## More resources

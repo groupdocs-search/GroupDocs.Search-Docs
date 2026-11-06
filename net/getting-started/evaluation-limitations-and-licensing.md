@@ -19,9 +19,10 @@ You can easily download GroupDocs.Search for evaluation. The evaluation download
 Following are the indexing limitations of the evaluation version of the **GroupDocs.Search API**:
 
 *   The total number of indexed documents in one index or in all indexes of an index repository cannot exceed 100.
-*   If adding documents would exceed this number, only the documents that fit into the limit are indexed.
+*   If adding documents would exceed this number, only the documents that fit into the limit are indexed, and the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event reports that the number of indexed documents is restricted.
+*   Documents that replace indexed documents, for example the files of an indexed folder that are added again, are always indexed. Only the new documents that do not fit into the limit are left out.
 *   All changed documents can be updated in an index during [Update](https://reference.groupdocs.com/search/net/groupdocs.search/index/update/).
-*   New documents can be added to an index during update only while the total number of indexed documents is less than 100.
+*   New documents can be added to an index during update only while the total number of indexed documents is less than 100. The files deleted from the indexed folders make room for new ones. Since version 26.11, the update leaves out the new files that do not fit into the limit, as adding does.
 *   Indexes can be merged only if the total number of documents in the current index and in the merged indexes does not exceed 100. Otherwise, the [Merge](https://reference.groupdocs.com/search/net/groupdocs.search/index/merge/) method throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/).
 
 ### Searching Limitations
@@ -44,9 +45,47 @@ for (int i = 0; i < count; i++)
 }
 ```
 
+Since version 26.11, an enumeration of a search result by `foreach` or LINQ gives the same documents as the GetFoundDocument method: in the evaluation mode it throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) after the first 10 documents. Therefore, in the evaluation mode, enumerate at most 10 documents, for example with the `Take` method of LINQ:
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string query = "Einstein";
+
+Index index = new Index(indexFolder);
+SearchResult result = index.Search(query);
+foreach (FoundDocument document in result.Take(10)) // Only the first 10 found documents are available in the evaluation mode
+{
+    Console.WriteLine(document.DocumentInfo.FilePath);
+}
+```
+
+### Image Search Limitations
+
+Since version 26.11, only the first 10 found images can be retrieved from a result of the [reverse image search]({{< ref "search/net/developer-guide/advanced-usage/searching/reverse-image-search.md" >}}). The [ImageCount](https://reference.groupdocs.com/search/net/groupdocs.search.results/imagesearchresult/imagecount/) property returns the total number of found images, but the [GetFoundImage](https://reference.groupdocs.com/search/net/groupdocs.search.results/imagesearchresult/getfoundimage/) method throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) for an image number of 10 or greater. Therefore, in the evaluation mode, a loop over found images must not exceed 10 iterations:
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+
+Index index = new Index(indexFolder);
+SearchImage searchImage = SearchImage.Create(@"c:\MyDocuments\image.png");
+ImageSearchResult result = index.Search(searchImage, new ImageSearchOptions());
+int count = Math.Min(result.ImageCount, 10); // Only the first 10 found images are available in the evaluation mode
+for (int i = 0; i < count; i++)
+{
+    FoundImageFrame image = result.GetFoundImage(i);
+    Console.WriteLine(image.DocumentInfo.FilePath + ", image " + image.ImageIndex);
+}
+```
+
 ### Search Network Limitations
 
 A [search network]({{< ref "search/net/developer-guide/advanced-usage/scaling/_index.md" >}}) can contain only 1 shard and 1 extractor. If the configuration of the network contains more shards or extractors, the methods of the indexer and searcher nodes throw [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception).
+
+The results of a search network have the same limits as the results of an index. Only the first 10 found documents can be retrieved from a [NetworkSearchResult](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networksearchresult/): its [GetFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networksearchresult/getfounddocument/) method throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) for a document number of 10 or greater, and its enumeration throws it after the first 10 documents. Only the first 10 found images can be retrieved from a [NetworkImageSearchResult](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkimagesearchresult/).
 
 ## Licensing 
 
@@ -72,7 +111,7 @@ lic.SetLicense(@"c:\Licenses\GroupDocs.Search.lic");
 
 ### Applying License from Stream
 
-The following example shows how to load a license from a stream.
+The following example shows how to load a license from a stream. The [SetLicense](https://reference.groupdocs.com/search/net/groupdocs.search/license/setlicense/) method reads the stream to its end: a stream that supports seeking is read from its beginning, and another stream from its current position. The stream is not closed by the method.
 
 **C#**
 

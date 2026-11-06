@@ -28,7 +28,19 @@ The type of each particular character can be specified in the alphabet. By defau
 *   Armenian letters: 0531-0556, 0561-0587;
 *   Arabic letters: 0610-061A, 0620-0669, 066E-06D3, 06D5-06DC, 06DF-06E8, 06EA-06FC, 06FF, 0750-077F, 0870-0887, 0889-088E, 0898-089F, 08A0-08E1, 08E3-08FF, FB50-FBB1, FBD3-FD3D, FD50-FD8F, FD92-FDC7, FDF0-FDFB, FE70-FE74, FE76-FEFC, 10EFD-10EFF, as well as the letters of the Arabic Mathematical Alphabetic Symbols block (1EE00-1EEBB).
 
+Since version 26.11, the default alphabet of a new index also defines the following characters as letters:
+
+*   Combining diacritical marks: 0300-036F;
+*   Hebrew: 0591-05BD, 05BF, 05C1-05C2, 05C4-05C5, 05C7, 05D0-05EA, 05EF-05F2;
+*   Devanagari: 0900-0963, 0966-096F, 0971-097F;
+*   Georgian: 10A0-10C5, 10C7, 10CD, 10D0-10FA, 10FC-10FF, 1C90-1CBA, 1CBD-1CBF, 2D00-2D25, 2D27, 2D2D;
+*   Latin letters: 1E00-1EFF, 2C60-2C7F, A722-A788, A78B-A7CA, A7D0-A7D1, A7D3, A7D5-A7D9, A7F2-A7FF, AB30-AB5A, AB5C-AB69;
+*   Greek letters: 1F00-1F15, 1F18-1F1D, 1F20-1F45, 1F48-1F4D, 1F50-1F57, 1F59, 1F5B, 1F5D, 1F5F-1F7D, 1F80-1FB4, 1FB6-1FBC, 1FBE, 1FC2-1FC4, 1FC6-1FCC, 1FD0-1FD3, 1FD6-1FDB, 1FE0-1FEC, 1FF2-1FF4, 1FF6-1FFC;
+*   Hangul: 1100-11FF, 3131-318E, A960-A97C, AC00-D7A3, D7B0-D7C6, D7CB-D7FB.
+
 The other characters are defined as separators in the alphabet.
+
+An index keeps the alphabet that it was created with. In an index created by an earlier version, also after it is updated with the [IndexUpdater](https://reference.groupdocs.com/search/net/groupdocs.search/indexupdater/) class, the characters added in version 26.11 remain separators: for example, the Vietnamese word "Việt" is indexed as the words "Vi" and "t". To create a new index with the alphabet of another index, for example, to merge the indexes, see the [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) page.
 
 The following example demonstrates how to specify only digits, the low line character, and English letters as letters in the alphabet.
 

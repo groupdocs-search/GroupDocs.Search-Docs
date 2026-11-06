@@ -16,7 +16,9 @@ The returned object is a copy of the dictionary of the shard. You can perform al
 
 After setting up the dictionary, return it to the shard using the [SetDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/setdictionary/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class, specifying the index of the desired shard. Alternatively, you can set the dictionary to all shards by calling the [SetDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/setdictionary/) method with one parameter, without specifying the shard index. The [SetDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/setdictionary/) method replaces the whole content of the dictionary of a shard with the content of the passed dictionary.
 
-{{< alert style="info" >}}The alphabet, the tokenization dictionary, the stop word dictionary and the character replacement dictionary define how the text of documents is divided into terms. Therefore, a shard accepts another content of such a dictionary only while its index contains no documents and is not performing an operation. A shard that does not accept the dictionary does not throw an exception: it keeps its own dictionary and reports the reason as an error to the log of the search network and by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of its node. Configure these dictionaries before adding the first documents to the search network. The other dictionaries can be changed at any time. See also the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page.{{< /alert >}}
+{{< alert style="info" >}}The alphabet, the tokenization dictionary, the stop word dictionary and the character replacement dictionary define how the text of documents is divided into terms. Therefore, a shard accepts another content of such a dictionary only while its index contains no documents and is not performing an operation; a call that does not change the content of the dictionary is allowed at any time. A shard that does not accept the dictionary keeps its own dictionary and reports the reason as an error to the log of the search network and by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of its node. Since version 26.11, the shard also answers the request with the error, and the [SetDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/setdictionary/) method throws [SearchException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/searchexception/) with the errors of the shards that have not accepted the dictionary; the shards that have accepted it get the new content. Before, the method returned as if every shard had accepted the dictionary. Configure these dictionaries before adding the first documents to the search network. The other dictionaries can be changed at any time. See also the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page.{{< /alert >}}
+
+Since version 26.11, the default alphabet and tokenization dictionary of a new index contain more scripts (see the [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) page), while the index of a shard created by an earlier version keeps its dictionaries. Therefore, in a search network with shards created before and after an upgrade, the words of these scripts may be found differently in different shards. To give a new shard the dictionaries of the other shards, get them from another shard and set them to the new shard before documents are added to it.
 
 The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
 
@@ -85,8 +87,16 @@ for (int codePoint = 0x3040; codePoint <= 0x30FF; codePoint++)
 }
 tokenizationDictionary.SetRange(codePoints.ToArray(), CharacterType.Letter);
 
-// Setting the dictionary to all shards; a shard whose index contains documents keeps its own dictionary
-indexer.SetDictionary(tokenizationDictionary);
+try
+{
+    // Setting the dictionary to all shards
+    indexer.SetDictionary(tokenizationDictionary);
+}
+catch (SearchException ex)
+{
+    // A shard whose index contains documents has not accepted another content and keeps its own dictionary
+    Console.WriteLine(ex.Message);
+}
 ```
 
 For more information on the tokenization dictionary, see the [Tokenization dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary.md" >}}) page.

@@ -10,7 +10,9 @@ hideChildren: False
 ---
 Search results in the search network can be highlighted in the text of the found document using the [Highlight](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/highlight/) method of the [Searcher](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/) class. The found document is passed to the method as a [NetworkFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkfounddocument/) object obtained from a [search result]({{< ref "search/net/developer-guide/advanced-usage/scaling/text-search-in-network.md" >}}).
 
-The set of available classes for highlighting text, as well as the highlighting options, are identical to those used for highlighting search results in a single index. Please see also the [Highlighting search results]({{< ref "search/net/developer-guide/advanced-usage/searching/highlighting-search-results.md" >}}) page.
+The set of available classes for highlighting text, as well as the highlighting options, are identical to those used for highlighting search results in a single index. Please see also the [Highlighting search results]({{< ref "search/net/developer-guide/advanced-usage/searching/highlighting-search-results.md" >}}) page. The options cannot have a custom text extractor ([CustomExtractor](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/customextractor/) property) or a custom word splitter ([WordSplitter](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/wordsplitter/) property, added in version 26.11), because they cannot be sent to the shards: the [Highlight](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/highlight/) method throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) for such options.
+
+Since version 26.11, the Highlight method observes the [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.options/textoptions/cancellation/) of the highlight options: when the cancellation is requested, the method returns at once, and the highlighter gets no text. A shard that has got the request completes it, and its result is ignored. Also since version 26.11, the errors that the index of the shard reports while it highlights the document are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of the master node: for example, a document that has been deleted from the shard gives no text, and the event reports "Document is not found."
 
 The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
 
@@ -44,8 +46,10 @@ int maxFragments = 5; // The maximum number of fragments to output for each fiel
 
 Searcher searcher = node.Searcher;
 
-// Searching in the search network
-NetworkSearchResult searchResult = searcher.SearchFirst(query, new SearchOptions());
+// Searching in the search network, which supports only search by chunks
+SearchOptions searchOptions = new SearchOptions();
+searchOptions.IsChunkSearch = true;
+NetworkSearchResult searchResult = searcher.SearchFirst(query, searchOptions);
 if (searchResult.DocumentCount > 0)
 {
     // Getting the first found document

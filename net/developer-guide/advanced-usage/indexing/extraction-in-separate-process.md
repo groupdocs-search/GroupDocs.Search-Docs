@@ -4,7 +4,7 @@ url: search/net/extraction-in-separate-process
 title: Extraction in separate process
 weight: 11
 description: "This article describes how to extract data from documents in a separate process to protect the indexing process from memory shortage and long extraction."
-keywords: extraction in separate process, ExtractionHost, SeparateProcessOptions, out of memory, extraction timeout
+keywords: extraction in separate process, ExtractionHost, SeparateProcessOptions, out of memory, extraction timeout, OCR in separate process
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
@@ -12,7 +12,7 @@ Extracting data from documents is the most resource-intensive operation of the i
 
 Extracting data from documents in a separate process also solves another problem: a document whose extraction exceeds the allocated time limit is interrupted at once.
 
-To extract data from documents in a separate process, you need to configure the appropriate indexing options and create a simple console application project that the GroupDocs.Search library will run in a separate process as a data extraction service. The console application project for data extraction must have the GroupDocs.Search library as a dependency, as does the main project using the library. The console application project code is presented in the following listing.
+To extract data from documents in a separate process, you need to configure the appropriate indexing options and create a simple console application project that the GroupDocs.Search library will run in a separate process as a data extraction service. The console application project for data extraction must have the GroupDocs.Search library as a dependency, as does the main project using the library. Since version 26.11, both projects must use the same version of the library: the processes exchange requests that a console application built with an earlier version does not answer. The console application project code is presented in the following listing.
 
 **C#**
 
@@ -32,15 +32,15 @@ namespace ExtractionService
 }
 ```
 
-The [ExtractionHost](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/) class receives the name of the communication channel from the command line arguments, so the arguments must be passed to its constructor unchanged. The [Run](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/run/) method processes extraction requests until the main process stops the service. The license set in the main process is passed to the extraction process automatically. Requests for document passwords and extraction errors are passed to the main process.
+The [ExtractionHost](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/) class receives the name of the communication channel from the command line arguments, so the arguments must be passed to its constructor unchanged. The [Run](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/run/) method processes extraction requests until the main process stops the service. Since version 26.11, the [Dispose](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/dispose/) method of the host ends the [Run](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/run/) method, even when Run is called on another thread. The license set in the main process is passed to the extraction process automatically. Requests for document passwords and extraction errors are passed to the main process. Since version 26.11, a document whose password is in the [password dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/document-passwords.md" >}}) of the index is extracted with this password, as without a separate process, and the [PasswordRequired](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/passwordrequired/) event is raised only for the documents whose passwords the dictionary does not have. Only the user of the main process can connect to its communication channel, and the extraction process connects only to a channel of its user.
 
-Custom text extractors added to the index settings are not passed to the extraction process. To use [custom text extractors]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-extractors.md" >}}), add them to the [CustomExtractors](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/customextractors/) collection of the host before calling the [Run](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/run/) method, for example: `host.CustomExtractors.Add(new LogExtractor());`.
+Custom text extractors added to the index settings or set in the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event are not passed to the extraction process: the documents extracted in a separate process are extracted only by the custom extractors of the host. To use [custom text extractors]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-extractors.md" >}}), add them to the [CustomExtractors](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/customextractors/) collection of the host before calling the [Run](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/run/) method, for example: `host.CustomExtractors.Add(new LogExtractor());`. In the same way, the OCR connector of the indexing options is not passed to the extraction process (see [Recognition of text in images](#recognition-of-text-in-images) below).
 
 The options for extraction in a separate process are specified in the [SeparateProcessOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/) object available through the [IndexingOptions.SeparateProcessOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/separateprocessoptions/) or [UpdateOptions.SeparateProcessOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/updateoptions/separateprocessoptions/) property:
 
-*   [ExtractInSeparateProcess](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/extractinseparateprocess/) enables extraction in a separate process. The default value is false. Note that in this mode, data are extracted in only one thread: the number of threads specified in the [Threads](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/threads/) property is ignored.
+*   [ExtractInSeparateProcess](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/extractinseparateprocess/) enables extraction in a separate process. The default value is false. Note that in this mode, data are extracted in only one thread: the number of threads specified in the [Threads](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/threads/) property is ignored. Before version 26.11, a value of [Threads](https://reference.groupdocs.com/search/net/groupdocs.search.options/indexingoptions/threads/) greater than 1 made the index extract the documents in its own process.
 *   [AssemblyPath](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/assemblypath/) specifies the path to the assembly of the console application.
-*   [Timeout](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/timeout/) specifies the maximum time to wait for the result of data extraction from one document. The default value is 10 minutes.
+*   [Timeout](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/timeout/) specifies the maximum time to wait for the result of data extraction from one document. The default value is 10 minutes. Since version 26.11, the extraction process also has to connect to the index within this time after it is started: a process that does not connect in time, for example because it waits for an error dialog, is stopped, and the error is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event. A small value has to leave the process enough time to start.
 *   [UseDotnetToStartProcess](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/usedotnettostartprocess/) specifies whether the process is started with the `dotnet` command, which runs the assembly specified by [AssemblyPath](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/assemblypath/). The default value is true. Set it to false to start a self-contained application; in this case, [AssemblyPath](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/assemblypath/) must specify the executable file. On .NET Framework, `dotnet` is never used, and the executable file is started directly.
 
 An example of setting indexing options for data extraction in a separate process is shown in the listing below. In this example, the main project references the console application project, so the path to the console application can be obtained from its type; otherwise, specify the path explicitly.
@@ -62,6 +62,68 @@ IndexingOptions options = new IndexingOptions();
 options.SeparateProcessOptions.ExtractInSeparateProcess = true;
 options.SeparateProcessOptions.AssemblyPath = assemblyPath;
 options.SeparateProcessOptions.Timeout = new TimeSpan(0, 1, 0);
+
+// Indexing documents from the specified folder
+index.Add(documentFolder, options);
+```
+
+Since version 26.11:
+
+*   The end of the extraction process, for example its crash, is noticed at once: the document being extracted is reported as failed, a new process is started, and the next documents are extracted in it.
+*   A process that cannot be started or exits before it connects, for example because of a wrong [AssemblyPath](https://reference.groupdocs.com/search/net/groupdocs.search.options/separateprocessoptions/assemblypath/), is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event.
+*   A file indexed with the extraction in a separate process is recorded as a file, so it is updated and deleted like the other files of the indexed folders.
+*   With [AutoDetectEncoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/autodetectencoding/), the encoding of a document is detected in the extraction process (see [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}})).
+
+## Recognition of text in images
+
+Since version 26.11, the text of the images of the documents that are extracted in a separate process can be recognized (see [OCR support]({{< ref "search/net/developer-guide/advanced-usage/indexing/ocr-support.md" >}})). The OCR connector of the indexing options ([OcrIndexingOptions.OcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/ocrconnector/)) is an object of the main process and is not passed to the extraction process: assign the connector to the [OcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/ocrconnector/) property of the host, and enable the recognition in the [OcrIndexingOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/ocrindexingoptions/) of the indexing options. When the options enable the recognition and the host has no OCR connector, the images are not recognized, and the index reports it once per operation by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event.
+
+The following listing shows the console application with an OCR connector, for example the connector implemented on the [OCR support]({{< ref "search/net/developer-guide/advanced-usage/indexing/ocr-support.md" >}}) page, and a custom text extractor.
+
+**C#**
+
+```csharp
+namespace ExtractionService
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            using (GroupDocs.Search.ExtractionHost host = new GroupDocs.Search.ExtractionHost(args))
+            {
+                // The OCR connector recognizes the text of the images of the documents that this process extracts
+                host.OcrConnector = new AsposeOcrConnector();
+
+                // The custom text extractors used by this process
+                host.CustomExtractors.Add(new LogExtractor());
+
+                host.Run();
+            }
+        }
+    }
+}
+```
+
+The main process enables the recognition in the indexing options.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentFolder = @"c:\MyDocuments\";
+
+// Getting the path to the console application location
+string assemblyPath = typeof(ExtractionService.Program).Assembly.Location;
+
+// Creating an index in the specified folder
+Index index = new Index(indexFolder);
+
+// Setting indexing options for data extraction in a separate process with text recognition in images
+IndexingOptions options = new IndexingOptions();
+options.SeparateProcessOptions.ExtractInSeparateProcess = true;
+options.SeparateProcessOptions.AssemblyPath = assemblyPath;
+options.OcrIndexingOptions.EnabledForSeparateImages = true;
+options.OcrIndexingOptions.EnabledForEmbeddedImages = true;
 
 // Indexing documents from the specified folder
 index.Add(documentFolder, options);
