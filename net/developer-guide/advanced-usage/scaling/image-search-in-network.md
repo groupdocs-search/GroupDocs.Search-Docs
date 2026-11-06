@@ -14,6 +14,8 @@ To continue the search, the [SearchNext](https://reference.groupdocs.com/search/
 
 The search image object and search options object are the same as those used for single index searches. Images can be found only if image indexing was enabled when the documents were [added]({{< ref "search/net/developer-guide/advanced-usage/scaling/indexing-documents.md" >}}).
 
+{{< alert style="info" >}}Since version 26.11, only the first 10 found images of a NetworkImageSearchResult can be retrieved in the evaluation mode: the [GetFoundImage](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkimagesearchresult/getfoundimage/) method throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) for an image number of 10 or greater, and the [ImageCount](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkimagesearchresult/imagecount/) property returns the number of all found images. See [Evaluation limitations and licensing]({{< ref "search/net/getting-started/evaluation-limitations-and-licensing.md" >}}).{{< /alert >}}
+
 The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
 
 **C#**

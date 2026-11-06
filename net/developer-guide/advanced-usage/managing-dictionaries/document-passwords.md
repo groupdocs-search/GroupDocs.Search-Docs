@@ -12,6 +12,10 @@ The [PasswordDictionary](https://reference.groupdocs.com/search/net/groupdocs.se
 
 The password dictionary can be changed at any time. A password is stored with a key, which is the full path of a document file or, for a document added from a stream or a structure, the document key.
 
+{{< alert style="info" >}}The passwords are not protected in the index, in an exported file or in the messages of a search network: anyone who can read the folder of the index, the exported file or the traffic of the network can read them. Keep the folder of an index that has passwords, and the exported files, where only trusted users can read them. To keep passwords out of the index, provide them with the [PasswordRequired](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/passwordrequired/) event instead (see [Indexing password protected documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-password-protected-documents.md" >}})).{{< /alert >}}
+
+The passwords of the dictionary are used when protected documents are indexed. Since version 26.11, they are also used for the documents that are extracted in a separate process (see [Extraction in separate process]({{< ref "search/net/developer-guide/advanced-usage/indexing/extraction-in-separate-process.md" >}})); the [PasswordRequired](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/passwordrequired/) event is raised only for the documents whose passwords the dictionary does not have.
+
 To get the number of passwords in the dictionary, use the [Count](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/passworddictionary/count/) property.
 
 To get the password for a document from the dictionary, the [GetPassword](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/passworddictionary/getpassword/) method is used, passing the full path or the key of the document as an argument.
@@ -20,13 +24,13 @@ The [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.dictiona
 
 To check for the presence of a password in the dictionary for the specified document, the [Contains](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/passworddictionary/contains/) method is used.
 
-To add a password to the dictionary, use the [Add](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/passworddictionary/add/) method. The first parameter is the full path or the key of the document. If the dictionary already contains a password for the document, the method throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception); remove the existing password first.
+To add a password to the dictionary, use the [Add](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/passworddictionary/add/) method. The first parameter is the full path or the key of the document. If the dictionary already contains a password for the document, the method throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception); remove the existing password first. Since version 26.11, the method also throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) for a key that is empty or contains a line break or an unpaired surrogate (half of a surrogate pair), and for a password that contains an unpaired surrogate, because the dictionary cannot save them. A password can be empty; since version 26.11, an empty password is kept when the index is opened again.
 
 To remove a password from the dictionary, use the [Remove](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/passworddictionary/remove/) method.
 
 To export passwords to a file, use the [ExportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/exportdictionary/) method.
 
-To import passwords from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. The imported passwords are added to the dictionary, so the dictionary must not already contain passwords for the same documents; otherwise, the import fails. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
+To import passwords from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. The imported passwords are added to the dictionary, so the dictionary must not already contain passwords for the same documents; otherwise, the import fails, and since version 26.11, it adds no password to the dictionary. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
 
 The following example demonstrates the use of methods of the password dictionary.
 

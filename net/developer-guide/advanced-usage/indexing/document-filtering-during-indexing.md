@@ -50,6 +50,8 @@ DocumentFilter filter2 = DocumentFilter.CreateCreationTimeUpperBound(new DateTim
 DocumentFilter filter3 = DocumentFilter.CreateCreationTimeRange(new DateTime(2017, 1, 1), new DateTime(2018, 6, 15));
 ```
 
+Since version 26.11, a bound of the kind [DateTimeKind.Utc](https://learn.microsoft.com/dotnet/api/system.datetimekind), for example DateTime.UtcNow, is compared with the time of a file in the universal time, and a bound of the kind Local or Unspecified, such as the bounds of these examples, is taken for the local time. Before, every bound was compared with the local time of a file, so a bound of the kind Utc shifted the filter by the offset of the time zone; the next update of an index whose filter has such a bound can add or delete files. The modification time filters compare their bounds in the same way.
+
 ## Modification time filters
 
 The next type of filters works similarly, but based on the document file modification date. Examples are presented below.
@@ -78,6 +80,10 @@ The next type of filters allows you to set a regular expression for skipping tho
 DocumentFilter filter = DocumentFilter.CreateFilePathRegularExpression("Einstein", RegexOptions.IgnoreCase);
 ```
 
+Since version 26.11, a file whose path the expression does not finish matching within its time limit is skipped: a new file is not added, and an indexed file is neither updated nor deleted. The file is reported through the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event, and the other files are indexed. Before, such a file stopped the operation.
+
+Also since version 26.11, a string of a document filter, such as a regular expression created from a long list of file names, can have up to 65535 characters: the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) constructor that creates an index with a longer string throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception). Before, a string of more than 2000 characters made the creation of the index fail.
+
 ## File length filters
 
 The following group of filters uses the file length in bytes for filtering. It is possible to specify a lower bound, an upper bound or the range of acceptable file length. Examples are below.
@@ -105,6 +111,8 @@ The following type of filters allows you to specify a list of valid file extensi
 // This filter allows indexing only FB2, EPUB, and TXT files
 DocumentFilter filter = DocumentFilter.CreateFileExtension(".fb2", ".epub", ".txt");
 ```
+
+Since version 26.11, an extension, with or without the leading dot, is compared with the end of the file name after a dot, ignoring the case of the letters: "doc" and ".doc" pass "a.doc" and "a.DOC", but neither "mydoc" nor "a.xdoc". An extension of several parts, such as "tar.gz", passes "a.tar.gz", and an empty extension passes the files without an extension. Before, an extension passed every file name that ended with its letters, and an empty extension passed every file; the next update of an index deletes the files that its filter no longer passes.
 
 ## Logical NOT filter
 
@@ -151,6 +159,8 @@ DocumentFilter notTxtSizeFilter = DocumentFilter.CreateAnd(notTxtFilter, bound10
 DocumentFilter finalFilter = DocumentFilter.CreateOr(txtSizeFilter, notTxtSizeFilter);
 settings.DocumentFilter = finalFilter;
 ```
+
+Since version 26.11, the logical filters can be nested up to 128 levels deep: the [CreateNot](https://reference.groupdocs.com/search/net/groupdocs.search.options/documentfilter/createnot/), [CreateAnd](https://reference.groupdocs.com/search/net/groupdocs.search.options/documentfilter/createand/) and [CreateOr](https://reference.groupdocs.com/search/net/groupdocs.search.options/documentfilter/createor/) methods throw [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) when the filter that they create would be deeper.
 
 ## More resources
 

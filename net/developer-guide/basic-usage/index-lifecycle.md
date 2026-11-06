@@ -3,8 +3,8 @@ id: index-lifecycle
 url: search/net/index-lifecycle
 title: Index lifecycle
 weight: 4
-description: "This article explains the life cycle of an index: from creating it on disk to indexing, optimizing, updating, version updating and checking it."
-keywords: index lifecycle, index states, optimize index, update index, IndexUpdater, CheckSegments
+description: "This article explains the life cycle of an index: from creating it on disk to indexing, optimizing, updating, version updating, checking and disposing of it."
+keywords: index lifecycle, index states, optimize index, update index, IndexUpdater, CheckSegments, Dispose
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
@@ -36,6 +36,48 @@ The following operations are also part of the index life cycle:
 
 *   **Version update.** When GroupDocs.Search is upgraded to a version with a new index format, an index created by a previous version cannot be opened until it is updated with the [IndexUpdater](https://reference.groupdocs.com/search/net/groupdocs.search/indexupdater/) class. The updated index is written to a new folder; the source index is not modified. See [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) and [Update index version]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md#update-index-version" >}}).
 *   **Integrity check.** Index data are protected with checksums. The [CheckSegments](https://reference.groupdocs.com/search/net/groupdocs.search/index/checksegments/) method checks the index for damaged segments and can restore the index functionality if damage is found. See [Checking index integrity]({{< ref "search/net/developer-guide/advanced-usage/indexing/checking-index-integrity.md" >}}).
+
+## Loading and disposing of an index
+
+An index is loaded by an [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) constructor and unloaded from memory by its [Dispose](https://reference.groupdocs.com/search/net/groupdocs.search/index/dispose/) method. Since version 26.11, the following rules apply:
+
+*   An index folder is used by one Index object at a time. Dispose of an index before its folder is used again; otherwise, [IOException](https://learn.microsoft.com/dotnet/api/system.io.ioexception) is thrown. An index that is not disposed keeps its folder until the garbage collector finalizes it. See [Search index location]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-location.md#index-folder" >}}).
+*   Dispose cancels the running operations of the index, the asynchronous ones as well, and waits until they end; then the folder of the index is released. Previously, Dispose returned at once, and an asynchronous operation went on after it.
+*   A handler of an [index event]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}) can dispose of the index. In this case, Dispose does not wait, and the folder is released when the operations of the index end.
+*   After Dispose, the methods that index, search, change or save the index throw [ObjectDisposedException](https://learn.microsoft.com/dotnet/api/system.objectdisposedexception), and no dictionary of the index can be changed: a method that changes a dictionary throws [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception) (see [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}})). The properties of the index and the information about its documents remain available.
+
+Since version 26.11, the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) class implements the [dispose pattern](https://learn.microsoft.com/dotnet/standard/garbage-collection/implementing-dispose) of .NET, as do the [IndexRepository](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/), [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/) and [ExtractionHost](https://reference.groupdocs.com/search/net/groupdocs.search/extractionhost/) classes: a derived class releases its own resources together with the index by overriding the protected virtual method Dispose(bool) and calling the method of the base class. The following example demonstrates such a class.
+
+**C#**
+
+```csharp
+// A class derived from Index releases its own resource together with the index
+public class LoggingIndex : Index
+{
+    private readonly StreamWriter log;
+
+    public LoggingIndex(string indexFolder, string logPath)
+        : base(indexFolder)
+    {
+        log = new StreamWriter(logPath);
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        try
+        {
+            if (disposing)
+            {
+                log.Dispose();
+            }
+        }
+        finally
+        {
+            base.Dispose(disposing);
+        }
+    }
+}
+```
 
 ## More resources
 

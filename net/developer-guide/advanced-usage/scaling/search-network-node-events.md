@@ -10,6 +10,8 @@ hideChildren: False
 ---
 This page contains information about the purpose and use of all search network events. The events are available through the [Events](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/events/) property of the [SearchNetworkNode](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searchnetworknode/) class, which returns an instance of the [NodeEventHub](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/) class.
 
+Since version 26.11, an exception thrown by a handler of an event is written to the log of the node, and the other handlers of the event are called. No event of a node occurs after the node is disposed, and the completion event of an operation that the disposal stops does not occur (see [Stopping a node]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md#stopping-a-node" >}})).
+
 ## ConfigurationCompleted event
 
 The [ConfigurationCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/configurationcompleted/) event occurs when the search network configuration process is finished.
@@ -58,9 +60,11 @@ The [DocumentDeleted](https://reference.groupdocs.com/search/net/groupdocs.searc
 
 The [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of a node occurs when an error occurs on this node. The event arguments contain the indexes of the node and the service where the error occurred. The errors of all nodes are also written to the logger of the master node.
 
+Since version 26.11, the ErrorOccurred event of the master node also reports the errors of the other nodes: a document or a shard that a node could not process in an operation of the indexer, for example because the node is lost; a document that a cancelled addition or extraction has not processed; and the errors that the index of a shard or of an extractor reports while it carries out an operation of the indexer, a highlighting or the getting of a document text, for example for a document whose text cannot be extracted. The arguments contain the indexes of the node and the service of the error, and the operation completes with the other documents and shards (see [Errors and lost nodes]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md#errors-and-lost-nodes" >}})).
+
 ## IndexingProgressChanged event
 
-The [IndexingProgressChanged](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/indexingprogresschanged/) event occurs when the progress of the indexing operation has changed.
+The [IndexingProgressChanged](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/indexingprogresschanged/) event occurs when the progress of the indexing operation has changed. Since version 26.11, a shard indexes the documents that come one after another together, and the event occurs once for every answer of a shard, which may report several documents: the [ProcessedDocuments](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/networkindexingprogresseventargs/processeddocuments/) property of the event arguments grows by their number. The [DocumentIndexed](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/documentindexed/) event still occurs for every document.
 
 ## OptimizationProgressChanged event
 

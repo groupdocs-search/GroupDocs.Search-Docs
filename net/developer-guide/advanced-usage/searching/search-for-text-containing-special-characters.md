@@ -19,6 +19,8 @@ These characters can be escaped by adding a \\ sign to the left of the character
 \\s - escaping space character.  
 See [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}) for details on search query syntax.
 
+Since version 26.11, the special characters can be escaped in the same way in a word pattern of the [wildcard search]({{< ref "search/net/developer-guide/advanced-usage/searching/wildcard-search.md" >}}): an escaped character is a character of the pattern, not a wildcard. For example, the escaped question mark of the pattern `wh\?t?` is a character, and the last question mark is a wildcard.
+
 However, if the escaped character is a separator, it will still not be found in the text, since separators are not indexed. As a result, words containing such characters will also not be found when searching for an exact match.
 
 If the search query contains separator characters, words containing these characters will not be found, because during indexing these characters break the word into parts and are not indexed themselves.

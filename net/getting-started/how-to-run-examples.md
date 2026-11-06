@@ -36,6 +36,8 @@ foreach (FoundDocument document in result)
 *   Build and Run your project.
 *   List of found documents will appear in the console.
 
+{{< alert style="info" >}}In the evaluation mode, only the first 10 found documents can be retrieved: since version 26.11, an enumeration of a search result with *foreach* throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) after the first 10 documents, as the [GetFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/getfounddocument/) method does for a document number of 10 or greater. See [Evaluation limitations and licensing]({{< ref "search/net/getting-started/evaluation-limitations-and-licensing.md" >}}).{{< /alert >}}
+
 ## Download examples from GitHub
 
 The complete examples package of **GroupDocs.Search** is hosted on [GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET). You can either download the ZIP file from [here](https://codeload.github.com/groupdocs-search/GroupDocs.Search-for-.NET/zip/master) or clone the repository using your favorite Git client.

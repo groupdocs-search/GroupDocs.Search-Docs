@@ -43,6 +43,8 @@ SearchQuery query2 = SearchQuery.CreateDateRangeQuery(new DateTime(2017, 1, 1), 
 SearchResult result2 = index.Search(query2);
 ```
 
+Since version 26.11, a date range is searched as sets: every part of the dates of the range, a day, a month or a year, is read from the index once, and a date is found in the text as its parts that follow one another. Therefore, the limits of the occurrences ([MaxTotalOccurrenceCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxtotaloccurrencecount/) and [MaxOccurrenceCountPerTerm](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxoccurrencecountperterm/) of the search options) count an occurrence of a part of a date once, as they count the occurrences of any word, and once for each chunk of a search by chunks. Before, an occurrence of a part was counted again for every date that had the part, in every format, so a range of a year or more could reach the default limit of the occurrences, and the later dates of the range were not found.
+
 ## Specifying date range search formats
 
 To perform the date range search, the date templates specified in the search options are used. The following formats are used by default:
@@ -101,8 +103,10 @@ SearchResult result = index.Search("daterange(2017-01-01 ~~ 2019-12-31)", option
 
 The [DateFormat](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformat/) class has two constructors:
 
-*   DateFormat(DateFormatElement[] formatElements, string dateSeparator) creates a format with the specified date separator. Month names, if the format contains them, are taken from the current culture.
-*   DateFormat(string cultureName, DateFormatElement[] formatElements) creates a format that uses the date separator and the month names of the specified culture, for example, "en-US" or "de-DE". This constructor is useful for formats containing the [MonthAbbreviatedName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthabbreviatedname/) or [MonthFullName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthfullname/) elements.
+*   DateFormat(DateFormatElement[] formatElements, string dateSeparator) creates a format with the specified date separator. Since version 26.11, the dates of such a format are formatted in the invariant culture, whatever the current culture is: with the Gregorian calendar and the English names of the months. The default formats are created in the same way. Before, such a format took the calendar and the month names of the current culture, so on a computer whose culture has another calendar the default formats did not find the dates of the Gregorian calendar.
+*   DateFormat(string cultureName, DateFormatElement[] formatElements) creates a format that uses the calendar, the date separator and the month names of the specified culture, for example, "en-US" or "de-DE". This constructor is useful for formats containing the [MonthAbbreviatedName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthabbreviatedname/) or [MonthFullName](https://reference.groupdocs.com/search/net/groupdocs.search.options/dateformatelement/monthfullname/) elements, and for searching the dates of a culture whose calendar is not the Gregorian one.
+
+Since version 26.11, the names of the months are found in any letter case, for example 'September' and 'september'. Before, a date with a capitalized name of a month, as in English or German, was not found.
 
 The following example demonstrates the creation of a format with month names in German, for example, '27.September.2019'.
 

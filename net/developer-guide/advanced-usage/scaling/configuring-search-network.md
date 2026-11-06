@@ -22,7 +22,7 @@ The [SetIndexSettings](https://reference.groupdocs.com/search/net/groupdocs.sear
  - Index type ([SetIndexType](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/setindextype/) method).
  - Number of threads used for searching ([SetSearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/setsearchthreads/) method).
 
-Settings that are not set have their default values. The [ReplaceUnpairedSurrogates](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/replaceunpairedsurrogates/) and [SkipBlendedOnlyTerms](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/skipblendedonlyterms/) index settings cannot be configured for a search network: the index of a shard is created with their default values (both enabled). For a description of the index settings, see the [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}) page.
+Settings that are not set have their default values. The [ReplaceUnpairedSurrogates](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/replaceunpairedsurrogates/) and [SkipBlendedOnlyTerms](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/skipblendedonlyterms/) index settings cannot be configured for a search network: the index of a shard is created with their default values (both enabled). The [UseFastLoading](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usefastloading/) setting, added in version 26.11, cannot be configured either: the index of a shard is created with its default value (*true*). For a description of the index settings, see the [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}) page.
 
 To complete the configuration of index settings, call the [CompleteIndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/indexsettingsconfigurator/completeindexsettings/) method, which returns the [Configurator](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configurator/) object.
 
@@ -57,7 +57,7 @@ Once the search network configuration is complete, call the [CompleteConfigurati
  - the network contains exactly one indexer and exactly one searcher;
  - the network contains at least one shard.
 
-An instance of the [Configuration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/) class can be saved to a file or a stream in the XML format using the [Save](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/save/) method, and subsequently loaded from the file or stream using the static [Load](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/load/) method.
+An instance of the [Configuration](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/) class can be saved to a file or a stream in the XML format using the [Save](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/save/) method, and subsequently loaded from the file or stream using the static [Load](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/load/) method. Since version 26.11, the [Load](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/load/) method refuses a configuration with a document type definition (a DOCTYPE) with [XmlException](https://learn.microsoft.com/dotnet/api/system.xml.xmlexception) and reads nothing outside the file or the stream. A configuration saved by the [Save](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/configuration/save/) method has no document type definition; remove the DOCTYPE from a configuration written by hand.
 
 The following code example shows how to create a search network configuration that describes four nodes and save it to a file.
 
@@ -110,6 +110,57 @@ string basePath = @"c:\SearchNetwork\";
 
 // Loading the configuration from a file
 Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+```
+
+## Network settings
+
+The network settings of a node are not a part of the configuration: they are passed to the node when it is created (see the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page). An instance of the [TcpSettings](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/tcpsettings/) class specifies the port at which a slave node accepts connections, as well as the send, receive, connect and retry timeouts in milliseconds. Since version 26.11, the [connect timeout](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/tcpsettings/connecttimeout/) also limits the time in which a node waits for each message of the exchange that starts a connection with another node.
+
+Since version 26.11, the [ResponseTimeout](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/tcpsettings/responsetimeout/) property of the settings of the master node limits the time in milliseconds in which the master node waits for the answer of a node to a request. A request that is not answered in time fails: a call of the search network throws [SearchException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/searchexception/), and an operation reports the document or the shard by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event. The default value is *Timeout.Infinite*: the master node waits without a limit. A value should be larger than the longest request of a node; for example, the optimization of a large shard may take minutes. Regardless of this setting, the requests of a node fail at once when the node is lost (see [Errors and lost nodes]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md#errors-and-lost-nodes" >}})).
+
+## Authentication of nodes
+
+Since version 26.11, the nodes of a search network can prove to each other that they belong to the network. A node without a network key cannot tell the nodes of the network from other computers: a slave node carries out the commands of any computer that connects to its port, for example to index or delete documents, to read their texts or to replace dictionaries. Such a node writes a warning to its log (by the Trace method of the logger) when it is created.
+
+ - The [NetworkKey](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/tcpsettings/networkkey/) property sets the secret key of the network, which must have at least 16 characters and be the same on all nodes; a shorter key throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception). When two nodes connect, each of them proves that it knows the key, and every message is signed: a computer without the key can neither give commands to a node nor answer for a node, and a changed, repeated or forged message breaks the connection. The key is not a part of the configuration and is not sent over the network.
+ - The [AllowedMasterAddresses](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.configuring/tcpsettings/allowedmasteraddresses/) property of the settings of a slave node sets the addresses (IPv4 addresses or host names) from which the slave node accepts the connection of the master node; a connection from another address is closed at once and logged. The master node does not use this property.
+
+Nodes with different keys, or a node with a key and a node without one, do not connect, and both nodes write the reason to their logs.
+
+{{< alert style="info" >}}The messages of the nodes are not encrypted: for example, the texts of documents and the passwords of documents are sent as they are. Keep the nodes in a trusted network, or connect them through an encrypted tunnel.{{< /alert >}}
+
+The following code example shows how to create a slave node that accepts the connection of the master node only from the address of the master server, and the master node with the same network key. The master node waits for the answer of a node no longer than 10 minutes.
+
+**C#**
+
+```csharp
+string basePath = @"c:\SearchNetwork\";
+int basePort = 49100;
+string masterAddress = "10.0.0.5"; // The address of the master server
+
+// The same secret key on every node of the network, for example from the protected settings of the application
+string networkKey = Environment.GetEnvironmentVariable("SEARCH_NETWORK_KEY");
+
+// Creating and starting the slave node with index 1 on a slave server; the timeouts are specified in milliseconds
+TcpSettings slaveSettings = new TcpSettings(basePort + 1, 3000, 3000, 3000, 1000);
+slaveSettings.NetworkKey = networkKey;
+slaveSettings.AllowedMasterAddresses = new string[] { masterAddress }; // The master node is accepted only from this address
+SearchNetworkNode node1 = SearchNetworkNode.CreateSlaveNode(1, basePath + "Node1", slaveSettings);
+node1.Start();
+
+// Creating the master node with index 0 and the same key on the master server
+Configuration configuration = Configuration.Load(basePath + "Configuration.xml");
+TcpSettings masterSettings = new TcpSettings(basePort, 3000, 3000, 3000, 1000);
+masterSettings.NetworkKey = networkKey;
+masterSettings.ResponseTimeout = 600000; // The master node waits for the answer of a node no longer than 10 minutes
+SearchNetworkNode node0 = SearchNetworkNode.CreateMasterNode(
+    0,
+    basePath + "Node0",
+    masterSettings,
+    new FileLogger(basePath + "Log.txt", 4.0),
+    configuration);
+node0.ConfigureAllNodes();
+node0.Start();
 ```
 
 ## More resources

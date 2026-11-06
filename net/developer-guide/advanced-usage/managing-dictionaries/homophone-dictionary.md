@@ -14,11 +14,13 @@ The homophone dictionary can be changed at any time, also in an index that conta
 
 To get the number of words in the dictionary, use the [Count](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/count/) property.
 
-To add groups of homophones to the dictionary, use the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/addrange/) method.
+To add groups of homophones to the dictionary, use the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/addrange/) method. The method takes a collection of groups (*IEnumerable&lt;string[]&gt;*), in which each group is an array of at least two words, for example, an array of string arrays (*string[][]*), as in the example below.
+
+Since version 26.11, a word that is empty or consists of white space and a repeated word of a group are left out, so a group that is left with one word adds nothing. The method throws [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) for a word that is *null* and for a word that contains a line break or an unpaired surrogate (half of a surrogate pair), which the dictionary cannot save. The groups are checked before the dictionary is changed: a call that throws an exception adds nothing.
 
 The [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/clear/) method is used to remove all homophones from the dictionary.
 
-The [GetHomophones](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/gethomophones/) method is used to get a list of homophones for a given word. The returned list does not contain the word itself.
+The [GetHomophones](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/gethomophones/) method is used to get a list of homophones for a given word. The returned list does not contain the word itself. Since version 26.11, the method returns a copy, so a change of the returned array does not change the dictionary.
 
 The [GetHomophoneGroups](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/homophonedictionary/gethomophonegroups/) method is used to get all homophone groups to which a given word belongs.
 
@@ -26,7 +28,7 @@ To get all homophone groups from the dictionary, use the [GetAllHomophoneGroups]
 
 To export homophones to a file, use the [ExportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/exportdictionary/) method.
 
-To import homophones from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
+To import homophones from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions. Since version 26.11, an import that cannot be completed does not change the dictionary.
 
 The following example demonstrates the use of methods of the homophone dictionary.
 

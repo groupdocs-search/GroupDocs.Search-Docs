@@ -15,13 +15,15 @@ GroupDocs.Search allows indexing documents from various sources:
 - From a stream.
 - From a data structure as an array of fields.
 
-The library also allows indexing from all presented sources with lazy initialization: a document created with the [Document.CreateLazy](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/createlazy/) method is loaded by an [IDocumentLoader](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/) implementation only when the index processes it. The [LoadDocument](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/loaddocument/) method of the loader returns the loaded document, and the [CloseDocument](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/closedocument/) method is called to release its resources.
+The library also allows indexing from all presented sources with lazy initialization: a document created with the [Document.CreateLazy](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/createlazy/) method is loaded by an [IDocumentLoader](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/) implementation only when the index processes it. The [LoadDocument](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/loaddocument/) method of the loader returns the loaded document, and the [CloseDocument](https://reference.groupdocs.com/search/net/groupdocs.search.common/idocumentloader/closedocument/) method is called to release its resources. The loaded document must have the source kind and the key of the lazy document; otherwise, or if LoadDocument returns null, the document fails with an error. Since version 26.11, CloseDocument is called in this case as well, and a lazy document of a file ([DocumentSourceKind.File](https://reference.groupdocs.com/search/net/groupdocs.search.common/documentsourcekind/)) is loaded when the file is indexed and closed after it; before, the loader of such a document was not called.
 
 Please note that the update operation automatically generates a list of changed files only when indexing from the local file system. When indexing from streams or structures, documents cannot be updated with the update operation. To update documents from these sources, you must re-index the modified documents by passing their keys and updated data to the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method.
 
+When a folder is added to the index, the documents of all its subfolders are indexed. Since version 26.11, the links to folders inside an added folder, such as symbolic links and junctions, are not followed: to index the documents under such a link, add the folder that the link leads to. An added path that is a link itself is followed. The documents that an earlier version has indexed under such a link are deleted from the index by the next update.
+
 ## Indexing from a file
 
-It should be borne in mind that the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method with the parameter of type [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method. The following example demonstrates how to index a document from a file.
+It should be borne in mind that the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method with the parameter of type [Document](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/)[] allows indexing only documents individually, and not entire folders. The advantage of using this method overload is that you can add attributes and additional fields to the indexed document before calling the [Add](https://reference.groupdocs.com/search/net/groupdocs.search/index/add/) method. Since version 26.11, a document of a file is indexed with its [Attributes](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/attributes/) and [AdditionalFields](https://reference.groupdocs.com/search/net/groupdocs.search.common/document/additionalfields/); before, the file was indexed by its path only, and they were lost. The file is found by the key of the document, as a file added by its path: a file that does not exist or does not pass the [document filter]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-filtering-during-indexing.md" >}}) is not indexed, and a file passed more than once is indexed with its last document. An [update]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) indexes a changed file again by its path: the file keeps the attributes of its indexed version, but not the additional fields of its document; give them in the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event if they must stay. The following example demonstrates how to index a document from a file.
 
 **C#**
 
@@ -34,6 +36,11 @@ Index index = new Index(indexFolder);
   
 // Creating a document object
 Document document = Document.CreateFromFile(documentFilePath);
+document.Attributes = new string[] { "main" }; // Setting the attributes of the document
+document.AdditionalFields = new DocumentField[] // Setting the additional fields of the document
+{
+    new DocumentField("Subject", "Physics"),
+};
 Document[] documents = new Document[]
 {
     document,
@@ -45,6 +52,8 @@ index.Add(documents, options);
 ```
 
 ## Indexing from a stream
+
+Since version 26.11, a document can also be indexed from a stream that cannot seek, for example a network stream; for the [extraction in a separate process]({{< ref "search/net/developer-guide/advanced-usage/indexing/extraction-in-separate-process.md" >}}), such a stream is read into memory first, up to 1 GB. The text and HTML documents of such streams are indexed, but the extraction of other formats may need a stream that can seek: copy such a stream into a MemoryStream first, as the examples of lazy-loaded documents below do.
 
 The following example demonstrates how to index a document from a stream.
 

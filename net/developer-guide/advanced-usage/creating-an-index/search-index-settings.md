@@ -62,11 +62,13 @@ The default value is true. The setting is fixed when the index is created. An in
 
 ## SearchThreads property
 
-The [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) property allows you to set the number of threads used to search in an index. By default, this value is [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/).Default, which means that the search is performed using as many threads as there are processor cores. This number of threads ensures the optimal speed of each individual search in an index. If you plan a large number of parallel search queries and you need to ensure maximum total search performance, you should set the [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/).One value for this property.
+The [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) property allows you to set the number of threads used to search in an index. By default, this value is [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/).Default, which means that the search is performed using as many threads as there are processor cores.
+
+Since version 26.11, the value is the number of threads that all the searches of an index performed at the same time use together. A search runs on the thread that calls it. While fewer searches than this number run, the index helps their parallel parts (fuzzy search, wildcards, regular expressions, numeric ranges, spelling correction and image search) with threads of its own, so one search uses up to this number of threads; when as many searches run or more, each search runs on its own thread only. Thus, K searches performed at the same time use max(K, SearchThreads) threads, and no search waits for a free thread. A part of a search that is too small to gain from several threads, for example a fuzzy search with one mistake or a search of a small index, runs on the thread of the search. Previously, each search used this number of threads of its own.
 
 The value can be changed at any time, also for an existing index through the [Index.IndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search/index/indexsettings/) property. A search uses the value that is set when the search starts, and the new value is saved in the index. The setter throws [ArgumentOutOfRangeException](https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception) if the value is not a member of the [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/) enumeration.
 
-In a multithreaded search, the order of the words found by a regular expression, numeric range, fuzzy or spelling correction search may differ from run to run. If you need a deterministic order of the results, use the [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/).One value.
+Since version 26.11, the order of the words found by a regular expression, numeric range, fuzzy or spelling correction search does not depend on the number of threads: it is the order of a search in one thread, that is, the ordinal order of the words and, for the fuzzy search, the number of mistakes first. Therefore, the order of the found terms of a document ([FoundDocumentField.Terms](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/terms/)), the order of the words of the [SearchPhaseCompleted]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md#searchphasecompleted-event" >}}) event, and the occurrences that are discarded when a limit of occurrences is reached no longer differ from run to run. Previously, the order could differ from run to run in a multithreaded search, and a deterministic order required the [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/).One value.
 
 The following example demonstrates how to change the number of search threads of an existing index.
 
@@ -118,6 +120,43 @@ The [TextStorageSettings](https://reference.groupdocs.com/search/net/groupdocs.s
 ## UseCharacterReplacements property
 
 The [UseCharacterReplacements](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usecharacterreplacements/) property allows you to set the value indicating whether to perform character replacements during the indexing process or not. The default value is false. The value can be changed only while the index contains no documents and is not performing an operation; otherwise, [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception) is thrown. Details on replacing characters during indexing are provided on the page [Character replacement during indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-replacement-during-indexing.md" >}}).
+
+## UseFastLoading property
+
+The [UseFastLoading](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usefastloading/) property, available since version 26.11, specifies whether an index stored on disk keeps additional data that makes its loading several times faster. This data takes additional disk space, which grows with the number of distinct words in the index. If disk space matters more than loading time, set the property to false: the index takes less disk space but loads longer. The default value is true.
+
+The value can be changed at any time, also for an existing index that contains documents, through the [Index.IndexSettings](https://reference.groupdocs.com/search/net/groupdocs.search/index/indexsettings/) property:
+
+*   When the value is changed to false, the data is deleted as soon as the new value is saved in the index. Data that cannot be deleted at that moment, for example because another process uses it, is deleted the next time the index is opened.
+*   When the value is changed to true, the data is created the next time the index is opened or its indexed words are changed, for example by indexing, merging or optimization.
+
+The new value is saved in the index at once or, if the index is performing an operation at that moment, when the operation is finished. An index in memory keeps no such data: the value applies when the index is saved to disk.
+
+The following example demonstrates how to create an index that takes less disk space and how to make it load fast again later.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+// Creating index settings
+IndexSettings settings = new IndexSettings();
+settings.UseFastLoading = false; // The index takes less disk space but loads longer
+
+// Creating an index with the specified settings
+Index index = new Index(indexFolder, settings, true);
+
+// Indexing documents from the specified folder
+index.Add(documentsFolder);
+
+// Closing the index
+index.Dispose();
+
+// Opening the index and making it load fast again; the data is created the next time the index is opened
+index = new Index(indexFolder);
+index.IndexSettings.UseFastLoading = true;
+```
 
 ## UseStopWords property
 

@@ -12,6 +12,8 @@ Character replacement during indexing can be used, for example, to convert all t
 
 Since version 26.10, the character replacement dictionary and the [UseCharacterReplacements](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usecharacterreplacements/) setting can be changed only while the index contains no documents and is not performing an operation; otherwise, [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception) is thrown. Therefore, configure them after creating a new index and before adding the first document, as the example below does. To use other character replacements with documents that are already indexed, create a new index and index the documents again. See the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page for details.
 
+Since version 26.11, the character replacements of an index are also applied to the words of its searches, so a word of a query finds the documents whatever replaced characters it has: for example, with the default replacements, the words "café", "Café" and "cafe" find the text "un café noir". The words that a custom word splitter returns (see [Custom text segmenter]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-segmenter.md" >}})) get the replacements as well. For details, see the [Character replacements]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/character-replacements.md" >}}) page.
+
 The example below demonstrates how to configure and use character replacements during indexing.
 
 **C#**

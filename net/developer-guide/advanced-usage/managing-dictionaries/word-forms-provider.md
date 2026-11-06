@@ -62,7 +62,11 @@ public class SimpleWordFormsProvider : IWordFormsProvider
 }
 ```
 
-By default, the **[EnglishWordFormsProvider](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/englishwordformsprovider/)** class is used, which for English generates various forms of nouns, adjectives, pronouns, verbs, etc. A custom provider is set with the [WordFormsProvider](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionaryrepository/wordformsprovider/) property of the [Index.Dictionaries](https://reference.groupdocs.com/search/net/groupdocs.search/index/dictionaries/) object. The provider can be replaced at any time; it is not saved in the index, so it must be set each time the index is opened. An example of setting a custom provider of word forms is presented below.
+By default, the **[EnglishWordFormsProvider](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/englishwordformsprovider/)** class is used, which for English generates various forms of nouns, adjectives, pronouns, verbs, etc. A custom provider is set with the [WordFormsProvider](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionaryrepository/wordformsprovider/) property of the [Index.Dictionaries](https://reference.groupdocs.com/search/net/groupdocs.search/index/dictionaries/) object. The provider can be replaced at any time; it is not saved in the index, so it must be set each time the index is opened. Since version 26.11, the property throws [ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception) for *null*, and the provider is not changed.
+
+Since version 26.11, in an index that uses [character replacements]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/character-replacements.md" >}}), the word forms that the provider returns get the replacements of the index before they are searched; the provider itself gets a word of a query as it is, for example, with its accents.
+
+An example of setting a custom provider of word forms is presented below.
 
 **C#**
 

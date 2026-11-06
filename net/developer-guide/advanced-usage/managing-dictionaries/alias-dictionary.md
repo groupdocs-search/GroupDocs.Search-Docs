@@ -16,6 +16,10 @@ Use the [Add](https://reference.groupdocs.com/search/net/groupdocs.search.dictio
 
 Use the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/aliasdictionary/addrange/) method to add a collection of new alias-replacement pairs.
 
+Since version 26.11, the text of an alias cannot be empty, consist of white space, or contain a line break or an unpaired surrogate (half of a surrogate pair), because the dictionary cannot save such a text: the [Add](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/aliasdictionary/add/) and [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/aliasdictionary/addrange/) methods throw [ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception) for it, and the [AddRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/aliasdictionary/addrange/) method throws [ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception) for a pair that is *null*. The pairs are checked before the dictionary is changed, so a call that throws an exception adds nothing.
+
+Since version 26.11, an alias of a search query is replaced whatever the letter case of its letters: for example, @Phone and @phone are the same alias. The text of the alias is inserted into the query as it is, so an alias that the text contains is not replaced.
+
 To remove an alias from the dictionary, use the [Remove](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/aliasdictionary/remove/) method.
 
 The [Contains](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/aliasdictionary/contains/) method is used to check for the presence of a particular alias in the dictionary.
@@ -28,7 +32,7 @@ The alias dictionary can be changed at any time, also in an index that contains 
 
 To export the list of aliases with replacements to a file, use the [ExportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/exportdictionary/) method.
 
-To import the list of aliases from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
+To import the list of aliases from a file, use the [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) method. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions. Since version 26.11, an import that cannot be completed, for example, of a file that has an invalid alias, adds nothing to the dictionary.
 
 The following example demonstrates the use of methods of the alias dictionary.
 

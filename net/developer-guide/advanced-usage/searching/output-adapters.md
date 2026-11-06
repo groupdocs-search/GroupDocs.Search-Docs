@@ -11,7 +11,7 @@ hideChildren: False
 Output adapters are used to output generated HTML or plain text to various output objects. The output format (HTML or plain text) is specified by the [OutputFormat](https://reference.groupdocs.com/search/net/groupdocs.search.options/outputformat/) value passed to the constructor of an adapter. The following output adapters are currently supported:
 
 *   [FileOutputAdapter](https://reference.groupdocs.com/search/net/groupdocs.search.common/fileoutputadapter/) is an output adapter that is used to output text to a file. The path to a file is specified in the constructor of the adapter.
-*   [StreamOutputAdapter](https://reference.groupdocs.com/search/net/groupdocs.search.common/streamoutputadapter/) is an output adapter that is used to output text to a stream. The stream is specified in the constructor of the adapter.
+*   [StreamOutputAdapter](https://reference.groupdocs.com/search/net/groupdocs.search.common/streamoutputadapter/) is an output adapter that is used to output text to a stream. The stream is specified in the constructor of the adapter. Since version 26.11, the adapter writes into the stream and does not close it: the stream can be read or written after the output, and one adapter can take several outputs. Close the stream yourself, for example with a using statement, as in the example below. Before, the adapter closed the stream at the end of the first output.
 *   [StringOutputAdapter](https://reference.groupdocs.com/search/net/groupdocs.search.common/stringoutputadapter/) is an output adapter that is used to output text to a string. The resulting string can be accessed through the [GetResult](https://reference.groupdocs.com/search/net/groupdocs.search.common/stringoutputadapter/getresult/) method of the adapter class.
 *   [StructureOutputAdapter](https://reference.groupdocs.com/search/net/groupdocs.search.common/structureoutputadapter/) is an output adapter that is used to output the text of each field of the document separately. The resulting array of fields can be accessed through the [GetResult](https://reference.groupdocs.com/search/net/groupdocs.search.common/structureoutputadapter/getresult/) method of the adapter class.
 
@@ -50,7 +50,10 @@ if (documents.Length > 0)
     {
         StreamOutputAdapter streamOutputAdapter = new StreamOutputAdapter(OutputFormat.Html, stream);
         index.GetDocumentText(document, streamOutputAdapter);
-    }
+
+        // The adapter does not close the stream, so the stream can be used after the output
+        Console.WriteLine("Bytes written to the stream: " + stream.Length);
+    } // The stream is closed here
 
     // Output to a string
     StringOutputAdapter stringOutputAdapter = new StringOutputAdapter(OutputFormat.Html);

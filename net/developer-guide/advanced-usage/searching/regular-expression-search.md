@@ -57,7 +57,15 @@ SearchQuery query = SearchQuery.CreateRegexQuery("^(.)\\1{1,}", regexOptions); /
 SearchResult result = index.Search(query);
 ```
 
-Since version 26.10, regular expression search uses as many threads as there are processor cores by default. Therefore, the order of the found words in the search result may differ from run to run. To get the same order every time, set the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting to NumberOfThreads.One.
+A regular expression that cannot be used, for example an expression that is not valid, finds nothing, and the other parts of the query are searched. The error is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index and, since version 26.11, in the [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property of the result by a line that starts with "Query part not searched: ".
+
+Since version 26.10, regular expression search uses as many threads as there are processor cores by default. Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page), and the order of the found words in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting); before, it could differ from run to run.
+
+Also since version 26.11:
+
+*   The words that match a regular expression are kept for the next searches with the same query until the index is changed, so a repeated search is faster.
+*   A search is canceled (see the [Search options]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md" >}}) page) also while it matches the regular expression with the words of the index.
+*   In a case-sensitive search, a regular expression finds the words in any letter case, and the warnings of the result tell it (see the [Case sensitive search]({{< ref "search/net/developer-guide/advanced-usage/searching/case-sensitive-search.md" >}}) page).
 
 ## More resources
 

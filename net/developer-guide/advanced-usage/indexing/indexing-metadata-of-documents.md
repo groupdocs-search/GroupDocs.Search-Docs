@@ -32,6 +32,8 @@ index.Add(documentsFolder);
 SearchResult result = index.Search("Einstein");
 ```
 
+The numbers and the dates of the metadata of documents are indexed in the invariant culture. Since version 26.11, so are the metadata values of other types, for example decimal numbers: with the German culture of the thread, 2.25 is indexed as "2.25", not as "2,25". A document indexed by an earlier version in another culture keeps the old text until it is indexed again. The options of the indexing of metadata are described on the [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md#metadataindexingoptions-property" >}}) page.
+
 ## More resources
 
 ### GitHub examples

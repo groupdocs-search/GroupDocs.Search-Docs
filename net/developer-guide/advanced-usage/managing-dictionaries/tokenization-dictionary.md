@@ -19,13 +19,13 @@ When a document is indexed with a custom word splitter, the alphabet is not used
 *   a word is indexed if at least one of its characters has a type other than [CharacterType](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/charactertype/).Separator in the tokenization dictionary;
 *   a word that consists only of separators, for example, a sequence of spaces or punctuation marks returned by the word splitter, is not indexed.
 
-As in the case of the built-in mechanism, words longer than 80 characters are not indexed, and stop words are not indexed if the [UseStopWords](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usestopwords/) setting is enabled.
+As in the case of the built-in mechanism, words longer than 80 characters are not indexed, and stop words are not indexed if the [UseStopWords](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usestopwords/) setting is enabled. Since version 26.11, the words of a word splitter also get the [character replacements]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/character-replacements.md" >}}) of the index, as the words of the built-in mechanism do, if the [UseCharacterReplacements](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usecharacterreplacements/) setting is enabled.
 
 ## Default content
 
 By default, the tokenization dictionary defines the following characters as letters (Unicode numbers are given):
 
-*   all characters that are letters in the default alphabet: digits, the low line character, and Latin, Greek and Coptic, Cyrillic, Armenian and Arabic letters (see the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) page);
+*   all characters that are letters in the default alphabet: digits, the low line character, and Latin, Greek and Coptic, Cyrillic, Armenian and Arabic letters, and, since version 26.11, the combining diacritical marks and the letters, marks and digits of Hebrew, Devanagari, Georgian, the extended Latin and Greek blocks and Hangul (see the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) page);
 *   CJK Radicals Supplement: 2E80-2EFF;
 *   CJK Symbols and Punctuation: 3000-303F;
 *   CJK Strokes: 31C0-31EF;
@@ -37,7 +37,7 @@ By default, the tokenization dictionary defines the following characters as lett
 *   CJK Unified Ideographs Extensions B–H: 20000-2A6DF, 2A700-2B73F, 2B740-2B81F, 2B820-2CEAF, 2CEB0-2EBEF, 30000-3134F, 31350-323AF;
 *   CJK Compatibility Ideographs Supplement: 2F800-2FA1F.
 
-All other characters, including Japanese Hiragana and Katakana and Korean Hangul, are separators in the default tokenization dictionary. If a word splitter returns words of such characters, add the characters to the tokenization dictionary, as shown in the example below.
+All other characters, including Japanese Hiragana and Katakana, are separators in the default tokenization dictionary. An index keeps the tokenization dictionary that it was created with, so in an index created by an earlier version, the characters added in version 26.11, for example, Korean Hangul, are separators too. If a word splitter returns words of such characters, add the characters to the tokenization dictionary of a new index, as shown in the example below.
 
 ## Managing the tokenization dictionary
 
@@ -45,9 +45,9 @@ The tokenization dictionary provides the same methods as the alphabet:
 
 *   The [GetCharacterType](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/alphabet/getcharactertype/) method returns the type of a character specified as a *char* value, as a Unicode code point, or as a string that contains a character or a surrogate pair.
 *   The [Count](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/alphabet/count/) property returns the number of characters of a type other than [CharacterType](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/charactertype/).Separator; enumerating the dictionary returns the Unicode code points of these characters.
-*   The [SetRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/alphabet/setrange/) method sets the type of characters specified as *char* values, as Unicode code points, or as strings that contain characters or surrogate pairs.
+*   The [SetRange](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/alphabet/setrange/) method sets the type of characters specified as *char* values, as Unicode code points, or as strings that contain characters or surrogate pairs. Since version 26.11, the method throws [ArgumentOutOfRangeException](https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception) for a type that is not a member of [CharacterType](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/charactertype/) and for a code point that is less than 0 or greater than 0x10FFFF; the dictionary is not changed.
 *   The [Clear](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/alphabet/clear/) method sets the [CharacterType](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/charactertype/).Separator type for all characters. After that, no word returned by a custom word splitter is indexed until letters are defined again.
-*   The [ExportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/exportdictionary/) and [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) methods save the dictionary to a file and load it from a file. The imported types are set for the characters listed in the file; the types of other characters are not changed. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions.
+*   The [ExportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/exportdictionary/) and [ImportDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/dictionarybase/importdictionary/) methods save the dictionary to a file and load it from a file. The imported types are set for the characters listed in the file; the types of other characters are not changed. Errors of exporting and importing are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index instead of exceptions. Since version 26.11, a file with a type that is not a member of [CharacterType](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/charactertype/) or a value that is not a code point is not imported, and the dictionary is not changed.
 
 {{< alert style="info" >}}The tokenization dictionary defines which terms of documents are indexed. Therefore, the tokenization dictionary of an index can be changed only while the index contains no documents and is not performing an operation; otherwise, a method that changes the dictionary throws [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception). A call that does not change the content of the dictionary is allowed. Configure the tokenization dictionary after creating a new index and before adding documents. See also the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page.{{< /alert >}}
 
@@ -115,7 +115,7 @@ index.Events.FileIndexing += (sender, args) =>
 index.Add(documentsFolder);
 ```
 
-The following example demonstrates how to create another index with the same tokenization dictionary by importing the dictionary exported in the previous example.
+The following example demonstrates how to create another index with the same tokenization dictionary by importing the dictionary exported in the previous example. Since version 26.11, the default alphabet and tokenization dictionary of a new index differ from those of an index created by an earlier version; to merge such indexes, give the new index both dictionaries of the earlier index, as shown on the [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) page.
 
 **C#**
 

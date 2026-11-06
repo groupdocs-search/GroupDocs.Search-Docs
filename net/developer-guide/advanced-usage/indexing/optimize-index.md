@@ -16,6 +16,10 @@ The memory consumption of the optimization does not depend on the index size: a 
 
 To perform this operation, call the parameterless [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search/index/optimize/) method or the overload that takes the [MergeOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/mergeoptions/) instance as a parameter. In the [MergeOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/mergeoptions/) class, there is a property for specifying a cancellation object and a property for specifying whether to perform the operation asynchronously. By default, the operation is performed synchronously.
 
+Since version 26.11, the cancellation stops every stage of the optimization, also the last one, which merges the terms of all the segments of the index and takes minutes on a large index; a cancelled optimization keeps the index as it was. Also since version 26.11, a [Cancellation](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/) object can be disposed of, for example by a using statement, to release the timer of [CancelAfter](https://reference.groupdocs.com/search/net/groupdocs.search.common/cancellation/cancelafter/), as the example below shows. The progress of the optimization is reported by the [OptimizationProgressChanged](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/optimizationprogresschanged/) event: since version 26.11, the last event, whose ProcessedSegments equals TotalSegments, comes when the optimization is done, before the optimized index is saved; before, it came before the last stage. The end of the operation is reported by the [OperationFinished](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/operationfinished/) event.
+
+Since version 26.11, the optimization verifies the checksums of the index data that it reads. An optimization that reads damaged data fails: the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event reports that a file of the index is damaged, the files written by the optimization are deleted, and the index keeps its state. Repair the index with the [CheckSegments](https://reference.groupdocs.com/search/net/groupdocs.search/index/checksegments/) method and repeat the optimization (see [Checking index integrity]({{< ref "search/net/developer-guide/advanced-usage/indexing/checking-index-integrity.md" >}})).
+
 The following example demonstrates how to perform the index optimization.
 
 **C#**
@@ -33,12 +37,16 @@ index.Add(documentsFolder1); // Indexing documents from the specified folder
 index.Add(documentsFolder2); // Each call to Add creates at least one new segment in the index
 index.Add(documentsFolder3);
  
-MergeOptions options = new MergeOptions();
-options.Cancellation = new Cancellation(); // Creating cancellation object to be able to cancel the operation
-options.Cancellation.CancelAfter(100000); // Setting maximum duration of the operation to 100 seconds
+// Creating cancellation object to be able to cancel the operation; disposing of it releases its timer
+using (Cancellation cancellation = new Cancellation())
+{
+    MergeOptions options = new MergeOptions();
+    options.Cancellation = cancellation;
+    cancellation.CancelAfter(100000); // Setting maximum duration of the operation to 100 seconds
  
-// Merging segments of the index
-index.Optimize(options);
+    // Merging segments of the index
+    index.Optimize(options);
+}
 
 Console.WriteLine("Segment count: " + index.IndexInfo.SegmentCount);
 ```

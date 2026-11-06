@@ -14,6 +14,10 @@ To specify storage parameters, use the [TextStorageSettings](https://reference.g
 
 When saving text in the index, the [Compression](https://reference.groupdocs.com/search/net/groupdocs.search.options/textstoragesettings/compression/) property is used to specify the compression ratio of the saved text. Compression can be normal, high, or text can be saved without compression. The choice of compression ratio affects the final size of the index, as well as the speed of indexing. A high compression ratio reduces index size and indexing speed, and the lack of compression makes index size and indexing speed maximum. The default compression ratio is normal.
 
+Since version 26.11, the constructor of the [TextStorageSettings](https://reference.groupdocs.com/search/net/groupdocs.search.options/textstoragesettings/) class and its [Compression](https://reference.groupdocs.com/search/net/groupdocs.search.options/textstoragesettings/compression/) property throw [ArgumentOutOfRangeException](https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception) for a value that is not a member of the [Compression](https://reference.groupdocs.com/search/net/groupdocs.search.options/compression/) enumeration, and the property keeps its value. Before, such a value was fixed with a new index, and every indexing of the index failed.
+
+Also since version 26.11, the stored texts are written and read with much less memory, and the indexing and the [GetDocumentText](https://reference.groupdocs.com/search/net/groupdocs.search/index/getdocumenttext/) method are faster; the texts are stored as before, so the indexes do not change. A field of a text stored with the high compression ([Compression.High](https://reference.groupdocs.com/search/net/groupdocs.search.options/compression/)) is compressed in memory unless it takes more than 10 MB compressed: a larger field is compressed in a temporary file in the folder of the index, and an index in memory keeps it in memory.
+
 The example below demonstrates storing text in an index using the high compression ratio.
 
 **C#**

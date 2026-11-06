@@ -14,7 +14,7 @@ The articles in this section describe the following dictionaries:
 
 *   [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) — the types of characters that define how text is divided into words.
 *   [Tokenization dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/tokenization-dictionary.md" >}}) — the types of characters that define which words returned by a custom text segmenter are indexed.
-*   [Character replacements]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/character-replacements.md" >}}) — the replacements of characters applied during indexing.
+*   [Character replacements]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/character-replacements.md" >}}) — the replacements of characters applied during indexing and searching.
 *   [Stop word dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/stop-word-dictionary.md" >}}) — the words that are not indexed.
 *   [Synonym dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) — the groups of synonyms used in synonym search.
 *   [Homophone dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/homophone-dictionary.md" >}}) — the groups of homophones used in homophone search.
@@ -27,7 +27,9 @@ The articles in this section describe the following dictionaries:
 
 The alphabet, the tokenization dictionary, the character replacements and the stop word dictionary, as well as the [UseStopWords](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usestopwords/) and [UseCharacterReplacements](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/usecharacterreplacements/) index settings, define how the text of documents is divided into terms. Therefore, they can be changed only while the index contains no documents and is not performing an operation (its status is [IndexStatus.Ready](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexstatus/)). Otherwise, a method or a property setter that changes them throws [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception). A call that does not change the content of a dictionary or the value of a setting is allowed at any time. Configure these dictionaries and settings after creating a new index and before adding the first document. To use another content with documents that are already indexed, create a new index and index the documents again.
 
-The synonym dictionary, the homophone dictionary, the alias dictionary, the spelling corrector and the document passwords can be changed at any time. The word forms provider can also be replaced at any time.
+The synonym dictionary, the homophone dictionary, the alias dictionary, the spelling corrector and the document passwords can be changed at any time, also by several threads at once and while the index searches or indexes documents. An enumeration of such a dictionary lists its content at the moment the enumeration starts, so the dictionary can be changed during the enumeration. The word forms provider can also be replaced at any time.
+
+Since version 26.11, no dictionary of a disposed index can be changed: after the index is disposed with the [Dispose](https://reference.groupdocs.com/search/net/groupdocs.search/index/dispose/) method, a method that changes a dictionary throws [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception).
 
 For more information on the dictionaries and settings that are fixed in an index, see the [Index format and compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md" >}}) page.
 

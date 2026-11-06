@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Documents can be deleted from the search network using the [Delete](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/delete/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class.
 
-To delete documents, pass an array of document keys, as well as a delete options object, to the [Delete](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/delete/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class. The keys are the keys that were specified when the documents were [added]({{< ref "search/net/developer-guide/advanced-usage/scaling/indexing-documents.md" >}}).
+To delete documents, pass an array of document keys, as well as a delete options object, to the [Delete](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/delete/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class. The keys are the keys that were specified when the documents were [added]({{< ref "search/net/developer-guide/advanced-usage/scaling/indexing-documents.md" >}}). Since version 26.11, a key of a document that the network has not indexed is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of the master node, and the deletion of the other documents completes.
 
 Deleted documents are excluded from search results immediately, but their data are physically removed from the shards only by [optimization]({{< ref "search/net/developer-guide/advanced-usage/scaling/optimizing-shards.md" >}}).
 

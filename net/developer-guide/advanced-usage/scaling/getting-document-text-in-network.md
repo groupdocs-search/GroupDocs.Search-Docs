@@ -14,6 +14,8 @@ The first parameter of the [GetDocumentText](https://reference.groupdocs.com/sea
 
 The second parameter of the [GetDocumentText](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/searcher/getdocumenttext/) method is the result output adapter. In this operation, the same output adapter classes are used as those used in similar operations of a single index. For information about output adapters, see the [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}) page.
 
+Since version 26.11, the errors that the index of the shard reports while it generates the text are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/erroroccurred/) event of the master node: for example, a document that has been deleted from the shard after the list of documents was obtained gives no text, and the event reports "Document is not found."
+
 The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.
 
 **C#**

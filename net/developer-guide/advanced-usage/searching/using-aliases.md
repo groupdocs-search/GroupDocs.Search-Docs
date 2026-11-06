@@ -12,8 +12,9 @@ The use of aliases allows you to reduce the length of search queries in text for
 
 Before a search query in text form is parsed, each alias in the query is replaced with the text associated with it in the alias dictionary (see [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}})). The following rules apply:
 
-*   An alias name can contain only characters from the ranges a-z and 0-9; an attempt to add an alias with other characters throws ArgumentException. Alias names are stored in lower case, so the name used in a query must be written in lower case.
+*   An alias name can contain only Latin letters and digits (a-z, A-Z and 0-9); an attempt to add an alias with other characters throws ArgumentException. Alias names are stored in lower case. Since version 26.11, an alias in a query is replaced whatever the case of its letters: for example, "@Phone" and "@phone" are the same alias. Before, the name used in a query had to be written in lower case.
 *   An alias is replaced only if it is separated from the adjacent text by spaces or parentheses, or is located at the beginning or end of the query. For example, in the query "@t OR (@e)", both aliases are replaced.
+*   Since version 26.11, the text of an alias is inserted into the query as it is, and an alias in the text of another alias is not replaced. Before, an alias in the text of another alias was replaced or not depending on the order in which the aliases were added to the dictionary.
 *   Aliases are not used in search queries in object form.
 
 It is recommended to enclose the text of an alias in parentheses if it contains operators, so that the substituted text is combined with the rest of the query as a single subquery, as in the example below.

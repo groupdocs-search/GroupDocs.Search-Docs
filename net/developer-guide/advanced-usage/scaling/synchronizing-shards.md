@@ -10,6 +10,8 @@ hideChildren: False
 ---
 If there is any communication interruption in the search network, some operations may not complete correctly. To resolve such problems, call the [Synchronize](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/synchronize/) method of the [Indexer](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/) class. The method synchronizes the list of indexed documents kept by the indexer with the documents in the shards.
 
+Since version 26.11, the [Synchronize](https://reference.groupdocs.com/search/net/groupdocs.search.scaling/indexer/synchronize/) method throws [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception) and sends nothing to the shards when the master node cannot read its list of the documents of a shard, for example because another program holds it: a synchronization with an incomplete list would delete documents from the shard. Call the method again when the list can be read.
+
 The asynchronous operation flag is available as an option ([SynchronizeOptions.IsAsync](https://reference.groupdocs.com/search/net/groupdocs.search.options/synchronizeoptions/isasync/)). You can track the completion of the operation by subscribing to the [SynchronizationCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.events/nodeeventhub/synchronizationcompleted/) event.
 
 The examples on this page use the master node of a running search network. The following code creates and starts the master node as described on the [Search network deployment]({{< ref "search/net/developer-guide/advanced-usage/scaling/search-network-deployment.md" >}}) page; the slave nodes must be started beforehand.

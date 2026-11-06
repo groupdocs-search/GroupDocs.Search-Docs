@@ -46,6 +46,8 @@ The following table contains file formats supported by GroupDocs.Search for .NET
 | [MHT](https://docs.fileformat.com/web/mhtml/) | MIME HTML File | Content and metadata |   | Not supported on Linux |
 | [XML](https://docs.fileformat.com/web/xml/) | XML File | Content and metadata |   |   |
 
+{{< alert style="info" >}}Since version 26.11, the links and the images of HTML, HTM and XHTML documents are indexed without their addresses and labels: a link gives its text as the page shows it, an image gives its alternative text and its title, an SVG image its title and its alternative text, and a video or an audio element its title, its label and its description, without the names of the attributes. Such a document is read in the encoding of its byte order mark; otherwise, in the encoding that [IndexingOptions.Encoding](https://reference.groupdocs.com/search/net/groupdocs.search.options/baseoptions/encoding/) or the [FileIndexing](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/fileindexing/) event sets for it; otherwise, in the charset that it declares in a meta tag; otherwise, in UTF-8. The HTML items of archives and emails are extracted as before, and the HTML documents indexed by an earlier version keep their text until they are indexed again.{{< /alert >}}
+
 ## Ebooks
 
 | Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
@@ -109,6 +111,8 @@ The following table contains file formats supported by GroupDocs.Search for .NET
 | Document Type | Document Type Description | Searchable Data | Supported Versions | Notes |
 | --- | --- | --- | --- | --- |
 | [ZIP](https://docs.fileformat.com/compression/zip/) | Zipped File | Content and metadata |   |   |
+
+{{< alert style="info" >}}Since version 26.11, an item of an archive or an email, for example a file of a ZIP archive or an attachment of an email, that cannot be read is skipped with an error that the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event reports and that names the item, and the next items of the container are indexed. The items of containers nested more than 32 levels deep are not indexed.{{< /alert >}}
 
 ## Audio
 
