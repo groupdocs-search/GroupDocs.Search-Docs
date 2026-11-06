@@ -18,7 +18,7 @@ Each indexing report ([IndexingReport](https://reference.groupdocs.com/search/ne
 *   The total number of terms in the index ([TotalTermCount](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totaltermcount/));
 *   The total length of indexed documents in MB ([IndexedDocumentsSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/indexeddocumentssize/));
 *   The number of index segments ([SegmentCount](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/segmentcount/));
-*   The total size of the index on disk in bytes ([TotalIndexSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totalindexsize/));
+*   The total size of the index on disk in bytes, without the temporary files in the folder of the index ([TotalIndexSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totalindexsize/));
 *   The indexing start time ([StartTime](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/starttime/));
 *   The indexing end time ([EndTime](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/endtime/));
 *   The indexing duration ([IndexingTime](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/indexingtime/));
@@ -31,7 +31,7 @@ Since version 26.11:
 
 *   The list of errors of a report contains the errors reported since the previous indexing report: the errors of its operation and the errors reported between the operations, for example while the index was opened. The errors of searches are not listed; they are reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event and written to the [log]({{< ref "search/net/developer-guide/advanced-usage/indexing/logging.md" >}}) of the index. A report lists at most 10000 errors; the last line of a longer list gives the number of the other errors. Before, every report listed every error reported since the index was opened, the errors of searches among them.
 *   [IndexedDocumentsSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/indexeddocumentssize/) is the total size of the documents that the operation has indexed. Before, it was the size of the last document.
-*   [TotalIndexSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totalindexsize/) does not count the temporary files in the folder of the index, nor the files behind the links to folders inside it, such as symbolic links and junctions. A folder is taken for a link by its attributes, so a folder of a synchronized storage that the system marks as a link is not counted either.
+*   [TotalIndexSize](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexingreport/totalindexsize/) does not count the files behind the links to folders inside the folder of the index, such as symbolic links and junctions. A folder is taken for a link by its attributes, so a folder of a synchronized storage that the system marks as a link is not counted either.
 
 The following example demonstrates how to get indexing reports from an index.
 

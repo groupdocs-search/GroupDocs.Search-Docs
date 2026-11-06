@@ -236,7 +236,7 @@ index.Add(documentsFolder, options);
 
 ## SearchPhaseCompleted event
 
-The [SearchPhaseCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/searchphasecompleted/) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). Since version 26.11, the events of the phases of a simple term search are raised together when all the phases of the term are completed, in the order of the phases; before, each event was raised when its phase was completed. The words of an event are in the same order whatever the number of search threads. The following example demonstrates the use of this event.
+The [SearchPhaseCompleted](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/searchphasecompleted/) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). The events of the phases of a simple term search are raised together when all the phases of the term are completed, in the order of the phases. The words of an event are in the same order whatever the number of search threads. The following example demonstrates the use of this event.
 
 **C#**
 

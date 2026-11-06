@@ -24,7 +24,7 @@ Version 26.11 opens the indexes of version 26.10 without an update. This section
 *   **Dispose of an index before its folder is used again.** An index folder is used by one [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) object at a time; see [Index folder and lifetime](#index-folder-and-lifetime).
 *   **Create new indexes in empty folders.** A new index is not created in a folder that contains other files or subfolders unless *overwriteIfExists* is *true*.
 *   **Get the errors of searches from the event or the warnings.** A search no longer throws the exception of its failure; see [Search](#search).
-*   **Iterate over chunks by the token.** A search by chunks no longer returns a chunk for every index segment; see [Search by chunks](#search-by-chunks).
+*   **Continue a search by chunks of an index repository with IndexRepository.SearchNext.** The chunks of a repository go index by index; see [Search by chunks](#search-by-chunks).
 *   **Close the streams of StreamOutputAdapter yourself.** See [Highlighting and document text](#highlighting-and-document-text).
 *   **Rebuild the program of the extraction in a separate process** with version 26.11; see [Extraction in a separate process](#extraction-in-a-separate-process).
 *   **Index some documents again** to get the new behavior: the HTML documents, the documents indexed with a custom word splitter, the containers with nested items and the documents with metadata values of other types, such as decimal numbers; see [Indexing](#indexing).
@@ -74,7 +74,6 @@ Version 26.11 opens the indexes of version 26.10 without an update. This section
 *   **A search does not throw the exception of its failure.** [Index.Search](https://reference.groupdocs.com/search/net/groupdocs.search/index/search/) with a query in the object form and [SearchNext](https://reference.groupdocs.com/search/net/groupdocs.search/index/searchnext/) report a failure by the ErrorOccurred event and return an empty result whose [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) start with "Search failed: "; previously, they threw the exception. A part of a query that cannot be used adds a warning that starts with "Query part not searched: ", and a query that is null throws ArgumentNullException.
 *   **A result that lacks a part of the index is truncated.** A search that cannot read a part of the index returns a result whose [Truncated](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/truncated/) property is true and whose warnings tell the part and the cause.
 *   **SearchThreads is the number of threads of all the searches of an index together.** One search uses as many threads as before, but K searches performed at the same time use max(K, SearchThreads) threads instead of K × SearchThreads. See [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md#searchthreads-property" >}}).
-*   **The order of the words found with several search threads no longer differs from run to run.** The words found by a regular expression, numeric range, fuzzy or spelling correction search are in the order of a search in one thread whatever the value of SearchThreads, so [NumberOfThreads](https://reference.groupdocs.com/search/net/groupdocs.search.options/numberofthreads/).One is not needed for a deterministic order of the results.
 *   **More results for the containers in a repository.** A search of an [index repository]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-repository.md" >}}) of several indexes returns each found item of a container; previously, it returned one item of each container.
 *   **Limits of occurrences.** A search that reaches [MaxTotalOccurrenceCount](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxtotaloccurrencecount/) or [MaxOccurrenceCountPerTerm](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/maxoccurrencecountperterm/) finds no documents without occurrences, its warnings have one line about the limit, and Truncated is true also when the limit lets a part of the query search nothing or the query excluded with NOT is truncated. The limits count an occurrence of a part of a date of a date range once, as an occurrence of any term.
 *   **A term that several parts of a query find is counted once** in the occurrences and in the relevance of a document, so the order of the results by relevance may change.
@@ -89,27 +88,6 @@ Version 26.11 opens the indexes of version 26.10 without an update. This section
 *   **SearchImage.Create throws ArgumentOutOfRangeException** for an index of an image that the file or the stream does not have, also for a negative index, and ArgumentException for a file or a stream without an image; previously, [SearchImage.Create](https://reference.groupdocs.com/search/net/groupdocs.search.common/searchimage/create/) threw IndexOutOfRangeException.
 
 #### Search by chunks
-
-A search by chunks no longer returns a chunk for every index segment: the segments in which the query can find nothing are passed over, and the number of chunks can differ from search to search. Code that relies on the number of segments must iterate over the chunks while [NextChunkSearchToken](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/nextchunksearchtoken/) is not *null*.
-
-**C#**
-
-```csharp
-string indexFolder = @"c:\MyIndex\";
-
-Index index = new Index(indexFolder);
-SearchOptions options = new SearchOptions();
-options.IsChunkSearch = true;
-
-SearchResult result = index.Search("Einstein", options);
-int documentCount = result.DocumentCount;
-while (result.NextChunkSearchToken != null)
-{
-    result = index.SearchNext(result.NextChunkSearchToken);
-    documentCount += result.DocumentCount;
-}
-Console.WriteLine("Documents found: " + documentCount);
-```
 
 A search by chunks of an index repository goes index by index: [IndexRepository.Search](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/search/) returns the first chunk of the first index with the token of the next chunk, and [IndexRepository.SearchNext](https://reference.groupdocs.com/search/net/groupdocs.search/indexrepository/searchnext/) continues the search; previously, a repository of several indexes returned the first chunks of all its indexes in one result without a token. To find all the documents in one result, search without chunks. A search of a repository with a query that is null throws ArgumentNullException, also for a repository without indexes, and the warnings of its result have no empty lines.
 
@@ -242,6 +220,7 @@ See [Update index version]({{< ref "search/net/developer-guide/advanced-usage/in
 *   **Merge updated indexes into compatible indexes.** An index updated from a previous version has the [ReplaceUnpairedSurrogates](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/replaceunpairedsurrogates/) and [SkipBlendedOnlyTerms](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/skipblendedonlyterms/) settings disabled. To merge it into a new index, create the new index with both settings set to *false*. See [Merging compatibility]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md#merging-compatibility" >}}).
 *   **Check the number of search threads.** Search now uses as many threads as there are processor cores by default. To restore single-threaded search with a deterministic order of results, set [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) to *NumberOfThreads.One*. See [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
 *   **Optimize the index to free disk space after deletions.** Deleted documents are excluded from search immediately but are physically removed only by [Optimize](https://reference.groupdocs.com/search/net/groupdocs.search/index/optimize/). See [Optimize index]({{< ref "search/net/developer-guide/advanced-usage/indexing/optimize-index.md" >}}).
+*   **Iterate over chunks by the token.** The number of chunks of a search by chunks is not known in advance; continue while [NextChunkSearchToken](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/nextchunksearchtoken/) is not *null*. See [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}).
 *   **Empty the backup folder of SaveTo once.** [SaveTo](https://reference.groupdocs.com/search/net/groupdocs.search/index/saveto/) does not overwrite an index of a previous version. If an application regularly saves its index to the same folder, empty that folder once after the upgrade. See [Saving an index to another folder]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md#saving-an-index-to-another-folder" >}}).
 *   **Check documents interrupted by cancellation.** A document whose indexing was interrupted by cancellation is marked with [IndexedWithError](https://reference.groupdocs.com/search/net/groupdocs.search.results/documentinfo/indexedwitherror/) and is indexed again by the next [Update](https://reference.groupdocs.com/search/net/groupdocs.search/index/update/). See [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md" >}}).
 
@@ -321,6 +300,31 @@ Other changes in text processing:
 *   Terms longer than 80 characters are not indexed.
 *   Letter case is converted in the same way on .NET Framework and .NET, so search results no longer depend on the platform.
 *   The lookup methods of the stop word, synonym and homophone dictionaries ignore letter case; words are kept in lower case.
+
+#### Search by chunks returns a different number of chunks
+
+A chunk no longer corresponds to an index segment: only the segments that may contain matches are searched, and the number of chunks is not known in advance. Code that relies on the number of segments must iterate over the chunks while [NextChunkSearchToken](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/nextchunksearchtoken/) is not *null*.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+
+Index index = new Index(indexFolder);
+SearchOptions options = new SearchOptions();
+options.IsChunkSearch = true;
+
+SearchResult result = index.Search("Einstein", options);
+int documentCount = result.DocumentCount;
+while (result.NextChunkSearchToken != null)
+{
+    result = index.SearchNext(result.NextChunkSearchToken);
+    documentCount += result.DocumentCount;
+}
+Console.WriteLine("Documents found: " + documentCount);
+```
+
+See [Search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}).
 
 #### Deleted documents are removed from disk by optimization
 

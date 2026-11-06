@@ -51,7 +51,7 @@ while (result.NextChunkSearchToken != null)
 
 ## Chunks of a search
 
-A chunk is a segment of the index. Since version 26.11, the chunks are determined as follows (before, a search by chunks returned a chunk for every segment of the index):
+A chunk is a segment of the index. Since version 26.10, the chunks are determined as follows (before, a search by chunks returned a chunk for every segment of the index):
 
 *   Only the index segments in which the query can find matches are searched; the other segments are skipped. For example, a word that occurs in 10 of 256 segments of an index gives 10 chunks instead of 256. A query whose terms are in no segment gives one empty chunk. A chunk can still be empty, for example when the words of an AND query are in different documents of its segment, or when the words of a phrase are not side by side. All chunks together contain the same documents as a search without chunks.
 *   The number of chunks is not known in advance and can differ from search to search, also for the same query. Therefore, always iterate over the chunks while the [NextChunkSearchToken](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/nextchunksearchtoken/) property is not null, and do not rely on the number of index segments.
@@ -60,7 +60,7 @@ The chunks of a search are taken from the segments that the index has when the s
 
 Searches and index-modifying operations do not block each other (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page). If the index is changed after the start of a search by chunks, for example, documents are added, updated or deleted, or the index is optimized, the [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property of the result of a subsequent chunk contains the warning "Index has been changed since chunk search start, therefore results may be incorrect.". In this case, it is recommended to restart the search.
 
-Since version 26.11, to avoid searching the index again for each chunk, the words found by wildcard, regular expression, numeric range and fuzzy search queries are kept between the chunks of a search and are reused by subsequent searches with the same query until the index is changed. For this, an index stored on disk can create temporary files in the index folder (normally up to 256 MB in total). These files are deleted automatically. An index in memory creates no such files.
+To avoid searching the index again for each chunk, the words found by wildcard, regular expression, numeric range and fuzzy search queries are kept between the chunks of a search and are reused by subsequent searches with the same query until the index is changed. Since version 26.11, a search by chunks also takes the words that a search without chunks has found for the same part of a query. For this, an index stored on disk can create temporary files in the index folder (normally up to 256 MB in total). These files are deleted automatically. An index in memory creates no such files.
 
 ## Search by chunks in an index repository
 
