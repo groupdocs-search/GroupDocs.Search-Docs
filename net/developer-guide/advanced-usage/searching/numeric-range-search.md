@@ -34,7 +34,7 @@ SearchQuery query2 = SearchQuery.CreateNumericRangeQuery(500, 600);
 SearchResult result2 = index.Search(query2);
 ```
 
-Since version 26.10, numeric range search uses as many threads as there are processor cores by default. Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page), and the order of the found numbers in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting); before, it could differ from run to run.
+Since version 26.10, numeric range search uses as many threads as there are processor cores by default; the order of the found numbers in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting). Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page).
 
 Also since version 26.11:
 

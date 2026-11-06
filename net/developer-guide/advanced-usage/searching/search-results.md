@@ -68,7 +68,7 @@ The found document field is represented by an instance of a [FoundDocumentField]
 
 Since version 26.11, a term that several parts of a query find, for example the same word twice, as in "cat OR cat", overlapping word patterns, or the synonyms and the fuzzy variants of the words of an OR query, is counted once: in the occurrences of a found document and of its fields, in the occurrences of the search result and in the relevance of the document. Before, the occurrences of such a term were counted once for every part of the query that found it.
 
-Since version 26.10, search uses as many threads as there are processor cores by default. Since version 26.11, the order of the terms found by fuzzy, wildcard, regular expression, numeric range search and spelling correction does not depend on the number of search threads. For details on the number of search threads, see the [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md#searchthreads-property" >}}) page.
+Since version 26.10, search uses as many threads as there are processor cores by default. The order of the terms found by fuzzy, wildcard, regular expression, numeric range search and spelling correction does not depend on the number of search threads. For details on the number of search threads, see the [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md#searchthreads-property" >}}) page.
 
 The following example shows how to print information on the documents found in the console.
 

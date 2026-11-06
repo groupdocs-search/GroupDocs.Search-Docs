@@ -59,7 +59,7 @@ SearchResult result = index.Search(query);
 
 A regular expression that cannot be used, for example an expression that is not valid, finds nothing, and the other parts of the query are searched. The error is reported by the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index and, since version 26.11, in the [Warnings](https://reference.groupdocs.com/search/net/groupdocs.search.results/searchresult/warnings/) property of the result by a line that starts with "Query part not searched: ".
 
-Since version 26.10, regular expression search uses as many threads as there are processor cores by default. Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page), and the order of the found words in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting); before, it could differ from run to run.
+Since version 26.10, regular expression search uses as many threads as there are processor cores by default; the order of the found words in the search result does not depend on the number of search threads (the [SearchThreads](https://reference.groupdocs.com/search/net/groupdocs.search/indexsettings/searchthreads/) index setting). Since version 26.11, the searches of an index that run at the same time share these threads (see the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) page).
 
 Also since version 26.11:
 
