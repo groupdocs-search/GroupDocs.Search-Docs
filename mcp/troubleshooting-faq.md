@@ -84,4 +84,4 @@ Ask your agent *"list your GroupDocs search tools and the license status"* — i
 
 ## Still stuck?
 
-Post your config (redact license paths) and the client name in the [Search forum](https://forum.groupdocs.com/c/search/16) — we answer MCP questions daily. Bugs: [GitHub issues](https://github.com/groupdocs-search/GroupDocs.Search.Mcp/issues).
+Post your config (redact license paths) and the client name in the [Search forum](https://forum.groupdocs.com/c/search/16). Bugs: [GitHub issues](https://github.com/groupdocs-search/GroupDocs.Search.Mcp/issues).

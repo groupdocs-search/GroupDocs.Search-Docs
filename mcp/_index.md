@@ -168,6 +168,6 @@ The server uses MCP's **local stdio transport**: your AI client starts the conta
 
 * [Quick start]({{< ref "search/mcp/getting-started/_index.md" >}}) · [Use cases]({{< ref "search/mcp/use-cases/_index.md" >}}) · [Supported formats]({{< ref "search/mcp/supported-formats.md" >}}) · [Troubleshooting & FAQ]({{< ref "search/mcp/troubleshooting-faq.md" >}})
 * GitHub: [server source](https://github.com/groupdocs-search/GroupDocs.Search.Mcp) · [integration tests](https://github.com/groupdocs-search/GroupDocs.Search.Mcp.Tests)
-* [Docker image](https://github.com/orgs/groupdocs-search/packages/container/package/search-net-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.groupdocs-search/groupdocs-search-mcp)
+* [Product page](https://products.groupdocs.com/search/mcp/) · [Docker image](https://github.com/orgs/groupdocs-search/packages/container/package/search-net-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.groupdocs-search/groupdocs-search-mcp)
 * The library behind it: [GroupDocs.Search for .NET]({{< ref "search/net/_index.md" >}})
 * Questions: [Search forum](https://forum.groupdocs.com/c/search/16)
