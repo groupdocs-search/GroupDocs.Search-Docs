@@ -9,7 +9,7 @@ productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 
-The following formats are not supported on Linux (the .NET Standard 2.1 version of the library used by .NET Core 3.x and .NET 5 and later):
+The following formats are not supported on Linux:
 
 - .MHTML (.MHT)
 - .ONE

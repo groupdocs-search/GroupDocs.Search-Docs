@@ -16,10 +16,11 @@ This page describes the changes to take into account when upgrading an applicati
 
 ## Migrating to version 26.11
 
-Version 26.11 opens the indexes of version 26.10 without an update. This section lists the behavior changes of version 26.11 that may require changes in your code. For the full list of changes, see the [release notes](https://releases.groupdocs.com/search/net/release-notes/).
+Version 26.11 opens the indexes of version 26.10 without an update. This section lists the changes of version 26.11 that may require changes in your projects or code. For the full list of changes, see the [release notes](https://releases.groupdocs.com/search/net/release-notes/).
 
 ### Upgrade checklist
 
+*   **Install the GroupDocs.Search package in .NET Framework projects as well.** The GroupDocs.Search.NETFramework package has no version 26.11: uninstall it and install GroupDocs.Search; see [NuGet packages](#nuget-packages).
 *   **Upgrade all applications together.** An index created by version 26.11, or an index of version 26.10 that version 26.11 has changed (for example, by indexing, deletion of documents, optimization or a change of its settings), cannot be opened by earlier versions, and the nodes of a search network of version 26.11 do not connect to the nodes of earlier versions. Upgrade all applications that use the same index folder and all nodes of a search network at the same time. See [Indexes of version 26.11]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md#indexes-of-version-2611" >}}).
 *   **Dispose of an index before its folder is used again.** An index folder is used by one [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) object at a time; see [Index folder and lifetime](#index-folder-and-lifetime).
 *   **Create new indexes in empty folders.** A new index is not created in a folder that contains other files or subfolders unless *overwriteIfExists* is *true*.
@@ -29,6 +30,15 @@ Version 26.11 opens the indexes of version 26.10 without an update. This section
 *   **Rebuild the program of the extraction in a separate process** with version 26.11; see [Extraction in a separate process](#extraction-in-a-separate-process).
 *   **Index some documents again** to get the new behavior: the HTML documents, the documents indexed with a custom word splitter, the containers with nested items and the documents with metadata values of other types, such as decimal numbers; see [Indexing](#indexing).
 *   **In the evaluation mode, enumerate at most 10 found documents.** See [Evaluation mode](#evaluation-mode).
+
+### NuGet packages
+
+Since version 26.11, the [GroupDocs.Search](https://www.nuget.org/packages/GroupDocs.Search) package is installed in projects of all supported frameworks, including .NET Framework. It has no assemblies of its own: NuGet installs with it the runtime package that contains the build of the library for the target framework of the project, which is one of GroupDocs.Search.Net462, GroupDocs.Search.Net48, GroupDocs.Search.NetStandard21, GroupDocs.Search.Net60, GroupDocs.Search.Net80 and GroupDocs.Search.Net100. In version 26.10, the GroupDocs.Search package contained only the build for .NET Standard 2.1, and .NET Framework projects used the GroupDocs.Search.NETFramework package, which has no versions after 26.10.
+
+*   **Uninstall GroupDocs.Search.NETFramework before you install GroupDocs.Search.** Both packages contain the GroupDocs.Search assembly, so a project must not reference both of them.
+*   **New builds of the library.** Applications for .NET Framework 4.8 and 4.8.1 get the build for .NET Framework 4.8 instead of the build for .NET Framework 4.6.2, and applications for .NET 6 and later get the build for .NET 6, .NET 8 or .NET 10 instead of the build for .NET Standard 2.1. The API of the builds is the same.
+
+See [Installation]({{< ref "search/net/getting-started/installation.md" >}}) and [System requirements]({{< ref "search/net/getting-started/system-requirements.md" >}}).
 
 ### Behavior changes
 

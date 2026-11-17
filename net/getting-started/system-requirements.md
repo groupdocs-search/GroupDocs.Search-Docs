@@ -14,10 +14,18 @@ GroupDocs.Search for .NET does not require any external software or third party 
 
 ## Supported Frameworks
 
-The library is built for two target frameworks:
+The library is built for six target frameworks. The [GroupDocs.Search](https://www.nuget.org/packages/GroupDocs.Search) NuGet package installs the build that matches the target framework of the project (see [Installation]({{< ref "search/net/getting-started/installation.md" >}})):
 
-*   **.NET Framework 4.6.2** — the assembly can be used in applications for .NET Framework 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8 and 4.8.1.
-*   **.NET Standard 2.1** — the assembly can be used in applications for .NET Core 3.0, .NET Core 3.1, .NET 5, .NET 6, .NET 7, .NET 8, .NET 9 and .NET 10.
+| Build of the library | Runtime package | Used by projects that target |
+| --- | --- | --- |
+| .NET Framework 4.6.2 | GroupDocs.Search.Net462 | .NET Framework 4.6.2, 4.7, 4.7.1 and 4.7.2 |
+| .NET Framework 4.8 | GroupDocs.Search.Net48 | .NET Framework 4.8 and 4.8.1 |
+| .NET Standard 2.1 | GroupDocs.Search.NetStandard21 | .NET Core 3.0 and 3.1, .NET 5 and .NET Standard 2.1 |
+| .NET 6 | GroupDocs.Search.Net60 | .NET 6 and .NET 7 |
+| .NET 8 | GroupDocs.Search.Net80 | .NET 8 and .NET 9 |
+| .NET 10 | GroupDocs.Search.Net100 | .NET 10 and later |
+
+The builds for .NET Framework 4.8, .NET 6, .NET 8 and .NET 10 are available since version 26.11. In version 26.10, applications for .NET Framework 4.8 and 4.8.1 used the build for .NET Framework 4.6.2, and applications for .NET 6 and later used the build for .NET Standard 2.1.
 
 ## Supported Operating Systems
 
