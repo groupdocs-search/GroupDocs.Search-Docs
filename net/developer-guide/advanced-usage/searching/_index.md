@@ -12,6 +12,8 @@ The articles in this section describe advanced topics related to search operatio
 
 You will find details about different search aspects: search types, advanced options, and internal implementation details.
 
+The search by a question or a phrase in a natural language, which orders the documents by relevance and finds them by meaning, is described in the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}) section.
+
 ### Search types
 
 *   [Boolean search]({{< ref "search/net/developer-guide/advanced-usage/searching/boolean-search.md" >}})
@@ -27,6 +29,7 @@ You will find details about different search aspects: search types, advanced opt
 *   [Reverse image search]({{< ref "search/net/developer-guide/advanced-usage/searching/reverse-image-search.md" >}})
 *   [Search for different word forms]({{< ref "search/net/developer-guide/advanced-usage/searching/search-for-different-word-forms.md" >}})
 *   [Search for text containing special characters]({{< ref "search/net/developer-guide/advanced-usage/searching/search-for-text-containing-special-characters.md" >}})
+*   [Semantic expansion of queries]({{< ref "search/net/developer-guide/advanced-usage/ai-search/semantic-query-expansion.md" >}})
 *   [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}})
 *   [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}})
 *   [Using aliases]({{< ref "search/net/developer-guide/advanced-usage/searching/using-aliases.md" >}})

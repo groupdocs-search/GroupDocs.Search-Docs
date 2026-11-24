@@ -2,7 +2,7 @@
 id: managing-dictionaries
 url: search/net/managing-dictionaries
 title: Managing Dictionaries
-weight: 4
+weight: 5
 description: "This section describes the dictionaries of a search index and the API for managing them."
 keywords: dictionaries, alphabet, tokenization dictionary, character replacements, stop words, synonyms, homophones, aliases, spelling corrector, document passwords
 productName: GroupDocs.Search for .NET

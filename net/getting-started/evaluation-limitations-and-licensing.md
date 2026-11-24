@@ -87,6 +87,15 @@ A [search network]({{< ref "search/net/developer-guide/advanced-usage/scaling/_i
 
 The results of a search network have the same limits as the results of an index. Only the first 10 found documents can be retrieved from a [NetworkSearchResult](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networksearchresult/): its [GetFoundDocument](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networksearchresult/getfounddocument/) method throws [LicenseRestrictionException](https://reference.groupdocs.com/search/net/groupdocs.search.exceptions/licenserestrictionexception/) for a document number of 10 or greater, and its enumeration throws it after the first 10 documents. Only the first 10 found images can be retrieved from a [NetworkImageSearchResult](https://reference.groupdocs.com/search/net/groupdocs.search.scaling.results/networkimagesearchresult/).
 
+### AI Search Limitations
+
+Following are the limitations of the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}) in the evaluation version:
+
+*   At most 100 documents of an index can be [encoded]({{< ref "search/net/developer-guide/advanced-usage/ai-search/encoding-documents.md" >}}) by the [Encode](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/encode/) method. The documents that are deleted from the index make room for new ones. If the limit leaves documents without the encoding, the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event reports that the number of encoded documents is restricted.
+*   The [ranked search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/ranked-search.md" >}}) of the [IndexAI.Search](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/search/) method returns only the first 10 documents. The [Truncated](https://reference.groupdocs.com/search/net/groupdocs.search.ai/rankedsearchresult/truncated/) property of the result tells that the result is truncated.
+*   The [Ask](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/ask/) method [answers a question]({{< ref "search/net/developer-guide/advanced-usage/ai-search/answers-with-citations.md" >}}) by the first 10 documents of its search.
+*   The [Enrich](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/enrich/) method [sorts into categories]({{< ref "search/net/developer-guide/advanced-usage/ai-search/document-categories.md" >}}) only the first 100 documents of the index.
+
 ## Licensing 
 
 The license file contains details such as the product name, number of developers it is licensed to, subscription expiry date and so on. It contains the digital signature, so don't modify the file. Even inadvertent addition of an extra line break into the file will invalidate it. You need to set a license before utilizing GroupDocs.Search API if you want to avoid its evaluation limitations. 

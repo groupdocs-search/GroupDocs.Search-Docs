@@ -56,6 +56,7 @@ GroupDocs.Search provides the following search features:
 *   Case sensitive search.
 *   Flexible fuzzy search.
 *   Synonym search.
+*   Semantic expansion of queries: search for the words that are close in meaning to the words of a query, by a word vectors model.
 *   Homophone search.
 *   Wildcard search.
 *   Phrase search with wildcards.
@@ -78,3 +79,20 @@ GroupDocs.Search provides the following search features:
 *   Search reports.
 *   Search over several indexes simultaneously, also by chunks.
 *   Built-in support for reverse image search.
+*   Ordering of the found documents by relevance (Okapi BM25).
+
+## AI search
+
+Since version 26.12, GroupDocs.Search provides the following features of the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}):
+
+*   Ranked search by a query in a natural language, which returns the most relevant documents first with the best passages of their text.
+*   Search by meaning with neural terms: a model is needed only to encode the documents, not to search.
+*   Search by meaning and between languages with passage vectors: by a built-in model that needs no neural network, by a neural model or by a model of a service.
+*   Merging of the search by words and the search by meaning in one result (hybrid search).
+*   Reranking of the best passages by a model that reads the query together with a passage.
+*   Local models: the text of the documents does not leave the computer.
+*   Answers to questions by the documents of an index, in which every statement is confirmed by a quote found in a document.
+*   Translation of requests in a natural language into queries of the index.
+*   Sorting of documents into categories that are described in words, with or without a language model.
+*   Suggestion of synonyms for the synonym dictionary.
+*   Connection of language models and embedding services through Microsoft.Extensions.AI.

@@ -2,7 +2,7 @@
 id: performance
 url: search/net/performance
 title: Performance
-weight: 6
+weight: 7
 description: "This section describes the real performance of indexing and search on one million documents and how to measure it on your own documents."
 keywords: performance, benchmark, indexing speed, search latency, index size, index memory
 productName: GroupDocs.Search for .NET

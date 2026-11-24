@@ -63,6 +63,32 @@ Since version 26.11, GroupDocs.Search for .NET is published on NuGet as the [Gro
 
 The API of the library is the same in all runtime packages. A runtime package can also be installed directly instead of the GroupDocs.Search package.
 
+#### Packages of the AI search
+
+Since version 26.12, two more packages provide the optional parts of the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}). The GroupDocs.Search package does not depend on them: an application that does not use these parts does not need them.
+
+| Package | What it provides | Dependencies |
+| --- | --- | --- |
+| [GroupDocs.Search.AI.Onnx](https://www.nuget.org/packages/GroupDocs.Search.AI.Onnx) | Runs the neural networks of the models of the search by meaning by ONNX Runtime. | GroupDocs.Search; Microsoft.ML.OnnxRuntime.Managed 1.22.1 or later |
+| [GroupDocs.Search.AI.Connectors](https://www.nuget.org/packages/GroupDocs.Search.AI.Connectors) | Connects language models and embedding services through Microsoft.Extensions.AI. | GroupDocs.Search; Microsoft.Extensions.AI.Abstractions 11.0.1 or later |
+
+Both packages have the builds for the same target frameworks as the library, and their versions are the version of the library.
+
+The GroupDocs.Search.AI.Onnx package references only the managed part of ONNX Runtime. Add the package with the native library of ONNX Runtime for your device to the application: Microsoft.ML.OnnxRuntime for a processor, Microsoft.ML.OnnxRuntime.Gpu for a video card of NVIDIA, or Microsoft.ML.OnnxRuntime.DirectML for DirectML on Windows; see [Models for AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/ai-search-models.md#onnx-runtime-adapter" >}}).
+
+```
+dotnet add package GroupDocs.Search.AI.Onnx
+dotnet add package Microsoft.ML.OnnxRuntime
+```
+
+The GroupDocs.Search.AI.Connectors package is used with the package of the client of your service, for example Microsoft.Extensions.AI.OpenAI or OllamaSharp; see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md" >}}).
+
+```
+dotnet add package GroupDocs.Search.AI.Connectors
+```
+
+The models of the search by meaning are not NuGet packages: they are folders of files that are prepared separately, see [Preparing model packages]({{< ref "search/net/developer-guide/advanced-usage/ai-search/ai-search-models.md#preparing-model-packages" >}}).
+
 #### Upgrading from GroupDocs.Search.NETFramework
 
 From version 24.12 to version 26.10, the GroupDocs.Search package contained only the build for .NET Standard 2.1, and .NET Framework projects used the **GroupDocs.Search.NETFramework** package, which has no versions after 26.10. To upgrade a .NET Framework project to version 26.11 or later, uninstall GroupDocs.Search.NETFramework and install GroupDocs.Search. Both packages contain the GroupDocs.Search assembly, so a project must not reference both of them.

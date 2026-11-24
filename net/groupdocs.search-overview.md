@@ -17,5 +17,6 @@ GroupDocs.Search is a powerful [full-text search](https://en.wikipedia.org/wiki/
 * No additional software is required to search through documents of supported formats. Recognizing text in images requires an OCR engine connected through the [IOcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/iocrconnector/) interface (see [OCR support]({{< ref "search/net/developer-guide/advanced-usage/indexing/ocr-support.md" >}})).
 * Great variety of indexing and search options are provided to meet any requirements.
 * Wide selection of search types is available in text or object form queries.
+* The [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}) finds documents by meaning and between languages with local models, answers questions by the documents with verified quotes and translates requests in a natural language into queries.
 * High indexing and search performance is achieved by unique algorithms and data structures, optimizations and multi-threaded execution.
 * Various ways of visualizing search results in the text of documents are supported.

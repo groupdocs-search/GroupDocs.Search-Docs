@@ -10,6 +10,8 @@ hideChildren: False
 ---
 The [SynonymDictionary](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/synonymdictionary/) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page.
 
+Since version 26.12, a language model can suggest the synonyms of the words of your documents for the dictionary; see the [Suggesting synonyms]({{< ref "search/net/developer-guide/advanced-usage/ai-search/synonym-suggestions.md" >}}) page.
+
 The synonym dictionary can be changed at any time, also in an index that contains documents. The dictionary keeps words in lower case without leading and trailing white space, so the methods that get synonyms ignore the letter case of the specified word.
 
 To get the number of words in the dictionary, use the [Count](https://reference.groupdocs.com/search/net/groupdocs.search.dictionaries/synonymdictionary/count/) property.

@@ -10,6 +10,8 @@ hideChildren: False
 ---
 Document attributes is a special feature designed for marking indexed documents with text labels without the need for re-indexing. Added attributes can be further used to filter documents during the search.
 
+Since version 26.12, attributes can also be assigned automatically: the [Enrich](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/enrich/) method sorts the documents of an index into categories that you describe in words and gives every sorted document the attribute of its category. See the [Sorting documents into categories]({{< ref "search/net/developer-guide/advanced-usage/ai-search/document-categories.md" >}}) page.
+
 To add and delete attributes of indexed documents, use the [ChangeAttributes](https://reference.groupdocs.com/search/net/groupdocs.search/index/changeattributes/) method of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) class. This method accepts an [AttributeChangeBatch](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/) object containing the required attribute changes as a parameter. The [AttributeChangeBatch](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/) class provides the following methods:
 
 *   [Add](https://reference.groupdocs.com/search/net/groupdocs.search.common/attributechangebatch/add/) adds the specified attributes to one or several indexed documents;

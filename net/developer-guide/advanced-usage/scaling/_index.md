@@ -2,7 +2,7 @@
 id: scaling
 url: search/net/scaling
 title: Scaling
-weight: 5
+weight: 6
 description: "This section describes the search network, which distributes an index across several servers."
 keywords: search network, scaling, distributed index, shard
 productName: GroupDocs.Search for .NET

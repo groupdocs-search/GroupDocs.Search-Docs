@@ -76,6 +76,46 @@ When a limit of the occurrences is reached, the result is truncated: its [Trunca
 *   The limit is reported by one line of the warnings, or by one line for each chunk of a search by chunks. Before, the warnings had a line for every word and index segment that the limit stopped.
 *   The result is truncated also when the limit lets a part of the query search nothing, and when the query excluded with NOT is truncated.
 
+## ResultOrder property
+
+The [ResultOrder](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/resultorder/) property allows you to specify the order of the found documents in the search result. The property is available since version 26.12. The default value is [SearchResultOrder.Default](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchresultorder/): the documents go in the order of the index, as in the previous versions.
+
+With the [SearchResultOrder.Bm25](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchresultorder/) value, the found documents are ordered by relevance, the most relevant first, and the [Relevance](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocument/relevance/) property of a found document returns its [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25) score. The documents of equal relevance go in the order of the index. The search finds the same documents and the same occurrences as with the default order:
+
+*   The score is counted by the found terms and phrases: a rare word counts for more than a frequent one, and many occurrences in a short document count for more than the same occurrences in a long one.
+*   The terms that a word of the query is expanded to, such as its forms, its synonyms and the terms found by the fuzzy search, are weighed as the word itself.
+*   If the [MaxTotalOccurrenceCount](#maxtotaloccurrencecount-property) and [MaxOccurrenceCountPerTerm](#maxoccurrencecountperterm-property) limits cut the result, the score is counted by the occurrences that are found.
+*   In a [search by chunks]({{< ref "search/net/developer-guide/advanced-usage/searching/search-by-chunks.md" >}}), the documents of every chunk are ordered, and the scores are counted by the documents of the chunk.
+*   A search of an [index repository]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-repository.md" >}}) orders the documents of all its indexes together, by the scores counted in each index.
+*   The [search network]({{< ref "search/net/developer-guide/advanced-usage/scaling/_index.md" >}}) does not use the option.
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+// Creating an index in the specified folder
+Index index = new Index(indexFolder);
+
+// Indexing documents from the specified folder
+index.Add(documentsFolder);
+
+// Creating a search options instance
+SearchOptions options = new SearchOptions();
+options.ResultOrder = SearchResultOrder.Bm25; // Ordering the found documents by relevance
+
+// Searching for the documents that have any of the two words: the most relevant documents go first
+SearchResult result = index.Search("lease OR termination", options);
+for (int i = 0; i < result.DocumentCount; i++)
+{
+    FoundDocument document = result.GetFoundDocument(i);
+    Console.WriteLine(document.Relevance.ToString("F3") + "  " + document.DocumentInfo.FilePath);
+}
+```
+
+To search by a question or a phrase in a natural language, to find documents by meaning and to get the best passages of their text, use the [ranked search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/ranked-search.md" >}}).
+
 ## RetrieveAttributes property
 
 The [RetrieveAttributes](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/retrieveattributes/) property allows you to retrieve the attributes associated with the found documents. If the property is set to true, the attributes of each found document are available in the [FoundDocument.Attributes](https://reference.groupdocs.com/search/net/groupdocs.search.results/founddocument/attributes/) property; otherwise, this property returns an empty array. The default value is false. For details on document attributes, see the [Document attributes]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-attributes.md" >}}) page.
@@ -112,6 +152,10 @@ for (int i = 0; i < result.DocumentCount; i++)
 
 The [SearchDocumentFilter](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/searchdocumentfilter/) property allows you to specify the filter of documents returned as a search result. By default, all documents found will be returned as a search result. For details, see the [Document filtering in search result]({{< ref "search/net/developer-guide/advanced-usage/searching/document-filtering-in-search-result.md" >}}) page.
 
+## SemanticExpansion property
+
+The [SemanticExpansion](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/semanticexpansion/) property returns the options of the semantic expansion of queries, which allows you to find the words of the index that are close in meaning to the words of a query: their forms, synonyms and translations. The property is available since version 26.12. The words are found by a word vectors model, which is added to the index by the [AddModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/addmodel/) method. By default, the semantic expansion is disabled. See the [Semantic expansion of queries]({{< ref "search/net/developer-guide/advanced-usage/ai-search/semantic-query-expansion.md" >}}) page.
+
 ## SpellingCorrector property
 
 The [SpellingCorrector](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/spellingcorrector/) property returns the spelling corrector options object, which allows you to enable spelling correction in search queries and specify spelling correction options. By default, spelling correction is disabled. See the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page for details.
@@ -136,7 +180,7 @@ The [UseWordFormsSearch](https://reference.groupdocs.com/search/net/groupdocs.se
 
 The search options are checked when a search starts. In the following cases, the [Search](https://reference.groupdocs.com/search/net/groupdocs.search/index/search/) method does not throw an exception: it returns an empty search result and raises the [ErrorOccurred](https://reference.groupdocs.com/search/net/groupdocs.search.events/eventhub/erroroccurred/) event of the index with a message describing the problem:
 
-*   Case-sensitive search is enabled together with fuzzy search, synonym search, homophone search, word forms search, spelling correction, or keyboard layout correction.
+*   Case-sensitive search is enabled together with fuzzy search, synonym search, homophone search, word forms search, spelling correction, keyboard layout correction, or semantic expansion.
 *   Synonym search is enabled, but the synonym dictionary of the index is empty.
 *   Homophone search is enabled, but the homophone dictionary of the index is empty.
 

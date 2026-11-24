@@ -28,6 +28,16 @@ The new format determines the following compatibility rules:
 
 Version 26.11 opens the indexes of version 26.10 without an update. However, an index created by version 26.11, or an index of version 26.10 that version 26.11 has changed (for example, by indexing, deletion of documents, optimization or a change of its settings), cannot be opened by version 26.10 and earlier versions. Therefore, all applications that use the same index folder, including all nodes of a search network, must be upgraded to version 26.11 together.
 
+## Indexes of version 26.12
+
+Version 26.12 opens the indexes of versions 26.10 and 26.11 without an update. An index that version 26.12 has created or changed can be opened by version 26.11, unless its documents are encoded for the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}):
+
+*   When the documents of an index are [encoded]({{< ref "search/net/developer-guide/advanced-usage/ai-search/encoding-documents.md" >}}) by a model, the index gets the AI data. From then on, version 26.11 and earlier versions cannot open the index: they report that it is created by a newer version of the library. Therefore, upgrade all applications that use the same index folder to version 26.12 before you encode the documents of the index.
+*   The [RemoveData](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/removedata/) method removes the AI data. After the call, the index is saved exactly as an index whose documents have never been encoded, and version 26.11 opens it again.
+*   The other functions of the AI search do not affect the compatibility of an index. The ranked search, the semantic expansion of queries, the answers with citations, the translation of requests and the suggestion of synonyms write nothing to the index, and the sorting of documents into categories changes only the [attributes]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-attributes.md" >}}) of the documents.
+*   Damaged AI data does not prevent an index from opening: the usual search works, and the documents can be encoded again.
+*   When an index is [merged](#merging-compatibility) into another index, the AI data of the target index is kept, and the documents of the merged index wait for the encoding in the target index.
+
 ## Checking the version of an index
 
 The [IndexUpdater](https://reference.groupdocs.com/search/net/groupdocs.search/indexupdater/) class provides two methods for checking an index folder before opening it:

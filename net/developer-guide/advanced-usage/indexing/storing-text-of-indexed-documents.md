@@ -18,6 +18,8 @@ Since version 26.11, the constructor of the [TextStorageSettings](https://refere
 
 Also since version 26.11, the stored texts are written and read with much less memory, and the indexing and the [GetDocumentText](https://reference.groupdocs.com/search/net/groupdocs.search/index/getdocumenttext/) method are faster; the texts are stored as before, so the indexes do not change. A field of a text stored with the high compression ([Compression.High](https://reference.groupdocs.com/search/net/groupdocs.search.options/compression/)) is compressed in memory unless it takes more than 10 MB compressed: a larger field is compressed in a temporary file in the folder of the index, and an index in memory keeps it in memory.
 
+Since version 26.12, the stored text is also read by the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}): the encoding of the documents by models, the passages of the ranked search, the answers with citations and the suggestion of synonyms work only in an index that stores the text of its documents.
+
 The example below demonstrates storing text in an index using the high compression ratio.
 
 **C#**

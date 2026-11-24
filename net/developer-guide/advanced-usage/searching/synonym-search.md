@@ -14,6 +14,8 @@ To enable synonym search, you must set the [UseSynonymSearch](https://reference.
 
 The default synonym dictionary contains synonyms only for the English language. To manage the synonym dictionary, see the [Synonym dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
+Since version 26.12, two functions of the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}) complement the synonym search. The [semantic expansion of queries]({{< ref "search/net/developer-guide/advanced-usage/ai-search/semantic-query-expansion.md" >}}) finds the words that are close in meaning to the words of a query without a dictionary, by a word vectors model, also in other languages. The [suggestion of synonyms]({{< ref "search/net/developer-guide/advanced-usage/ai-search/synonym-suggestions.md" >}}) fills the synonym dictionary with the synonyms of the words of your documents, named by a language model and reviewed by a person.
+
 The following example demonstrates the synonym search.
 
 **C#**

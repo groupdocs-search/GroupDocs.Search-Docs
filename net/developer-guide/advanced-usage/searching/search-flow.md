@@ -19,7 +19,7 @@ See also [Query language specification]({{< ref "search/net/developer-guide/adva
 | Operation | Search flow |
 | --- | --- |
 | Any search query in text form | Alias substitution<br/>Parsing the query<br/>Search flow of the parsed query (see below) |
-| Simple term search (case insensitive) | Keyboard layout correction<br/>Spelling correction<br/>Homophone search<br/>Synonym search<br/>Word forms search (since v.18.7)<br/>Fuzzy search<br/>Retrieving results |
+| Simple term search (case insensitive) | Keyboard layout correction<br/>Spelling correction<br/>Homophone search<br/>Synonym search<br/>Word forms search (since v.18.7)<br/>Fuzzy search<br/>Semantic expansion (since v.26.12)<br/>Retrieving results |
 | Simple term search (case sensitive) | Retrieving results |
 | Wildcard search (since v.18.12) | Wildcard search<br/>Retrieving results |
 | Date range search | Retrieving results |

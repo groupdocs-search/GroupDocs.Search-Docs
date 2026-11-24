@@ -3,16 +3,42 @@ id: migration-notes
 url: search/net/migration-notes
 title: Migration Notes
 weight: 3
-description: "This article describes how to migrate applications to GroupDocs.Search for .NET 26.11 and to version 26.10 with its new index format, and how to migrate code to the API introduced in version 19.9."
-keywords: migration, upgrade, 26.11, 26.10, index format, IndexUpdater, update index version, breaking changes, 19.9 API
+description: "This article describes how to migrate applications to GroupDocs.Search for .NET 26.12 and 26.11, and to version 26.10 with its new index format, and how to migrate code to the API introduced in version 19.9."
+keywords: migration, upgrade, 26.12, 26.11, 26.10, index format, IndexUpdater, update index version, breaking changes, 19.9 API
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
 This page describes the changes to take into account when upgrading an application to a new version of GroupDocs.Search for .NET:
 
+*   [Migrating to version 26.12](#migrating-to-version-2612) - the new values of enumerations and the compatibility of the indexes whose documents are encoded for the AI search.
 *   [Migrating to version 26.11](#migrating-to-version-2611) — the behavior changes that may require changes in your code.
 *   [Migrating to version 26.10](#migrating-to-version-2610) — the new index format and the behavior changes that may require changes in your code.
 *   [Migrating to the API of version 19.9](#migrating-to-the-api-of-version-199) — the changes of the public API introduced in version 19.9.
+
+## Migrating to version 26.12
+
+Version 26.12 opens the indexes of versions 26.10 and 26.11 without an update. It adds the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}) and the order of the found documents by relevance. The existing API is not changed: the signatures, the results of a search, their order and the relevance of the found documents are the same as in version 26.11 until the new options are set. For the full list of changes, see the [release notes](https://releases.groupdocs.com/search/net/release-notes/).
+
+### Upgrade checklist
+
+*   **Check the code that enumerates the statuses of an index, the types of operations and the phases of a search.** Three enumerations have new values, added after the existing ones, so the numbers of the existing values are the same:
+    *   [IndexStatus](https://reference.groupdocs.com/search/net/groupdocs.search.common/indexstatus/): Encoding and Enriching;
+    *   [OperationType](https://reference.groupdocs.com/search/net/groupdocs.search.events/operationtype/): Encoding and Enriching;
+    *   [SearchPhase](https://reference.groupdocs.com/search/net/groupdocs.search.events/searchphase/): SemanticExpansion.
+
+    An index gets the new statuses, and the events report the new operations and the new phase, only when the application calls the new functions. Code that handles these enumerations by a switch statement without a default branch has to handle the new values when you start to use the AI search.
+*   **Upgrade all applications that use an index before its documents are encoded.** An index of version 26.12 can be opened by version 26.11 until its documents are [encoded]({{< ref "search/net/developer-guide/advanced-usage/ai-search/encoding-documents.md" >}}) for the AI search; an encoded index cannot be opened by version 26.11 and earlier versions. The [RemoveData](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/removedata/) method makes the index readable for version 26.11 again. See [Indexes of version 26.12]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/index-format-and-compatibility.md#indexes-of-version-2612" >}}).
+*   **Create a new index to use the functions that read the stored text.** The encoding of the documents, the passages of the ranked search, the answers with citations and the suggestion of synonyms need the [text of the documents stored in the index]({{< ref "search/net/developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents.md" >}}). The setting is fixed when an index is created, so an index that does not store the text has to be created again with it.
+
+### New packages
+
+The AI search is a part of the GroupDocs.Search assembly and adds no dependencies to it. Two new optional packages, GroupDocs.Search.AI.Onnx and GroupDocs.Search.AI.Connectors, run the neural networks of the models and connect language models; see [Installation]({{< ref "search/net/getting-started/installation.md#packages-of-the-ai-search" >}}).
+
+### New API
+
+*   The [AI](https://reference.groupdocs.com/search/net/groupdocs.search/index/ai/) property of the [Index](https://reference.groupdocs.com/search/net/groupdocs.search/index/) class and the types of the `GroupDocs.Search.AI` namespace: the [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}).
+*   The [ResultOrder](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/resultorder/) property of the [SearchOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/) class and the [SearchResultOrder](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchresultorder/) enumeration: the [order of the found documents by relevance]({{< ref "search/net/developer-guide/advanced-usage/searching/search-options.md#resultorder-property" >}}).
+*   The [SemanticExpansion](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/semanticexpansion/) property of the [SearchOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/searchoptions/) class and the [SemanticExpansionOptions](https://reference.groupdocs.com/search/net/groupdocs.search.options/semanticexpansionoptions/) class: the [semantic expansion of queries]({{< ref "search/net/developer-guide/advanced-usage/ai-search/semantic-query-expansion.md" >}}).
 
 ## Migrating to version 26.11
 

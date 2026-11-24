@@ -12,6 +12,8 @@ hideChildren: False
 
 GroupDocs.Search for .NET does not require any external software or third party tool to be installed. Just follow one of the ways described on the [Installation]({{< ref "search/net/getting-started/installation.md" >}}) page. Recognizing text in images (OCR) requires an OCR engine connected through the [IOcrConnector](https://reference.groupdocs.com/search/net/groupdocs.search.options/iocrconnector/) interface; see [OCR support]({{< ref "search/net/developer-guide/advanced-usage/indexing/ocr-support.md" >}}).
 
+The optional [AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/_index.md" >}}) finds documents by meaning with models, which are files that are prepared separately. The models that are neural networks are run by [ONNX Runtime](https://onnxruntime.ai/) through the GroupDocs.Search.AI.Onnx package, on the operating systems and the processor architectures that the native library of ONNX Runtime supports; see [Models for AI search]({{< ref "search/net/developer-guide/advanced-usage/ai-search/ai-search-models.md" >}}). The functions of a language model need a language model that the application connects; see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md" >}}).
+
 ## Supported Frameworks
 
 The library is built for six target frameworks. The [GroupDocs.Search](https://www.nuget.org/packages/GroupDocs.Search) NuGet package installs the build that matches the target framework of the project (see [Installation]({{< ref "search/net/getting-started/installation.md" >}})):

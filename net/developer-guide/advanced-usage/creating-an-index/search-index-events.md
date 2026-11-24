@@ -20,7 +20,9 @@ The [OperationFinished](https://reference.groupdocs.com/search/net/groupdocs.sea
 *   **Updating** - updating documents in an index;
 *   **Merging** - merging indexes;
 *   **Optimizing** - optimizing an index (merging its segments);
-*   **Deleting** - deleting documents from an index by paths or by document keys.
+*   **Deleting** - deleting documents from an index by paths or by document keys;
+*   **Encoding** - encoding the documents of an index by models for the search by meaning, since version 26.12 (see [Encoding documents]({{< ref "search/net/developer-guide/advanced-usage/ai-search/encoding-documents.md" >}}));
+*   **Enriching** - sorting the documents of an index into categories, since version 26.12 (see [Sorting documents into categories]({{< ref "search/net/developer-guide/advanced-usage/ai-search/document-categories.md" >}})).
 
 This event can be used to receive notification of the completion of an asynchronous operation. Since version 26.11, the event occurs at the end of every indexing operation, also of an update that has nothing to do, for example of an index without indexed folders, and of an addition whose preparation fails; previously, such operations ended without the event. The following example demonstrates the use of the event.
 
