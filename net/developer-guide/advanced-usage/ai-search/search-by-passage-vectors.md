@@ -20,7 +20,7 @@ Unlike a neural terms model, a model of vectors is needed by every search, becau
 | --- | --- | --- |
 | A word vectors model | [WordVectorEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai/wordvectorembedder/) | A model package of 55 MB. No neural network, no runtime and no service. |
 | A neural model of vectors | [NeuralTextEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai/neuraltextembedder/) | A model package, the GroupDocs.Search.AI.Onnx package and ONNX Runtime, for the encoding and for the searches. |
-| A model of your application or of a service | An implementation of the [ITextEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai/itextembedder/) interface, for example the [EmbeddingGeneratorTextEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/) class of the GroupDocs.Search.AI.Connectors package | The model or the service. |
+| A model of your application or of a service | An implementation of the [ITextEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai/itextembedder/) interface | The model or the service. |
 
 ## Word vectors model
 
@@ -177,11 +177,66 @@ public class MyTextEmbedder : ITextEmbedder
 
 If the model is a remote service, the texts of the passages of the documents and the texts of the queries leave the computer. The library gives them only to the object that the application has set by the [Embedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/embedder/) property.
 
-### Embedding generators of Microsoft.Extensions.AI
+### An embedding generator of Microsoft.Extensions.AI
 
-The GroupDocs.Search.AI.Connectors package has a ready implementation, the [EmbeddingGeneratorTextEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/) class of the `GroupDocs.Search.AI.Connectors` namespace. It makes a model of vectors of any embedding generator of [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai): the `IEmbeddingGenerator<string, Embedding<float>>` interface, which is implemented by the clients of OpenAI, Azure OpenAI, Ollama and other services.
+The clients of many services implement the `IEmbeddingGenerator<string, Embedding<float>>` interface of [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai). Such a generator becomes a model of vectors of an index by a small class of your application; the library itself does not depend on that package.
 
-The constructor takes the generator, the identifier of the model and the number of the components of a vector. The identifier and the number are given explicitly, because the index remembers them and they must not change with the settings of a client.
+The identifier of the model and the number of the components of a vector are given explicitly, because the index remembers them and they must not change with the settings of a client.
+
+**C#**
+
+```csharp
+public class EmbeddingGeneratorTextEmbedder : ITextEmbedder
+{
+    private readonly IEmbeddingGenerator<string, Embedding<float>> generator;
+    private readonly string modelId;
+    private readonly int dimension;
+
+    public EmbeddingGeneratorTextEmbedder(
+        IEmbeddingGenerator<string, Embedding<float>> generator,
+        string modelId,
+        int dimension)
+    {
+        this.generator = generator;
+        this.modelId = modelId;
+        this.dimension = dimension;
+    }
+
+    public string ModelId
+    {
+        get { return modelId; }
+    }
+
+    public int Dimension
+    {
+        get { return dimension; }
+    }
+
+    public float[][] Embed(string[] texts, EmbeddingPurpose purpose)
+    {
+        // The texts that the model expects before a query and before a document, if it expects any
+        string prefix = purpose == EmbeddingPurpose.Query ? "search_query: " : "search_document: ";
+        string[] inputs = new string[texts.Length];
+        for (int i = 0; i < texts.Length; i++)
+        {
+            inputs[i] = prefix + texts[i];
+        }
+
+        // A generator is asynchronous: it is called by a thread of the thread pool, and this thread waits
+        GeneratedEmbeddings<Embedding<float>> embeddings =
+            Task.Run(() => generator.GenerateAsync(inputs)).GetAwaiter().GetResult();
+        float[][] vectors = new float[texts.Length][];
+        for (int i = 0; i < texts.Length; i++)
+        {
+            vectors[i] = embeddings[i].Vector.ToArray();
+        }
+
+        return vectors;
+    }
+}
+```
+
+The class is used as any other model of vectors:
 
 **C#**
 
@@ -191,49 +246,15 @@ string indexFolder = @"c:\MyIndex\";
 // Opening an index that stores the text of its documents
 Index index = new Index(indexFolder);
 
-// An embedding generator of Microsoft.Extensions.AI that the application creates by the package of its service
+// An embedding generator that the application creates by the package of its service
 IEmbeddingGenerator<string, Embedding<float>> generator = CreateEmbeddingGenerator();
 
-// The model of vectors of the index over the generator
-EmbeddingGeneratorTextEmbedder embedder =
-    new EmbeddingGeneratorTextEmbedder(generator, "nomic-embed-text-v1.5", 768);
-embedder.QueryPrefix = "search_query: "; // The texts that the model expects before a query
-embedder.DocumentPrefix = "search_document: "; // and before a document
-embedder.MaxBatchSize = 64; // The greatest number of the texts of one request to the service
-
-index.AI.Embedder = embedder;
+index.AI.Embedder = new EmbeddingGeneratorTextEmbedder(generator, "nomic-embed-text-v1.5", 768);
 index.AI.Encode();
 RankedSearchResult result = index.AI.Search("how to end a rental agreement early");
 ```
 
-The generator is created by the package of the service: the `CreateEmbeddingGenerator` method of the example stands for the code of your application. With Ollama and the OllamaSharp package, it is:
-
-**C#**
-
-```csharp
-IEmbeddingGenerator<string, Embedding<float>> generator =
-    new OllamaApiClient(new Uri("http://localhost:11434/"), "nomic-embed-text");
-```
-
-With OpenAI and the Microsoft.Extensions.AI.OpenAI package, it is:
-
-**C#**
-
-```csharp
-string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-IEmbeddingGenerator<string, Embedding<float>> generator =
-    new OpenAI.Embeddings.EmbeddingClient("text-embedding-3-small", apiKey).AsIEmbeddingGenerator();
-```
-
-The properties of the [EmbeddingGeneratorTextEmbedder](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/) class:
-
-| Property | Description | Default |
-| --- | --- | --- |
-| [QueryPrefix](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/queryprefix/), [DocumentPrefix](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/documentprefix/) | The texts that are written before a query and before a passage of a document, for the models that expect them. | Empty strings |
-| [QueryOptions](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/queryoptions/), [DocumentOptions](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/documentoptions/) | The options of the requests of the generator for queries and for documents, for the services that take the kind of a text as an option. | null |
-| [MaxBatchSize](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/embeddinggeneratortextembedder/maxbatchsize/) | The greatest number of the texts of one request; 0 means that all the texts of a call go in one request. | 0 |
-
-The class checks every reply of the generator: it throws [InvalidDataException](https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception) if the number of the vectors differs from the number of the texts, or if a vector has not the declared number of components.
+An index gives up to 64 texts in a call of the [Embed](https://reference.groupdocs.com/search/net/groupdocs.search.ai/itextembedder/embed/) method. If the service limits the number of the texts of a request, send them in parts.
 
 ## What to expect
 

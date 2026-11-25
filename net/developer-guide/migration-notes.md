@@ -32,7 +32,7 @@ Version 26.12 opens the indexes of versions 26.10 and 26.11 without an update. I
 
 ### New packages
 
-The AI search is a part of the GroupDocs.Search assembly and adds no dependencies to it. Two new optional packages, GroupDocs.Search.AI.Onnx and GroupDocs.Search.AI.Connectors, run the neural networks of the models and connect language models; see [Installation]({{< ref "search/net/getting-started/installation.md#packages-of-the-ai-search" >}}).
+The AI search is a part of the GroupDocs.Search assembly and adds no dependencies to it; the language models of the services are connected by the assembly itself. A new optional package, GroupDocs.Search.AI.Onnx, runs the neural networks of the models; see [Installation]({{< ref "search/net/getting-started/installation.md#packages-of-the-ai-search" >}}).
 
 ### New API
 

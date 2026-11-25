@@ -36,9 +36,8 @@ The measured quality and speed of these functions are given in [Quality and perf
 
 | Package | What it has | When it is needed |
 | --- | --- | --- |
-| GroupDocs.Search | All the functions of the AI search, the tokenizers and the models themselves. | Always. It has no new dependencies. |
+| GroupDocs.Search | All the functions of the AI search, the tokenizers and the models themselves, and the client of the services of language models. | Always. It has no new dependencies. |
 | GroupDocs.Search.AI.Onnx | The [OnnxModelRuntime](https://reference.groupdocs.com/search/net/groupdocs.search.ai.onnx/onnxmodelruntime/) class, which runs the neural networks of the models by ONNX Runtime. | To encode the documents by a neural terms model, and to use a neural model of vectors or a reranker. |
-| GroupDocs.Search.AI.Connectors | The bridge to Microsoft.Extensions.AI: any chat client becomes a language model of an index, and any embedding generator becomes a model of vectors. | To connect a language model or an embedding service by a ready client: OpenAI, Azure OpenAI, Ollama, LM Studio, a service of your company. |
 
 See [Installation]({{< ref "search/net/getting-started/installation.md#packages-of-the-ai-search" >}}) for the dependencies of the packages.
 

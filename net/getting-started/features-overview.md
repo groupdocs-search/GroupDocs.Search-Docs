@@ -95,4 +95,4 @@ Since version 26.12, GroupDocs.Search provides the following features of the [AI
 *   Translation of requests in a natural language into queries of the index.
 *   Sorting of documents into categories that are described in words, with or without a language model.
 *   Suggestion of synonyms for the synonym dictionary.
-*   Connection of language models and embedding services through Microsoft.Extensions.AI.
+*   Connection of the language models of the services with the chat completions API, such as OpenAI, Azure OpenAI, Ollama and LM Studio, without additional packages.

@@ -27,7 +27,7 @@ string indexFolder = @"c:\MyIndex\";
 Index index = new Index(indexFolder);
 
 // Setting the language model of the index
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 // A few words about the collection help the model to choose the meaning of a word
 SynonymSuggestionOptions options = new SynonymSuggestionOptions();
@@ -50,7 +50,7 @@ foreach (ExaminedWord word in suggestions)
 }
 ```
 
-The `CreateChatClient` method of the example stands for the code that creates a chat client of your service, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-model-by-microsoftextensionsai" >}}).
+The address and the name of the model of the example are the ones of a model that a program runs on the same computer; for your service and for a model of another kind, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-service-by-the-chat-completions-api" >}}).
 
 The result is an instance of the [SynonymSuggestions](https://reference.groupdocs.com/search/net/groupdocs.search.ai/synonymsuggestions/) class: the examined words, each an instance of the [ExaminedWord](https://reference.groupdocs.com/search/net/groupdocs.search.ai/examinedword/) class with the synonyms that are suggested for it, instances of the [SuggestedSynonym](https://reference.groupdocs.com/search/net/groupdocs.search.ai/suggestedsynonym/) class.
 
@@ -79,7 +79,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 SynonymSuggestionOptions options = new SynonymSuggestionOptions();
 options.Words = new string[] { "landlord", "early termination", "apartment rent" };
@@ -119,7 +119,7 @@ string reviewFile = @"c:\Review\Synonyms.txt";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 // Writing the suggestions to a file for a review
 SynonymSuggestions suggestions = index.AI.SuggestSynonyms();
@@ -147,7 +147,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 SynonymSuggestions suggestions = index.AI.SuggestSynonyms();
 
@@ -179,7 +179,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 // Getting the words without a model: the list can be reviewed and shortened
 string[] words = index.AI.GetDistinctiveWords(2000);

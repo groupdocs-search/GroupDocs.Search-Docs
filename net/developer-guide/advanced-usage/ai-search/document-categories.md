@@ -83,7 +83,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index that stores the text of its documents
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 EnrichmentOptions options = new EnrichmentOptions();
 options.AddCategory("type:contract", "Contracts: agreements between parties, obligations, terms, signatures");
@@ -99,7 +99,7 @@ Console.WriteLine("Read by the model: " + report.LanguageModelDocumentCount);
 Console.WriteLine("Requests to the model: " + report.LanguageModelRequestCount);
 ```
 
-The `CreateChatClient` method of the example stands for the code that creates a chat client of your service, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-model-by-microsoftextensionsai" >}}).
+The address and the name of the model of the example are the ones of a model that a program runs on the same computer; for your service and for a model of another kind, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-service-by-the-chat-completions-api" >}}).
 
 In an index whose documents are not encoded, the index channels have nothing to judge by. Set the [UseIndexChannels](https://reference.groupdocs.com/search/net/groupdocs.search.ai/enrichmentoptions/useindexchannels/) option to false there, and every document is given to the language model.
 

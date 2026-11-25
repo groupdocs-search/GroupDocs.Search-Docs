@@ -3,8 +3,8 @@ id: language-models
 url: search/net/language-models
 title: Language models
 weight: 8
-description: "This article describes how to connect a large language model to an index of GroupDocs.Search for .NET: the ILanguageModel interface, the bridge to Microsoft.Extensions.AI chat clients such as OpenAI, Azure OpenAI and Ollama, and what texts the model gets."
-keywords: language model, LLM, ILanguageModel, ChatClientLanguageModel, Microsoft.Extensions.AI, IChatClient, OpenAI, Ollama, LM Studio, structured output, privacy
+description: "This article describes how to connect a large language model to an index of GroupDocs.Search for .NET: the ready client of the chat completions API for OpenAI, Azure OpenAI, Ollama, LM Studio and other services, the ILanguageModel interface, and what texts the model gets."
+keywords: language model, LLM, ILanguageModel, ChatCompletionLanguageModel, chat completions, OpenAI, Azure OpenAI, Ollama, LM Studio, llama.cpp, vLLM, structured output, Microsoft.Extensions.AI, privacy
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
@@ -15,7 +15,7 @@ Four functions of the AI search use a large language model:
 *   [Sorting documents into categories]({{< ref "search/net/developer-guide/advanced-usage/ai-search/document-categories.md" >}}): the [Enrich](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/enrich/) method, for the documents that the index cannot sort confidently by itself.
 *   [Suggesting synonyms]({{< ref "search/net/developer-guide/advanced-usage/ai-search/synonym-suggestions.md" >}}): the [SuggestSynonyms](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/suggestsynonyms/) method.
 
-The library does not contain a language model and does not call any service by itself. A language model is a component of your application: a local model, a service of your company or a cloud service. The application gives it to an index as an object that implements the [ILanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/ilanguagemodel/) interface, by the [LanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/languagemodel/) property of the [IndexAI](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/) class. The model is not kept in the index: set it after the index is opened.
+The library does not contain a language model and calls no service until the application tells it which one. A language model is a component of your application: a local model, a service of your company or a cloud service. The application gives it to an index as an object that implements the [ILanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/ilanguagemodel/) interface, by the [LanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/languagemodel/) property of the [IndexAI](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/) class. The library has such an object for the services with the chat completions API, the [ChatCompletionLanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/) class; for any other model, the application implements the interface itself. The model is not kept in the index: set it after the index is opened.
 
 These functions do not need the models of the search by meaning. The [Ask](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/ask/), [Enrich](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/enrich/) and [SuggestSynonyms](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/suggestsynonyms/) methods read the text that the index [stores]({{< ref "search/net/developer-guide/advanced-usage/indexing/storing-text-of-indexed-documents.md" >}}); the [CreateQuery](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/createquery/) method works in any index.
 
@@ -29,9 +29,9 @@ The library does not let a language model act: the model gets no tools and no ac
 *   If the model does not manage, the function tells it by its result and does not guess.
 *   An application can add its own instructions by the AdditionalInstructions property of the options: for example, the language of the answers or the meaning of the fields of the documents. The form of the reply and the rules of the check are set by the library and cannot be changed by them.
 
-## Connecting a model by Microsoft.Extensions.AI
+## Connecting a service by the chat completions API
 
-The GroupDocs.Search.AI.Connectors package has a ready implementation of the interface, the [ChatClientLanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/chatclientlanguagemodel/) class of the `GroupDocs.Search.AI.Connectors` namespace. It makes a language model of an index of any chat client of [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai): the `IChatClient` interface, which is implemented by the clients of OpenAI, Azure OpenAI, Ollama and other services, and by any service with an OpenAI-compatible API, such as LM Studio and vLLM.
+The [ChatCompletionLanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/) class is a language model that a service gives by the chat completions API: the API that OpenAI has introduced and that most of the services and of the programs that run models on a computer provide. The class is a part of the GroupDocs.Search assembly and uses the HTTP client of .NET, so it needs no other package.
 
 **C#**
 
@@ -41,17 +41,8 @@ string indexFolder = @"c:\MyIndex\";
 // Opening an index that stores the text of its documents
 Index index = new Index(indexFolder);
 
-// A chat client of Microsoft.Extensions.AI that the application creates by the package of its service
-IChatClient client = CreateChatClient();
-
-// The language model of the index over the client
-ChatClientLanguageModel model = new ChatClientLanguageModel(client);
-
-// The options that every request of the index is sent with
-ChatOptions chatOptions = new ChatOptions();
-chatOptions.Temperature = 0;
-chatOptions.MaxOutputTokens = 2000;
-model.Options = chatOptions;
+// A model that a program on this computer runs: the address of the API and the name of the model
+ChatCompletionLanguageModel model = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 index.AI.LanguageModel = model;
 
@@ -59,43 +50,113 @@ Answer answer = index.AI.Ask("What is the notice period for early termination?")
 Console.WriteLine(answer.Text);
 ```
 
-The client is created by the package of the service: the `CreateChatClient` method of the example stands for the code of your application. With the Microsoft.Extensions.AI.OpenAI package, for OpenAI or a service with an OpenAI-compatible API, it is:
+The constructor takes the address of the API without the name of the operation, the name of the model as the service knows it, and the key of the API if the service needs one. The usual addresses are:
+
+| Service | Address of the API | Name of the model | Key |
+| --- | --- | --- | --- |
+| OpenAI | `https://api.openai.com/v1` | The name of the model | The key of the API |
+| Azure OpenAI | `https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1` | The name of the deployment | The key of the resource |
+| Ollama | `http://localhost:11434/v1` | The name of the model | Not needed |
+| LM Studio | `http://localhost:1234/v1` | The name of the model, or null for the loaded model | Not needed |
+| llama.cpp (llama-server) | `http://localhost:8080/v1` | Not needed | Not needed |
+| vLLM | `http://localhost:8000/v1` | The name of the model | The key that the server is started with, if any |
+
+The ports are the default ones of the programs. Any other service or gateway with this API is connected in the same way, by its address.
 
 **C#**
 
 ```csharp
-OpenAIClientOptions clientOptions = new OpenAIClientOptions();
-clientOptions.Endpoint = new Uri("http://localhost:1234/v1"); // The address of the service
-IChatClient client =
-    new OpenAI.Chat.ChatClient("model-name", new ApiKeyCredential("key"), clientOptions).AsIChatClient();
+string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+ChatCompletionLanguageModel model =
+    new ChatCompletionLanguageModel("https://api.openai.com/v1", "model-name", apiKey);
+
+// The time that a reply is waited for
+model.Timeout = TimeSpan.FromMinutes(2);
+
+// How many times a request is sent again when the service is busy
+model.RetryCount = 3;
+
+// A parameter of the service that the class does not send itself: the limit of the tokens of a reply
+model.SetParameter("max_completion_tokens", "2000");
+
+// A header that a gateway of the company requires
+model.SetHeader("X-Department", "legal");
 ```
 
-With Ollama and the OllamaSharp package, it is:
+The members of the [ChatCompletionLanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/) class:
 
-**C#**
-
-```csharp
-IChatClient client = new OllamaApiClient(new Uri("http://localhost:11434/"), "model-name");
-```
-
-The [ChatClientLanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/chatclientlanguagemodel/) class has two properties:
-
-| Property | Description | Default |
+| Member | Description | Default |
 | --- | --- | --- |
-| [Options](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/chatclientlanguagemodel/options/) | The options that every request is sent with: the model, the temperature, the limit of the tokens of a reply, the additional properties that the client reads. Every request gets a copy of the object. | null |
-| [UseResponseSchema](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/chatclientlanguagemodel/useresponseschema/) | Whether the client is given the JSON Schema of the reply as the response format. A service with the structured output then holds the reply in the required form. Set false for a client or a service that does not accept a schema: the model takes the form of the reply from the instructions, which always describe it. | true |
+| [Timeout](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/timeout/) | The time that the reply to a request is waited for, from 1 second to 24 hours. A model on a processor writes slowly. | 10 minutes |
+| [RetryCount](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/retrycount/) | How many times a request is sent again when the service cannot serve it at the moment, from 0 to 10. | 2 |
+| [UseResponseSchema](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/useresponseschema/) | Whether the JSON Schema of the reply is sent to the service, so that a service with the structured output holds the reply in the required form. | true |
+| [UseZeroTemperature](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/usezerotemperature/) | Whether the temperature 0 is sent, so that the same request gets the same reply as far as the service can do it. | true |
+| [SetHeader](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/setheader/) | Sets a header of every request: the key of a service that does not take it from the Authorization header, or what a gateway requires. | |
+| [SetParameter](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/setparameter/) | Sets an additional member of the JSON object of every request. The value is a JSON text: a number, true or false, a string with its quotation marks, or an object. | |
+| [Address](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/address/), [ModelName](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/modelname/) | The address that the requests are sent to, and the name of the model that is sent. | |
+| [ServiceModelName](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/servicemodelname/) | The name of the model as the last reply of the service gives it. | null |
+| [RequestCount](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/requestcount/), [InputTokenCount](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/inputtokencount/), [OutputTokenCount](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/outputtokencount/) | The number of the answered requests, and the numbers of the tokens that the model has read and has written, as the service counts them. | 0 |
 
 How the class works:
 
-*   It adds nothing to a request by itself. In particular, it does not set the temperature: the replies repeat best at the temperature 0, but some models accept only their own temperature and refuse a request with another one. Set what your model accepts by the [Options](https://reference.groupdocs.com/search/net/groupdocs.search.ai.connectors/chatclientlanguagemodel/options/) property.
-*   The methods of an index are synchronous, and a chat client is asynchronous. The client is called by a thread of the thread pool while the calling thread waits, so a client does not hang in an application with a synchronization context, such as a desktop application.
-*   When the operation of the index is cancelled, the call of the client is cancelled by its cancellation token, and the operation returns at once.
-*   An exception of the client is thrown to the caller of the method of the index as it is.
-*   The class does not own the client and does not dispose it.
+*   **A request.** The instructions go as the system message, the messages of the dialogue as the messages of the user and of the assistant. The request asks for the temperature 0 and for a reply in the JSON Schema of the library (the `response_format` member of the `json_schema` type, in the strict mode), without streaming.
+*   **Services that do not accept a part of a request.** Not every service and model accepts a JSON Schema or the temperature 0. A request that the service rejects with the status 400 or 422 is sent again without the rejected member, and the following requests go without it from the start: the [UseResponseSchema](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/useresponseschema/) or the [UseZeroTemperature](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/usezerotemperature/) property becomes false. A model that is not limited by a schema takes the form of the reply from the instructions, which always describe it. If you know that your service does not accept a member, set the property to false beforehand.
+*   **A busy service.** A request that is answered with the status 408, 409, 429 or 500-599, or whose connection fails, is sent again after a pause: the one that the service names in the Retry-After header, if it is not longer than a minute, otherwise half a second that doubles with every attempt. A request that is not answered in the [Timeout](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/timeout/) is not sent again.
+*   **Cancellation.** When the operation of the index is cancelled, the request is dropped, and the operation returns at once.
+*   **Errors.** If the service does not reply in time, cannot be connected to, or replies with a status of an error, the [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception) exception is thrown to the caller of the method of the index; its message has the status and the start of the reply of the service. A reply that is not a reply of this API throws the [InvalidDataException](https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception) exception.
+*   **Threads.** The properties, the headers and the parameters are set before the object is given to an index. The requests themselves can be sent by several threads at the same time.
+
+The counters show what an operation has cost. Read them before and after it:
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+
+Index index = new Index(indexFolder);
+ChatCompletionLanguageModel model = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
+index.AI.LanguageModel = model;
+
+long requests = model.RequestCount;
+long read = model.InputTokenCount;
+long written = model.OutputTokenCount;
+
+Answer answer = index.AI.Ask("What is the notice period for early termination?");
+
+Console.WriteLine("Requests: " + (model.RequestCount - requests));
+Console.WriteLine("Tokens that the model has read: " + (model.InputTokenCount - read));
+Console.WriteLine("Tokens that the model has written: " + (model.OutputTokenCount - written));
+```
+
+A model that reasons before it replies spends more time and tokens, and these tasks do not need long reasoning. If your service has a parameter that limits the reasoning, set it by the [SetParameter](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/setparameter/) method; the name and the values of such a parameter depend on the service:
+
+**C#**
+
+```csharp
+ChatCompletionLanguageModel model = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
+
+// The value is a JSON text, so a string is written with its quotation marks
+model.SetParameter("reasoning_effort", "\"low\"");
+```
+
+Some services take the key from a header of their own, and some take a part of the settings from the parameters of the address. The parameters of the address that follow the question mark are kept:
+
+**C#**
+
+```csharp
+// An address with a parameter: the requests go to
+// https://host.example.com/openai/deployments/my-deployment/chat/completions?api-version=2024-10-21
+ChatCompletionLanguageModel model = new ChatCompletionLanguageModel(
+    "https://host.example.com/openai/deployments/my-deployment?api-version=2024-10-21",
+    null);
+
+// The key in a header of the service instead of the Authorization header
+model.SetHeader("api-key", Environment.GetEnvironmentVariable("SERVICE_API_KEY"));
+```
 
 ## Implementing the interface
 
-An application that cannot use Microsoft.Extensions.AI implements the [ILanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/ilanguagemodel/) interface itself. The interface has one method, [Generate](https://reference.groupdocs.com/search/net/groupdocs.search.ai/ilanguagemodel/generate/), which takes an instance of the [LanguageModelRequest](https://reference.groupdocs.com/search/net/groupdocs.search.ai/languagemodelrequest/) class and returns an instance of the [LanguageModelResponse](https://reference.groupdocs.com/search/net/groupdocs.search.ai/languagemodelresponse/) class with the text that the model has written.
+An application whose model is not behind the chat completions API implements the [ILanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/ilanguagemodel/) interface itself: for example, for a model that runs in the process of the application, for a service with another API, or for a client of another library. The interface has one method, [Generate](https://reference.groupdocs.com/search/net/groupdocs.search.ai/ilanguagemodel/generate/), which takes an instance of the [LanguageModelRequest](https://reference.groupdocs.com/search/net/groupdocs.search.ai/languagemodelrequest/) class and returns an instance of the [LanguageModelResponse](https://reference.groupdocs.com/search/net/groupdocs.search.ai/languagemodelresponse/) class with the text that the model has written.
 
 | Member of the request | Description | What a chat service gets |
 | --- | --- | --- |
@@ -142,6 +203,68 @@ Requirements to an implementation:
 *   An exception that the method throws stops the operation of the index and is thrown to the caller of the operation.
 *   The reply is the text of the model as it is. The library finds the JSON object in the reply itself and removes the reasoning that some models write in `<think>` tags before the reply.
 
+### A chat client of Microsoft.Extensions.AI
+
+The clients of many services implement the `IChatClient` interface of [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai). Such a client becomes a language model of an index by a small class of your application; the library itself does not depend on that package.
+
+**C#**
+
+```csharp
+public class ChatClientLanguageModel : ILanguageModel
+{
+    private readonly IChatClient client;
+
+    public ChatClientLanguageModel(IChatClient client)
+    {
+        this.client = client;
+    }
+
+    public LanguageModelResponse Generate(LanguageModelRequest request)
+    {
+        List<ChatMessage> messages = new List<ChatMessage>();
+        messages.Add(new ChatMessage(ChatRole.System, request.Instructions));
+        for (int i = 0; i < request.MessageCount; i++)
+        {
+            LanguageModelMessage message = request.GetMessage(i);
+            ChatRole role = message.Role == LanguageModelRole.User ? ChatRole.User : ChatRole.Assistant;
+            messages.Add(new ChatMessage(role, message.Text));
+        }
+
+        ChatOptions options = new ChatOptions();
+        if (request.ResponseSchema != null)
+        {
+            // The JSON Schema of the reply becomes the response format of the client
+            using (JsonDocument schema = JsonDocument.Parse(request.ResponseSchema))
+            {
+                options.ResponseFormat = ChatResponseFormat.ForJsonSchema(schema.RootElement.Clone(), "reply", null);
+            }
+        }
+
+        // A chat client is asynchronous: it is called by a thread of the thread pool, and this thread waits
+        ChatResponse response =
+            Task.Run(() => client.GetResponseAsync(messages, options)).GetAwaiter().GetResult();
+        return new LanguageModelResponse(response.Text ?? string.Empty);
+    }
+}
+```
+
+The class is used as any other language model:
+
+**C#**
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+
+Index index = new Index(indexFolder);
+
+// A chat client that the application creates by the package of its service
+IChatClient client = CreateChatClient();
+index.AI.LanguageModel = new ChatClientLanguageModel(client);
+
+Answer answer = index.AI.Ask("What is the notice period for early termination?");
+Console.WriteLine(answer.Text);
+```
+
 ## Choosing a model
 
 *   Any chat model that follows instructions and replies with JSON suits. A model or a service with the structured output, which limits a reply by a JSON Schema, holds the form of the reply best.
@@ -160,7 +283,7 @@ If the language model is a remote service, the texts that the library gives to i
 | [Enrich](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/enrich/) | The descriptions of the categories, the name of a document and the beginning of its text. Only if the options ask for the language model, and only for the documents that the index has not sorted itself. |
 | [SuggestSynonyms](https://reference.groupdocs.com/search/net/groupdocs.search.ai/indexai/suggestsynonyms/) | Words of the index, or the words that the application gives. No texts of the documents. |
 
-To keep all the texts on your computers, use a local model: for example, a model served by Ollama or LM Studio on the same computer or in your network.
+To keep all the texts on your computers, use a local model: for example, a model served by Ollama or LM Studio on the same computer or in your network. The [ChatCompletionLanguageModel](https://reference.groupdocs.com/search/net/groupdocs.search.ai/chatcompletionlanguagemodel/) class sends the texts and the key of the API only to the address that the application has given to it; use an address of HTTPS for a service outside your network.
 
 ## More resources
 

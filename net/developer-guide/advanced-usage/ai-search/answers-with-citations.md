@@ -39,7 +39,7 @@ Index index = new Index(indexFolder, settings);
 index.Add(documentsFolder);
 
 // Setting the language model of the index
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 // Asking a question
 Answer answer = index.AI.Ask("What is the notice period for early termination of the lease?");
@@ -63,7 +63,7 @@ else
 }
 ```
 
-The `CreateChatClient` method of the example stands for the code that creates a chat client of your service, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-model-by-microsoftextensionsai" >}}).
+The address and the name of the model of the example are the ones of a model that a program runs on the same computer; for your service and for a model of another kind, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-service-by-the-chat-completions-api" >}}).
 
 ## The answer
 
@@ -119,7 +119,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 Answer answer = index.AI.Ask("What is the notice period for early termination of the lease?");
 if (answer.VerifiedCitationCount > 0)
@@ -172,7 +172,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 AskOptions options = new AskOptions();
 

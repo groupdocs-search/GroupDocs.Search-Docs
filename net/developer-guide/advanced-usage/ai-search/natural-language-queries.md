@@ -57,7 +57,7 @@ string indexFolder = @"c:\MyIndex\";
 Index index = new Index(indexFolder);
 
 // Setting the language model of the index
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 // Translating the request of a user
 QueryTranslation translation = index.AI.CreateQuery("lease agreements of 2020, only pdf");
@@ -83,7 +83,7 @@ else
 }
 ```
 
-The `CreateChatClient` method of the example stands for the code that creates a chat client of your service, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-model-by-microsoftextensionsai" >}}).
+The address and the name of the model of the example are the ones of a model that a program runs on the same computer; for your service and for a model of another kind, see [Language models]({{< ref "search/net/developer-guide/advanced-usage/ai-search/language-models.md#connecting-a-service-by-the-chat-completions-api" >}}).
 
 The [QueryText](https://reference.groupdocs.com/search/net/groupdocs.search.ai/querytranslation/querytext/) property is what is searched for. An application can show the text to the user, let the user correct it, and run the corrected text by the [Index.Search](https://reference.groupdocs.com/search/net/groupdocs.search/index/search/) method that takes a query in text form.
 
@@ -114,7 +114,7 @@ string indexFolder = @"c:\MyIndex\";
 
 // Opening an index
 Index index = new Index(indexFolder);
-index.AI.LanguageModel = new ChatClientLanguageModel(CreateChatClient());
+index.AI.LanguageModel = new ChatCompletionLanguageModel("http://localhost:11434/v1", "model-name");
 
 QueryTranslationOptions options = new QueryTranslationOptions();
 options.AdditionalInstructions =
